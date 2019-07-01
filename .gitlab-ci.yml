@@ -1,0 +1,48 @@
+image: microsoft/dotnet:latest
+
+variables:
+    PROJECT_NAME: Nodester
+    HEROKU_STAGE_NAME: nodester-staging
+    HEROKU_PROD_NAME: nodester-prod
+
+stages:
+    - build
+    - migrate
+    - deploy
+
+build_project:
+    stage: build
+    script:
+        - dotnet build $PROJECT_NAME.sln
+    only:
+        - develop
+        - master
+
+migrate_stage:
+    stage: migrate
+    variables:
+        ASPNETCORE_ENVIRONMENT: Staging
+        ConnectionStrings__nodesterDb: $STAGE_DB
+    script:
+        - cd $PROJECT_NAME.WebApi/ && dotnet ef database update --context NodesterDbContext
+    only:
+        - develop
+
+deploy_stage:
+    stage: deploy
+    script:
+        - apt-get update -yq
+        - apt-get install -y ruby-dev
+        - gem install dpl
+        - dpl --provider=heroku --app=$HEROKU_STAGE_NAME --api-key=$HEROKU_API_KEY
+    only:
+        - develop
+# migrate_prod:
+#   stage: deploy
+#   only:
+#     - master
+
+# deploy_prod:
+#   stage: deploy
+#   only:
+#     - master

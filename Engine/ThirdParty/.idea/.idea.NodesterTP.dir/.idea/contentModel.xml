@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\rszem\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\rszem\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_.19.02" t="ExcludeRecursive" />
+    <e p="C:\Users\rszem\Documents\Projects\nodester-graph\NodesterTP" t="IncludeRecursive">
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="NodesterTP.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netstandard2.0" t="Include">
+            <e p="NodesterTP.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="SendGrid" t="Include">
+        <e p="SendGrid.Data" t="Include">
+          <e p="bin" t="Include">
+            <e p="Debug" t="Include">
+              <e p="netstandard2.0" t="Include">
+                <e p="Nodester.Graph.SendGrid.Data.deps.json" t="Include" />
+                <e p="Nodester.Graph.SendGrid.Data.dll" t="Include" />
+                <e p="Nodester.Graph.SendGrid.Data.pdb" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="ISendGridService.cs" t="Include" />
+          <e p="obj" t="Include">
+            <e p="Debug" t="Include">
+              <e p="netstandard2.0" t="Include">
+                <e p="Nodester.Graph.SendGrid.Data.AssemblyInfo.cs" t="Include" />
+                <e p="Nodester.Graph.SendGrid.Data.AssemblyInfoInputs.cache" t="Include" />
+                <e p="Nodester.Graph.SendGrid.Data.assets.cache" t="Include" />
+                <e p="Nodester.Graph.SendGrid.Data.csproj.CoreCompileInputs.cache" t="Include" />
+                <e p="Nodester.Graph.SendGrid.Data.csproj.FileListAbsolute.txt" t="Include" />
+                <e p="Nodester.Graph.SendGrid.Data.csprojAssemblyReference.cache" t="Include" />
+                <e p="Nodester.Graph.SendGrid.Data.dll" t="Include" />
+                <e p="Nodester.Graph.SendGrid.Data.pdb" t="Include" />
+              </e>
+            </e>
+            <e p="Nodester.Graph.SendGrid.Data.csproj.nuget.cache" t="Include" />
+            <e p="Nodester.Graph.SendGrid.Data.csproj.nuget.dgspec.json" t="Include" />
+            <e p="Nodester.Graph.SendGrid.Data.csproj.nuget.g.props" t="Include" />
+            <e p="Nodester.Graph.SendGrid.Data.csproj.nuget.g.targets" t="Include" />
+            <e p="project.assets.json" t="Include" />
+            <e p="project.packagespec.json" t="Include" />
+          </e>
+        </e>
+        <e p="SendGrid.Nodes" t="Include">
+          <e p="bin" t="Include">
+            <e p="Debug" t="Include">
+              <e p="netstandard2.0" t="Include">
+                <e p="Nodester.Common.dll" t="Include" />
+                <e p="Nodester.Common.pdb" t="Include" />
+                <e p="Nodester.Data.dll" t="Include" />
+                <e p="Nodester.Data.pdb" t="Include" />
+                <e p="Nodester.Graph.Core.Data.dll" t="Include" />
+                <e p="Nodester.Graph.Core.Data.pdb" t="Include" />
+                <e p="Nodester.Graph.Core.dll" t="Include" />
+                <e p="Nodester.Graph.Core.pdb" t="Include" />
+                <e p="Nodester.Graph.SendGrid.Data.dll" t="Include" />
+                <e p="Nodester.Graph.SendGrid.Data.pdb" t="Include" />
+                <e p="Nodester.Graph.SendGrid.deps.json" t="Include" />
+                <e p="Nodester.Graph.SendGrid.dll" t="Include" />
+                <e p="Nodester.Graph.SendGrid.pdb" t="Include" />
+                <e p="Nodester.Services.Data.dll" t="Include" />
+                <e p="Nodester.Services.Data.pdb" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Nodes" t="Include">
+            <e p="SendEmail.cs" t="Include" />
+          </e>
+          <e p="obj" t="Include">
+            <e p="Debug" t="Include">
+              <e p="netstandard2.0" t="Include">
+                <e p="Nodester.Graph.SendGrid.AssemblyInfo.cs" t="Include" />
+                <e p="Nodester.Graph.SendGrid.AssemblyInfoInputs.cache" t="Include" />
+                <e p="Nodester.Graph.SendGrid.assets.cache" t="Include" />
+                <e p="Nodester.Graph.SendGrid.csproj.CopyComplete" t="Include" />
+                <e p="Nodester.Graph.SendGrid.csproj.CoreCompileInputs.cache" t="Include" />
+                <e p="Nodester.Graph.SendGrid.csproj.FileListAbsolute.txt" t="Include" />
+                <e p="Nodester.Graph.SendGrid.csprojAssemblyReference.cache" t="Include" />
+                <e p="Nodester.Graph.SendGrid.dll" t="Include" />
+                <e p="Nodester.Graph.SendGrid.pdb" t="Include" />
+              </e>
+            </e>
+            <e p="Nodester.Graph.SendGrid.csproj.nuget.cache" t="Include" />
+            <e p="Nodester.Graph.SendGrid.csproj.nuget.dgspec.json" t="Include" />
+            <e p="Nodester.Graph.SendGrid.csproj.nuget.g.props" t="Include" />
+            <e p="Nodester.Graph.SendGrid.csproj.nuget.g.targets" t="Include" />
+            <e p="project.assets.json" t="Include" />
+            <e p="project.packagespec.json" t="Include" />
+          </e>
+          <e p="SendGridService.cs" t="Include" />
+          <e p="ServiceExtensions.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Twilio" t="Include">
+        <e p="Twilio.Data" t="Include">
+          <e p="bin" t="Include">
+            <e p="Debug" t="Include">
+              <e p="netstandard2.0" t="Include">
+                <e p="Nodester.Graph.Twilio.Data.deps.json" t="Include" />
+                <e p="Nodester.Graph.Twilio.Data.dll" t="Include" />
+                <e p="Nodester.Graph.Twilio.Data.pdb" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="ITwilioService.cs" t="Include" />
+          <e p="obj" t="Include">
+            <e p="Debug" t="Include">
+              <e p="netstandard2.0" t="Include">
+                <e p="Nodester.Graph.Twilio.Data.AssemblyInfo.cs" t="Include" />
+                <e p="Nodester.Graph.Twilio.Data.AssemblyInfoInputs.cache" t="Include" />
+                <e p="Nodester.Graph.Twilio.Data.assets.cache" t="Include" />
+                <e p="Nodester.Graph.Twilio.Data.csproj.CoreCompileInputs.cache" t="Include" />
+                <e p="Nodester.Graph.Twilio.Data.csproj.FileListAbsolute.txt" t="Include" />
+                <e p="Nodester.Graph.Twilio.Data.csprojAssemblyReference.cache" t="Include" />
+                <e p="Nodester.Graph.Twilio.Data.dll" t="Include" />
+                <e p="Nodester.Graph.Twilio.Data.pdb" t="Include" />
+              </e>
+            </e>
+            <e p="Nodester.Graph.Twilio.Data.csproj.nuget.cache" t="Include" />
+            <e p="Nodester.Graph.Twilio.Data.csproj.nuget.dgspec.json" t="Include" />
+            <e p="Nodester.Graph.Twilio.Data.csproj.nuget.g.props" t="Include" />
+            <e p="Nodester.Graph.Twilio.Data.csproj.nuget.g.targets" t="Include" />
+            <e p="project.assets.json" t="Include" />
+            <e p="project.packagespec.json" t="Include" />
+          </e>
+        </e>
+        <e p="Twilio.Nodes" t="Include">
+          <e p="bin" t="Include">
+            <e p="Debug" t="Include">
+              <e p="netstandard2.0" t="Include">
+                <e p="Nodester.Common.dll" t="Include" />
+                <e p="Nodester.Common.pdb" t="Include" />
+                <e p="Nodester.Data.dll" t="Include" />
+                <e p="Nodester.Data.pdb" t="Include" />
+                <e p="Nodester.Graph.Core.Data.dll" t="Include" />
+                <e p="Nodester.Graph.Core.Data.pdb" t="Include" />
+                <e p="Nodester.Graph.Core.dll" t="Include" />
+                <e p="Nodester.Graph.Core.pdb" t="Include" />
+                <e p="Nodester.Graph.Twilio.Data.dll" t="Include" />
+                <e p="Nodester.Graph.Twilio.Data.pdb" t="Include" />
+                <e p="Nodester.Graph.Twilio.deps.json" t="Include" />
+                <e p="Nodester.Graph.Twilio.dll" t="Include" />
+                <e p="Nodester.Graph.Twilio.pdb" t="Include" />
+                <e p="Nodester.Services.Data.dll" t="Include" />
+                <e p="Nodester.Services.Data.pdb" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Nodes" t="Include">
+            <e p="SendText.cs" t="Include" />
+          </e>
+          <e p="obj" t="Include">
+            <e p="Debug" t="Include">
+              <e p="netstandard2.0" t="Include">
+                <e p="Nodester.Graph.Twilio.AssemblyInfo.cs" t="Include" />
+                <e p="Nodester.Graph.Twilio.AssemblyInfoInputs.cache" t="Include" />
+                <e p="Nodester.Graph.Twilio.assets.cache" t="Include" />
+                <e p="Nodester.Graph.Twilio.csproj.CopyComplete" t="Include" />
+                <e p="Nodester.Graph.Twilio.csproj.CoreCompileInputs.cache" t="Include" />
+                <e p="Nodester.Graph.Twilio.csproj.FileListAbsolute.txt" t="Include" />
+                <e p="Nodester.Graph.Twilio.csprojAssemblyReference.cache" t="Include" />
+                <e p="Nodester.Graph.Twilio.dll" t="Include" />
+                <e p="Nodester.Graph.Twilio.pdb" t="Include" />
+              </e>
+            </e>
+            <e p="Nodester.Graph.Twilio.csproj.nuget.cache" t="Include" />
+            <e p="Nodester.Graph.Twilio.csproj.nuget.dgspec.json" t="Include" />
+            <e p="Nodester.Graph.Twilio.csproj.nuget.g.props" t="Include" />
+            <e p="Nodester.Graph.Twilio.csproj.nuget.g.targets" t="Include" />
+            <e p="project.assets.json" t="Include" />
+            <e p="project.packagespec.json" t="Include" />
+          </e>
+          <e p="ServiceExtensions.cs" t="Include" />
+          <e p="TwilioService.cs" t="Include" />
+        </e>
+      </e>
+    </e>
+  </component>
+</project>

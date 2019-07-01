@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0" />
+    <PackageReference Include="Mapster" Version="3.2.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="5.4.0" />
+    <PackageReference Include="Sendgrid" Version="9.11.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.4.0" />
+    <PackageReference Include="Twilio" Version="5.31.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Nodester.Common.csproj" />
+    <ProjectReference Include="..\..\Data\Nodester.Data.csproj" />
+    <ProjectReference Include="..\..\Engine\Core.Data\Nodester.Engine.Data.csproj" />
+    <ProjectReference Include="..\..\Engine\Core\Nodester.Engine.csproj" />
+    <ProjectReference Include="..\..\Engine\ThirdParty\Nodester.Engine.ThirdParty.csproj" />
+    <ProjectReference Include="..\Data\Nodester.Services.Data.csproj" />
+  </ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+</Project>

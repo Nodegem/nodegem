@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bbc70a65-0271-4a7a-995d-0bc022bc22ed" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.gitlab-ci.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Bridge/riderModule.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.NodesterBridge.dir/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.NodesterBridge.dir/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.NodesterBridge.dir/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.NodesterBridge.dir/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.NodesterBridge.dir/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.NodesterBridge.dir/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.NodesterBridge.dir/riderModule.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.NodesterBridge/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.NodesterBridge/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.NodesterBridge/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.NodesterBridge/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.NodesterBridge/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.NodesterBridge/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.NodesterBridge/riderModule.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bridge.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bridge/AppConfig.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bridge/AppState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bridge/Bridge.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bridge/Clients/NodesterLoginService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bridge/Extensions/HttpClientExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bridge/HostedService/EngineService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bridge/HubConnections/GraphHubConnection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bridge/Program.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bridge/appsettings.Local.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bridge/appsettings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Bridge.Data.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Dtos/TokenDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/IGraphHubConnection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/INodesterLoginService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Common/Data/Constant.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Common/Data/Interfaces/ILogService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Common/Data/User.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Common/Extensions/AttributeExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Common/Extensions/ClaimExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Common/Extensions/LinqExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Common/Nodester.Common.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Common/Utilities/HierarchicalNode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Configurations/AccessTokenConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Configurations/GraphConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Configurations/MacroConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Configurations/UserConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Contexts/HangfireContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Contexts/NodesterDBContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/ComponentDtos/ConstantDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/ComponentDtos/LinkDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/ComponentDtos/NodeDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/GraphDtos/CreateGraphDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/GraphDtos/GraphDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/GraphDtos/RunGraphDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/CreateMacroDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/BaseFieldDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/FlowFieldDtos/FlowFieldDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/FlowFieldDtos/FlowInputDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/FlowFieldDtos/FlowOutputDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/ValueFieldDtos/ValueFieldDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/ValueFieldDtos/ValueInputDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/ValueFieldDtos/ValueOutputDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/MacroDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/MacroLinkDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/RunMacroDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/TokenDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/UserDtos/RegisterDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/UserDtos/TokenUserDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/UserDtos/UpdateUserDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/UserDtos/UserDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Extensions/ConfigurationExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Extensions/DbSetExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Models/AccessToken.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Models/ActiveEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Models/ApplicationUser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Models/BaseEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Models/BaseGraph.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Models/Graph.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Models/IActiveEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Models/IEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Fields/BaseField.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Fields/FlowFields/FlowField.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Fields/FlowFields/FlowInput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Fields/FlowFields/FlowOutput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Fields/ValueFields/ValueField.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Fields/ValueFields/ValueInput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Fields/ValueFields/ValueOutput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Graph Constants/Constant.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Link.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/MacroLink.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Node.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Models/Macro.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Models/Role.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/NamespaceNodeDefinition.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Nodester.Data.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Settings/TokenSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/DefinedNodeAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/FieldAttributesAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/NodeNamespaceAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/FieldDefinition.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/FlowInputDefinition.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/FlowOutputDefinition.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/NodeDefinition.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueFieldDefinition.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueInputDefinition.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueOutputDefinition.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Exceptions/GraphException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Exceptions/StartNotFoundException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/FieldData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IField.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IFlowField.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IFlowInputField.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IFlowOutputField.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IMacroFlowInputField.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IMacroFlowOutputField.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IMacroValueInputField.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IMacroValueOutputField.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueField.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueInputField.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueOutputField.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/GraphType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/IFlow.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/IFlowGraph.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/IGraph.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/IMacroFlow.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/IMacroGraph.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Links/IFlowLink.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Links/ILink.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Links/IMacroFlowLink.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Links/IMacroValueLink.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Links/IValueLink.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Nodes/INode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Nodester.Engine.Data.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/ValueType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/Break.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/For.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/LoopNode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/TryCatch.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/While.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Graph/GetConstant.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Graph/GetVariable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Graph/SetVariable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/Fetch.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/Post.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/BaseLog.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/Log.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogError.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogWarn.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/And.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/Equals.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThan.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThanOrEqualTo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/If.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThan.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThanOrEqualTo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/Or.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Add.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Divide.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Multiply.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Round.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Subtract.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/ServiceExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/BaseGraph.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/CachedValue.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Essential/Macro.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Essential/Start.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Extensions/DefinitionExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Extensions/LinqExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Extensions/PropertyInfoExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Extensions/StringExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/BaseField.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/FlowField.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/FlowInput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/FlowOutput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/ValueInput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/ValueOutput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Macro/MacroFlowInput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Macro/MacroFlowOutput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Macro/MacroValueInput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Macro/MacroValueOutput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/ValueField.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Flow.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/FlowGraph.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Links/BaseLink.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Links/Graph/FlowLink.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Links/Graph/ValueLink.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Links/Macro/MacroFlowLink.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Links/Macro/MacroValueLink.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroFlow.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroGraph.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/RegisterAssembly.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Utils/ActivatorHelper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Utils/ConvertHelper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Utils/EnumerableHelper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Nodester.Engine.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/riderModule.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Nodester.Engine.ThirdParty.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Data/ISendGridService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Data/Nodester.Graph.SendGrid.Data.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Nodes/Nodes/SendEmail.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Nodes/Nodester.Graph.SendGrid.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Nodes/SendGridService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Nodes/ServiceExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Data/ITwilioService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Data/Nodester.Graph.Twilio.Data.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Nodes/Nodes/SendText.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Nodes/Nodester.Graph.Twilio.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Nodes/ServiceExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Nodes/TwilioService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Data/IGraphManagerService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Data/IMacroManagerService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Data/ITerminalHubService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Data/ITokenService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Data/IUserService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Data/Mappers/IMapper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Data/Nodester.Services.Data.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Data/Repositories/IGraphRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Data/Repositories/IMacroRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Data/Repositories/IRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Data/Repositories/ITokenRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Services/Exceptions/Login/InvalidLoginCredentialException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Services/Exceptions/Login/NoUserFoundException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Services/Exceptions/RegistrationException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Services/Extensions/HelperExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Services/GraphManagerService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Services/Hubs/TerminalHub.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Services/LogService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Services/MacroManagerService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Services/Mappers/Mapper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Services/NodeCache.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Services/Nodester.Services.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Services/Repositories/MacroRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Services/Repositories/Repository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Services/Repositories/TokenRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Services/TerminalHubService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Services/TokenService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Services/UserService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/riderModule.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Controllers/AccountController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Controllers/GraphController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Controllers/MacroController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Controllers/NodesController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Extensions/HttpRequestExtension.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Migrations/20181214041414_Initial.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Migrations/20181214041414_Initial.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Migrations/20181214043957_SeedUserData.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Migrations/20181214043957_SeedUserData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Migrations/20181214045222_UpdatingAdminUserSeedData.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Migrations/20181214045222_UpdatingAdminUserSeedData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Migrations/20181214180404_ExpiresUtcToRefreshTokens.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Migrations/20181214180404_ExpiresUtcToRefreshTokens.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Migrations/20181231180054_Hangfire.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Migrations/20181231180054_Hangfire.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Migrations/20190603221307_TokenNameChange.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Migrations/20190603221307_TokenNameChange.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Migrations/20190603221437_ActualTokenNameChange.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Migrations/20190603221437_ActualTokenNameChange.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Migrations/20190608190712_ChangingUpConstants.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Migrations/20190608190712_ChangingUpConstants.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Migrations/20190623213436_AddingDebugFlagToGraphs.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Migrations/20190623213436_AddingDebugFlagToGraphs.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Migrations/NodesterDBContextModelSnapshot.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Nodester.WebApi.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Program.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Properties/launchSettings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/Startup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/WebApi.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/appsettings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WebApi/nlog.config" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Bridge/Program.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
+              <folding>
+                <marker date="1561749914562" expanded="false" signature="6:374" ph="..." />
+                <marker date="1561749914562" expanded="true" signature="401:2944" ph="{...}" />
+                <marker date="1561749914562" expanded="true" signature="428:2942" ph="{...}" />
+                <marker date="1561749914562" expanded="true" signature="1042:2936" ph="{...}" />
+                <marker date="1561749914562" expanded="true" signature="1239:1358" ph="{...}" />
+                <marker date="1561749914562" expanded="true" signature="1667:2128" ph="{...}" />
+                <marker date="1561749914562" expanded="true" signature="2211:2634" ph="{...}" />
+                <marker date="1561749914562" expanded="true" signature="2715:2874" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Bridge/HostedService/EngineService.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="6" lean-forward="true" selection-start-column="6" selection-end-column="6" />
+              <folding>
+                <marker date="1561952571709" expanded="true" signature="6:194" ph="..." />
+                <marker date="1561952571709" expanded="true" signature="235:2833" ph="{...}" />
+                <marker date="1561952571709" expanded="true" signature="288:2831" ph="{...}" />
+                <marker date="1561952571709" expanded="true" signature="691:866" ph="{...}" />
+                <marker date="1561952571709" expanded="true" signature="951:1177" ph="{...}" />
+                <marker date="1561952571709" expanded="true" signature="1020:1167" ph="{...}" />
+                <marker date="1561952571709" expanded="true" signature="1261:1560" ph="{...}" />
+                <marker date="1561952571709" expanded="true" signature="1643:1831" ph="{...}" />
+                <marker date="1561952571709" expanded="true" signature="1871:2018" ph="{...}" />
+                <marker date="1561952571709" expanded="true" signature="2062:2233" ph="{...}" />
+                <marker date="1561952571709" expanded="true" signature="2318:2825" ph="{...}" />
+                <marker date="1561952571709" expanded="true" signature="2344:2481" ph="{...}" />
+                <marker date="1561952571709" expanded="true" signature="2521:2655" ph="{...}" />
+                <marker date="1561952571709" expanded="true" signature="2701:2815" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Data/IGraphHubConnection.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+              <folding>
+                <marker date="1561746605747" expanded="false" signature="6:67" ph="..." />
+                <marker date="1561746605747" expanded="true" signature="90:275" ph="{...}" />
+                <marker date="1561746605747" expanded="true" signature="147:273" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Bridge/HubConnections/GraphHubConnection.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+              <folding>
+                <marker date="1561746634207" expanded="false" signature="6:151" ph="..." />
+                <marker date="1561746634207" expanded="true" signature="193:1127" ph="{...}" />
+                <marker date="1561746634207" expanded="true" signature="253:1125" ph="{...}" />
+                <marker date="1561746634207" expanded="true" signature="383:725" ph="{...}" />
+                <marker date="1561746634207" expanded="true" signature="559:688" ph="{...}" />
+                <marker date="1561746634207" expanded="true" signature="794:869" ph="{...}" />
+                <marker date="1561746634207" expanded="true" signature="937:1011" ph="{...}" />
+                <marker date="1561746634207" expanded="true" signature="1042:1119" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/45D20605-9EC8-44F8-8A47-1D6E18421912/58/7aec9baf/ILogger.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="555">
+              <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Bridge/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Data/IGraphHubConnection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Bridge/HostedService/EngineService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F381011E-9B21-4489-BCB3-73743F31ED9D/1f/ecdf9e86/HubConnection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Bridge/HubConnections/GraphHubConnection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/45D20605-9EC8-44F8-8A47-1D6E18421912/58/7aec9baf/ILogger.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Bridge/NodesterBridge.csproj" />
+        <option value="$PROJECT_DIR$/Bridge/HostedService/EngineService.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/indexLayout.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="2833" />
+    <option name="y" value="-16" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="AssemblyExplorer" />
+      <pane id="FileSystemExplorer" />
+      <pane id="SolutionExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Bridge" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Bridge" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Bridge" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Bridge" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Bridge" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="HostedService" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Bridge" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Bridge" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="HubConnections" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-all-files" value="false" />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Bridge/bin/Debug/netcoreapp2.2/Bridge.dll" />
+      <option name="PROGRAM_PARAMETERS" value="-e Local -u AdminUser -p adminP@ssword1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Bridge" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/Bridge/Bridge.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value=".NETCoreApp,Version=v2.2" />
+      <method v="2">
+        <option name="Build" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bbc70a65-0271-4a7a-995d-0bc022bc22ed" name="Default Changelist" comment="" />
+      <created>1561952312084</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1561952312084</updated>
+      <workItem from="1561952313705" duration="349000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="349000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="2552" y="-8" width="2576" height="1416" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24990067" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="NuGet" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Unit Tests" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Performance Profiler" />
+      <window_info anchor="bottom" id="Build" weight="0.3299923" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3993832" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Errors In Solution" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Unit Tests Coverage" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" suspend="NONE" type="DotNet Exception Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Bridge/HostedService/EngineService.cs</url>
+          <line>81</line>
+          <properties documentPath="$PROJECT_DIR$/Bridge/HostedService/EngineService.cs" initialLine="81">
+            <startOffsets>
+              <option value="2732" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2778" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Bridge/Bridge.csproj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="10" lean-forward="true" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bridge/Program.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
+          <folding>
+            <marker date="1561749914562" expanded="false" signature="6:374" ph="..." />
+            <marker date="1561749914562" expanded="true" signature="401:2944" ph="{...}" />
+            <marker date="1561749914562" expanded="true" signature="428:2942" ph="{...}" />
+            <marker date="1561749914562" expanded="true" signature="1042:2936" ph="{...}" />
+            <marker date="1561749914562" expanded="true" signature="1239:1358" ph="{...}" />
+            <marker date="1561749914562" expanded="true" signature="1667:2128" ph="{...}" />
+            <marker date="1561749914562" expanded="true" signature="2211:2634" ph="{...}" />
+            <marker date="1561749914562" expanded="true" signature="2715:2874" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/IGraphHubConnection.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding>
+            <marker date="1561746605747" expanded="false" signature="6:67" ph="..." />
+            <marker date="1561746605747" expanded="true" signature="90:275" ph="{...}" />
+            <marker date="1561746605747" expanded="true" signature="147:273" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/45D20605-9EC8-44F8-8A47-1D6E18421912/58/7aec9baf/ILogger.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F381011E-9B21-4489-BCB3-73743F31ED9D/1f/ecdf9e86/HubConnection.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-36">
+          <caret line="283" column="23" selection-start-line="283" selection-start-column="23" selection-end-line="283" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bridge/HubConnections/GraphHubConnection.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+          <folding>
+            <marker date="1561746634207" expanded="false" signature="6:151" ph="..." />
+            <marker date="1561746634207" expanded="true" signature="193:1127" ph="{...}" />
+            <marker date="1561746634207" expanded="true" signature="253:1125" ph="{...}" />
+            <marker date="1561746634207" expanded="true" signature="383:725" ph="{...}" />
+            <marker date="1561746634207" expanded="true" signature="559:688" ph="{...}" />
+            <marker date="1561746634207" expanded="true" signature="794:869" ph="{...}" />
+            <marker date="1561746634207" expanded="true" signature="937:1011" ph="{...}" />
+            <marker date="1561746634207" expanded="true" signature="1042:1119" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bridge/HostedService/EngineService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" lean-forward="true" selection-start-column="6" selection-end-column="6" />
+          <folding>
+            <marker date="1561952571709" expanded="true" signature="6:194" ph="..." />
+            <marker date="1561952571709" expanded="true" signature="235:2833" ph="{...}" />
+            <marker date="1561952571709" expanded="true" signature="288:2831" ph="{...}" />
+            <marker date="1561952571709" expanded="true" signature="691:866" ph="{...}" />
+            <marker date="1561952571709" expanded="true" signature="951:1177" ph="{...}" />
+            <marker date="1561952571709" expanded="true" signature="1020:1167" ph="{...}" />
+            <marker date="1561952571709" expanded="true" signature="1261:1560" ph="{...}" />
+            <marker date="1561952571709" expanded="true" signature="1643:1831" ph="{...}" />
+            <marker date="1561952571709" expanded="true" signature="1871:2018" ph="{...}" />
+            <marker date="1561952571709" expanded="true" signature="2062:2233" ph="{...}" />
+            <marker date="1561952571709" expanded="true" signature="2318:2825" ph="{...}" />
+            <marker date="1561952571709" expanded="true" signature="2344:2481" ph="{...}" />
+            <marker date="1561952571709" expanded="true" signature="2521:2655" ph="{...}" />
+            <marker date="1561952571709" expanded="true" signature="2701:2815" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

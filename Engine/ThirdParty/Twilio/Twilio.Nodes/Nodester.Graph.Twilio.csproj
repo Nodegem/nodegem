@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Nodester.Graph.Core\Nodester.Graph.Core.csproj" />
+      <ProjectReference Include="..\Nodester.Graph.Twilio.Data\Nodester.Graph.Twilio.Data.csproj" />
+    </ItemGroup>
+
+  <ItemGroup>
+      <PackageReference Include="Twilio" Version="5.23.0" />
+  </ItemGroup>
+
+</Project>

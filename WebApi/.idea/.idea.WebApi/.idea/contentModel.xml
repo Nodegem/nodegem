@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\rszem\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\rszem\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_WebApi.850840532.00" t="ExcludeRecursive" />
+    <e p="C:\Users\rszem\Documents\Projects\nodester\Common" t="IncludeRecursive">
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="Data" t="Include">
+        <e p="Constant.cs" t="Include" />
+        <e p="Interfaces" t="Include">
+          <e p="ILogService.cs" t="Include" />
+        </e>
+        <e p="User.cs" t="Include" />
+      </e>
+      <e p="Extensions" t="Include">
+        <e p="AttributeExtensions.cs" t="Include" />
+        <e p="ClaimExtensions.cs" t="Include" />
+        <e p="LinqExtensions.cs" t="Include" />
+      </e>
+      <e p="Nodester.Common.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netstandard2.0" t="Include">
+            <e p="Nodester.Common.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Utilities" t="Include">
+        <e p="HierarchicalNode.cs" t="Include" />
+      </e>
+    </e>
+    <e p="C:\Users\rszem\Documents\Projects\nodester\Data" t="IncludeRecursive">
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="Configurations" t="Include">
+        <e p="AccessTokenConfiguration.cs" t="Include" />
+        <e p="GraphConfiguration.cs" t="Include" />
+        <e p="MacroConfiguration.cs" t="Include" />
+        <e p="UserConfiguration.cs" t="Include" />
+      </e>
+      <e p="Contexts" t="Include">
+        <e p="HangfireContext.cs" t="Include" />
+        <e p="NodesterDBContext.cs" t="Include" />
+      </e>
+      <e p="Dto" t="Include">
+        <e p="ComponentDtos" t="Include">
+          <e p="ConstantDto.cs" t="Include" />
+          <e p="LinkDto.cs" t="Include" />
+          <e p="NodeDto.cs" t="Include" />
+        </e>
+        <e p="GraphDtos" t="Include">
+          <e p="CreateGraphDto.cs" t="Include" />
+          <e p="GraphDto.cs" t="Include" />
+          <e p="RunGraphDto.cs" t="Include" />
+        </e>
+        <e p="MacroDtos" t="Include">
+          <e p="CreateMacroDto.cs" t="Include" />
+          <e p="FieldDtos" t="Include">
+            <e p="BaseFieldDto.cs" t="Include" />
+            <e p="FlowFieldDtos" t="Include">
+              <e p="FlowFieldDto.cs" t="Include" />
+              <e p="FlowInputDto.cs" t="Include" />
+              <e p="FlowOutputDto.cs" t="Include" />
+            </e>
+            <e p="ValueFieldDtos" t="Include">
+              <e p="ValueFieldDto.cs" t="Include" />
+              <e p="ValueInputDto.cs" t="Include" />
+              <e p="ValueOutputDto.cs" t="Include" />
+            </e>
+          </e>
+          <e p="MacroDto.cs" t="Include" />
+          <e p="MacroLinkDto.cs" t="Include" />
+          <e p="RunMacroDto.cs" t="Include" />
+        </e>
+        <e p="TokenDto.cs" t="Include" />
+        <e p="UserDtos" t="Include">
+          <e p="RegisterDto.cs" t="Include" />
+          <e p="TokenUserDto.cs" t="Include" />
+          <e p="UpdateUserDto.cs" t="Include" />
+          <e p="UserDto.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Extensions" t="Include">
+        <e p="ConfigurationExtensions.cs" t="Include" />
+        <e p="DbSetExtensions.cs" t="Include" />
+      </e>
+      <e p="Models" t="Include">
+        <e p="AccessToken.cs" t="Include" />
+        <e p="ActiveEntity.cs" t="Include" />
+        <e p="ApplicationUser.cs" t="Include" />
+        <e p="BaseEntity.cs" t="Include" />
+        <e p="BaseGraph.cs" t="Include" />
+        <e p="Graph.cs" t="Include" />
+        <e p="IActiveEntity.cs" t="Include" />
+        <e p="IEntity.cs" t="Include" />
+        <e p="Json Models" t="Include">
+          <e p="Fields" t="Include">
+            <e p="BaseField.cs" t="Include" />
+            <e p="FlowFields" t="Include">
+              <e p="FlowField.cs" t="Include" />
+              <e p="FlowInput.cs" t="Include" />
+              <e p="FlowOutput.cs" t="Include" />
+            </e>
+            <e p="ValueFields" t="Include">
+              <e p="ValueField.cs" t="Include" />
+              <e p="ValueInput.cs" t="Include" />
+              <e p="ValueOutput.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Graph Constants" t="Include">
+            <e p="Constant.cs" t="Include" />
+          </e>
+          <e p="Link.cs" t="Include" />
+          <e p="MacroLink.cs" t="Include" />
+          <e p="Node.cs" t="Include" />
+        </e>
+        <e p="Macro.cs" t="Include" />
+        <e p="Role.cs" t="Include" />
+      </e>
+      <e p="NamespaceNodeDefinition.cs" t="Include" />
+      <e p="Nodester.Data.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netstandard2.0" t="Include">
+            <e p="Nodester.Data.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Settings" t="Include">
+        <e p="TokenSettings.cs" t="Include" />
+      </e>
+    </e>
+    <e p="C:\Users\rszem\Documents\Projects\nodester\Engine\Core" t="IncludeRecursive">
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="Core" t="Include">
+        <e p="BaseGraph.cs" t="Include" />
+        <e p="CachedValue.cs" t="Include" />
+        <e p="Essential" t="Include">
+          <e p="Macro.cs" t="Include" />
+          <e p="Start.cs" t="Include" />
+        </e>
+        <e p="Extensions" t="Include">
+          <e p="DefinitionExtensions.cs" t="Include" />
+          <e p="LinqExtensions.cs" t="Include" />
+          <e p="PropertyInfoExtensions.cs" t="Include" />
+          <e p="StringExtensions.cs" t="Include" />
+        </e>
+        <e p="Fields" t="Include">
+          <e p="BaseField.cs" t="Include" />
+          <e p="FlowField.cs" t="Include" />
+          <e p="Graph" t="Include">
+            <e p="FlowInput.cs" t="Include" />
+            <e p="FlowOutput.cs" t="Include" />
+            <e p="ValueInput.cs" t="Include" />
+            <e p="ValueOutput.cs" t="Include" />
+          </e>
+          <e p="Macro" t="Include">
+            <e p="MacroFlowInput.cs" t="Include" />
+            <e p="MacroFlowOutput.cs" t="Include" />
+            <e p="MacroValueInput.cs" t="Include" />
+            <e p="MacroValueOutput.cs" t="Include" />
+          </e>
+          <e p="ValueField.cs" t="Include" />
+        </e>
+        <e p="Flow.cs" t="Include" />
+        <e p="FlowGraph.cs" t="Include" />
+        <e p="Links" t="Include">
+          <e p="BaseLink.cs" t="Include" />
+          <e p="Graph" t="Include">
+            <e p="FlowLink.cs" t="Include" />
+            <e p="ValueLink.cs" t="Include" />
+          </e>
+          <e p="Macro" t="Include">
+            <e p="MacroFlowLink.cs" t="Include" />
+            <e p="MacroValueLink.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Macro" t="Include">
+          <e p="MacroFlow.cs" t="Include" />
+          <e p="MacroGraph.cs" t="Include" />
+        </e>
+        <e p="Node.cs" t="Include" />
+        <e p="RegisterAssembly.cs" t="Include" />
+        <e p="Utils" t="Include">
+          <e p="ActivatorHelper.cs" t="Include" />
+          <e p="ConvertHelper.cs" t="Include" />
+          <e p="EnumerableHelper.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Core.Nodes" t="Include">
+        <e p="Control" t="Include">
+          <e p="Break.cs" t="Include" />
+          <e p="For.cs" t="Include" />
+          <e p="LoopNode.cs" t="Include" />
+          <e p="TryCatch.cs" t="Include" />
+          <e p="While.cs" t="Include" />
+        </e>
+        <e p="Graph" t="Include">
+          <e p="GetConstant.cs" t="Include" />
+          <e p="GetVariable.cs" t="Include" />
+          <e p="SetVariable.cs" t="Include" />
+        </e>
+        <e p="HTTP" t="Include">
+          <e p="Fetch.cs" t="Include" />
+          <e p="Post.cs" t="Include" />
+        </e>
+        <e p="Logging" t="Include">
+          <e p="BaseLog.cs" t="Include" />
+          <e p="Log.cs" t="Include" />
+          <e p="LogError.cs" t="Include" />
+          <e p="LogWarn.cs" t="Include" />
+        </e>
+        <e p="Logic" t="Include">
+          <e p="And.cs" t="Include" />
+          <e p="Equals.cs" t="Include" />
+          <e p="GreaterThan.cs" t="Include" />
+          <e p="GreaterThanOrEqualTo.cs" t="Include" />
+          <e p="If.cs" t="Include" />
+          <e p="LessThan.cs" t="Include" />
+          <e p="LessThanOrEqualTo.cs" t="Include" />
+          <e p="Or.cs" t="Include" />
+        </e>
+        <e p="Math" t="Include">
+          <e p="Add.cs" t="Include" />
+          <e p="Divide.cs" t="Include" />
+          <e p="Multiply.cs" t="Include" />
+          <e p="Round.cs" t="Include" />
+          <e p="Subtract.cs" t="Include" />
+        </e>
+        <e p="ServiceExtensions.cs" t="Include" />
+      </e>
+      <e p="Nodester.Engine.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netstandard2.0" t="Include">
+            <e p="Nodester.Engine.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+    </e>
+    <e p="C:\Users\rszem\Documents\Projects\nodester\Engine\Core.Data" t="IncludeRecursive">
+      <e p="Attributes" t="Include">
+        <e p="DefinedNodeAttribute.cs" t="Include" />
+        <e p="FieldAttributesAttribute.cs" t="Include" />
+        <e p="NodeNamespaceAttribute.cs" t="Include" />
+      </e>
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="Definitions" t="Include">
+        <e p="FieldDefinition.cs" t="Include" />
+        <e p="FlowInputDefinition.cs" t="Include" />
+        <e p="FlowOutputDefinition.cs" t="Include" />
+        <e p="NodeDefinition.cs" t="Include" />
+        <e p="ValueFieldDefinition.cs" t="Include" />
+        <e p="ValueInputDefinition.cs" t="Include" />
+        <e p="ValueOutputDefinition.cs" t="Include" />
+      </e>
+      <e p="Exceptions" t="Include">
+        <e p="GraphException.cs" t="Include" />
+        <e p="StartNotFoundException.cs" t="Include" />
+      </e>
+      <e p="FieldData.cs" t="Include" />
+      <e p="Fields" t="Include">
+        <e p="IField.cs" t="Include" />
+        <e p="IFlowField.cs" t="Include" />
+        <e p="IFlowInputField.cs" t="Include" />
+        <e p="IFlowOutputField.cs" t="Include" />
+        <e p="IMacroFlowInputField.cs" t="Include" />
+        <e p="IMacroFlowOutputField.cs" t="Include" />
+        <e p="IMacroValueInputField.cs" t="Include" />
+        <e p="IMacroValueOutputField.cs" t="Include" />
+        <e p="IValueField.cs" t="Include" />
+        <e p="IValueInputField.cs" t="Include" />
+        <e p="IValueOutputField.cs" t="Include" />
+      </e>
+      <e p="GraphType.cs" t="Include" />
+      <e p="IFlow.cs" t="Include" />
+      <e p="IFlowGraph.cs" t="Include" />
+      <e p="IGraph.cs" t="Include" />
+      <e p="IMacroFlow.cs" t="Include" />
+      <e p="IMacroGraph.cs" t="Include" />
+      <e p="Links" t="Include">
+        <e p="IFlowLink.cs" t="Include" />
+        <e p="ILink.cs" t="Include" />
+        <e p="IMacroFlowLink.cs" t="Include" />
+        <e p="IMacroValueLink.cs" t="Include" />
+        <e p="IValueLink.cs" t="Include" />
+      </e>
+      <e p="Nodes" t="Include">
+        <e p="INode.cs" t="Include" />
+      </e>
+      <e p="Nodester.Engine.Data.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netstandard2.0" t="Include">
+            <e p="Nodester.Engine.Data.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="ValueType.cs" t="Include" />
+    </e>
+    <e p="C:\Users\rszem\Documents\Projects\nodester\Engine\ThirdParty" t="IncludeRecursive">
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="Nodester.Engine.Thirdparty.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netstandard2.0" t="Include">
+            <e p="Nodester.Engine.Thirdparty.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="SendGrid" t="Include">
+        <e p="SendGrid.Data" t="Include">
+          <e p="ISendGridService.cs" t="Include" />
+        </e>
+        <e p="SendGrid.Nodes" t="Include">
+          <e p="Nodes" t="Include">
+            <e p="SendEmail.cs" t="Include" />
+          </e>
+          <e p="SendGridService.cs" t="Include" />
+          <e p="ServiceExtensions.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Twilio" t="Include">
+        <e p="Twilio.Data" t="Include">
+          <e p="ITwilioService.cs" t="Include" />
+        </e>
+        <e p="Twilio.Nodes" t="Include">
+          <e p="Nodes" t="Include">
+            <e p="SendText.cs" t="Include" />
+          </e>
+          <e p="ServiceExtensions.cs" t="Include" />
+          <e p="TwilioService.cs" t="Include" />
+        </e>
+      </e>
+    </e>
+    <e p="C:\Users\rszem\Documents\Projects\nodester\Services\Data" t="IncludeRecursive">
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="IGraphManagerService.cs" t="Include" />
+      <e p="IMacroManagerService.cs" t="Include" />
+      <e p="ITerminalHubService.cs" t="Include" />
+      <e p="ITokenService.cs" t="Include" />
+      <e p="IUserService.cs" t="Include" />
+      <e p="Mappers" t="Include">
+        <e p="IMapper.cs" t="Include" />
+      </e>
+      <e p="Nodester.Services.Data.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netstandard2.0" t="Include">
+            <e p="Nodester.Services.Data.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Repositories" t="Include">
+        <e p="IGraphRepository.cs" t="Include" />
+        <e p="IMacroRepository.cs" t="Include" />
+        <e p="IRepository.cs" t="Include" />
+        <e p="ITokenRepository.cs" t="Include" />
+      </e>
+    </e>
+    <e p="C:\Users\rszem\Documents\Projects\nodester\Services\Services" t="IncludeRecursive">
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="Exceptions" t="Include">
+        <e p="Login" t="Include">
+          <e p="InvalidLoginCredentialException.cs" t="Include" />
+          <e p="NoUserFoundException.cs" t="Include" />
+        </e>
+        <e p="RegistrationException.cs" t="Include" />
+      </e>
+      <e p="Extensions" t="Include">
+        <e p="HelperExtensions.cs" t="Include" />
+      </e>
+      <e p="GraphManagerService.cs" t="Include" />
+      <e p="Hubs" t="Include">
+        <e p="GraphHub.cs" t="Include" />
+        <e p="TerminalHub.cs" t="Include" />
+      </e>
+      <e p="LogService.cs" t="Include" />
+      <e p="MacroManagerService.cs" t="Include" />
+      <e p="Mappers" t="Include">
+        <e p="Mapper.cs" t="Include" />
+      </e>
+      <e p="NodeCache.cs" t="Include" />
+      <e p="Nodester.Services.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netstandard2.0" t="Include">
+            <e p="Nodester.Services.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Repositories" t="Include">
+        <e p="GraphRepository.cs" t="Include" />
+        <e p="MacroRepository.cs" t="Include" />
+        <e p="Repository.cs" t="Include" />
+        <e p="TokenRepository.cs" t="Include" />
+      </e>
+      <e p="ServiceExtensions.cs" t="Include" />
+      <e p="TerminalHubService.cs" t="Include" />
+      <e p="TokenService.cs" t="Include" />
+      <e p="UserService.cs" t="Include" />
+    </e>
+    <e p="C:\Users\rszem\Documents\Projects\nodester\WebApi" t="IncludeRecursive">
+      <e p="appsettings.json" t="Include" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="Controllers" t="Include">
+        <e p="AccountController.cs" t="Include" />
+        <e p="GraphController.cs" t="Include" />
+        <e p="MacroController.cs" t="Include" />
+        <e p="NodesController.cs" t="Include" />
+      </e>
+      <e p="Extensions" t="Include">
+        <e p="HttpRequestExtension.cs" t="Include" />
+      </e>
+      <e p="Libraries" t="Include" />
+      <e p="Migrations" t="Include">
+        <e p="20181214041414_Initial.cs" t="Include" />
+        <e p="20181214041414_Initial.Designer.cs" t="Include" />
+        <e p="20181214043957_SeedUserData.cs" t="Include" />
+        <e p="20181214043957_SeedUserData.Designer.cs" t="Include" />
+        <e p="20181214045222_UpdatingAdminUserSeedData.cs" t="Include" />
+        <e p="20181214045222_UpdatingAdminUserSeedData.Designer.cs" t="Include" />
+        <e p="20181214180404_ExpiresUtcToRefreshTokens.cs" t="Include" />
+        <e p="20181214180404_ExpiresUtcToRefreshTokens.Designer.cs" t="Include" />
+        <e p="20181231180054_Hangfire.cs" t="Include" />
+        <e p="20181231180054_Hangfire.Designer.cs" t="Include" />
+        <e p="20190603221307_TokenNameChange.cs" t="Include" />
+        <e p="20190603221307_TokenNameChange.Designer.cs" t="Include" />
+        <e p="20190603221437_ActualTokenNameChange.cs" t="Include" />
+        <e p="20190603221437_ActualTokenNameChange.Designer.cs" t="Include" />
+        <e p="20190608190712_ChangingUpConstants.cs" t="Include" />
+        <e p="20190608190712_ChangingUpConstants.Designer.cs" t="Include" />
+        <e p="20190623213436_AddingDebugFlagToGraphs.cs" t="Include" />
+        <e p="20190623213436_AddingDebugFlagToGraphs.Designer.cs" t="Include" />
+        <e p="NodesterDBContextModelSnapshot.cs" t="Include" />
+      </e>
+      <e p="nlog.config" t="Include" />
+      <e p="Nodester.WebApi.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netcoreapp2.2" t="Include">
+            <e p="Nodester.WebApi.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Program.cs" t="Include" />
+      <e p="Properties" t="Include">
+        <e p="launchSettings.json" t="Include" />
+      </e>
+      <e p="Startup.cs" t="Include" />
+      <e p="WebApi.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
