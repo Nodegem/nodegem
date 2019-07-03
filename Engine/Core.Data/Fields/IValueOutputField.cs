@@ -1,6 +1,4 @@
-using System;
-
-namespace Nodester.Graph.Core.Data.Fields
+namespace Nodester.Engine.Data.Fields
 {
     public interface IValueOutputField : IValueField
     {

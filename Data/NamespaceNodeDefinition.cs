@@ -1,5 +1,5 @@
 using Nodester.Common.Utilities;
-using Nodester.Graph.Core.Data.Definitions;
+using Nodester.Engine.Data.Definitions;
 
 namespace Nodester.Data
 {

@@ -1,4 +1,8 @@
-using Bridge.Data.Dtos;
+using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using Nodester.Common.Extensions;
+using Nodester.Data.Dto.GraphDtos;
 
 namespace Nodester.Bridge
 {
@@ -6,13 +10,18 @@ namespace Nodester.Bridge
     {
 
         private static AppState _instance;
-
         public static AppState Instance => _instance ?? (_instance = new AppState());
 
-        public TokenDto Token { get; set; }
-        
+        public bool IsLoggedIn => Token != null;
+
+        public JwtSecurityToken Token { get; set; }
+
+        public Guid UserId => Token.Claims.GetUserId();
+        public string Email => Token.Claims.GetEmail();
         public string Environment { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+        
+        public IEnumerable<GraphDto> Graphs { get; set; }
     }
 }

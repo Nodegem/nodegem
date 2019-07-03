@@ -1,4 +1,4 @@
-using Nodester.Graph.Core.Data.Attributes;
+using Nodester.Engine.Data.Attributes;
 
 namespace Nodester.Graph.Core.Nodes.HTTP
 {

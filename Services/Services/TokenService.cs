@@ -2,32 +2,24 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Security.Cryptography;
 using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using Nodester.Data.Dto;
-using Nodester.Data.Models;
 using Nodester.Data.Settings;
 using Nodester.Services.Data;
-using Nodester.Services.Data.Mappers;
 using Nodester.Services.Data.Repositories;
-using Nodester.Services.Extensions;
 
 namespace Nodester.Services
 {
     public class TokenService : ITokenService
     {
         private ITokenRepository _tokenRepository;
-        private IMapper<AccessToken, TokenDto> _tokenMapper;
         private TokenSettings _tokenSettings;
 
         public TokenService(ITokenRepository tokenRepository,
-            IMapper<AccessToken, TokenDto> tokenMapper,
             IOptions<TokenSettings> tokenSettings)
         {
             _tokenRepository = tokenRepository;
-            _tokenMapper = tokenMapper;
             _tokenSettings = tokenSettings.Value;
         }
 

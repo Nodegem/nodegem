@@ -1,97 +1,45 @@
 using System;
-using System.Linq;
 using System.Threading.Tasks;
-using Mapster;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
-using Nodester.Common.Data;
+using Microsoft.Extensions.Logging;
 using Nodester.Common.Extensions;
 using Nodester.Data.Dto.GraphDtos;
 using Nodester.Data.Dto.MacroDtos;
-using Nodester.Graph.Core.Data.Exceptions;
-using Nodester.Services.Data;
-using Nodester.Services.Data.Hubs;
 
-namespace Nodester.Hubs
+namespace Nodester.Services.Hubs
 {
     [Authorize]
     public class GraphHub : Hub
     {
-        private readonly IGraphManagerService _graphManagerService;
-        private readonly IMacroManagerService _macroManagerService;
-        private readonly ITerminalHubService _terminal;
-        private readonly IUserService _userService;
+        private readonly ILogger<GraphHub> _logger;
 
-        public GraphHub(IGraphManagerService graphManagerService, IMacroManagerService macroManagerService, ITerminalHubService terminal, IUserService userService)
+        public GraphHub(ILogger<GraphHub> logger)
         {
-            _macroManagerService = macroManagerService;
-            _graphManagerService = graphManagerService;
-            _terminal = terminal;
-            _userService = userService;
+            _logger = logger;
         }
 
-        public async Task RunGraph(RunGraphDto data)
+        public override Task OnConnectedAsync()
         {
-            var userId = Context.User.GetUserId();
-            User user = null;
-            
-            try
-            {
-                var userConstants = await _userService.GetConstantsAsync(userId); 
-                user = new User
-                {
-                    ConnectionId = Context.ConnectionId,
-                    Email = Context.User.GetEmail(),
-                    Id = userId.ToString(),
-                    Username = Context.User.GetUsername(),
-                    Constants = userConstants
-                        .ToDictionary(k => k.Key, c => c.Adapt<Constant>())
-                };
-                
-                await _terminal.SendDebugLogAsync(user, "Building Graph...", data.IsDebugModeEnabled);
-                var graph = await _graphManagerService.BuildGraph(user, data);
-                await _terminal.SendDebugLogAsync(user, "Running Graph...", data.IsDebugModeEnabled);
-                graph.Run();
-            }
-            catch (GraphException ex)
-            {
-                await _terminal.SendErrorLogAsync(user, ex.Message);
-            }
-            catch (Exception ex)
-            {
-                await _terminal.SendErrorLogAsync(user, "Error occurred while running graph.");
-                Console.WriteLine(ex.Message);
-            }
+            Groups.AddToGroupAsync(Context.ConnectionId, Context.User.GetUserId().ToString());
+            return base.OnConnectedAsync();
         }
-        
-        public async Task RunMacro(RunMacroDto macroData, string flowInputFieldKey)
+
+        public override Task OnDisconnectedAsync(Exception exception)
         {
-            var user = new User
-            {
-                ConnectionId = Context.ConnectionId,
-                Email = Context.User.GetEmail(),
-                Id = Context.User.GetUserId().ToString(),
-                Username = Context.User.GetUsername()
-            };
-            
-            try
-            {
-                await _terminal.SendDebugLogAsync(user, "Building macro...", macroData.IsDebugModeEnabled);
-                var macro = await _macroManagerService.BuildMacroAsync(user, macroData);
-                await _terminal.SendDebugLogAsync(user, "Running macro...", macroData.IsDebugModeEnabled);
-                macro.Run(flowInputFieldKey);
-            }
-            catch (GraphException ex)
-            {
-                await _terminal.SendErrorLogAsync(user, ex.Message);
-                Console.WriteLine(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                await _terminal.SendErrorLogAsync(user, $"Something went wrong: {ex.Message}");
-                Console.WriteLine(ex.Message);
-            }
+            Groups.RemoveFromGroupAsync(Context.ConnectionId, Context.User.GetUserId().ToString());
+            return base.OnDisconnectedAsync(exception);
         }
-        
+
+        public async Task RunGraph(GraphDto graph)
+        {
+            await Clients.Group(Context.User.GetUserId().ToString()).SendAsync("RemoteExecuteGraph", graph);
+        }
+
+        public async Task RunMacro(MacroDto macro, string flowInputFieldKey)
+        {
+            await Clients.Group(Context.User.GetUserId().ToString())
+                .SendAsync("RemoteExecuteMacro", macro, flowInputFieldKey);
+        }
     }
 }

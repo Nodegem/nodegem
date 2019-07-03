@@ -1,7 +1,7 @@
 using System;
-using Nodester.Graph.Core.Data.Fields;
+using Nodester.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Data
+namespace Nodester.Engine.Data
 {
     public interface IFlow
     {

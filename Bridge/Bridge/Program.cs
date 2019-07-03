@@ -6,9 +6,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Nodester.Bridge.Clients;
-using Nodester.Bridge.HostedService;
+using Nodester.Bridge.BackgroundServices;
 using Nodester.Bridge.HubConnections;
+using Nodester.Bridge.Services;
+using Nodester.Common.Data.Interfaces;
+using Nodester.Services;
 
 namespace Nodester.Bridge
 {
@@ -18,8 +20,6 @@ namespace Nodester.Bridge
         public static void Main(string[] args) 
             => CommandLineApplication.Execute<Program>(args);
         
-        private const string EnvironmentKey = "ENVIRONMENT";
-        
         [Option(Description = "The environment the app runs in", ShortName = "e")]
         public string Environment { get; }
         
@@ -28,12 +28,11 @@ namespace Nodester.Bridge
         
         [Option(Description = "Account password", ShortName = "p")]
         public string Password { get; }
-        
-        
 
+        // ReSharper disable once UnusedMember.Local
         private async Task OnExecute()
         {
-            var environment = Environment ?? System.Environment.GetEnvironmentVariable(EnvironmentKey);
+            var environment = Environment ?? "Development";
 
             if (string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password))
             {
@@ -63,9 +62,19 @@ namespace Nodester.Bridge
                     services.Configure<AppConfig>(hostingContext.Configuration.GetSection("AppConfig"));
 
                     services.AddHttpClient<INodesterLoginService, NodesterLoginService>();
+                    services.AddHttpClient<INodesterGraphService, NodesterGraphService>();
+                    services.AddHttpClient<INodesterUserService, NodesterUserService>();
 
                     services.AddSingleton<IHostedService, EngineService>();
                     services.AddSingleton<IGraphHubConnection, GraphHubConnection>();
+                    
+                    services.AddSingleton<ITerminalHubConnection, TerminalHubConnection>();
+                    services.AddSingleton<ITerminalHubService>(provider => provider.GetService<ITerminalHubConnection>());
+                    
+                    services.AddSingleton<IBuildGraphService, GraphBuildService>();
+                    services.AddSingleton<IBuildMacroService, MacroBuildService>();
+                    
+                    services.AddServicesForBridge();
                 })
                 .ConfigureLogging((hostingContext, logging) =>
                 {

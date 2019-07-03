@@ -2,292 +2,162 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.gitlab-ci.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/riderModule.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge.dir/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge.dir/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge.dir/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge.dir/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge.dir/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge.dir/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge.dir/riderModule.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge/riderModule.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/AppConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/AppState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/Bridge.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/Clients/NodesterLoginService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/Extensions/HttpClientExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/HostedService/EngineService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/HubConnections/GraphHubConnection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/appsettings.Local.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Data/Bridge.Data.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Data/Dtos/TokenDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Data/IGraphHubConnection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Data/INodesterLoginService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Common/Data/Constant.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Common/Data/Interfaces/ILogService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Common/Data/User.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Common/Extensions/AttributeExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Common/Extensions/ClaimExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Common/Extensions/LinqExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Common/Nodester.Common.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Common/Utilities/HierarchicalNode.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Configurations/AccessTokenConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Configurations/GraphConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Configurations/MacroConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Configurations/UserConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Contexts/HangfireContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Contexts/NodesterDBContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/ComponentDtos/ConstantDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/ComponentDtos/LinkDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/ComponentDtos/NodeDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/GraphDtos/CreateGraphDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/GraphDtos/GraphDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/GraphDtos/RunGraphDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/CreateMacroDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/BaseFieldDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/FlowFieldDtos/FlowFieldDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/FlowFieldDtos/FlowInputDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/FlowFieldDtos/FlowOutputDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/ValueFieldDtos/ValueFieldDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/ValueFieldDtos/ValueInputDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/ValueFieldDtos/ValueOutputDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/MacroDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/MacroLinkDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/RunMacroDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/TokenDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/UserDtos/RegisterDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/UserDtos/TokenUserDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/UserDtos/UpdateUserDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/UserDtos/UserDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Extensions/ConfigurationExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Extensions/DbSetExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/AccessToken.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/ActiveEntity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/ApplicationUser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/BaseEntity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/BaseGraph.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Graph.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/IActiveEntity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/IEntity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Fields/BaseField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Fields/FlowFields/FlowField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Fields/FlowFields/FlowInput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Fields/FlowFields/FlowOutput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Fields/ValueFields/ValueField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Fields/ValueFields/ValueInput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Fields/ValueFields/ValueOutput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Graph Constants/Constant.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Link.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/MacroLink.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Node.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Macro.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Role.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/NamespaceNodeDefinition.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Nodester.Data.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Settings/TokenSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/DefinedNodeAttribute.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/FieldAttributesAttribute.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/NodeNamespaceAttribute.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/FieldDefinition.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/FlowInputDefinition.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/FlowOutputDefinition.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/NodeDefinition.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueFieldDefinition.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueInputDefinition.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueOutputDefinition.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Exceptions/GraphException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Exceptions/StartNotFoundException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/FieldData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IFlowField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IFlowInputField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IFlowOutputField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IMacroFlowInputField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IMacroFlowOutputField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IMacroValueInputField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IMacroValueOutputField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueInputField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueOutputField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/GraphType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/IFlow.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/IFlowGraph.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/IGraph.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/IMacroFlow.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/IMacroGraph.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Links/IFlowLink.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Links/ILink.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Links/IMacroFlowLink.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Links/IMacroValueLink.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Links/IValueLink.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Nodes/INode.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Nodester.Engine.Data.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/ValueType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/Break.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/For.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/LoopNode.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/TryCatch.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/While.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Graph/GetConstant.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Graph/GetVariable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Graph/SetVariable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/Fetch.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/Post.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/BaseLog.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/Log.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogError.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogWarn.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/And.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/Equals.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThan.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThanOrEqualTo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/If.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThan.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThanOrEqualTo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/Or.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Add.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Divide.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Multiply.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Round.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Subtract.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/ServiceExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/BaseGraph.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/CachedValue.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Essential/Macro.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Essential/Start.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Extensions/DefinitionExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Extensions/LinqExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Extensions/PropertyInfoExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Extensions/StringExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/BaseField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/FlowField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/FlowInput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/FlowOutput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/ValueInput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/ValueOutput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Macro/MacroFlowInput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Macro/MacroFlowOutput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Macro/MacroValueInput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Macro/MacroValueOutput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/ValueField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Flow.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/FlowGraph.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Links/BaseLink.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Links/Graph/FlowLink.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Links/Graph/ValueLink.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Links/Macro/MacroFlowLink.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Links/Macro/MacroValueLink.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroFlow.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroGraph.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/RegisterAssembly.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Utils/ActivatorHelper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Utils/ConvertHelper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Utils/EnumerableHelper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Nodester.Engine.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/riderModule.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Nodester.Engine.ThirdParty.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Data/ISendGridService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Data/Nodester.Graph.SendGrid.Data.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Nodes/Nodes/SendEmail.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Nodes/Nodester.Graph.SendGrid.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Nodes/SendGridService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Nodes/ServiceExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Data/ITwilioService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Data/Nodester.Graph.Twilio.Data.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Nodes/Nodes/SendText.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Nodes/Nodester.Graph.Twilio.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Nodes/ServiceExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Nodes/TwilioService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Data/IGraphManagerService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Data/IMacroManagerService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Data/ITerminalHubService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Data/ITokenService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Data/IUserService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Data/Mappers/IMapper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Data/Nodester.Services.Data.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Data/Repositories/IGraphRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Data/Repositories/IMacroRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Data/Repositories/IRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Data/Repositories/ITokenRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Exceptions/Login/InvalidLoginCredentialException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Exceptions/Login/NoUserFoundException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Exceptions/RegistrationException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Extensions/HelperExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/GraphManagerService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Hubs/TerminalHub.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/LogService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/MacroManagerService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Mappers/Mapper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/NodeCache.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Nodester.Services.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Repositories/MacroRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Repositories/Repository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Repositories/TokenRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/TerminalHubService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/TokenService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/UserService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/riderModule.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/AccountController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/GraphController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/MacroController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/NodesController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Extensions/HttpRequestExtension.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20181214041414_Initial.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20181214041414_Initial.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20181214043957_SeedUserData.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20181214043957_SeedUserData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20181214045222_UpdatingAdminUserSeedData.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20181214045222_UpdatingAdminUserSeedData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20181214180404_ExpiresUtcToRefreshTokens.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20181214180404_ExpiresUtcToRefreshTokens.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20181231180054_Hangfire.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20181231180054_Hangfire.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20190603221307_TokenNameChange.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20190603221307_TokenNameChange.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20190603221437_ActualTokenNameChange.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20190603221437_ActualTokenNameChange.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20190608190712_ChangingUpConstants.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20190608190712_ChangingUpConstants.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20190623213436_AddingDebugFlagToGraphs.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20190623213436_AddingDebugFlagToGraphs.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/NodesterDBContextModelSnapshot.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Nodester.WebApi.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApi.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nlog.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/Coordinator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/Exceptions/NodesterAuthorizationException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/Extensions/NodeExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/HubConnections/TerminalHubConnection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/Services/GraphBuildService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/Services/MacroBuildService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/Services/NodesterAuthorizedBaseService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/Services/NodesterBaseService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/Services/NodesterGraphService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/Services/NodesterLoginService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/Services/NodesterUserService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bridge/Data/IBuildGraphService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bridge/Data/IBuildMacroService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bridge/Data/INodesterGraphService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bridge/Data/INodesterUserService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bridge/Data/ITerminalHubConnection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Common/Data/Interfaces/ITerminalHubService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/AppState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/AppState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/Bridge.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/Bridge.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/Clients/NodesterLoginService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/HostedService/EngineService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/BackgroundServices/EngineService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/HubConnections/GraphHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/HubConnections/GraphHubConnection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/appsettings.Local.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/Data/Bridge.Data.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Data/Bridge.Data.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/Data/Dtos/TokenDto.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/Data/IGraphHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Data/IGraphHubConnection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/Data/INodesterLoginService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Data/INodesterLoginService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Common/Data/Interfaces/ILogService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Common/Data/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Data/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Common/Extensions/ClaimExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Extensions/ClaimExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Dto/ComponentDtos/ConstantDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/ComponentDtos/ConstantDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Dto/ComponentDtos/NodeDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/ComponentDtos/NodeDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/ValueFieldDtos/ValueFieldDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/ValueFieldDtos/ValueFieldDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/ValueFieldDtos/ValueInputDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/ValueFieldDtos/ValueInputDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Models/Json Models/Fields/ValueFields/ValueField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Fields/ValueFields/ValueField.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Models/Json Models/Graph Constants/Constant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Graph Constants/Constant.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Models/Json Models/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Node.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/NamespaceNodeDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/NamespaceNodeDefinition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/DefinedNodeAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/DefinedNodeAttribute.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/FieldAttributesAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/FieldAttributesAttribute.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/NodeNamespaceAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/NodeNamespaceAttribute.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/FieldDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/FieldDefinition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/FlowInputDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/FlowInputDefinition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/FlowOutputDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/FlowOutputDefinition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/NodeDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/NodeDefinition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueFieldDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueFieldDefinition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueInputDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueInputDefinition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueOutputDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueOutputDefinition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Exceptions/GraphException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Exceptions/GraphException.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Exceptions/StartNotFoundException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Exceptions/StartNotFoundException.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/FieldData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/FieldData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IField.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IFlowField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IFlowField.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IFlowInputField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IFlowInputField.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IFlowOutputField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IFlowOutputField.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IMacroFlowInputField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IMacroFlowInputField.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IMacroFlowOutputField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IMacroFlowOutputField.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IMacroValueInputField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IMacroValueInputField.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IMacroValueOutputField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IMacroValueOutputField.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueField.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueInputField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueInputField.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueOutputField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueOutputField.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/GraphType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/GraphType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/IFlow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/IFlow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/IFlowGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/IFlowGraph.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/IGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/IGraph.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/IMacroFlow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/IMacroFlow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/IMacroGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/IMacroGraph.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Links/IFlowLink.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Links/IFlowLink.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Links/ILink.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Links/ILink.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Links/IMacroFlowLink.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Links/IMacroFlowLink.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Links/IMacroValueLink.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Links/IMacroValueLink.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Links/IValueLink.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Links/IValueLink.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Nodes/INode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Nodes/INode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/ValueType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/ValueType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/Break.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/Break.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/For.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/For.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/LoopNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/LoopNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/TryCatch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/TryCatch.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/While.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/While.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Graph/GetConstant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Graph/GetConstant.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Graph/GetVariable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Graph/GetVariable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Graph/SetVariable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Graph/SetVariable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/Fetch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/Fetch.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/Post.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/Post.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/BaseLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/BaseLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/Log.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/Log.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogError.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogWarn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogWarn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/And.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/And.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/Equals.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/Equals.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThan.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThan.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThanOrEqualTo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThanOrEqualTo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/If.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/If.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThan.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThan.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThanOrEqualTo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThanOrEqualTo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/Or.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/Or.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Add.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Add.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Divide.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Divide.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Multiply.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Multiply.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Round.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Round.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Subtract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Subtract.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/BaseGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/BaseGraph.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Essential/Macro.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Essential/Macro.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Essential/Start.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Essential/Start.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Extensions/DefinitionExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Extensions/DefinitionExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Fields/BaseField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/BaseField.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Fields/FlowField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/FlowField.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/FlowInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/FlowInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/FlowOutput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/FlowOutput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/ValueInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/ValueInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/ValueOutput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/ValueOutput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Macro/MacroFlowInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Macro/MacroFlowInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Macro/MacroFlowOutput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Macro/MacroFlowOutput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Macro/MacroValueInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Macro/MacroValueInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Macro/MacroValueOutput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Macro/MacroValueOutput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Fields/ValueField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/ValueField.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Flow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Flow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/FlowGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/FlowGraph.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Links/BaseLink.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Links/BaseLink.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Links/Graph/FlowLink.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Links/Graph/FlowLink.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Links/Graph/ValueLink.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Links/Graph/ValueLink.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Links/Macro/MacroFlowLink.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Links/Macro/MacroFlowLink.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Links/Macro/MacroValueLink.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Links/Macro/MacroValueLink.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroFlow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroFlow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroGraph.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Nodes/Nodes/SendEmail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Nodes/Nodes/SendEmail.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Nodes/Nodes/SendText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Nodes/Nodes/SendText.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Data/IGraphManagerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Data/IGraphManagerService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Data/IMacroManagerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Data/IMacroManagerService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Data/ITerminalHubService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Data/Mappers/IMapper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/Extensions/HelperExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Extensions/HelperExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/GraphManagerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/GraphManagerService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/Hubs/TerminalHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Hubs/TerminalHub.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/LogService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/MacroManagerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/MacroManagerService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/Mappers/Mapper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/NodeCache.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/NodeCache.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/Repositories/MacroRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Repositories/MacroRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/TerminalHubService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/TokenService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/TokenService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/AccountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/MacroController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MacroController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/NodesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/NodesController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -296,25 +166,233 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Controllers/MacroController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="7" column="42" lean-forward="true" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+              <folding>
+                <marker date="1562120112288" expanded="false" signature="6:263" ph="..." />
+                <marker date="1562120112288" expanded="true" signature="302:1555" ph="{...}" />
+                <marker date="1562120112288" expanded="true" signature="422:1553" ph="{...}" />
+                <marker date="1562120112288" expanded="true" signature="554:622" ph="{...}" />
+                <marker date="1562120112288" expanded="true" signature="700:788" ph="{...}" />
+                <marker date="1562120112288" expanded="true" signature="879:959" ph="{...}" />
+                <marker date="1562120112288" expanded="true" signature="1067:1155" ph="{...}" />
+                <marker date="1562120112288" expanded="true" signature="1274:1362" ph="{...}" />
+                <marker date="1562120112288" expanded="true" signature="1451:1547" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Services/Services/Repositories/MacroRepository.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="568">
+              <caret line="39" column="15" selection-start-line="39" selection-start-column="15" selection-end-line="39" selection-end-column="15" />
+              <folding>
+                <marker date="1562119395872" expanded="true" signature="6:247" ph="..." />
+                <marker date="1562119395872" expanded="true" signature="289:1336" ph="{...}" />
+                <marker date="1562119395872" expanded="true" signature="362:1334" ph="{...}" />
+                <marker date="1562119395872" expanded="true" signature="442:462" ph="{...}" />
+                <marker date="1562119395872" expanded="true" signature="526:631" ph="{...}" />
+                <marker date="1562119395872" expanded="true" signature="685:793" ph="{...}" />
+                <marker date="1562119395872" expanded="true" signature="858:998" ph="{...}" />
+                <marker date="1562119395872" expanded="true" signature="1065:1232" ph="{...}" />
+                <marker date="1562119395872" expanded="true" signature="1279:1328" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Services/Services/Repositories/Repository.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+              <folding>
+                <marker date="1561516697501" expanded="false" signature="6:323" ph="..." />
+                <marker date="1561516697501" expanded="true" signature="365:2316" ph="{...}" />
+                <marker date="1561516697501" expanded="true" signature="458:2314" ph="{...}" />
+                <marker date="1561516697501" expanded="true" signature="639:690" ph="{...}" />
+                <marker date="1561516697501" expanded="true" signature="736:782" ph="{...}" />
+                <marker date="1561516697501" expanded="true" signature="878:942" ph="{...}" />
+                <marker date="1561516697501" expanded="true" signature="979:1049" ph="{...}" />
+                <marker date="1561516697501" expanded="true" signature="1097:1172" ph="{...}" />
+                <marker date="1561516697501" expanded="true" signature="1216:1400" ph="{...}" />
+                <marker date="1561516697501" expanded="true" signature="1457:1618" ph="{...}" />
+                <marker date="1561516697501" expanded="true" signature="1671:1838" ph="{...}" />
+                <marker date="1561516697501" expanded="true" signature="1890:1979" ph="{...}" />
+                <marker date="1561516697501" expanded="true" signature="2016:2114" ph="{...}" />
+                <marker date="1561516697501" expanded="true" signature="2141:2203" ph="{...}" />
+                <marker date="1561516697501" expanded="true" signature="2241:2308" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="568">
+              <caret line="45" column="44" selection-start-line="45" selection-start-column="44" selection-end-line="45" selection-end-column="44" />
+              <folding>
+                <marker date="1562119295310" expanded="true" signature="6:258" ph="..." />
+                <marker date="1562119295310" expanded="true" signature="300:1607" ph="{...}" />
+                <marker date="1562119295310" expanded="true" signature="394:1605" ph="{...}" />
+                <marker date="1562119295310" expanded="true" signature="474:494" ph="{...}" />
+                <marker date="1562119295310" expanded="true" signature="559:643" ph="{...}" />
+                <marker date="1562119295310" expanded="true" signature="713:818" ph="{...}" />
+                <marker date="1562119295310" expanded="true" signature="903:1041" ph="{...}" />
+                <marker date="1562119295310" expanded="true" signature="1100:1267" ph="{...}" />
+                <marker date="1562119295310" expanded="true" signature="1320:1503" ph="{...}" />
+                <marker date="1562119295310" expanded="true" signature="1550:1599" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Services/Services/UserService.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+              <folding>
+                <marker date="1562119179309" expanded="true" signature="6:419" ph="..." />
+                <marker date="1562119179309" expanded="true" signature="448:4361" ph="{...}" />
+                <marker date="1562119179309" expanded="true" signature="494:4359" ph="{...}" />
+                <marker date="1562119179309" expanded="true" signature="848:994" ph="{...}" />
+                <marker date="1562119179309" expanded="true" signature="1066:1744" ph="{...}" />
+                <marker date="1562119179309" expanded="true" signature="1432:1680" ph="{...}" />
+                <marker date="1562119179309" expanded="true" signature="1830:2313" ph="{...}" />
+                <marker date="1562119179309" expanded="true" signature="1914:1992" ph="{...}" />
+                <marker date="1562119179309" expanded="true" signature="2122:2245" ph="{...}" />
+                <marker date="1562119179309" expanded="true" signature="2370:2496" ph="{...}" />
+                <marker date="1562119179309" expanded="true" signature="2580:2831" ph="{...}" />
+                <marker date="1562119179309" expanded="true" signature="2865:2934" ph="{...}" />
+                <marker date="1562119179309" expanded="true" signature="2977:2997" ph="{...}" />
+                <marker date="1562119179309" expanded="true" signature="3038:3058" ph="{...}" />
+                <marker date="1562119179309" expanded="true" signature="3095:3164" ph="{...}" />
+                <marker date="1562119179309" expanded="true" signature="3198:3267" ph="{...}" />
+                <marker date="1562119179309" expanded="true" signature="3333:3416" ph="{...}" />
+                <marker date="1562119179309" expanded="true" signature="3489:3613" ph="{...}" />
+                <marker date="1562119179309" expanded="true" signature="3682:3801" ph="{...}" />
+                <marker date="1562119179309" expanded="true" signature="3870:4353" ph="{...}" />
+                <marker date="1562119179309" expanded="true" signature="4088:4342" ph="{...}" />
+                <marker date="1562119179309" expanded="true" signature="4143:4296" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
+              <folding>
+                <marker date="1562120939559" expanded="true" signature="6:316" ph="..." />
+                <marker date="1562120939559" expanded="true" signature="345:1407" ph="{...}" />
+                <marker date="1562120939559" expanded="true" signature="389:1405" ph="{...}" />
+                <marker date="1562120939559" expanded="true" signature="468:1125" ph="{...}" />
+                <marker date="1562120939559" expanded="true" signature="1208:1399" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="38" column="68" selection-start-line="38" selection-start-column="62" selection-end-line="38" selection-end-column="68" />
+              <folding>
+                <marker date="1562123495665" expanded="true" signature="6:261" ph="..." />
+                <marker date="1562123495665" expanded="true" signature="295:1391" ph="{...}" />
+                <marker date="1562123495665" expanded="true" signature="345:1389" ph="{...}" />
+                <marker date="1562123495665" expanded="true" signature="454:504" ph="{...}" />
+                <marker date="1562123495665" expanded="true" signature="553:712" ph="{...}" />
+                <marker date="1562123495665" expanded="true" signature="783:959" ph="{...}" />
+                <marker date="1562123495665" expanded="true" signature="1011:1140" ph="{...}" />
+                <marker date="1562123495665" expanded="true" signature="1218:1383" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Services/Services/Hubs/TerminalHub.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="21" selection-start-line="21" selection-end-line="31" selection-end-column="9" />
+              <folding>
+                <marker date="1562121412890" expanded="false" signature="6:219" ph="..." />
+                <marker date="1562121412890" expanded="true" signature="253:1610" ph="{...}" />
+                <marker date="1562121412890" expanded="true" signature="306:1608" ph="{...}" />
+                <marker date="1562121412890" expanded="true" signature="416:466" ph="{...}" />
+                <marker date="1562121412890" expanded="true" signature="523:682" ph="{...}" />
+                <marker date="1562121412890" expanded="true" signature="753:929" ph="{...}" />
+                <marker date="1562121412890" expanded="true" signature="987:1082" ph="{...}" />
+                <marker date="1562121412890" expanded="true" signature="1153:1253" ph="{...}" />
+                <marker date="1562121412890" expanded="true" signature="1323:1422" ph="{...}" />
+                <marker date="1562121412890" expanded="true" signature="1493:1593" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>ConnectionId</find>
+      <find>services.AddSi</find>
+      <find>IServiceProvider</find>
+      <find>provider</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Controllers/MacroController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/RegisterAssembly.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Contexts/NodesterDBContext.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Common/Data/Constant.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Common/Data/User.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Settings/TokenSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Extensions/ConfigurationExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Dto/GraphDtos/CreateGraphDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/GraphDtos/RunGraphDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/MacroDtos/MacroDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/MacroDtos/MacroLinkDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Data/IGraphManagerService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Startup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Data/Repositories/IMacroRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Data/Constant.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Extensions/HelperExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Data/User.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/GraphManagerService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Nodes/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Extensions/ClaimExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Hubs/TerminalHub.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/MacroManagerService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Models/ApplicationUser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Models/AccessToken.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Services/NodeCache.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Dto/GraphDtos/RunGraphDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Repositories/MacroRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Repositories/Repository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/NamespaceNodeDefinition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/TokenService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/UserService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/IGraph.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Controllers/AccountController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controllers/GraphController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -325,8 +403,24 @@
         <option value="$PROJECT_DIR$/../Services/Data/Nodester.Services.Data.csproj" />
         <option value="$PROJECT_DIR$/../Services/Services/Nodester.Services.csproj" />
         <option value="$PROJECT_DIR$/Nodester.WebApi.csproj" />
-        <option value="$PROJECT_DIR$/Controllers/AccountController.cs" />
         <option value="$PROJECT_DIR$/Properties/launchSettings.json" />
+        <option value="$PROJECT_DIR$/Startup.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/GraphManagerService.cs" />
+        <option value="$PROJECT_DIR$/Controllers/AccountController.cs" />
+        <option value="$PROJECT_DIR$/../Common/Extensions/ClaimExtensions.cs" />
+        <option value="$PROJECT_DIR$/../Common/Data/User.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/LogService.cs" />
+        <option value="$PROJECT_DIR$/../Services/Data/Mappers/IMapper.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/UserService.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/MacroManagerService.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/TokenService.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/Mappers/Mapper.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/Repositories/MacroRepository.cs" />
+        <option value="$PROJECT_DIR$/Controllers/MacroController.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/Hubs/TerminalHub.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" />
       </list>
     </option>
   </component>
@@ -342,10 +436,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2833" />
-    <option name="y" value="-16" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
+    <option name="x" value="2552" />
+    <option name="y" value="-8" />
+    <option name="width" value="2576" />
+    <option name="height" value="1416" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -353,14 +447,37 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AssemblyExplorer" />
       <pane id="FileSystemExplorer" />
+      <pane id="AssemblyExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
             <path>
               <item name="" type="784c90a0:SolutionExplorerRootNode" />
               <item name="WebApi" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="WebApi" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Libraries" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="WebApi" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Libraries" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Nodester.Services" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="WebApi" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Libraries" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Nodester.Services" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Hubs" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="WebApi" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Nodester.WebApi" type="24d0babc:SolutionExplorerModelNode" />
             </path>
           </expand>
           <select />
@@ -418,11 +535,12 @@
       <workItem from="1561950459576" duration="310000" />
       <workItem from="1561950894397" duration="215000" />
       <workItem from="1561951386923" duration="1278000" />
+      <workItem from="1562019763060" duration="15736000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1803000" />
+    <option name="totallyTimeSpent" value="17539000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -436,14 +554,13 @@
   <component name="ToolWindowManager">
     <frame x="2552" y="-8" width="2576" height="1416" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25387365" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15931664" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Build" weight="0.3299923" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3993832" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.27062452" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -456,6 +573,7 @@
       <window_info anchor="bottom" id="REST Client" order="13" />
       <window_info anchor="bottom" id="Terminal" order="14" />
       <window_info anchor="bottom" id="Event Log" order="15" side_tool="true" />
+      <window_info anchor="bottom" id="Build" order="16" weight="0.3299923" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -484,20 +602,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="6" selection-start-column="6" selection-end-column="6" />
-          <folding>
-            <marker date="1561738256726" expanded="true" signature="6:250" ph="..." />
-            <marker date="1561738256726" expanded="true" signature="279:3536" ph="{...}" />
-            <marker date="1561738256726" expanded="true" signature="315:3534" ph="{...}" />
-            <marker date="1561738256726" expanded="true" signature="807:1205" ph="{...}" />
-            <marker date="1561738256726" expanded="true" signature="1257:1452" ph="{...}" />
-            <marker date="1561738256726" expanded="true" signature="1535:1787" ph="{...}" />
-            <marker date="1561738256726" expanded="true" signature="1851:2176" ph="{...}" />
-            <marker date="1561738256726" expanded="true" signature="2275:2502" ph="{...}" />
-            <marker date="1561738256726" expanded="true" signature="2605:2702" ph="{...}" />
-            <marker date="1561738256726" expanded="true" signature="2763:2827" ph="{...}" />
-            <marker date="1561738256726" expanded="true" signature="2887:3249" ph="{...}" />
-            <marker date="1561738256726" expanded="true" signature="3337:3528" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -547,11 +651,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="6" selection-start-column="6" selection-end-column="6" />
-          <folding>
-            <marker date="1561516697412" expanded="true" signature="6:76" ph="..." />
-            <marker date="1561516697412" expanded="true" signature="101:218" ph="{...}" />
-            <marker date="1561516697412" expanded="true" signature="204:216" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -614,27 +713,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Common/Data/User.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" lean-forward="true" selection-start-column="6" selection-end-column="6" />
-          <folding>
-            <marker date="1561597934048" expanded="true" signature="6:47" ph="..." />
-            <marker date="1561597934048" expanded="true" signature="79:359" ph="{...}" />
-            <marker date="1561597934048" expanded="true" signature="103:357" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Engine/Core.Data/IGraph.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
-          <folding>
-            <marker date="1561598622352" expanded="true" signature="6:79" ph="..." />
-            <marker date="1561598622352" expanded="true" signature="115:407" ph="{...}" />
-            <marker date="1561598622352" expanded="true" signature="145:405" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -684,39 +766,451 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/AccountController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1035">
-          <folding>
-            <marker date="1561951768783" expanded="true" signature="6:409" ph="..." />
-            <marker date="1561951768783" expanded="true" signature="448:3489" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="570:3487" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="688:748" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="1076:1321" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="1102:1192" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="1237:1311" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="1596:2043" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="1622:1795" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="1839:1914" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="1966:2033" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="2325:2811" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="2351:2563" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="2607:2682" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="2734:2801" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="2882:3335" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="2941:3024" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="3055:3103" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="3123:3206" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="3271:3323" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="3436:3481" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Properties/launchSettings.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Nodes/ServiceExtensions.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding>
+            <marker date="1561950015732" expanded="false" signature="6:93" ph="..." />
+            <marker date="1561950015732" expanded="true" signature="144:371" ph="{...}" />
+            <marker date="1561950015732" expanded="true" signature="188:369" ph="{...}" />
+            <marker date="1561950015732" expanded="true" signature="275:363" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Engine/Core/Core/RegisterAssembly.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+          <folding>
+            <marker date="1560023190976" expanded="true" signature="78:429" ph="{...}" />
+            <marker date="1560023190976" expanded="true" signature="85:253" ph="/// This exists purely because c## does something weird where it won't ... " />
+            <marker date="1560023190976" expanded="true" signature="294:427" ph="{...}" />
+            <marker date="1560023190976" expanded="true" signature="379:412" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/ServiceExtensions.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+          <folding>
+            <marker date="1560023190967" expanded="true" signature="84:264" ph="{...}" />
+            <marker date="1560023190967" expanded="true" signature="128:262" ph="{...}" />
+            <marker date="1560023190967" expanded="true" signature="214:247" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/GraphController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="6" column="42" lean-forward="true" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+          <folding>
+            <marker date="1561516697505" expanded="false" signature="6:233" ph="..." />
+            <marker date="1561516697505" expanded="true" signature="272:1501" ph="{...}" />
+            <marker date="1561516697505" expanded="true" signature="392:1499" ph="{...}" />
+            <marker date="1561516697505" expanded="true" signature="525:581" ph="{...}" />
+            <marker date="1561516697505" expanded="true" signature="673:765" ph="{...}" />
+            <marker date="1561516697505" expanded="true" signature="858:936" ph="{...}" />
+            <marker date="1561516697505" expanded="true" signature="1049:1119" ph="{...}" />
+            <marker date="1561516697505" expanded="true" signature="1244:1314" ph="{...}" />
+            <marker date="1561516697505" expanded="true" signature="1403:1493" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/AccountController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="72" column="13" lean-forward="true" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="13" />
+          <folding>
+            <marker date="1562032696088" expanded="true" signature="6:462" ph="..." />
+            <marker date="1562032696088" expanded="true" signature="501:3911" ph="{...}" />
+            <marker date="1562032696088" expanded="true" signature="623:3909" ph="{...}" />
+            <marker date="1562032696088" expanded="true" signature="741:801" ph="{...}" />
+            <marker date="1562032696088" expanded="true" signature="1129:1374" ph="{...}" />
+            <marker date="1562032696088" expanded="true" signature="1155:1245" ph="{...}" />
+            <marker date="1562032696088" expanded="true" signature="1290:1364" ph="{...}" />
+            <marker date="1562032696088" expanded="true" signature="1649:2096" ph="{...}" />
+            <marker date="1562032696088" expanded="true" signature="1675:1848" ph="{...}" />
+            <marker date="1562032696088" expanded="true" signature="1892:1967" ph="{...}" />
+            <marker date="1562032696088" expanded="true" signature="2019:2086" ph="{...}" />
+            <marker date="1562032696088" expanded="true" signature="2218:2473" ph="{...}" />
+            <marker date="1562032696088" expanded="true" signature="2244:2355" ph="{...}" />
+            <marker date="1562032696088" expanded="true" signature="2388:2463" ph="{...}" />
+            <marker date="1562032696088" expanded="true" signature="2747:3233" ph="{...}" />
+            <marker date="1562032696088" expanded="true" signature="2773:2985" ph="{...}" />
+            <marker date="1562032696088" expanded="true" signature="3029:3104" ph="{...}" />
+            <marker date="1562032696088" expanded="true" signature="3156:3223" ph="{...}" />
+            <marker date="1562032696088" expanded="true" signature="3304:3757" ph="{...}" />
+            <marker date="1562032696088" expanded="true" signature="3363:3446" ph="{...}" />
+            <marker date="1562032696088" expanded="true" signature="3477:3525" ph="{...}" />
+            <marker date="1562032696088" expanded="true" signature="3545:3628" ph="{...}" />
+            <marker date="1562032696088" expanded="true" signature="3693:3745" ph="{...}" />
+            <marker date="1562032696088" expanded="true" signature="3858:3903" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Common/Data/User.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <marker date="1562034962121" expanded="true" signature="6:47" ph="..." />
+            <marker date="1562034962121" expanded="true" signature="79:310" ph="{...}" />
+            <marker date="1562034962121" expanded="true" signature="103:308" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Services/Data/IGraphManagerService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding>
+            <marker date="1562031997239" expanded="false" signature="6:120" ph="..." />
+            <marker date="1562031997239" expanded="true" signature="154:279" ph="{...}" />
+            <marker date="1562031997239" expanded="true" signature="198:277" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Common/Data/Interfaces/ITerminalHubService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Services/Services/TerminalHubService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Services/Services/GraphManagerService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <marker date="1562118776772" expanded="false" signature="6:490" ph="..." />
+            <marker date="1562118776772" expanded="true" signature="519:2893" ph="{...}" />
+            <marker date="1562118776772" expanded="true" signature="581:2891" ph="{...}" />
+            <marker date="1562118776772" expanded="true" signature="986:1159" ph="{...}" />
+            <marker date="1562118776772" expanded="true" signature="1239:2049" ph="{...}" />
+            <marker date="1562118776772" expanded="true" signature="2145:2885" ph="{...}" />
+            <marker date="1562118776772" expanded="true" signature="2195:2875" ph="{...}" />
+            <marker date="1562118776772" expanded="true" signature="2560:2672" ph="{...}" />
+            <marker date="1562118776772" expanded="true" signature="2746:2861" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Services/Services/LogService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Program.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+          <folding>
+            <marker date="1559183139101" expanded="false" signature="6:271" ph="..." />
+            <marker date="1559183139101" expanded="true" signature="298:652" ph="{...}" />
+            <marker date="1559183139101" expanded="true" signature="325:650" ph="{...}" />
+            <marker date="1559183139101" expanded="true" signature="378:452" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Startup.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="173" column="63" lean-forward="true" selection-start-line="173" selection-start-column="63" selection-end-line="173" selection-end-column="63" />
+          <folding>
+            <marker date="1562031997172" expanded="false" signature="6:916" ph="..." />
+            <marker date="1562031997172" expanded="true" signature="943:7585" ph="{...}" />
+            <marker date="1562031997172" expanded="true" signature="970:7583" ph="{...}" />
+            <marker date="1562031997172" expanded="true" signature="1165:1259" ph="{...}" />
+            <marker date="1562031997172" expanded="true" signature="1428:5974" ph="{...}" />
+            <marker date="1562031997172" expanded="true" signature="1694:1871" ph="{...}" />
+            <marker date="1562031997172" expanded="true" signature="2278:2813" ph="{...}" />
+            <marker date="1562031997172" expanded="true" signature="2883:3091" ph="{...}" />
+            <marker date="1562031997172" expanded="true" signature="3150:4542" ph="{...}" />
+            <marker date="1562031997172" expanded="true" signature="3362:3984" ph="{...}" />
+            <marker date="1562031997172" expanded="true" signature="4063:4523" ph="{...}" />
+            <marker date="1562031997172" expanded="true" signature="4144:4501" ph="{...}" />
+            <marker date="1562031997172" expanded="true" signature="4298:4419" ph="{...}" />
+            <marker date="1562031997172" expanded="true" signature="4710:4822" ph="{...}" />
+            <marker date="1562031997172" expanded="true" signature="4950:5068" ph="{...}" />
+            <marker date="1562031997172" expanded="true" signature="5124:5815" ph="{...}" />
+            <marker date="1562031997172" expanded="true" signature="5305:5374" ph="{...}" />
+            <marker date="1562031997172" expanded="true" signature="5460:5747" ph="{...}" />
+            <marker date="1562031997172" expanded="true" signature="5874:5962" ph="{...}" />
+            <marker date="1562031997172" expanded="true" signature="6236:7577" ph="{...}" />
+            <marker date="1562031997172" expanded="true" signature="6400:6521" ph="{...}" />
+            <marker date="1562031997172" expanded="true" signature="6577:6695" ph="{...}" />
+            <marker date="1562031997172" expanded="true" signature="7122:7251" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Services/Data/Mappers/IMapper.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Services/Services/UserService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <marker date="1562119179309" expanded="true" signature="6:419" ph="..." />
+            <marker date="1562119179309" expanded="true" signature="448:4361" ph="{...}" />
+            <marker date="1562119179309" expanded="true" signature="494:4359" ph="{...}" />
+            <marker date="1562119179309" expanded="true" signature="848:994" ph="{...}" />
+            <marker date="1562119179309" expanded="true" signature="1066:1744" ph="{...}" />
+            <marker date="1562119179309" expanded="true" signature="1432:1680" ph="{...}" />
+            <marker date="1562119179309" expanded="true" signature="1830:2313" ph="{...}" />
+            <marker date="1562119179309" expanded="true" signature="1914:1992" ph="{...}" />
+            <marker date="1562119179309" expanded="true" signature="2122:2245" ph="{...}" />
+            <marker date="1562119179309" expanded="true" signature="2370:2496" ph="{...}" />
+            <marker date="1562119179309" expanded="true" signature="2580:2831" ph="{...}" />
+            <marker date="1562119179309" expanded="true" signature="2865:2934" ph="{...}" />
+            <marker date="1562119179309" expanded="true" signature="2977:2997" ph="{...}" />
+            <marker date="1562119179309" expanded="true" signature="3038:3058" ph="{...}" />
+            <marker date="1562119179309" expanded="true" signature="3095:3164" ph="{...}" />
+            <marker date="1562119179309" expanded="true" signature="3198:3267" ph="{...}" />
+            <marker date="1562119179309" expanded="true" signature="3333:3416" ph="{...}" />
+            <marker date="1562119179309" expanded="true" signature="3489:3613" ph="{...}" />
+            <marker date="1562119179309" expanded="true" signature="3682:3801" ph="{...}" />
+            <marker date="1562119179309" expanded="true" signature="3870:4353" ph="{...}" />
+            <marker date="1562119179309" expanded="true" signature="4088:4342" ph="{...}" />
+            <marker date="1562119179309" expanded="true" signature="4143:4296" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Services/Services/Mappers/Mapper.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Data/Dto/MacroDtos/MacroDto.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding>
+            <marker date="1561516697407" expanded="false" signature="6:250" ph="..." />
+            <marker date="1561516697407" expanded="true" signature="289:990" ph="{...}" />
+            <marker date="1561516697407" expanded="true" signature="317:988" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Common/Extensions/ClaimExtensions.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding>
+            <marker date="1562034122884" expanded="false" signature="6:173" ph="..." />
+            <marker date="1562034122884" expanded="true" signature="211:1727" ph="{...}" />
+            <marker date="1562034122884" expanded="true" signature="253:1725" ph="{...}" />
+            <marker date="1562034122884" expanded="true" signature="328:397" ph="{...}" />
+            <marker date="1562034122884" expanded="true" signature="475:733" ph="{...}" />
+            <marker date="1562034122884" expanded="true" signature="589:684" ph="{...}" />
+            <marker date="1562034122884" expanded="true" signature="812:880" ph="{...}" />
+            <marker date="1562034122884" expanded="true" signature="959:1044" ph="{...}" />
+            <marker date="1562034122884" expanded="true" signature="1118:1189" ph="{...}" />
+            <marker date="1562034122884" expanded="true" signature="1271:1363" ph="{...}" />
+            <marker date="1562034122884" expanded="true" signature="1455:1527" ph="{...}" />
+            <marker date="1562034122884" expanded="true" signature="1624:1719" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Services/Data/Repositories/IMacroRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+          <folding>
+            <marker date="1561516697492" expanded="false" signature="6:112" ph="..." />
+            <marker date="1561516697492" expanded="true" signature="159:464" ph="{...}" />
+            <marker date="1561516697492" expanded="true" signature="199:462" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Services/Services/Repositories/MacroRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="568">
+          <caret line="39" column="15" selection-start-line="39" selection-start-column="15" selection-end-line="39" selection-end-column="15" />
+          <folding>
+            <marker date="1562119395872" expanded="true" signature="6:247" ph="..." />
+            <marker date="1562119395872" expanded="true" signature="289:1336" ph="{...}" />
+            <marker date="1562119395872" expanded="true" signature="362:1334" ph="{...}" />
+            <marker date="1562119395872" expanded="true" signature="442:462" ph="{...}" />
+            <marker date="1562119395872" expanded="true" signature="526:631" ph="{...}" />
+            <marker date="1562119395872" expanded="true" signature="685:793" ph="{...}" />
+            <marker date="1562119395872" expanded="true" signature="858:998" ph="{...}" />
+            <marker date="1562119395872" expanded="true" signature="1065:1232" ph="{...}" />
+            <marker date="1562119395872" expanded="true" signature="1279:1328" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Services/Services/Repositories/Repository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+          <folding>
+            <marker date="1561516697501" expanded="false" signature="6:323" ph="..." />
+            <marker date="1561516697501" expanded="true" signature="365:2316" ph="{...}" />
+            <marker date="1561516697501" expanded="true" signature="458:2314" ph="{...}" />
+            <marker date="1561516697501" expanded="true" signature="639:690" ph="{...}" />
+            <marker date="1561516697501" expanded="true" signature="736:782" ph="{...}" />
+            <marker date="1561516697501" expanded="true" signature="878:942" ph="{...}" />
+            <marker date="1561516697501" expanded="true" signature="979:1049" ph="{...}" />
+            <marker date="1561516697501" expanded="true" signature="1097:1172" ph="{...}" />
+            <marker date="1561516697501" expanded="true" signature="1216:1400" ph="{...}" />
+            <marker date="1561516697501" expanded="true" signature="1457:1618" ph="{...}" />
+            <marker date="1561516697501" expanded="true" signature="1671:1838" ph="{...}" />
+            <marker date="1561516697501" expanded="true" signature="1890:1979" ph="{...}" />
+            <marker date="1561516697501" expanded="true" signature="2016:2114" ph="{...}" />
+            <marker date="1561516697501" expanded="true" signature="2141:2203" ph="{...}" />
+            <marker date="1561516697501" expanded="true" signature="2241:2308" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/MacroController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="7" column="42" lean-forward="true" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+          <folding>
+            <marker date="1562120112288" expanded="false" signature="6:263" ph="..." />
+            <marker date="1562120112288" expanded="true" signature="302:1555" ph="{...}" />
+            <marker date="1562120112288" expanded="true" signature="422:1553" ph="{...}" />
+            <marker date="1562120112288" expanded="true" signature="554:622" ph="{...}" />
+            <marker date="1562120112288" expanded="true" signature="700:788" ph="{...}" />
+            <marker date="1562120112288" expanded="true" signature="879:959" ph="{...}" />
+            <marker date="1562120112288" expanded="true" signature="1067:1155" ph="{...}" />
+            <marker date="1562120112288" expanded="true" signature="1274:1362" ph="{...}" />
+            <marker date="1562120112288" expanded="true" signature="1451:1547" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="568">
+          <caret line="45" column="44" selection-start-line="45" selection-start-column="44" selection-end-line="45" selection-end-column="44" />
+          <folding>
+            <marker date="1562119295310" expanded="true" signature="6:258" ph="..." />
+            <marker date="1562119295310" expanded="true" signature="300:1607" ph="{...}" />
+            <marker date="1562119295310" expanded="true" signature="394:1605" ph="{...}" />
+            <marker date="1562119295310" expanded="true" signature="474:494" ph="{...}" />
+            <marker date="1562119295310" expanded="true" signature="559:643" ph="{...}" />
+            <marker date="1562119295310" expanded="true" signature="713:818" ph="{...}" />
+            <marker date="1562119295310" expanded="true" signature="903:1041" ph="{...}" />
+            <marker date="1562119295310" expanded="true" signature="1100:1267" ph="{...}" />
+            <marker date="1562119295310" expanded="true" signature="1320:1503" ph="{...}" />
+            <marker date="1562119295310" expanded="true" signature="1550:1599" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Services/Services/TokenService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <marker date="1562119215725" expanded="true" signature="6:312" ph="..." />
+            <marker date="1562119215725" expanded="true" signature="341:1846" ph="{...}" />
+            <marker date="1562119215725" expanded="true" signature="389:1844" ph="{...}" />
+            <marker date="1562119215725" expanded="true" signature="606:724" ph="{...}" />
+            <marker date="1562119215725" expanded="true" signature="834:1829" ph="{...}" />
+            <marker date="1562119215725" expanded="true" signature="898:1209" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Services/Services/MacroManagerService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2115">
+          <caret line="145" column="3" selection-end-line="145" selection-end-column="3" />
+          <folding>
+            <marker date="1562119201543" expanded="true" signature="0:6424" ph="/* using System; ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <marker date="1562120939559" expanded="true" signature="6:316" ph="..." />
+            <marker date="1562120939559" expanded="true" signature="345:1407" ph="{...}" />
+            <marker date="1562120939559" expanded="true" signature="389:1405" ph="{...}" />
+            <marker date="1562120939559" expanded="true" signature="468:1125" ph="{...}" />
+            <marker date="1562120939559" expanded="true" signature="1208:1399" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Services/Services/Hubs/TerminalHub.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="21" selection-start-line="21" selection-end-line="31" selection-end-column="9" />
+          <folding>
+            <marker date="1562121412890" expanded="false" signature="6:219" ph="..." />
+            <marker date="1562121412890" expanded="true" signature="253:1610" ph="{...}" />
+            <marker date="1562121412890" expanded="true" signature="306:1608" ph="{...}" />
+            <marker date="1562121412890" expanded="true" signature="416:466" ph="{...}" />
+            <marker date="1562121412890" expanded="true" signature="523:682" ph="{...}" />
+            <marker date="1562121412890" expanded="true" signature="753:929" ph="{...}" />
+            <marker date="1562121412890" expanded="true" signature="987:1082" ph="{...}" />
+            <marker date="1562121412890" expanded="true" signature="1153:1253" ph="{...}" />
+            <marker date="1562121412890" expanded="true" signature="1323:1422" ph="{...}" />
+            <marker date="1562121412890" expanded="true" signature="1493:1593" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="68" selection-start-line="38" selection-start-column="62" selection-end-line="38" selection-end-column="68" />
+          <folding>
+            <marker date="1562123495665" expanded="true" signature="6:261" ph="..." />
+            <marker date="1562123495665" expanded="true" signature="295:1391" ph="{...}" />
+            <marker date="1562123495665" expanded="true" signature="345:1389" ph="{...}" />
+            <marker date="1562123495665" expanded="true" signature="454:504" ph="{...}" />
+            <marker date="1562123495665" expanded="true" signature="553:712" ph="{...}" />
+            <marker date="1562123495665" expanded="true" signature="783:959" ph="{...}" />
+            <marker date="1562123495665" expanded="true" signature="1011:1140" ph="{...}" />
+            <marker date="1562123495665" expanded="true" signature="1218:1383" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>

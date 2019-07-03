@@ -8,4 +8,9 @@
     <PackageReference Include="Microsoft.Extensions.Http" Version="2.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\Nodester.Data.csproj" />
+    <ProjectReference Include="..\..\Services\Data\Nodester.Services.Data.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -4,14 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Mapster;
 using Nodester.Common.Data;
+using Nodester.Common.Data.Interfaces;
 using Nodester.Data.Dto.ComponentDtos;
 using Nodester.Data.Dto.GraphDtos;
+using Nodester.Engine.Data;
+using Nodester.Engine.Data.Nodes;
 using Nodester.Graph.Core;
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Nodes;
 using Nodester.Graph.Core.Fields.Graph;
 using Nodester.Services.Data;
-using Nodester.Services.Data.Hubs;
 using Nodester.Services.Data.Repositories;
 using Nodester.Services.Extensions;
 
@@ -23,33 +23,30 @@ namespace Nodester.Services
         private readonly IMacroManagerService _macroManager;
         private readonly ITerminalHubService _terminal;
         private readonly IServiceProvider _provider;
-        private readonly IUserService _userService;
 
         public GraphManagerService(IServiceProvider serviceProvider, ITerminalHubService terminal,
-            IMacroManagerService macroManager, IGraphRepository graphRepo, IUserService userService)
+            IMacroManagerService macroManager, IGraphRepository graphRepo)
         {
             _terminal = terminal;
             _provider = serviceProvider;
             _macroManager = macroManager;
             _graphRepo = graphRepo;
-            _userService = userService;
         }
 
         public async Task<IFlowGraph> BuildGraph(User user, RunGraphDto graph)
         {
-            var userConstants = await _userService.GetConstantsAsync(Guid.Parse(user.Id));
             var graphConstants = await _graphRepo.GetConstantsAsync(graph.Id);
-            var combinedConstants = userConstants.Concat(graphConstants);
-            var constantDictionary = combinedConstants.ToDictionary(k => k.Key, x => x.Adapt<Constant>());
+            var constantDictionary =
+                graphConstants.ToDictionary(k => k.Key, x => x.Adapt<Constant>());
 
-            await _terminal.SendDebugLogAsync(user, "Constructing nodes...", graph.IsDebugModeEnabled);
+            await _terminal.DebugLogAsync(user, "Constructing nodes...", graph.IsDebugModeEnabled);
             var nodes = await graph.Nodes.ToNodeDictionaryAsync(_provider, _macroManager, user, constantDictionary);
 
-            await _terminal.SendDebugLogAsync(user, "Establishing links between nodes...", graph.IsDebugModeEnabled);
+            await _terminal.DebugLogAsync(user, "Establishing links between nodes...", graph.IsDebugModeEnabled);
             EstablishLinks(nodes, graph.Links);
-            
+
             var newGraph = new FlowGraph(nodes, constantDictionary, user);
-            await _terminal.SendDebugLogAsync(user, "Graph successfully built!", graph.IsDebugModeEnabled);
+            await _terminal.DebugLogAsync(user, "Graph successfully built!", graph.IsDebugModeEnabled);
 
             return newGraph;
         }
@@ -74,6 +71,5 @@ namespace Nodester.Services
                 }
             }
         }
-
     }
 }

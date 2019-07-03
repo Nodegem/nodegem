@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Nodester.Graph.Core.Data.Fields;
-using Nodester.Graph.Core.Data.Nodes;
+using Nodester.Engine.Data.Fields;
+using Nodester.Engine.Data.Nodes;
 
-namespace Nodester.Graph.Core.Data
+namespace Nodester.Engine.Data
 {
     public interface IMacroGraph : IGraph
     {

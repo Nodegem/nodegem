@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using Bridge.Data.Dtos;
+using Nodester.Data.Dto;
 
 namespace Bridge.Data
 {

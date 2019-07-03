@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Nodester.Graph.Core.Data;
+using Nodester.Engine.Data;
 
 namespace Nodester.Data.Models.Json_Models
 {

@@ -26,12 +26,15 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="appsettings.Local.json">
+    <None Update="appsettings.Development.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\Nodester.Data.csproj" />
+    <ProjectReference Include="..\..\Services\Data\Nodester.Services.Data.csproj" />
+    <ProjectReference Include="..\..\Services\Services\Nodester.Services.csproj" />
     <ProjectReference Include="..\Data\Bridge.Data.csproj" />
   </ItemGroup>
 

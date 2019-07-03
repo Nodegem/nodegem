@@ -1,7 +1,7 @@
 using Nodester.Common.Extensions;
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Attributes;
-using Nodester.Graph.Core.Data.Fields;
+using Nodester.Engine.Data;
+using Nodester.Engine.Data.Attributes;
+using Nodester.Engine.Data.Fields;
 
 namespace Nodester.Graph.Core.Essential
 {

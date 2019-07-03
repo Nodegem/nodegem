@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Nodester.Common.Data;
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Nodes;
+using Nodester.Engine.Data;
+using Nodester.Engine.Data.Nodes;
 
 namespace Nodester.Graph.Core
 {

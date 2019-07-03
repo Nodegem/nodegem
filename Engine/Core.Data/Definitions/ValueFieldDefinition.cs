@@ -1,4 +1,4 @@
-namespace Nodester.Graph.Core.Data.Definitions
+namespace Nodester.Engine.Data.Definitions
 {
     public class ValueFieldDefinition : FieldDefinition
     {

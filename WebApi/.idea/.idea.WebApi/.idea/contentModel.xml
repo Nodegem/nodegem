@@ -8,7 +8,7 @@
       <e p="Data" t="Include">
         <e p="Constant.cs" t="Include" />
         <e p="Interfaces" t="Include">
-          <e p="ILogService.cs" t="Include" />
+          <e p="ITerminalHubService.cs" t="Include" />
         </e>
         <e p="User.cs" t="Include" />
       </e>
@@ -336,12 +336,8 @@
       <e p="bin" t="ExcludeRecursive" />
       <e p="IGraphManagerService.cs" t="Include" />
       <e p="IMacroManagerService.cs" t="Include" />
-      <e p="ITerminalHubService.cs" t="Include" />
       <e p="ITokenService.cs" t="Include" />
       <e p="IUserService.cs" t="Include" />
-      <e p="Mappers" t="Include">
-        <e p="IMapper.cs" t="Include" />
-      </e>
       <e p="Nodester.Services.Data.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
@@ -374,11 +370,7 @@
         <e p="GraphHub.cs" t="Include" />
         <e p="TerminalHub.cs" t="Include" />
       </e>
-      <e p="LogService.cs" t="Include" />
       <e p="MacroManagerService.cs" t="Include" />
-      <e p="Mappers" t="Include">
-        <e p="Mapper.cs" t="Include" />
-      </e>
       <e p="NodeCache.cs" t="Include" />
       <e p="Nodester.Services.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
@@ -395,7 +387,6 @@
         <e p="TokenRepository.cs" t="Include" />
       </e>
       <e p="ServiceExtensions.cs" t="Include" />
-      <e p="TerminalHubService.cs" t="Include" />
       <e p="TokenService.cs" t="Include" />
       <e p="UserService.cs" t="Include" />
     </e>
@@ -449,6 +440,7 @@
       </e>
       <e p="Startup.cs" t="Include" />
       <e p="WebApi.sln" t="IncludeFlat" />
+      <e p="WebApi.sln.DotSettings" t="Include" />
     </e>
   </component>
 </project>

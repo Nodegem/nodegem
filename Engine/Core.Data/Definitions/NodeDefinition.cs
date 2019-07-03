@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Nodester.Graph.Core.Data.Definitions
+namespace Nodester.Engine.Data.Definitions
 {
     public class NodeDefinition
     {

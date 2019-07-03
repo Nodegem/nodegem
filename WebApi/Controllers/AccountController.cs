@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -5,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Nodester.Common.Extensions;
 using Nodester.Data.Dto;
+using Nodester.Data.Dto.ComponentDtos;
 using Nodester.Data.Dto.UserDtos;
 using Nodester.Services.Data;
 using Nodester.Services.Exceptions;
@@ -63,7 +65,20 @@ namespace Nodester.WebApi.Controllers
                 return Unauthorized();
             }
         }
-        
+
+        [HttpGet("constants")]
+        public async Task<ActionResult<IEnumerable<ConstantDto>>> GetUserConstantsAsync()
+        {
+            try
+            {
+                return Ok(await _userService.GetConstantsAsync(User.GetUserId()));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [AllowAnonymous]
         [HttpGet("token")]
         [ProducesResponseType(200, Type = typeof(TokenUserDto))]

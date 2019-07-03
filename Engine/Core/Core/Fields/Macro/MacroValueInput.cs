@@ -1,5 +1,5 @@
 using System;
-using Nodester.Graph.Core.Data.Fields;
+using Nodester.Engine.Data.Fields;
 using Nodester.Graph.Core.Fields.Graph;
 
 namespace Nodester.Graph.Core.Fields.Macro

@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.Linq;
 using Mapster;
 using Nodester.Services.Data;
-using Nodester.Services.Data.Mappers;
 using Nodester.Services.Exceptions;
 using Nodester.Services.Exceptions.Login;
 using Microsoft.EntityFrameworkCore;
@@ -18,30 +17,23 @@ namespace Nodester.Services
 {
     public class UserService : IUserService
     {
-        private IMapper<ApplicationUser, RegisterDto> _registerMapper;
-        private IMapper<ApplicationUser, UserDto> _userMapper;
-
         private SignInManager<ApplicationUser> _signInManager;
         private UserManager<ApplicationUser> _userManager;
         private ITokenService _tokenService;
 
         public UserService(
-            IMapper<ApplicationUser, RegisterDto> signInMapper,
-            IMapper<ApplicationUser, UserDto> userMapper,
             SignInManager<ApplicationUser> signInManager,
             UserManager<ApplicationUser> userManager,
             ITokenService tokenService)
         {
-            _registerMapper = signInMapper;
             _signInManager = signInManager;
-            _userMapper = userMapper;
             _userManager = userManager;
             _tokenService = tokenService;
         }
 
         public async Task<TokenUserDto> RegisterAsync(RegisterDto dto)
         {
-            var registerUser = _registerMapper.ToModel(dto);
+            var registerUser = dto.Adapt<ApplicationUser>();
 
             var time = DateTime.UtcNow;
             registerUser.CreatedOn = time;
@@ -81,7 +73,7 @@ namespace Nodester.Services
 
         public async Task<UserDto> GetUser(Guid userId)
         {
-            return _userMapper.ToDto(await _userManager.Users.SingleOrDefaultAsync(x => x.Id == userId));
+            return (await _userManager.Users.SingleOrDefaultAsync(x => x.Id == userId)).Adapt<UserDto>();
         }
 
         public async Task<IEnumerable<ConstantDto>> GetConstantsAsync(Guid userId)
@@ -134,7 +126,7 @@ namespace Nodester.Services
         private TokenUserDto GetUserWithToken(ApplicationUser user)
         {
             var (accessToken, expires) = _tokenService.GenerateJwtToken(user.Email, user.UserName, user.Id);
-            var userDto = _userMapper.ToDto(user);
+            var userDto = user.Adapt<UserDto>();
 
             return new TokenUserDto
             {

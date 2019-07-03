@@ -1,7 +1,7 @@
 using Nodester.Common.Data.Interfaces;
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Attributes;
-using Nodester.Graph.Core.Data.Fields;
+using Nodester.Engine.Data;
+using Nodester.Engine.Data.Attributes;
+using Nodester.Engine.Data.Fields;
 using Nodester.Graph.Core.Fields.Graph;
 using ValueInput = Nodester.Graph.Core.Fields.Graph.ValueInput;
 
@@ -15,9 +15,9 @@ namespace Nodester.Graph.Core.Nodes.Logging
         [FieldAttributes(Type = ValueType.TextArea)]
         public ValueInput Message { get; private set; }
 
-        protected ILogService LogService;
+        protected ITerminalHubService LogService { get; }
 
-        protected BaseLog(ILogService logService)
+        protected BaseLog(ITerminalHubService logService)
         {
             LogService = logService;
         }

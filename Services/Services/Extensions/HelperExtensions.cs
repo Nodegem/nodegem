@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Nodester.Common.Data;
 using Nodester.Data.Dto.ComponentDtos;
-using Nodester.Graph.Core.Data.Nodes;
+using Nodester.Engine.Data.Nodes;
 using Nodester.Graph.Core.Nodes.Graph;
 using Nodester.Services.Data;
 

@@ -1,6 +1,6 @@
-using Nodester.Graph.Core.Data.Fields;
+using Nodester.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Data.Links
+namespace Nodester.Engine.Data.Links
 {
     public interface ILink<out TSource, out TDest> where TSource : IField where TDest : IField
     {

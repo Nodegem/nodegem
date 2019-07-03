@@ -20,8 +20,8 @@ using NLog.Web;
 using Nodester.Data.Contexts;
 using Nodester.Data.Models;
 using Nodester.Data.Settings;
-using Nodester.Hubs;
 using Nodester.Services;
+using Nodester.Services.Hubs;
 using Swashbuckle.AspNetCore.Swagger;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
@@ -115,7 +115,7 @@ namespace Nodester.WebApi
                     options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
                 });
 
-            services.AddServices(Configuration);
+            services.AddServices();
 
             services.AddCors();
             services.AddSignalR(options =>

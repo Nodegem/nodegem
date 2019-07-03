@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Nodester.Common.Extensions;
-using Nodester.Graph.Core.Data.Attributes;
-using Nodester.Graph.Core.Data.Definitions;
-using Nodester.Graph.Core.Data.Nodes;
+using Nodester.Engine.Data.Attributes;
+using Nodester.Engine.Data.Definitions;
+using Nodester.Engine.Data.Nodes;
 
 namespace Nodester.Services
 {

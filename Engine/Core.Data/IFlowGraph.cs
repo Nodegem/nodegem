@@ -1,7 +1,6 @@
-using Nodester.Graph.Core.Data.Fields;
-using Nodester.Graph.Core.Data.Links;
+using Nodester.Engine.Data.Links;
 
-namespace Nodester.Graph.Core.Data
+namespace Nodester.Engine.Data
 {
     public interface IFlowGraph : IGraph
     {

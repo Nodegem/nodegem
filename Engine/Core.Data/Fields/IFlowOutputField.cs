@@ -1,6 +1,6 @@
-using Nodester.Graph.Core.Data.Links;
+using Nodester.Engine.Data.Links;
 
-namespace Nodester.Graph.Core.Data.Fields
+namespace Nodester.Engine.Data.Fields
 {
     public interface IFlowOutputField : IFlowField
     {

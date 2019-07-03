@@ -1,6 +1,6 @@
 using System;
 
-namespace Nodester.Graph.Core.Data.Attributes
+namespace Nodester.Engine.Data.Attributes
 {
     [AttributeUsage(AttributeTargets.Property)]
     public class FieldAttributesAttribute : Attribute

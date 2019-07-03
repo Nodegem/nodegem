@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Nodester.Common.Data;
-using Nodester.Graph.Core.Data;
+using Nodester.Engine.Data;
+using Nodester.Engine.Data.Exceptions;
+using Nodester.Engine.Data.Links;
+using Nodester.Engine.Data.Nodes;
 using Nodester.Graph.Core.Extensions;
-using Nodester.Graph.Core.Data.Exceptions;
-using Nodester.Graph.Core.Data.Links;
-using Nodester.Graph.Core.Data.Nodes;
 using Nodester.Graph.Core.Essential;
 
 namespace Nodester.Graph.Core

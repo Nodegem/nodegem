@@ -1,4 +1,4 @@
-namespace Nodester.Graph.Core.Data.Fields
+namespace Nodester.Engine.Data.Fields
 {
     public interface IMacroValueInputField : IValueOutputField
     {

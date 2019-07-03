@@ -1,11 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Nodester.Graph.Core.Data.Definitions;
-using Nodester.Graph.Core.Data.Fields;
-using Nodester.Graph.Core.Data.Links;
+using Nodester.Engine.Data.Definitions;
+using Nodester.Engine.Data.Fields;
+using Nodester.Engine.Data.Links;
 
-namespace Nodester.Graph.Core.Data.Nodes
+namespace Nodester.Engine.Data.Nodes
 {
     public interface INode
     {

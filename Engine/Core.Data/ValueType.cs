@@ -1,4 +1,4 @@
-namespace Nodester.Graph.Core.Data
+namespace Nodester.Engine.Data
 {
     public enum ValueType
     {

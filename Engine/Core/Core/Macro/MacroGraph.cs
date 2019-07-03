@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using Nodester.Common.Data;
 using Nodester.Common.Extensions;
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Fields;
-using Nodester.Graph.Core.Data.Nodes;
+using Nodester.Engine.Data;
+using Nodester.Engine.Data.Fields;
+using Nodester.Engine.Data.Nodes;
 using Nodester.Graph.Core.Fields.Macro;
 
 namespace Nodester.Graph.Core.Macro
@@ -21,8 +21,8 @@ namespace Nodester.Graph.Core.Macro
         private readonly MacroFlow _flow;
 
         public MacroGraph(Dictionary<Guid, INode> nodes,
-            IEnumerable<MacroFlowInput> flowInputs, IEnumerable<MacroFlowOutput> flowOutputs,
-            IEnumerable<MacroValueInput> valueInputs, IEnumerable<MacroValueOutput> valueOutputs,
+            IEnumerable<IMacroFlowInputField> flowInputs, IEnumerable<IMacroFlowOutputField> flowOutputs,
+            IEnumerable<IMacroValueInputField> valueInputs, IEnumerable<IMacroValueOutputField> valueOutputs,
             IDictionary<string, IField> fieldDictionary,
             User user)
             : base(nodes, user)

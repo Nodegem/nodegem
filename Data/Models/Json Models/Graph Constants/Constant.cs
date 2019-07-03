@@ -1,5 +1,5 @@
 using System;
-using ValueType = Nodester.Graph.Core.Data.ValueType;
+using ValueType = Nodester.Engine.Data.ValueType;
 
 namespace Nodester.Data.Models.Json_Models.Graph_Constants
 {

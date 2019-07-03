@@ -1,5 +1,5 @@
 using Nodester.Common.Data.Interfaces;
-using Nodester.Graph.Core.Data.Attributes;
+using Nodester.Engine.Data.Attributes;
 
 namespace Nodester.Graph.Core.Nodes.Logging
 {
@@ -7,13 +7,13 @@ namespace Nodester.Graph.Core.Nodes.Logging
     [NodeNamespace("Core.Logging")]
     public class LogError : BaseLog
     {
-        public LogError(ILogService logService) : base(logService)
+        public LogError(ITerminalHubService logService) : base(logService)
         {
         }
 
         protected override void ExecuteLog(string message)
         {
-            LogService.SendErrorLogAsync(Graph.User, message);
+            LogService.ErrorLogAsync(Graph.User, message);
         }
     }
 }
