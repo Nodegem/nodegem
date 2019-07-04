@@ -24,7 +24,6 @@ migrate_stage:
         ASPNETCORE_ENVIRONMENT: Staging
         ConnectionStrings__nodesterDb: $STAGE_DB
     script:
-        - printenv
         - cd WebApi/ && dotnet ef database update --context NodesterDbContext
     only:
         - develop
