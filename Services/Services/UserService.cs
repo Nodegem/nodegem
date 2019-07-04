@@ -18,9 +18,9 @@ namespace Nodester.Services
 {
     public class UserService : IUserService
     {
-        private SignInManager<ApplicationUser> _signInManager;
-        private UserManager<ApplicationUser> _userManager;
-        private ITokenService _tokenService;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ITokenService _tokenService;
 
         public UserService(
             SignInManager<ApplicationUser> signInManager,
@@ -115,7 +115,9 @@ namespace Nodester.Services
 
         private ApplicationUser FindUser(string userName, string email)
         {
-            return _userManager.Users.SingleOrDefault(x => x.UserName == userName || x.Email == email);
+            return _userManager.Users.SingleOrDefault(x =>
+                string.Equals(x.UserName, userName, StringComparison.CurrentCultureIgnoreCase) ||
+                string.Equals(x.Email, email, StringComparison.CurrentCultureIgnoreCase));
         }
 
         private async Task UpdateLastLoggedIn(ApplicationUser user)
