@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/Bridge.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/Bridge.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/HubConnections/GraphHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/HubConnections/GraphHubConnection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -274,12 +276,12 @@
       <workItem from="1561950894397" duration="215000" />
       <workItem from="1561951386923" duration="1278000" />
       <workItem from="1562019763060" duration="16385000" />
-      <workItem from="1562190933581" duration="9255000" />
+      <workItem from="1562190933581" duration="10072000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27443000" />
+    <option name="totallyTimeSpent" value="28260000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -292,7 +294,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="2552" y="-8" width="2576" height="1416" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16050854" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />

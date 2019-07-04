@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Bridge.Data;
 using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.Extensions.Options;
-using Nodester.Common.Data;
 using Nodester.Data.Dto.GraphDtos;
 using Nodester.Data.Dto.MacroDtos;
 
