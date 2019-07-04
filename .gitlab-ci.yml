@@ -13,7 +13,7 @@ stages:
 build_project:
     stage: build
     script:
-        - dotnet build $PROJECT_NAME.sln
+        - cd WebApi/ && dotnet build WebApi.sln
     only:
         - develop
         - master
@@ -24,7 +24,7 @@ migrate_stage:
         ASPNETCORE_ENVIRONMENT: Staging
         ConnectionStrings__nodesterDb: $STAGE_DB
     script:
-        - cd $PROJECT_NAME.WebApi/ && dotnet ef database update --context NodesterDbContext
+        - cd WebApi/ && dotnet ef database update --context NodesterDbContext
     only:
         - develop
 

@@ -2,33 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbc70a65-0271-4a7a-995d-0bc022bc22ed" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogDebug.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/AppState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/AppState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/BackgroundServices/EngineService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/BackgroundServices/EngineService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/Coordinator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/Coordinator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/HubConnections/GraphHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/HubConnections/GraphHubConnection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/Services/GraphBuildService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/Services/GraphBuildService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/Services/MacroBuildService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/Services/MacroBuildService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/IBuildGraphService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/IBuildGraphService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/IBuildMacroService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/IBuildMacroService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Common/Extensions/ClaimExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Extensions/ClaimExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Dto/GraphDtos/RunGraphDto.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Dto/MacroDtos/RunMacroDto.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Models/ApplicationUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Models/ApplicationUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Data/IGraphManagerService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Data/IMacroManagerService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Data/ITokenService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Data/ITokenService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Services/Extensions/HelperExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Services/GraphManagerService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Services/MacroManagerService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Services/TokenService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/TokenService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitlab-ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApi/Controllers/GraphController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Controllers/GraphController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApi/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Startup.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +17,7 @@
         <entry file="file://$PROJECT_DIR$/Bridge/Program.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="726">
-              <caret line="49" column="20" lean-forward="true" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+              <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
               <folding>
                 <marker date="1562122025136" expanded="true" signature="6:444" ph="..." />
                 <marker date="1562122025136" expanded="true" signature="471:3614" ph="{...}" />
@@ -86,8 +61,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Bridge/Coordinator.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="480">
+              <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
               <folding>
                 <marker date="1562211007641" expanded="true" signature="6:118" ph="..." />
                 <marker date="1562211007641" expanded="true" signature="145:1101" ph="{...}" />
@@ -118,7 +93,7 @@
         <entry file="file://$PROJECT_DIR$/Bridge/Services/MacroBuildService.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
-              <caret line="42" column="50" lean-forward="true" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
+              <caret line="42" column="50" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
               <folding>
                 <marker date="1562211422437" expanded="true" signature="6:490" ph="..." />
                 <marker date="1562211422437" expanded="true" signature="526:7025" ph="{...}" />
@@ -323,53 +298,10 @@
               <item name="" type="784c90a0:SolutionExplorerRootNode" />
               <item name="Bridge" type="24d0babc:SolutionExplorerModelNode" />
             </path>
-            <path>
-              <item name="" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="Bridge" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Libraries" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="Bridge" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Libraries" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Nodester.Common" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="Bridge" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Libraries" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Nodester.Common" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Data" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="Bridge" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Libraries" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Nodester.Common" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Extensions" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="Bridge" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Libraries" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Nodester.Engine.Data" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="Bridge" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Libraries" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Nodester.Engine.Data" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Exceptions" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="Bridge" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Bridge" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
           </expand>
           <select />
         </subPane>
-        <option name="show-all-files" value="false" />
+        <option name="show-all-files" value="true" />
       </pane>
       <pane id="FileSystemExplorer" />
       <pane id="AssemblyExplorer" />
@@ -427,12 +359,12 @@
       <updated>1561952312084</updated>
       <workItem from="1561952313705" duration="349000" />
       <workItem from="1562021202044" duration="18711000" />
-      <workItem from="1562190929517" duration="7913000" />
+      <workItem from="1562190929517" duration="8891000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26973000" />
+    <option name="totallyTimeSpent" value="27951000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -446,13 +378,13 @@
   <component name="ToolWindowManager">
     <frame x="2552" y="-8" width="2576" height="1416" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12872468" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12872468" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3299923" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.22050887" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.22050887" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -1111,7 +1043,7 @@
     <entry file="file://$PROJECT_DIR$/Bridge/Services/MacroBuildService.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="42" column="50" lean-forward="true" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
+          <caret line="42" column="50" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
           <folding>
             <marker date="1562211422437" expanded="true" signature="6:490" ph="..." />
             <marker date="1562211422437" expanded="true" signature="526:7025" ph="{...}" />
@@ -1193,7 +1125,7 @@
     <entry file="file://$PROJECT_DIR$/Bridge/Program.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="726">
-          <caret line="49" column="20" lean-forward="true" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+          <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
           <folding>
             <marker date="1562122025136" expanded="true" signature="6:444" ph="..." />
             <marker date="1562122025136" expanded="true" signature="471:3614" ph="{...}" />
@@ -1209,8 +1141,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Bridge/Coordinator.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="480">
+          <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
           <folding>
             <marker date="1562211007641" expanded="true" signature="6:118" ph="..." />
             <marker date="1562211007641" expanded="true" signature="145:1101" ph="{...}" />
