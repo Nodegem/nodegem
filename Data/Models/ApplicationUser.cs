@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
-using Nodester.Data.Models.Json_Models;
 using Nodester.Data.Models.Json_Models.Graph_Constants;
 
 namespace Nodester.Data.Models
@@ -19,7 +18,7 @@ namespace Nodester.Data.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        public IEnumerable<Constant> Constants { get; set; }
+        public IEnumerable<Constant> Constants { get; set; } = new List<Constant>();
 
         [NotMapped] public string FullName => $"{FirstName} {LastName}";
 

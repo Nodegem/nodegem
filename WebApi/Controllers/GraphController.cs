@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Nodester.Common.Extensions;
@@ -28,9 +29,9 @@ namespace Nodester.WebApi.Controllers
         }
 
         [HttpGet("{graphId}")]
-        public ActionResult<GraphDto> GetGraph(Guid graphId)
+        public async Task<ActionResult<GraphDto>> GetGraph(Guid graphId)
         {
-            return Ok(_graphRepo.GetGraphAsync(graphId));
+            return Ok(await _graphRepo.GetGraphAsync(graphId));
         }
 
         [HttpPost("create")]

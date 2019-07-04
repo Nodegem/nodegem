@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using Nodester.Common.Data;
 using Nodester.Common.Extensions;
 using Nodester.Data.Dto.GraphDtos;
 
@@ -23,5 +25,13 @@ namespace Nodester.Bridge
         public string Password { get; set; }
         
         public IEnumerable<GraphDto> Graphs { get; set; }
+
+        public User User => new User
+        {
+            Id = UserId.ToString(),
+            Email = Email,
+            Username = Username,
+            Constants = Token.Claims.GetConstants().ToDictionary(k => k.Key, v => v)
+        };
     }
 }

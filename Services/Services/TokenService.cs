@@ -5,39 +5,47 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using Nodester.Common.Extensions;
 using Nodester.Data.Settings;
 using Nodester.Services.Data;
-using Nodester.Services.Data.Repositories;
 
 namespace Nodester.Services
 {
     public class TokenService : ITokenService
     {
-        private ITokenRepository _tokenRepository;
-        private TokenSettings _tokenSettings;
-
-        public TokenService(ITokenRepository tokenRepository,
-            IOptions<TokenSettings> tokenSettings)
+        private static readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings
         {
-            _tokenRepository = tokenRepository;
+            NullValueHandling = NullValueHandling.Ignore,
+            ContractResolver = new CamelCasePropertyNamesContractResolver()
+        };
+
+        private readonly TokenSettings _tokenSettings;
+
+        public TokenService(IOptions<TokenSettings> tokenSettings)
+        {
             _tokenSettings = tokenSettings.Value;
         }
 
-        public (string token, DateTime expires) GenerateJwtToken(string email, string username, Guid userId)
+        public (string token, DateTime expires) GenerateJwtToken(string email, string username, Guid userId,
+            IEnumerable<Common.Data.Constant> constants)
         {
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Sub, email),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.NameId, userId.ToString()),
-                new Claim(JwtRegisteredClaimNames.UniqueName, username)
+                new Claim(JwtRegisteredClaimNames.UniqueName, username),
+                new Claim(ClaimExtensions.ConstantClaimId,
+                    JsonConvert.SerializeObject(constants ?? new List<Common.Data.Constant>(), SerializerSettings))
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenSettings.Key));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var expires = DateTime.UtcNow.AddSeconds(_tokenSettings.Expiration);
 
-            var token = new JwtSecurityToken(                             
+            var token = new JwtSecurityToken(
                 _tokenSettings.Issuer,
                 _tokenSettings.Audience,
                 claims,
@@ -47,6 +55,5 @@ namespace Nodester.Services
 
             return (new JwtSecurityTokenHandler().WriteToken(token), expires);
         }
-        
     }
 }

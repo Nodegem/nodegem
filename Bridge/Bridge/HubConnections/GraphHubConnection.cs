@@ -32,7 +32,7 @@ namespace Nodester.Bridge.HubConnections
                 ExecuteGraphEvent?.Invoke(graph);
             });
             
-            _connection.On<MacroDto, string>("RemoteExecuteGraph", (macro, inputId) =>
+            _connection.On<MacroDto, string>("RemoteExecuteMacro", (macro, inputId) =>
             {
                 ExecuteMacroEvent?.Invoke(macro, inputId);
             });

@@ -19,6 +19,7 @@ namespace Nodester.Bridge.BackgroundServices
         private readonly INodesterLoginService _loginService;
         private readonly INodesterGraphService _graphService;
         private readonly IBuildGraphService _buildGraphService;
+        private readonly IBuildMacroService _buildMacroService;
         private readonly ITerminalHubConnection _terminalHubConnection;
 
         private Coordinator _coordinator;
@@ -27,6 +28,7 @@ namespace Nodester.Bridge.BackgroundServices
             IGraphHubConnection connection,
             INodesterLoginService loginService, INodesterGraphService graphService,
             IServiceProvider provider, IBuildGraphService buildGraphService,
+            IBuildMacroService buildMacroService,
             ITerminalHubConnection terminalHubConnection)
         {
             _logger = logger;
@@ -36,6 +38,7 @@ namespace Nodester.Bridge.BackgroundServices
             _graphService = graphService;
             _buildGraphService = buildGraphService;
             _terminalHubConnection = terminalHubConnection;
+            _buildMacroService = buildMacroService;
             
             Initialize(provider);
         }
@@ -57,10 +60,7 @@ namespace Nodester.Bridge.BackgroundServices
             _logger.LogInformation("Retrieving Graphs...");
             AppState.Instance.Graphs = await _graphService.GetGraphsAsync();
 
-            var test = await _buildGraphService.BuildGraph(AppState.Instance.Graphs.First());
-            test.Run();
-            
-            _coordinator = new Coordinator(_graphConnection, _buildGraphService);
+            _coordinator = new Coordinator(_graphConnection, _buildGraphService, _buildMacroService);
 
             await base.StartAsync(cancellationToken);
         }

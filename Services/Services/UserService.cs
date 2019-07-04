@@ -10,6 +10,7 @@ using Nodester.Services.Data;
 using Nodester.Services.Exceptions;
 using Nodester.Services.Exceptions.Login;
 using Microsoft.EntityFrameworkCore;
+using Nodester.Common.Data;
 using Nodester.Data.Dto;
 using Nodester.Data.Dto.ComponentDtos;
 
@@ -125,7 +126,9 @@ namespace Nodester.Services
 
         private TokenUserDto GetUserWithToken(ApplicationUser user)
         {
-            var (accessToken, expires) = _tokenService.GenerateJwtToken(user.Email, user.UserName, user.Id);
+            var (accessToken, expires) =
+                _tokenService.GenerateJwtToken(user.Email, user.UserName, user.Id,
+                    user.Constants?.Select(x => x.Adapt<Constant>()));
             var userDto = user.Adapt<UserDto>();
 
             return new TokenUserDto

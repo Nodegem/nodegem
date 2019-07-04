@@ -8,7 +8,7 @@ namespace Bridge.Data
 {
     public interface IBuildMacroService
     {
-        Task ExecuteMacroAsync(User user, MacroDto macro);
+        Task ExecuteMacroAsync(User user, MacroDto macro, string flowInputFieldId);
 
         Task<IMacroGraph> BuildMacroAsync(User user, Guid macroId);
         

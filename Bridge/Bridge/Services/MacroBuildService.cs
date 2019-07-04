@@ -6,9 +6,9 @@ using Bridge.Data;
 using Microsoft.Extensions.Logging;
 using Nodester.Bridge.Extensions;
 using Nodester.Common.Data;
-using Nodester.Common.Data.Interfaces;
 using Nodester.Data.Dto.MacroDtos;
 using Nodester.Engine.Data;
+using Nodester.Engine.Data.Exceptions;
 using Nodester.Engine.Data.Fields;
 using Nodester.Engine.Data.Nodes;
 using Nodester.Graph.Core.Fields.Macro;
@@ -22,19 +22,32 @@ namespace Nodester.Bridge.Services
         private readonly ILogger<MacroBuildService> _logger;
         private readonly IServiceProvider _provider;
         private readonly INodesterGraphService _graphService;
-        private readonly ITerminalHubService _terminal;
 
         public MacroBuildService(IServiceProvider serviceProvider,
-            INodesterGraphService graphService, ITerminalHubService terminal, ILogger<MacroBuildService> logger)
+            INodesterGraphService graphService, ILogger<MacroBuildService> logger)
         {
             _provider = serviceProvider;
             _graphService = graphService;
-            _terminal = terminal;
             _logger = logger;
         }
 
-        public async Task ExecuteMacroAsync(User user, MacroDto macro)
+        public async Task ExecuteMacroAsync(User user, MacroDto macro, string flowInputFieldId)
         {
+            try
+            {
+                var compiledMacro = await BuildMacroAsync(user, macro);
+                compiledMacro.Run(flowInputFieldId);
+            }
+            catch (GraphException ex)
+            {
+                _logger.LogError($"Error during macro run with macro ID: {macro.Id}", ex);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong running macro with ID: {macro.Id}", ex);
+                throw;
+            }
         }
 
         public async Task<IMacroGraph> BuildMacroAsync(User user, Guid id)
@@ -52,27 +65,35 @@ namespace Nodester.Bridge.Services
 
         public async Task<IMacroGraph> BuildMacroAsync(User user, MacroDto macro)
         {
-            var nodes = await macro.Nodes.ToNodeDictionaryAsync(_provider, this, user);
-
-            var fields = BuildFields(macro);
-            var fieldDictionary = fields.FieldDictionary;
-
-            // Filter out links that are connected to field "nodes"
-            var fieldNodes = macro.Nodes.Where(n => n.MacroFieldId.HasValue).ToList();
-            var links = macro.Links.Select(x => new MacroLinkDto
+            try
             {
-                SourceNode = fieldNodes.Any(f => f.Id == x.SourceNode) ? null : x.SourceNode,
-                SourceKey = x.SourceKey,
-                DestinationNode = fieldNodes.Any(f => f.Id == x.DestinationNode) ? null : x.DestinationNode,
-                DestinationKey = x.DestinationKey
-            });
+                var nodes = await macro.Nodes.ToNodeDictionaryAsync(_provider, this, user);
 
-            EstablishConnections(nodes, fieldDictionary, links);
+                var fields = BuildFields(macro);
+                var fieldDictionary = fields.FieldDictionary;
 
-            var builtMacro = new MacroGraph(nodes, fields.FlowInputs, fields.FlowOutputs,
-                fields.ValueInputs, fields.ValueOutputs, fieldDictionary, user);
+                // Filter out links that are connected to field "nodes"
+                var fieldNodes = macro.Nodes.Where(n => n.MacroFieldId.HasValue).ToList();
+                var links = macro.Links.Select(x => new MacroLinkDto
+                {
+                    SourceNode = fieldNodes.Any(f => f.Id == x.SourceNode) ? null : x.SourceNode,
+                    SourceKey = x.SourceKey,
+                    DestinationNode = fieldNodes.Any(f => f.Id == x.DestinationNode) ? null : x.DestinationNode,
+                    DestinationKey = x.DestinationKey
+                });
 
-            return builtMacro;
+                EstablishConnections(nodes, fieldDictionary, links);
+
+                var builtMacro = new MacroGraph(nodes, fields.FlowInputs, fields.FlowOutputs,
+                    fields.ValueInputs, fields.ValueOutputs, fieldDictionary, user);
+
+                return builtMacro;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error building macro with ID: {macro.Id}", ex);
+                throw;
+            }
         }
 
         private void EstablishConnections(IDictionary<Guid, INode> nodes,

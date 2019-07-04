@@ -4,11 +4,16 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
+using Nodester.Common.Data;
 
 namespace Nodester.Common.Extensions
 {
     public static class ClaimExtensions
     {
+
+        public const string ConstantClaimId = "constantData";
+        
         public static Guid GetUserId(this ClaimsPrincipal principal)
         {
             return principal.Claims.GetUserId();
@@ -23,6 +28,12 @@ namespace Nodester.Common.Extensions
             }
 
             return Guid.Parse(claim);
+        }
+
+        public static IEnumerable<Constant> GetConstants(this IEnumerable<Claim> claims)
+        {
+            var constants = claims.GetClaim(ConstantClaimId);
+            return JsonConvert.DeserializeObject<IEnumerable<Constant>>(constants);
         }
         
         public static string GetEmail(this ClaimsPrincipal principal)

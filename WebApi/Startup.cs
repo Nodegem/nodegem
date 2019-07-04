@@ -145,7 +145,11 @@ namespace Nodester.WebApi
 
             services.AddLogging(logging =>
             {
-                logging.AddConsole();
+                if (Environment.IsDevelopment())
+                {
+                    logging.AddConsole();
+                }
+                
                 logging.AddNLog();
             });
         }
