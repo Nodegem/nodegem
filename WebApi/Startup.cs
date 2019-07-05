@@ -192,7 +192,7 @@ namespace Nodester.WebApi
 
             app.UseMvc();
 
-            NodeCache.CacheNodeData(provider, Configuration.GetValue<string>("ProjectName"));
+            NodeCache.CacheNodeData(provider);
 
             nodesterContext.Database.EnsureCreated();
         }

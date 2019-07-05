@@ -6,6 +6,7 @@ namespace Nodester.Engine.Data
 {
     public interface IGraph
     {
+        string Name { get; }
 
         User User { get; }
         

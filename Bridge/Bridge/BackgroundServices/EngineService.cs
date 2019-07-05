@@ -45,7 +45,7 @@ namespace Nodester.Bridge.BackgroundServices
 
         private static void Initialize(IServiceProvider provider)
         {
-            NodeCache.CacheNodeData(provider, "Nodester");            
+            NodeCache.CacheNodeData(provider);            
         }
 
         public override async Task StartAsync(CancellationToken cancellationToken)

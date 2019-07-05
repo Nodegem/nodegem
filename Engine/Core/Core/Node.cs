@@ -17,8 +17,6 @@ namespace Nodester.Graph.Core
 {
     public abstract class Node : INode
     {
-        protected CachedValue CachedValue { get; set; }
-
         public IGraph Graph { get; private set; }
         public Type Type { get; }
         public string Title => GetNodeTitle();
@@ -60,7 +58,6 @@ namespace Nodester.Graph.Core
 
         protected void Initialize()
         {
-            CachedValue = new CachedValue();
             FlowInputs = new List<IFlowInputField>();
             FlowOutputs = new List<IFlowOutputField>();
             ValueInputs = new List<IValueInputField>();

@@ -18,9 +18,9 @@ namespace Nodester.Services
         public static IReadOnlyDictionary<string, Type> NodeCategoryTypeMapper => _nodeCategoryTypeMapper;
         public static IReadOnlyList<NodeDefinition> NodeDefinitions => _nodeDefinitions;
 
-        public static void CacheNodeData(IServiceProvider provider, string projectName)
+        public static void CacheNodeData(IServiceProvider provider)
         {
-            var allNodeTypes = RetrieveAllNodeTypes(projectName).ToList();
+            var allNodeTypes = RetrieveAllNodeTypes().ToList();
             _nodeTypeMapper = allNodeTypes.ToDictionary(k => k, GetNodeTypeMap);
             _nodeCategoryTypeMapper = _nodeTypeMapper
                 .ToDictionary(k => CreateKey(k.Key), v => v.Key);
@@ -34,9 +34,9 @@ namespace Nodester.Services
             return $"{@namespace}.{name}";
         }
 
-        private static IEnumerable<Type> RetrieveAllNodeTypes(string projectName)
+        private static IEnumerable<Type> RetrieveAllNodeTypes()
         {
-            var assemblies = GetAssemblies(projectName);
+            var assemblies = GetAssemblies();
             var assemblyTypes = assemblies.SelectMany(x => x.GetTypes()).ToList();
             assemblyTypes.RemoveAll(FilterUnwantedTypes);
             return assemblyTypes;
@@ -77,10 +77,9 @@ namespace Nodester.Services
                 : new Type[0];
         }
         
-        private static IEnumerable<Assembly> GetAssemblies(string projectName)
+        private static IEnumerable<Assembly> GetAssemblies()
         {
-            var test = AppDomain.CurrentDomain.GetAssemblies();
-            return AppDomain.CurrentDomain.GetAssemblies().Where(x => x.FullName.StartsWith(projectName));
+            return AppDomain.CurrentDomain.GetAssemblies();
         }
     }
 }

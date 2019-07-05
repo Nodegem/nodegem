@@ -26,7 +26,6 @@ namespace Nodester.Graph.Core.Nodes.HTTP
 
         private FlowOutput FetchData(IFlow flow)
         {
-            CachedValue.SetValue(RetrieveData(flow));
             return Out;
         }
 

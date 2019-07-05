@@ -13,7 +13,7 @@ namespace Nodester.Graph.Core.Nodes.Logging
 
         protected override void ExecuteLog(string message)
         {
-            LogService.DebugLogAsync(Graph.User, message, true);
+            LogService.DebugLogAsync(Graph.User, message, Graph.DebugMode);
         }
     }
 }

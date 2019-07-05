@@ -8,6 +8,8 @@ namespace Nodester.Graph.Core
 {
     public abstract class BaseGraph : IGraph
     {
+        
+        public string Name { get; }
         public User User { get; }
         public bool DebugMode { get; set; } 
         
@@ -15,6 +17,7 @@ namespace Nodester.Graph.Core
         protected Dictionary<Guid, INode> Nodes { get; }
 
         protected BaseGraph(
+            string name,
             Dictionary<Guid, INode> nodes,
             User user)
         {

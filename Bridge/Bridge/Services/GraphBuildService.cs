@@ -36,6 +36,7 @@ namespace Nodester.Bridge.Services
             try
             {
                 var compiledGraph = await BuildGraphAsync(user, graph);
+                compiledGraph.DebugMode = graph.IsDebugModeEnabled;
                 compiledGraph.Run();
             }
             catch (GraphException ex)
@@ -62,7 +63,7 @@ namespace Nodester.Bridge.Services
 
                 EstablishLinks(nodes, graph.Links);
 
-                return new FlowGraph(nodes, constantDictionary, user);
+                return new FlowGraph(graph.Name, nodes, constantDictionary, user);
             }
             catch (Exception ex)
             {

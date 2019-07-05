@@ -36,6 +36,7 @@ namespace Nodester.Bridge.Services
             try
             {
                 var compiledMacro = await BuildMacroAsync(user, macro);
+                compiledMacro.DebugMode = macro.IsDebugModeEnabled;
                 compiledMacro.Run(flowInputFieldId);
             }
             catch (GraphException ex)
@@ -84,7 +85,7 @@ namespace Nodester.Bridge.Services
 
                 EstablishConnections(nodes, fieldDictionary, links);
 
-                var builtMacro = new MacroGraph(nodes, fields.FlowInputs, fields.FlowOutputs,
+                var builtMacro = new MacroGraph(macro.Name, nodes, fields.FlowInputs, fields.FlowOutputs,
                     fields.ValueInputs, fields.ValueOutputs, fieldDictionary, user);
 
                 return builtMacro;

@@ -16,8 +16,12 @@ namespace Nodester.Graph.Core
         private readonly IFlow _flow;
         private Dictionary<Guid, Constant> Constants { get; }
 
-        public FlowGraph(Dictionary<Guid, INode> nodes, Dictionary<Guid, Constant> constants, User user)
-            : base(nodes, user)
+        public FlowGraph(
+            string name,
+            Dictionary<Guid, INode> nodes, 
+            Dictionary<Guid, Constant> constants, 
+            User user)
+            : base(name, nodes, user)
         {
             _flow = new Flow();
             Constants = constants;
