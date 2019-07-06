@@ -11,6 +11,8 @@ namespace Nodester.Graph.Core
     public class Flow : IFlow
     {
         private Stack<Guid> LoopIds { get; }
+        
+        public bool IsRunningLocally { get; set; }
 
         private Guid CurrentLoop => LoopIds.Any() ? LoopIds.Peek() : Guid.Empty;
 

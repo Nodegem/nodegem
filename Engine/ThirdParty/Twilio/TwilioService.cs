@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
-using Nodester.ThirdParty.Twilio.Twilio.Data;
+using ThirdParty.Data.Twilio;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
 
-namespace Nodester.ThirdParty.Twilio.Twilio.Nodes
+namespace Nodester.ThirdParty.Twilio
 {
     public class TwilioService : ITwilioService
     {

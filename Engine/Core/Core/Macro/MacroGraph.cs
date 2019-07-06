@@ -18,7 +18,7 @@ namespace Nodester.Graph.Core.Macro
 
         private IDictionary<string, IField> FieldDictionary { get; }
 
-        private readonly MacroFlow _flow;
+        private readonly IMacroFlow _flow;
 
         public MacroGraph(
             string name,
@@ -57,14 +57,14 @@ namespace Nodester.Graph.Core.Macro
             return (IMacroValueOutputField) FieldDictionary[key];
         }
 
-        public void Run(string flowInputFieldKey)
+        public void Run(string flowInputFieldKey, bool isLocal = false)
         {
-            Run(GetInputByKey(flowInputFieldKey));
+            Run(GetInputByKey(flowInputFieldKey), isLocal);
         }
 
-        public void Run(IMacroFlowInputField input)
+        public void Run(IMacroFlowInputField input, bool isLocal = false)
         {
-            _flow.Run(input);
+            _flow.Run(input, isLocal);
         }
 
         public T GetValue<T>(string key)

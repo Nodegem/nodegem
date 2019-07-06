@@ -14,8 +14,9 @@ namespace Nodester.Graph.Core.Macro
             _flow = new Flow();
         }
 
-        public void Run(IMacroFlowInputField start)
+        public void Run(IMacroFlowInputField start, bool isLocal = false)
         {
+            _flow.IsRunningLocally = isLocal;
             var startConnection = start.Connection?.Destination;
             if (startConnection == null)
             {

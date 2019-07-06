@@ -4,8 +4,9 @@ using Nodester.Graph.Core.Nodes;
 using Nodester.Services.Data;
 using Nodester.Services.Data.Repositories;
 using Nodester.Services.Repositories;
-using Nodester.ThirdParty.SendGrid.SendGrid.Nodes;
-using Nodester.ThirdParty.Twilio.Twilio.Nodes;
+using Nodester.ThirdParty.Discord;
+using Nodester.ThirdParty.SendGrid;
+using Nodester.ThirdParty.Twilio;
 
 namespace Nodester.Services
 {
@@ -21,18 +22,21 @@ namespace Nodester.Services
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<ITokenService, TokenService>();
 
-            services.RegisterMySelf();
-            services.ApplyNodeServices();
-            services.ApplyTwilioServices();
-            services.ApplySendGridServices();
+            services.RegisterCommonServices();
         }
 
         public static void AddServicesForBridge(this IServiceCollection services)
+        {
+            services.RegisterCommonServices();
+        }
+
+        private static void RegisterCommonServices(this IServiceCollection services)
         {
             services.RegisterMySelf();
             services.ApplyNodeServices();
             services.ApplyTwilioServices();
             services.ApplySendGridServices();
+            services.ApplyDiscordServices();
         }
     }
 }

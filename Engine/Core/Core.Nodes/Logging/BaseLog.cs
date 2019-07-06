@@ -31,10 +31,10 @@ namespace Nodester.Graph.Core.Nodes.Logging
 
         private IFlowOutputField PerformLog(IFlow flow)
         {
-            ExecuteLog(flow.GetValue<string>(Message));
+            ExecuteLog(flow.GetValue<string>(Message), !flow.IsRunningLocally);
             return Out;
         }
 
-        protected abstract void ExecuteLog(string message);
+        protected abstract void ExecuteLog(string message, bool sendToClient);
     }
 }

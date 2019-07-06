@@ -21,7 +21,7 @@ namespace Nodester.Graph.Core.Nodes.HTTP
             Out = AddFlowOutput(nameof(Out));
 
             Url = AddValueInput<string>(nameof(Url));
-            Data = AddValueOutput<object>(nameof(Data), RetrieveData);
+            Data = AddValueOutput(nameof(Data), RetrieveData);
         }
 
         private FlowOutput FetchData(IFlow flow)
@@ -31,7 +31,6 @@ namespace Nodester.Graph.Core.Nodes.HTTP
 
         private object RetrieveData(IFlow flow)
         {
-            // TODO: Should probably use httpclientfactory
             using (var client = new HttpClient())
             {
                 return client.GetAsync(flow.GetValue<string>(Url)).Result.Content.ReadAsStringAsync().Result;

@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using Nodester.Common.Data;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Nodes;
 
 namespace Nodester.Graph.Core
 {
+
     public abstract class BaseGraph : IGraph
     {
         
@@ -21,6 +23,7 @@ namespace Nodester.Graph.Core
             Dictionary<Guid, INode> nodes,
             User user)
         {
+            Name = name;
             Nodes = nodes;
             Variables = new Dictionary<string, object>();
             User = user;

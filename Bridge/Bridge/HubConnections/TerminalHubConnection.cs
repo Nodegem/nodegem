@@ -42,31 +42,43 @@ namespace Nodester.Bridge.HubConnections
             Task.FromResult(_connection.DisposeAsync());
         }
 
-        public async Task LogAsync(User user, string message)
+        public async Task LogAsync(User user, string message, bool sendToClient)
         {
             _logger.LogInformation(message, user);
-            await _connection.InvokeAsync("Log", user, message);
+            if (sendToClient)
+            {
+                await _connection.InvokeAsync("Log", user, message);
+            }
         }
 
-        public async Task DebugLogAsync(User user, string message, bool isDebug)
+        public async Task DebugLogAsync(User user, string message, bool isDebug, bool sendToClient)
         {
             if (isDebug)
             {
                 _logger.LogDebug(message, user);
-                await _connection.InvokeAsync("DebugLog", user, message);
+                if (sendToClient)
+                {
+                    await _connection.InvokeAsync("DebugLog", user, message);
+                }
             }
         }
 
-        public async Task WarnLogAsync(User user, string message)
+        public async Task WarnLogAsync(User user, string message, bool sendToClient)
         {
             _logger.LogWarning(message, user);
-            await _connection.InvokeAsync("WarnLog", user, message);
+            if (sendToClient)
+            {
+                await _connection.InvokeAsync("WarnLog", user, message);
+            }
         }
 
-        public async Task ErrorLogAsync(User user, string message)
+        public async Task ErrorLogAsync(User user, string message, bool sendToClient)
         {
             _logger.LogError(message, user);
-            await _connection.InvokeAsync("ErrorLog", user, message);
+            if (sendToClient)
+            {
+                await _connection.InvokeAsync("ErrorLog", user, message);
+            }
         }
     }
 }

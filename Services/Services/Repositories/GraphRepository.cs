@@ -6,6 +6,7 @@ using Mapster;
 using Nodester.Data.Contexts;
 using Nodester.Data.Dto.ComponentDtos;
 using Nodester.Data.Dto.GraphDtos;
+using Nodester.Data.Models;
 using Nodester.Services.Data.Repositories;
 
 namespace Nodester.Services.Repositories
@@ -41,6 +42,11 @@ namespace Nodester.Services.Repositories
 
         public GraphDto UpdateGraph(GraphDto graph)
         {
+            if (graph.Type != ExecutionType.Recurring)
+            {
+                graph.RecurringOptions = null;
+            }
+            
             var graphModel = graph.Adapt<Nodester.Data.Models.Graph>();
             Update(graph.Id, graphModel);
             return graphModel.Adapt<GraphDto>();

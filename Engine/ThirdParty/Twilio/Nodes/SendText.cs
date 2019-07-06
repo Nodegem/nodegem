@@ -3,9 +3,9 @@ using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
 using Nodester.Graph.Core;
 using Nodester.Graph.Core.Fields.Graph;
-using Nodester.ThirdParty.Twilio.Twilio.Data;
+using ThirdParty.Data.Twilio;
 
-namespace Nodester.ThirdParty.Twilio.Twilio.Nodes.Nodes
+namespace Nodester.ThirdParty.Twilio.Nodes
 {
     [DefinedNode("Send Text")]
     [NodeNamespace("Third Party.Twilio")]

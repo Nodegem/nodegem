@@ -50,13 +50,14 @@ namespace Nodester.Graph.Core
             return default;
         }
 
-        public void Run()
+        public void Run(bool isLocal = false)
         {
             if (!Nodes.TryGetValueOfType(typeof(Start), out var start))
             {
                 throw new StartNotFoundException(this);
             }
 
+            _flow.IsRunningLocally = isLocal;
             _flow.Run(((Start) start.Value).StartFlow);
         }
 

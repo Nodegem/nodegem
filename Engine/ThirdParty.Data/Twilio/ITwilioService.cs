@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Nodester.ThirdParty.Twilio.Twilio.Data
+namespace ThirdParty.Data.Twilio
 {
     public interface ITwilioService
     {

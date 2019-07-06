@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
-using Nodester.ThirdParty.SendGrid.SendGrid.Data;
 using SendGrid;
 using SendGrid.Helpers.Mail;
+using ThirdParty.Data.SendGrid;
 
-namespace Nodester.ThirdParty.SendGrid.SendGrid.Nodes
+namespace Nodester.ThirdParty.SendGrid
 {
     public class SendGridService : ISendGridService
     {

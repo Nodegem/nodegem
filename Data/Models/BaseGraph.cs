@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using Nodester.Data.Models.Json_Models;
-using Nodester.Data.Models.Json_Models.Graph_Constants;
 
 namespace Nodester.Data.Models
 {
+    
     public abstract class BaseGraph : ActiveEntity
     {
         public Guid UserId { get; set; }

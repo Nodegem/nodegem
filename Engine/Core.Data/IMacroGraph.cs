@@ -6,11 +6,11 @@ namespace Nodester.Engine.Data
 {
     public interface IMacroGraph : IGraph
     {
-        void Run(string flowInputFieldKey);
+        void Run(string flowInputFieldKey, bool isLocal = false);
         INode ToMacroNode();
         void PopulateInputsWithNewDefaults(IEnumerable<FieldData> fieldData);
         IMacroFlowInputField GetInputByKey(string key);
         IMacroValueOutputField GetOutputByKey(string key);
-        void Run(IMacroFlowInputField input);
+        void Run(IMacroFlowInputField input, bool isLocal = false);
     }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using Nodester.Common.Data;
 using Nodester.Common.Extensions;
 using Nodester.Data.Dto.GraphDtos;
+using Nodester.Data.Models;
 
 namespace Nodester.Bridge
 {
@@ -23,8 +24,12 @@ namespace Nodester.Bridge
         public string Environment { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        
-        public IEnumerable<GraphDto> Graphs { get; set; }
+
+        public IEnumerable<GraphDto> Graphs => GraphLookUp.Values;
+        public IDictionary<Guid, GraphDto> GraphLookUp { get; set; }
+
+        public IEnumerable<GraphDto> RecurringGraphs => Graphs.Where(x => x.Type == ExecutionType.Recurring);
+        public IEnumerable<GraphDto> ListenerGraphs => Graphs.Where(x => x.Type == ExecutionType.Listener);
 
         public User User => new User
         {

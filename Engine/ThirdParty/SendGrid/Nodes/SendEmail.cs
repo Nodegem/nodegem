@@ -3,9 +3,9 @@ using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
 using Nodester.Graph.Core;
 using Nodester.Graph.Core.Fields.Graph;
-using Nodester.ThirdParty.SendGrid.SendGrid.Data;
+using ThirdParty.Data.SendGrid;
 
-namespace Nodester.ThirdParty.SendGrid.SendGrid.Nodes.Nodes
+namespace Nodester.ThirdParty.SendGrid.Nodes
 {
     [DefinedNode("Send Email")]
     [NodeNamespace("Third Party.SendGrid")]

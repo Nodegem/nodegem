@@ -1,7 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
-using Nodester.ThirdParty.SendGrid.SendGrid.Data;
+using ThirdParty.Data.SendGrid;
 
-namespace Nodester.ThirdParty.SendGrid.SendGrid.Nodes
+namespace Nodester.ThirdParty.SendGrid
 {
     public static class ServiceExtensions
     {

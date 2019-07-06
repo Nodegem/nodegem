@@ -40,8 +40,8 @@ namespace Nodester.WebApi.Controllers
             return _graphRepo.CreateGraph(graph);
         }
 
-        [HttpPut("update/{graphId}")]
-        public ActionResult<GraphDto> Update(Guid graphId, [FromBody] GraphDto graph)
+        [HttpPut("update")]
+        public ActionResult<GraphDto> Update([FromBody] GraphDto graph)
         {
             return _graphRepo.UpdateGraph(graph);
         }

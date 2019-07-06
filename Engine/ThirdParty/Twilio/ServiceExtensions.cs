@@ -1,7 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
-using Nodester.ThirdParty.Twilio.Twilio.Data;
+using ThirdParty.Data.Twilio;
 
-namespace Nodester.ThirdParty.Twilio.Twilio.Nodes
+namespace Nodester.ThirdParty.Twilio
 {
     public static class ServiceExtensions
     {

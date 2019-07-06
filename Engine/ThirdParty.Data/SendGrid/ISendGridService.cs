@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Nodester.ThirdParty.SendGrid.SendGrid.Data
+namespace ThirdParty.Data.SendGrid
 {
     public interface ISendGridService
     {

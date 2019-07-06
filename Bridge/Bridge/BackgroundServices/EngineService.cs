@@ -39,18 +39,17 @@ namespace Nodester.Bridge.BackgroundServices
             _buildGraphService = buildGraphService;
             _terminalHubConnection = terminalHubConnection;
             _buildMacroService = buildMacroService;
-            
+
             Initialize(provider);
         }
 
         private static void Initialize(IServiceProvider provider)
         {
-            NodeCache.CacheNodeData(provider);            
+            NodeCache.CacheNodeData(provider);
         }
 
         public override async Task StartAsync(CancellationToken cancellationToken)
         {
-
             _logger.LogInformation("Starting...");
 
             _logger.LogInformation("Establishing Connection...");
@@ -58,19 +57,17 @@ namespace Nodester.Bridge.BackgroundServices
             _logger.LogInformation("Connected!!");
 
             _logger.LogInformation("Retrieving Graphs...");
-            AppState.Instance.Graphs = await _graphService.GetGraphsAsync();
+            AppState.Instance.GraphLookUp = (await _graphService.GetGraphsAsync()).ToDictionary(k => k.Id, v => v);
 
             _coordinator = new Coordinator(_graphConnection, _buildGraphService, _buildMacroService);
+            await _coordinator.InitializeAsync();
 
             await base.StartAsync(cancellationToken);
         }
-        
+
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            while (!stoppingToken.IsCancellationRequested)
-            {
-                await Task.Delay(TimeSpan.FromSeconds(1), stoppingToken);
-            }
+            await _coordinator.ManageGraphsAsync(stoppingToken);
         }
 
         public override async Task StopAsync(CancellationToken cancellationToken)
@@ -84,8 +81,9 @@ namespace Nodester.Bridge.BackgroundServices
         public override void Dispose()
         {
             _logger.LogInformation("Disposing Service...");
-            _graphConnection.Dispose();
-            _terminalHubConnection.Dispose();
+            _graphConnection?.Dispose();
+            _terminalHubConnection?.Dispose();
+            _coordinator?.Dispose();
             base.Dispose();
         }
 

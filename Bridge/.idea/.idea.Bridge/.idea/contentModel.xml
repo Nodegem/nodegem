@@ -21,6 +21,7 @@
           <e p="NodesterAuthorizationException.cs" t="Include" />
         </e>
         <e p="Extensions" t="Include">
+          <e p="DateTimeExtensions.cs" t="Include" />
           <e p="HttpClientExtensions.cs" t="Include" />
           <e p="NodeExtensions.cs" t="Include" />
         </e>
@@ -65,7 +66,9 @@
           </e>
         </e>
       </e>
-      <e p="Libraries" t="Include" />
+      <e p="Libraries" t="Include">
+        <e p="Engine" t="Include" />
+      </e>
       <e p="packages" t="ExcludeRecursive" />
     </e>
     <e p="C:\Users\rszem\Documents\Projects\nodester\Common" t="IncludeRecursive">
@@ -134,6 +137,7 @@
           <e p="MacroDto.cs" t="Include" />
           <e p="MacroLinkDto.cs" t="Include" />
         </e>
+        <e p="RecurringOptionsDto.cs" t="Include" />
         <e p="TokenDto.cs" t="Include" />
         <e p="UserDtos" t="Include">
           <e p="RegisterDto.cs" t="Include" />
@@ -175,6 +179,7 @@
           <e p="Link.cs" t="Include" />
           <e p="MacroLink.cs" t="Include" />
           <e p="Node.cs" t="Include" />
+          <e p="RecurringOptions.cs" t="Include" />
         </e>
         <e p="Macro.cs" t="Include" />
         <e p="Role.cs" t="Include" />
@@ -371,6 +376,13 @@
     </e>
     <e p="C:\Users\rszem\Documents\Projects\nodester\Engine\ThirdParty" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
+      <e p="Discord" t="Include">
+        <e p="DiscordService.cs" t="Include" />
+        <e p="Nodes" t="Include">
+          <e p="Begin.cs" t="Include" />
+        </e>
+        <e p="ServiceExtensions.cs" t="Include" />
+      </e>
       <e p="Nodester.Engine.ThirdParty.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
@@ -380,28 +392,38 @@
         </e>
       </e>
       <e p="SendGrid" t="Include">
-        <e p="SendGrid.Data" t="Include">
-          <e p="ISendGridService.cs" t="Include" />
+        <e p="Nodes" t="Include">
+          <e p="SendEmail.cs" t="Include" />
         </e>
-        <e p="SendGrid.Nodes" t="Include">
-          <e p="Nodes" t="Include">
-            <e p="SendEmail.cs" t="Include" />
-          </e>
-          <e p="SendGridService.cs" t="Include" />
-          <e p="ServiceExtensions.cs" t="Include" />
-        </e>
+        <e p="SendGridService.cs" t="Include" />
+        <e p="ServiceExtensions.cs" t="Include" />
       </e>
       <e p="Twilio" t="Include">
-        <e p="Twilio.Data" t="Include">
-          <e p="ITwilioService.cs" t="Include" />
+        <e p="Nodes" t="Include">
+          <e p="SendText.cs" t="Include" />
         </e>
-        <e p="Twilio.Nodes" t="Include">
-          <e p="Nodes" t="Include">
-            <e p="SendText.cs" t="Include" />
+        <e p="ServiceExtensions.cs" t="Include" />
+        <e p="TwilioService.cs" t="Include" />
+      </e>
+    </e>
+    <e p="C:\Users\rszem\Documents\Projects\nodester\Engine\ThirdParty.Data" t="IncludeRecursive">
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="Discord" t="Include">
+        <e p="IDiscordService.cs" t="Include" />
+      </e>
+      <e p="Nodester.Engine.ThirdParty.Data.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netstandard2.0" t="Include">
+            <e p="Nodester.Engine.ThirdParty.Data.AssemblyInfo.cs" t="Include" />
           </e>
-          <e p="ServiceExtensions.cs" t="Include" />
-          <e p="TwilioService.cs" t="Include" />
         </e>
+      </e>
+      <e p="SendGrid" t="Include">
+        <e p="ISendGridService.cs" t="Include" />
+      </e>
+      <e p="Twilio" t="Include">
+        <e p="ITwilioService.cs" t="Include" />
       </e>
     </e>
     <e p="C:\Users\rszem\Documents\Projects\nodester\Services\Data" t="IncludeRecursive">
