@@ -30,6 +30,7 @@ namespace Nodester.ThirdParty.Discord.Nodes
 
         private IFlowOutputField StartConnection(IFlow flow)
         {
+            return null;
         }
     }
 }

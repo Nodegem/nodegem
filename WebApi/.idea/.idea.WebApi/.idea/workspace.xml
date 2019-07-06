@@ -1,78 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/Extensions/DateTimeExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/RecurringOptionsDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/RecurringOptions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty.Data/Discord/IDiscordService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty.Data/Nodester.Engine.ThirdParty.Data.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/DiscordService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Begin.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/ServiceExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20190705211736_GraphTypes.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20190705211736_GraphTypes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20190705231350_GraphRecurringOptions.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20190705231350_GraphRecurringOptions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/riderModule.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/AppState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/AppState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/BackgroundServices/EngineService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/BackgroundServices/EngineService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/Coordinator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/Coordinator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/HubConnections/TerminalHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/HubConnections/TerminalHubConnection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Common/Data/Interfaces/ITerminalHubService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Data/Interfaces/ITerminalHubService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Configurations/GraphConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Configurations/GraphConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Dto/GraphDtos/GraphDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/GraphDtos/GraphDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Models/BaseGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Models/BaseGraph.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Models/Graph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Models/Graph.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/IFlow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/IFlow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/IFlowGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/IFlowGraph.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/IMacroFlow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/IMacroFlow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/IMacroGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/IMacroGraph.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/ValueType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/ValueType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/Fetch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/Fetch.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/BaseLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/BaseLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/Log.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/Log.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogDebug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogDebug.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogWarn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogWarn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/BaseGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/BaseGraph.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Flow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Flow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/FlowGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/FlowGraph.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroFlow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroFlow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroGraph.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Nodester.Engine.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Nodester.Engine.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/.idea/contentModel.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/riderModule.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Nodester.Engine.ThirdParty.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Nodester.Engine.ThirdParty.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Data/ISendGridService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty.Data/SendGrid/ISendGridService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Data/Nodester.Graph.SendGrid.Data.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Nodes/Nodes/SendEmail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/Nodes/SendEmail.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Nodes/Nodester.Graph.SendGrid.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Nodes/SendGridService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGridService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Nodes/ServiceExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/ServiceExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Data/ITwilioService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty.Data/Twilio/ITwilioService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Data/Nodester.Graph.Twilio.Data.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Nodes/Nodes/SendText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Nodes/SendText.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Nodes/Nodester.Graph.Twilio.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Nodes/ServiceExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/ServiceExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Nodes/TwilioService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/TwilioService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/riderModule.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/GraphController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/GraphController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/NodesterDBContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/NodesterDBContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi.sln" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi.sln" afterDir="false" />
-    </list>
+    <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,8 +56,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Begin.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="465">
+              <caret line="31" column="9" lean-forward="true" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
               <folding>
                 <marker date="1562389790866" expanded="true" signature="6:199" ph="..." />
                 <marker date="1562389790866" expanded="true" signature="346:882" ph="{...}" />
@@ -391,12 +320,12 @@
       <workItem from="1562019763060" duration="16385000" />
       <workItem from="1562190933581" duration="22494000" />
       <workItem from="1562385695945" duration="2027000" />
-      <workItem from="1562387769585" duration="2020000" />
+      <workItem from="1562387769585" duration="2094000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44729000" />
+    <option name="totallyTimeSpent" value="44803000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1010,8 +939,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Begin.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="465">
+          <caret line="31" column="9" lean-forward="true" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
           <folding>
             <marker date="1562389790866" expanded="true" signature="6:199" ph="..." />
             <marker date="1562389790866" expanded="true" signature="346:882" ph="{...}" />
