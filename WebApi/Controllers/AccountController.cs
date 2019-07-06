@@ -115,10 +115,6 @@ namespace Nodester.WebApi.Controllers
             {
                 success = false;
             }
-            finally
-            {
-                Response.Cookies.Delete("User-Token");
-            }
 
             return Ok(new Dictionary<string, bool>
             {

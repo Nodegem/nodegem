@@ -13,6 +13,8 @@ namespace Nodester.Data.Dto.GraphDtos
 
         [Required] public Guid UserId { get; set; }
         
+        public RecurringOptionsDto RecurringOptions { get; set; }
+        
         public IEnumerable<ConstantDto> Constants { get; set; }
     }
 }
