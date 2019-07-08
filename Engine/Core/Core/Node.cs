@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using Nodester.Common.Extensions;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
@@ -111,7 +112,7 @@ namespace Nodester.Graph.Core
             };
         }
 
-        protected FlowInput AddFlowInput(string key, Func<IFlow, IFlowOutputField> action)
+        protected FlowInput AddFlowInput(string key, Func<IFlow, Task<IFlowOutputField>> action)
         {
             var input = new FlowInput(key, action);
             FlowInputs.Add(input);
@@ -125,7 +126,7 @@ namespace Nodester.Graph.Core
             return output;
         }
 
-        protected ValueInput AddValueInput<T>(string key, T @default = default(T))
+        protected ValueInput AddValueInput<T>(string key, T @default = default)
         {
             var input = new ValueInput(key, @default, typeof(T));
             ValueInputs.Add(input);

@@ -1,7 +1,7 @@
+using System.Threading.Tasks;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
-using Nodester.Graph.Core;
 using Nodester.Graph.Core.Fields.Graph;
 using ThirdParty.Data.SendGrid;
 
@@ -9,30 +9,27 @@ namespace Nodester.ThirdParty.SendGrid.Nodes
 {
     [DefinedNode("Send Email")]
     [NodeNamespace("Third Party.SendGrid")]
-    public class SendEmail : Node
+    public class SendEmail : SendGridNode
     {
-        public FlowInput In { get; private set; }
+        public IFlowInputField In { get; private set; }
 
-        public FlowOutput Out { get; private set; }
+        public IFlowOutputField Out { get; private set; }
 
-        [FieldAttributes("SendGrid API Key")] public ValueInput ApiKey { get; private set; }
+        [FieldAttributes("SendGrid API Key")] public IValueInputField ApiKey { get; private set; }
 
-        [FieldAttributes("Email To")] public ValueInput EmailTo { get; private set; }
+        [FieldAttributes("Email To")] public IValueInputField EmailTo { get; private set; }
 
-        [FieldAttributes("Email From")] public ValueInput EmailFrom { get; private set; }
+        [FieldAttributes("Email From")] public IValueInputField EmailFrom { get; private set; }
 
-        public ValueInput Subject { get; private set; }
+        public IValueInputField Subject { get; private set; }
 
         [FieldAttributes("Plain Text Content")]
-        public ValueInput PlainTextContent { get; private set; }
+        public IValueInputField PlainTextContent { get; private set; }
 
-        [FieldAttributes("HTML Content")] public ValueInput HtmlContent { get; private set; }
+        [FieldAttributes("HTML Content")] public IValueInputField HtmlContent { get; private set; }
 
-        private readonly ISendGridService _sendGridService;
-
-        public SendEmail(ISendGridService sendGridService)
+        public SendEmail(ISendGridService sendGridService) : base(sendGridService)
         {
-            _sendGridService = sendGridService;
         }
 
         protected override void Define()
@@ -48,7 +45,7 @@ namespace Nodester.ThirdParty.SendGrid.Nodes
             HtmlContent = AddValueInput<string>(nameof(HtmlContent));
         }
 
-        private IFlowOutputField SendOutEmail(IFlow flow)
+        private async Task<IFlowOutputField> SendOutEmail(IFlow flow)
         {
             var apiKey = flow.GetValue<string>(ApiKey);
             var fromEmail = flow.GetValue<string>(EmailFrom);
@@ -56,7 +53,8 @@ namespace Nodester.ThirdParty.SendGrid.Nodes
             var subject = flow.GetValue<string>(Subject);
             var plainTextContent = flow.GetValue<string>(PlainTextContent);
             var htmlContent = flow.GetValue<string>(HtmlContent);
-            _sendGridService.SendEmailAsync(apiKey, fromEmail, "", toEmail, "", subject, plainTextContent, htmlContent);
+            await SendGridService.SendEmailAsync(apiKey, fromEmail, "", toEmail, "", subject, plainTextContent,
+                htmlContent);
 
             return Out;
         }

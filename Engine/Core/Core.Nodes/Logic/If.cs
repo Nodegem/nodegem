@@ -1,6 +1,7 @@
+using System.Threading.Tasks;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
-using Nodester.Graph.Core.Fields.Graph;
+using Nodester.Engine.Data.Fields;
 
 namespace Nodester.Graph.Core.Nodes.Logic
 {
@@ -8,13 +9,13 @@ namespace Nodester.Graph.Core.Nodes.Logic
     [NodeNamespace("Core.Logic")]
     public class If : Node
     {
-        public FlowInput In { get; private set; }
+        public IFlowInputField In { get; private set; }
 
         [FieldAttributes(Type = ValueType.Boolean)]
-        public ValueInput Condition { get; private set; }
+        public IValueInputField Condition { get; private set; }
 
-        public FlowOutput True { get; private set; }
-        public FlowOutput False { get; private set; }
+        public IFlowOutputField True { get; private set; }
+        public IFlowOutputField False { get; private set; }
 
         protected override void Define()
         {
@@ -24,9 +25,9 @@ namespace Nodester.Graph.Core.Nodes.Logic
             False = AddFlowOutput(nameof(False));
         }
 
-        private FlowOutput CheckCondition(IFlow flow)
+        private Task<IFlowOutputField> CheckCondition(IFlow flow)
         {
-            return flow.GetValue<bool>(Condition) ? True : False;
+            return Task.FromResult(flow.GetValue<bool>(Condition) ? True : False);
         }
     }
 }

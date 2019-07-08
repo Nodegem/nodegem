@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
@@ -23,13 +24,13 @@ namespace Nodester.Graph.Core.Nodes.Control
             return flow.GetValue<bool>(Condition);
         }
 
-        protected override IFlowOutputField OnLoop(IFlow flow)
+        protected override async Task<IFlowOutputField> OnLoop(IFlow flow)
         {
             var loopId = flow.EnterLoop();
 
             while (flow.HasLoopExited(loopId) && CanMoveNext(flow))
             {
-                flow.Run(Block);
+                await flow.RunAsync(Block);
             }
 
             flow.ExitLoop(loopId);

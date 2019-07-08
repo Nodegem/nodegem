@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
@@ -40,7 +41,7 @@ namespace Nodester.Graph.Core.Nodes.Control
             return currentIndex > lastIndex;
         }
 
-        protected override IFlowOutputField OnLoop(IFlow flow)
+        protected override async Task<IFlowOutputField> OnLoop(IFlow flow)
         {
             var start = flow.GetValue<double>(From);
             var end = flow.GetValue<double>(To);
@@ -52,7 +53,7 @@ namespace Nodester.Graph.Core.Nodes.Control
             var loopId = flow.EnterLoop();
             while (flow.HasLoopExited(loopId) && CanMoveNext(currentIndex, end, ascending))
             {
-                flow.Run(Block);
+                await flow.RunAsync(Block);
                 MoveNext(flow, step, ref currentIndex);
             }
 

@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
@@ -25,16 +26,16 @@ namespace Nodester.Graph.Core.Nodes.Control
             ExceptionMessage = AddValueOutput<string>(nameof(ExceptionMessage));
         }
 
-        private IFlowOutputField Execute(IFlow flow)
+        private async Task<IFlowOutputField> Execute(IFlow flow)
         {
             try
             {
-                flow.Run(Try);
+                await flow.RunAsync(Try);
             }
             catch (Exception ex)
             {
                 ExceptionMessage.SetValue(ex.Message);
-                flow.Run(Catch);
+                await flow.RunAsync(Catch);
             }
 
             return null;

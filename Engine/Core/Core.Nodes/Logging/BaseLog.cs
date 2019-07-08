@@ -1,19 +1,19 @@
+using System.Threading.Tasks;
 using Nodester.Common.Data.Interfaces;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
-using Nodester.Graph.Core.Fields.Graph;
 using ValueInput = Nodester.Graph.Core.Fields.Graph.ValueInput;
 
 namespace Nodester.Graph.Core.Nodes.Logging
 {
     public abstract class BaseLog : Node
     {
-        public FlowInput In { get; private set; }
-        public FlowOutput Out { get; private set; }
+        public IFlowInputField In { get; private set; }
+        public IFlowOutputField Out { get; private set; }
 
         [FieldAttributes(Type = ValueType.TextArea)]
-        public ValueInput Message { get; private set; }
+        public IValueInputField Message { get; private set; }
 
         protected ITerminalHubService LogService { get; }
 
@@ -29,10 +29,10 @@ namespace Nodester.Graph.Core.Nodes.Logging
             Message = AddValueInput(nameof(Message), "");
         }
 
-        private IFlowOutputField PerformLog(IFlow flow)
+        private Task<IFlowOutputField> PerformLog(IFlow flow)
         {
             ExecuteLog(flow.GetValue<string>(Message), !flow.IsRunningLocally);
-            return Out;
+            return Task.FromResult(Out);
         }
 
         protected abstract void ExecuteLog(string message, bool sendToClient);

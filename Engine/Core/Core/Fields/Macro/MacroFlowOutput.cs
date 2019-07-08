@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Fields;
 using Nodester.Graph.Core.Fields.Graph;
@@ -20,9 +21,12 @@ namespace Nodester.Graph.Core.Fields.Macro
             Action = ContinueAction;
         }
 
-        private IFlowOutputField ContinueAction(IFlow flow)
+        private async Task<IFlowOutputField> ContinueAction(IFlow flow)
         {
-            return _getGraph?.Invoke().GetConnection(Key)?.Destination?.Action(flow);
+            var connection = _getGraph?.Invoke().GetConnection(Key)?.Destination;
+            if (connection == null) return null;
+            
+            return await connection.Action(flow);
         }
     }
 }

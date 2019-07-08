@@ -1,9 +1,10 @@
+using System.Threading.Tasks;
 using Nodester.Common.Extensions;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Essential
+namespace Nodester.Graph.Core.Nodes.Essential
 {
     [DefinedNode("Macro", Ignore = true)]
     [NodeNamespace("Core.Essential")]
@@ -29,9 +30,9 @@ namespace Nodester.Graph.Core.Essential
             _macroGraph.ValueOutputs.ForEach(x => AddValueOutput(x.Key, flow => GetOutput(x)));
         }
 
-        private IFlowOutputField ExecuteMacro(IMacroFlowInputField input)
+        private Task<IFlowOutputField> ExecuteMacro(IMacroFlowInputField input)
         {
-            return _macroGraph.Execute(input);
+            return _macroGraph.ExecuteAsync(input);
         }
 
         private object GetOutput(IMacroValueOutputField output)

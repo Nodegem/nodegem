@@ -1,6 +1,7 @@
-using System;
+using System.Threading.Tasks;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
+using Nodester.Engine.Data.Fields;
 using Nodester.Graph.Core.Fields.Graph;
 
 namespace Nodester.Graph.Core.Nodes.Graph
@@ -9,9 +10,9 @@ namespace Nodester.Graph.Core.Nodes.Graph
     [NodeNamespace("Core.Graph")]
     public class SetVariable : Node
     {
-        public FlowInput In { get; private set; }
-        public FlowOutput Out { get; private set; }
-        public ValueInput Variable { get; private set; }
+        public IFlowInputField In { get; private set; }
+        public IFlowOutputField Out { get; private set; }
+        public IValueInputField Variable { get; private set; }
 
         [FieldAttributes("New Value")] public ValueInput NewValue { get; private set; }
 
@@ -27,10 +28,10 @@ namespace Nodester.Graph.Core.Nodes.Graph
             Value = AddValueOutput(nameof(Value), GetValue);
         }
 
-        private FlowOutput SetValue(IFlow flow)
+        private Task<IFlowOutputField> SetValue(IFlow flow)
         {
             Graph.SetVariable(flow.GetValue<string>(Variable), flow.GetValue<object>(NewValue));
-            return Out;
+            return Task.FromResult(Out);
         }
 
         private object GetValue(IFlow flow)

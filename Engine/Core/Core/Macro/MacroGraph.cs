@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Nodester.Common.Data;
 using Nodester.Common.Extensions;
 using Nodester.Engine.Data;
@@ -57,14 +58,14 @@ namespace Nodester.Graph.Core.Macro
             return (IMacroValueOutputField) FieldDictionary[key];
         }
 
-        public void Run(string flowInputFieldKey, bool isLocal = false)
+        public async Task RunAsync(string flowInputFieldKey, bool isLocal = false)
         {
-            Run(GetInputByKey(flowInputFieldKey), isLocal);
+            await RunAsync(GetInputByKey(flowInputFieldKey), isLocal);
         }
 
-        public void Run(IMacroFlowInputField input, bool isLocal = false)
+        public async Task RunAsync(IMacroFlowInputField input, bool isLocal = false)
         {
-            _flow.Run(input, isLocal);
+            await _flow.RunAsync(input, isLocal);
         }
 
         public T GetValue<T>(string key)
@@ -77,9 +78,9 @@ namespace Nodester.Graph.Core.Macro
             return _flow.GetValue<T>(output);
         }
 
-        public IFlowOutputField Execute(IMacroFlowInputField input)
+        public async Task<IFlowOutputField> ExecuteAsync(IMacroFlowInputField input)
         {
-            return _flow.Execute(input);
+            return await _flow.Execute(input);
         }
 
         public bool IsMacroFlowOutputField(string key)
@@ -99,7 +100,7 @@ namespace Nodester.Graph.Core.Macro
 
         public INode ToMacroNode()
         {
-            return new Essential.Macro(this);
+            return new Nodes.Essential.Macro(this);
         }
         
     }

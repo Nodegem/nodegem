@@ -133,10 +133,6 @@
       <e p="bin" t="ExcludeRecursive" />
       <e p="Core" t="Include">
         <e p="BaseGraph.cs" t="Include" />
-        <e p="Essential" t="Include">
-          <e p="Macro.cs" t="Include" />
-          <e p="Start.cs" t="Include" />
-        </e>
         <e p="Extensions" t="Include">
           <e p="DefinitionExtensions.cs" t="Include" />
           <e p="LinqExtensions.cs" t="Include" />
@@ -192,6 +188,10 @@
           <e p="LoopNode.cs" t="Include" />
           <e p="TryCatch.cs" t="Include" />
           <e p="While.cs" t="Include" />
+        </e>
+        <e p="Essential" t="Include">
+          <e p="Macro.cs" t="Include" />
+          <e p="Start.cs" t="Include" />
         </e>
         <e p="Graph" t="Include">
           <e p="GetConstant.cs" t="Include" />
@@ -312,6 +312,7 @@
         <e p="DiscordService.cs" t="Include" />
         <e p="Nodes" t="Include">
           <e p="Begin.cs" t="Include" />
+          <e p="DiscordNode.cs" t="Include" />
         </e>
         <e p="ServiceExtensions.cs" t="Include" />
       </e>
@@ -326,6 +327,7 @@
       <e p="SendGrid" t="Include">
         <e p="Nodes" t="Include">
           <e p="SendEmail.cs" t="Include" />
+          <e p="SendGridNode.cs" t="Include" />
         </e>
         <e p="SendGridService.cs" t="Include" />
         <e p="ServiceExtensions.cs" t="Include" />
@@ -333,6 +335,7 @@
       <e p="Twilio" t="Include">
         <e p="Nodes" t="Include">
           <e p="SendText.cs" t="Include" />
+          <e p="TwilioNode.cs" t="Include" />
         </e>
         <e p="ServiceExtensions.cs" t="Include" />
         <e p="TwilioService.cs" t="Include" />

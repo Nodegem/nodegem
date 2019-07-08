@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Nodester.Common.Data;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Exceptions;
 using Nodester.Engine.Data.Links;
 using Nodester.Engine.Data.Nodes;
 using Nodester.Graph.Core.Extensions;
-using Nodester.Graph.Core.Essential;
+using Nodester.Graph.Core.Nodes.Essential;
 
 namespace Nodester.Graph.Core
 {
@@ -50,7 +51,7 @@ namespace Nodester.Graph.Core
             return default;
         }
 
-        public void Run(bool isLocal = false)
+        public async Task RunAsync(bool isLocal = false)
         {
             if (!Nodes.TryGetValueOfType(typeof(Start), out var start))
             {
@@ -58,7 +59,7 @@ namespace Nodester.Graph.Core
             }
 
             _flow.IsRunningLocally = isLocal;
-            _flow.Run(((Start) start.Value).StartFlow);
+            await _flow.RunAsync(((Start) start.Value).StartFlow);
         }
 
         public IFlowLink GetConnection(string fromFieldKey)

@@ -1,6 +1,8 @@
 using System.Net.Http;
+using System.Threading.Tasks;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
+using Nodester.Engine.Data.Fields;
 using Nodester.Graph.Core.Fields.Graph;
 
 namespace Nodester.Graph.Core.Nodes.HTTP
@@ -9,11 +11,11 @@ namespace Nodester.Graph.Core.Nodes.HTTP
     [NodeNamespace("Core.HTTP")]
     public class Fetch : Node
     {
-        public FlowInput In { get; private set; }
-        public FlowOutput Out { get; private set; }
+        public IFlowInputField In { get; private set; }
+        public IFlowOutputField Out { get; private set; }
 
-        public ValueInput Url { get; private set; }
-        public ValueOutput Data { get; private set; }
+        public IValueInputField Url { get; private set; }
+        public IValueOutputField Data { get; private set; }
 
         protected override void Define()
         {
@@ -24,9 +26,9 @@ namespace Nodester.Graph.Core.Nodes.HTTP
             Data = AddValueOutput(nameof(Data), RetrieveData);
         }
 
-        private FlowOutput FetchData(IFlow flow)
+        private Task<IFlowOutputField> FetchData(IFlow flow)
         {
-            return Out;
+            return Task.FromResult(Out);
         }
 
         private object RetrieveData(IFlow flow)

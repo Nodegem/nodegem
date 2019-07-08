@@ -1,25 +1,21 @@
+using System.Threading.Tasks;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
-using Nodester.Graph.Core;
-using Nodester.Graph.Core.Fields.Graph;
 using ThirdParty.Data.Discord;
 
 namespace Nodester.ThirdParty.Discord.Nodes
 {
     [DefinedNode("Begin")]
     [NodeNamespace("Third Party.Discord")]
-    public class Begin : Node
+    public class Begin : DiscordNode
     {
         
-        public FlowInput In { get; set; }
-        public FlowOutput Start { get; set; }
+        public IFlowInputField In { get; set; }
+        public IFlowOutputField Start { get; set; }
 
-        private readonly IDiscordService _discordService;
-
-        public Begin(IDiscordService service)
+        public Begin(IDiscordService service) : base(service)
         {
-            _discordService = service;
         }
         
         protected override void Define()
@@ -28,7 +24,7 @@ namespace Nodester.ThirdParty.Discord.Nodes
             Start = AddFlowOutput(nameof(Start));
         }
 
-        private IFlowOutputField StartConnection(IFlow flow)
+        private Task<IFlowOutputField> StartConnection(IFlow flow)
         {
             return null;
         }

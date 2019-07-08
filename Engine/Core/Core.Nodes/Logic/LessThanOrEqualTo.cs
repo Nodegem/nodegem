@@ -1,6 +1,7 @@
+using System.Threading.Tasks;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
-using Nodester.Graph.Core.Fields.Graph;
+using Nodester.Engine.Data.Fields;
 
 namespace Nodester.Graph.Core.Nodes.Logic
 {
@@ -8,20 +9,19 @@ namespace Nodester.Graph.Core.Nodes.Logic
     [NodeNamespace("Core.Logic")]
     public class LessThanOrEqualTo : Node
     {
-        
-        public FlowInput In { get; set; }
+        public IFlowInputField In { get; set; }
         
         [FieldAttributes("A <= B")]
-        public FlowOutput True { get; set; }
+        public IFlowOutputField True { get; set; }
         
         [FieldAttributes("A > B")]
-        public FlowOutput False { get; set; }
+        public IFlowOutputField False { get; set; }
         
         [FieldAttributes(Type = ValueType.Number)]
-        public ValueInput A { get; set; }
+        public IValueInputField A { get; set; }
         
         [FieldAttributes(Type = ValueType.Number)]
-        public ValueInput B { get; set; }
+        public IValueInputField B { get; set; }
         
         protected override void Define()
         {
@@ -33,11 +33,11 @@ namespace Nodester.Graph.Core.Nodes.Logic
             B = AddValueInput<double>(nameof(B));
         }
 
-        private FlowOutput IsGreaterThan(IFlow flow)
+        private Task<IFlowOutputField> IsGreaterThan(IFlow flow)
         {
             var a = flow.GetValue<double>(A);
             var b = flow.GetValue<double>(B);
-            return a <= b ? True : False;
+            return Task.FromResult(a <= b ? True : False);
         }
     }
 }

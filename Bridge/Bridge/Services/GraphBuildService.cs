@@ -37,7 +37,7 @@ namespace Nodester.Bridge.Services
             {
                 var compiledGraph = await BuildGraphAsync(user, graph);
                 compiledGraph.DebugMode = graph.IsDebugModeEnabled;
-                compiledGraph.Run();
+                await compiledGraph.RunAsync();
             }
             catch (GraphException ex)
             {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Fields;
 using Nodester.Graph.Core.Fields.Graph;
@@ -11,7 +12,7 @@ namespace Nodester.Graph.Core
     public class Flow : IFlow
     {
         private Stack<Guid> LoopIds { get; }
-        
+
         public bool IsRunningLocally { get; set; }
 
         private Guid CurrentLoop => LoopIds.Any() ? LoopIds.Peek() : Guid.Empty;
@@ -53,19 +54,17 @@ namespace Nodester.Graph.Core
             LoopIds.Pop();
         }
 
-        public void Run(IFlowOutputField output)
+        public async Task RunAsync(IFlowOutputField output)
         {
             var connection = output.Connection;
 
-            if (connection == null)
-            {
-                return;
-            }
+            var destination = connection?.Destination;
+            if (destination == null) return;
 
-            var nextOutput = connection.Destination?.Action(this);
-            while (nextOutput?.Connection != null)
+            var nextOutput = await destination.Action(this);
+            while (nextOutput?.Connection?.Destination != null)
             {
-                nextOutput = nextOutput.Connection?.Destination?.Action(this);
+                nextOutput = await nextOutput.Connection?.Destination?.Action(this);
             }
         }
 

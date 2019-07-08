@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Fields;
 
@@ -14,7 +15,7 @@ namespace Nodester.Graph.Core.Macro
             _flow = new Flow();
         }
 
-        public void Run(IMacroFlowInputField start, bool isLocal = false)
+        public async Task RunAsync(IMacroFlowInputField start, bool isLocal = false)
         {
             _flow.IsRunningLocally = isLocal;
             var startConnection = start.Connection?.Destination;
@@ -23,11 +24,11 @@ namespace Nodester.Graph.Core.Macro
                 return;
             }
 
-            var flowOutput = startConnection.Action(_flow);
-            _flow.Run(flowOutput);
+            var flowOutput = await startConnection.Action(_flow);
+            await _flow.RunAsync(flowOutput);
         }
 
-        public IFlowOutputField Execute(IMacroFlowInputField start)
+        public async Task<IFlowOutputField> Execute(IMacroFlowInputField start)
         {
             var startConnection = start.Connection?.Destination;
             if (startConnection == null)
@@ -35,10 +36,10 @@ namespace Nodester.Graph.Core.Macro
                 return null;
             }
 
-            var flowOutput = startConnection.Action(_flow);
-            while (flowOutput != null && !_macroGraph.IsMacroFlowOutputField(flowOutput.Key))
+            var flowOutput = await startConnection.Action(_flow);
+            while (flowOutput?.Connection?.Destination != null && !_macroGraph.IsMacroFlowOutputField(flowOutput.Key))
             {
-                flowOutput = flowOutput.Connection?.Destination?.Action(_flow);
+                flowOutput = await flowOutput.Connection?.Destination?.Action(_flow);
             }
 
             return flowOutput;

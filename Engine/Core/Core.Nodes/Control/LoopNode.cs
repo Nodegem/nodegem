@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Fields;
 
@@ -16,6 +17,6 @@ namespace Nodester.Graph.Core.Nodes.Control
             Block = AddFlowOutput(nameof(Block));
         }
 
-        protected abstract IFlowOutputField OnLoop(IFlow flow);
+        protected abstract Task<IFlowOutputField> OnLoop(IFlow flow);
     }
 }

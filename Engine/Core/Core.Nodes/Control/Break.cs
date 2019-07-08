@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
@@ -17,7 +18,7 @@ namespace Nodester.Graph.Core.Nodes.Control
             In = AddFlowInput(nameof(In), BreakLoop);
         }
 
-        private IFlowOutputField BreakLoop(IFlow flow)
+        private Task<IFlowOutputField> BreakLoop(IFlow flow)
         {
             flow.BreakLoop();
             return null;

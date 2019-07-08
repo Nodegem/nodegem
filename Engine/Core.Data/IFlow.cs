@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Nodester.Engine.Data.Fields;
 
 namespace Nodester.Engine.Data
@@ -10,7 +11,7 @@ namespace Nodester.Engine.Data
         bool HasLoopExited(Guid loopId);
         void BreakLoop();
         void ExitLoop(Guid loopId);
-        void Run(IFlowOutputField output);
+        Task RunAsync(IFlowOutputField output);
         T GetValue<T>(IValueInputField input);
     }
 }
