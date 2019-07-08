@@ -8,7 +8,7 @@ namespace Nodester.ThirdParty.Discord
         
         public static void ApplyDiscordServices(this IServiceCollection services)
         {
-            services.AddTransient<IDiscordService, DiscordService>();
+            services.AddScoped<IDiscordService, DiscordService>();
         }
         
     }

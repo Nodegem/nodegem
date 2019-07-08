@@ -6,10 +6,7 @@
     <e p="C:\Users\rszem\Documents\Projects\nodester\Bridge" t="IncludeFlat">
       <e p="Bridge" t="IncludeRecursive">
         <e p="AppConfig.cs" t="Include" />
-        <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
-        <e p="appsettings.Production.json" t="Include" />
-        <e p="appsettings.Staging.json" t="Include" />
         <e p="AppState.cs" t="Include" />
         <e p="BackgroundServices" t="Include">
           <e p="EngineService.cs" t="Include" />
@@ -378,9 +375,13 @@
       <e p="bin" t="ExcludeRecursive" />
       <e p="Discord" t="Include">
         <e p="DiscordService.cs" t="Include" />
+        <e p="Exceptions" t="Include">
+          <e p="DiscordException.cs" t="Include" />
+        </e>
         <e p="Nodes" t="Include">
-          <e p="Begin.cs" t="Include" />
           <e p="DiscordNode.cs" t="Include" />
+          <e p="OnMessageUpdate.cs" t="Include" />
+          <e p="StartBot.cs" t="Include" />
         </e>
         <e p="ServiceExtensions.cs" t="Include" />
       </e>

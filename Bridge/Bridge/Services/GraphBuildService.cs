@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Bridge.Data;
 using Mapster;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Nodester.Bridge.Extensions;
 using Nodester.Common.Data;
@@ -55,20 +56,24 @@ namespace Nodester.Bridge.Services
         {
             try
             {
-                var graphConstantDictionary = graph.Constants.ToDictionary(k => k.Key, v => v.Adapt<Constant>());
-                var constantDictionary = graphConstantDictionary.Concat(user.Constants)
-                    .ToDictionary(k => k.Key, v => v.Value.Adapt<Constant>());
+                using (var provider = _provider.CreateScope())
+                {
+                    var graphConstantDictionary = graph.Constants.ToDictionary(k => k.Key, v => v.Adapt<Constant>());
+                    var constantDictionary = graphConstantDictionary.Concat(user.Constants)
+                        .ToDictionary(k => k.Key, v => v.Value.Adapt<Constant>());
 
-                var nodes = await graph.Nodes.ToNodeDictionaryAsync(_provider, _macroService, user, constantDictionary);
+                    var nodes = await graph.Nodes.ToNodeDictionaryAsync(provider.ServiceProvider, _macroService, user,
+                        constantDictionary);
 
-                EstablishLinks(nodes, graph.Links);
+                    EstablishLinks(nodes, graph.Links);
 
-                return new FlowGraph(graph.Name, nodes, constantDictionary, user);
+                    return new FlowGraph(graph.Name, nodes, constantDictionary, user);
+                }
             }
             catch (Exception ex)
             {
                 _logger.LogError($"Error building the graph with ID: {graph.Id}.", ex);
-                throw; 
+                throw;
             }
         }
 

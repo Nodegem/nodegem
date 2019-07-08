@@ -5,4 +5,10 @@
     <RootNamespace>ThirdParty.Data</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Discord.Net.WebSocket, Version=2.1.1.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\..\..\..\.nuget\packages\discord.net.websocket\2.1.1\lib\netstandard2.0\Discord.Net.WebSocket.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Bridge.Data;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Nodester.Bridge.Extensions;
 using Nodester.Common.Data;
@@ -54,13 +55,13 @@ namespace Nodester.Bridge.Services
         public async Task<IMacroGraph> BuildMacroAsync(User user, Guid id)
         {
             var macro = await _graphService.GetMacroByIdAsync(id);
-            
+
             // TODO: Throw a macro exception here
             if (macro == null)
             {
                 throw new Exception("Macro could not be found or was corrupted");
             }
-            
+
             return await BuildMacroAsync(user, macro);
         }
 
@@ -68,27 +69,30 @@ namespace Nodester.Bridge.Services
         {
             try
             {
-                var nodes = await macro.Nodes.ToNodeDictionaryAsync(_provider, this, user);
-
-                var fields = BuildFields(macro);
-                var fieldDictionary = fields.FieldDictionary;
-
-                // Filter out links that are connected to field "nodes"
-                var fieldNodes = macro.Nodes.Where(n => n.MacroFieldId.HasValue).ToList();
-                var links = macro.Links.Select(x => new MacroLinkDto
+                using (var provider = _provider.CreateScope())
                 {
-                    SourceNode = fieldNodes.Any(f => f.Id == x.SourceNode) ? null : x.SourceNode,
-                    SourceKey = x.SourceKey,
-                    DestinationNode = fieldNodes.Any(f => f.Id == x.DestinationNode) ? null : x.DestinationNode,
-                    DestinationKey = x.DestinationKey
-                });
+                    var nodes = await macro.Nodes.ToNodeDictionaryAsync(provider.ServiceProvider, this, user);
 
-                EstablishConnections(nodes, fieldDictionary, links);
+                    var fields = BuildFields(macro);
+                    var fieldDictionary = fields.FieldDictionary;
 
-                var builtMacro = new MacroGraph(macro.Name, nodes, fields.FlowInputs, fields.FlowOutputs,
-                    fields.ValueInputs, fields.ValueOutputs, fieldDictionary, user);
+                    // Filter out links that are connected to field "nodes"
+                    var fieldNodes = macro.Nodes.Where(n => n.MacroFieldId.HasValue).ToList();
+                    var links = macro.Links.Select(x => new MacroLinkDto
+                    {
+                        SourceNode = fieldNodes.Any(f => f.Id == x.SourceNode) ? null : x.SourceNode,
+                        SourceKey = x.SourceKey,
+                        DestinationNode = fieldNodes.Any(f => f.Id == x.DestinationNode) ? null : x.DestinationNode,
+                        DestinationKey = x.DestinationKey
+                    });
 
-                return builtMacro;
+                    EstablishConnections(nodes, fieldDictionary, links);
+
+                    var builtMacro = new MacroGraph(macro.Name, nodes, fields.FlowInputs, fields.FlowOutputs,
+                        fields.ValueInputs, fields.ValueOutputs, fieldDictionary, user);
+
+                    return builtMacro;
+                }
             }
             catch (Exception ex)
             {
