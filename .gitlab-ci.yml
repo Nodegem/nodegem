@@ -1,7 +1,7 @@
 image: microsoft/dotnet:latest
 
 variables:
-    PROJECT_NAME: Nodester
+    PROJECT_NAME: WebApi
     HEROKU_STAGE_NAME: nodester-staging
     HEROKU_PROD_NAME: nodester-prod
 

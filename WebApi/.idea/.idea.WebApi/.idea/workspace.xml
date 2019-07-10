@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty.Data/Nodester.Engine.ThirdParty.Data.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty.Data/Nodester.Engine.ThirdParty.Data.csproj" afterDir="false" />
-    </list>
+    <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -477,6 +475,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="2552" y="-8" width="2576" height="1416" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16408423" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
