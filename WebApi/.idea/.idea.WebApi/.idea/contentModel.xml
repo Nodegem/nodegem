@@ -250,6 +250,7 @@
       <e p="Attributes" t="Include">
         <e p="DefinedNodeAttribute.cs" t="Include" />
         <e p="FieldAttributesAttribute.cs" t="Include" />
+        <e p="ListenerNodeAttribute.cs" t="Include" />
         <e p="NodeNamespaceAttribute.cs" t="Include" />
       </e>
       <e p="bin" t="ExcludeRecursive" />
@@ -315,16 +316,16 @@
         </e>
         <e p="Nodes" t="Include">
           <e p="DiscordNode.cs" t="Include" />
-          <e p="OnMessageUpdate.cs" t="Include" />
+          <e p="OnMessageReceived.cs" t="Include" />
           <e p="StartBot.cs" t="Include" />
         </e>
         <e p="ServiceExtensions.cs" t="Include" />
       </e>
-      <e p="Nodester.Engine.Thirdparty.csproj" t="IncludeRecursive" />
+      <e p="Nodester.Engine.ThirdParty.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netstandard2.0" t="Include">
-            <e p="Nodester.Engine.Thirdparty.AssemblyInfo.cs" t="Include" />
+            <e p="Nodester.Engine.ThirdParty.AssemblyInfo.cs" t="Include" />
           </e>
         </e>
       </e>

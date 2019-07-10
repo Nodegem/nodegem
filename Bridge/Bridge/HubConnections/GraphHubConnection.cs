@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Bridge.Data;
@@ -40,10 +41,12 @@ namespace Nodester.Bridge.HubConnections
         public async Task StartAsync(CancellationToken cancelToken)
         {
             await _connection.StartAsync(cancelToken);
+            await _connection.InvokeAsync("EstablishBridge", Environment.MachineName, cancelToken);
         }
 
         public async Task StopAsync(CancellationToken cancelToken)
         {
+            await _connection.InvokeAsync("RemoveBridge", cancelToken);
             await _connection.StopAsync(cancelToken);
         }
 
