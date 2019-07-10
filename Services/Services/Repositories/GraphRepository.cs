@@ -24,7 +24,8 @@ namespace Nodester.Services.Repositories
 
         public IEnumerable<GraphDto> GetAllGraphsByUser(Guid userId)
         {
-            return GetAll(x => x.UserId == userId).Select(g => g.Adapt<GraphDto>());
+            var graphs = GetAll(x => x.UserId == userId).OrderBy(x => x.CreatedOn);
+            return graphs.Select(g => g.Adapt<GraphDto>());
         }
 
         public async Task<IEnumerable<ConstantDto>> GetConstantsAsync(Guid graphId)
@@ -46,7 +47,7 @@ namespace Nodester.Services.Repositories
             {
                 graph.RecurringOptions = null;
             }
-            
+
             var graphModel = graph.Adapt<Nodester.Data.Models.Graph>();
             Update(graph.Id, graphModel);
             return graphModel.Adapt<GraphDto>();
