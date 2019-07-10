@@ -8,7 +8,7 @@ namespace Bridge.Data
     public interface IBuildGraphService
     {
 
-        Task ExecuteGraphAsync(User user, GraphDto graph);
+        Task ExecuteGraphAsync(User user, GraphDto graph, bool isRunningLocally = true);
         
         Task<IFlowGraph> BuildGraphAsync(User user, GraphDto graph);
 

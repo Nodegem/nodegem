@@ -25,7 +25,7 @@ namespace Nodester.WebApi.Controllers
         [HttpGet("all")]
         public ActionResult<IEnumerable<GraphDto>> GetAllGraphs()
         {
-            return Ok(_graphRepo.GetAllGraphsByUser(User.GetUserId()));
+            return Ok(_graphRepo.GetGraphsAssignedToUser(User.GetUserId()));
         }
 
         [HttpGet("{graphId}")]

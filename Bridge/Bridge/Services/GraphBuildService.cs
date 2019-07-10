@@ -32,13 +32,13 @@ namespace Nodester.Bridge.Services
             _macroService = macroService;
         }
 
-        public async Task ExecuteGraphAsync(User user, GraphDto graph)
+        public async Task ExecuteGraphAsync(User user, GraphDto graph, bool isRunningLocally = true)
         {
             try
             {
                 var compiledGraph = await BuildGraphAsync(user, graph);
                 compiledGraph.DebugMode = graph.IsDebugModeEnabled;
-                await compiledGraph.RunAsync();
+                await compiledGraph.RunAsync(isRunningLocally);
             }
             catch (GraphException ex)
             {

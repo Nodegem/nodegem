@@ -24,7 +24,7 @@ namespace Nodester.WebApi.Controllers
         [HttpGet("all")]
         public IEnumerable<MacroDto> GetAllMacros()
         {
-            return _macroRepository.GetAllMacros(User.GetUserId());
+            return _macroRepository.GetMacrosAssignedToUser(User.GetUserId());
         }
 
         [HttpGet("{macroId}")]

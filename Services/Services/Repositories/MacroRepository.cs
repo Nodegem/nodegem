@@ -16,9 +16,11 @@ namespace Nodester.Services.Repositories
         {
         }
 
-        public IEnumerable<MacroDto> GetAllMacros(Guid userId)
+        public IEnumerable<MacroDto> GetMacrosAssignedToUser(Guid userId)
         {
-            return GetAll(x => x.UserId == userId).Select(x => x.Adapt<MacroDto>());
+            var macros = GetAll(x => x.UserId == userId).OrderBy(x => x.CreatedOn);
+            return macros
+                .Select(x => x.Adapt<MacroDto>());
         }
 
         public async Task<MacroDto> GetById(Guid id)

@@ -58,12 +58,12 @@ namespace Nodester.Bridge
 
         private async Task OnRemoteExecuteGraphAsync(GraphDto graph)
         {
-            await _buildGraphService.ExecuteGraphAsync(AppState.Instance.User, graph);
+            await _buildGraphService.ExecuteGraphAsync(AppState.Instance.User, graph, false);
         }
 
         private async Task OnRemoteExecuteMacroAsync(MacroDto macro, string flowInputFieldId)
         {
-            await _buildMacroService.ExecuteMacroAsync(AppState.Instance.User, macro, flowInputFieldId);
+            await _buildMacroService.ExecuteMacroAsync(AppState.Instance.User, macro, flowInputFieldId, false);
         }
 
         public async Task ManageGraphsAsync(CancellationToken cancelToken)

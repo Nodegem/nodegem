@@ -41,7 +41,7 @@ namespace Nodester.WebApi.Controllers
         public async Task<ActionResult<NamespaceNodeDefinition>> GetNodeDefinitions(GraphType type, Guid graphId)
         {
             var userId = User.GetUserId();
-            var macros = _macroRepo.GetAllMacros(userId).ToList();
+            var macros = _macroRepo.GetMacrosAssignedToUser(userId).ToList();
             var userConstants = (await _userService.GetConstantsAsync(userId)).ToList();
             var graphConstants = type == GraphType.Graph
                 ? await _graphRepo.GetConstantsAsync(graphId)

@@ -32,13 +32,13 @@ namespace Nodester.Bridge.Services
             _logger = logger;
         }
 
-        public async Task ExecuteMacroAsync(User user, MacroDto macro, string flowInputFieldId)
+        public async Task ExecuteMacroAsync(User user, MacroDto macro, string flowInputFieldId, bool isRunningLocally = true)
         {
             try
             {
                 var compiledMacro = await BuildMacroAsync(user, macro);
                 compiledMacro.DebugMode = macro.IsDebugModeEnabled;
-                await compiledMacro.RunAsync(flowInputFieldId);
+                await compiledMacro.RunAsync(flowInputFieldId, isRunningLocally);
             }
             catch (GraphException ex)
             {

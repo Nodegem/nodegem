@@ -22,7 +22,7 @@ namespace Nodester.Services.Repositories
             return (await GetAsync(graphId)).Adapt<GraphDto>();
         }
 
-        public IEnumerable<GraphDto> GetAllGraphsByUser(Guid userId)
+        public IEnumerable<GraphDto> GetGraphsAssignedToUser(Guid userId)
         {
             var graphs = GetAll(x => x.UserId == userId).OrderBy(x => x.CreatedOn);
             return graphs.Select(g => g.Adapt<GraphDto>());

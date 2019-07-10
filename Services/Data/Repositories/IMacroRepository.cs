@@ -7,7 +7,7 @@ namespace Nodester.Services.Data.Repositories
 {
     public interface IMacroRepository
     {
-        IEnumerable<MacroDto> GetAllMacros(Guid userId);
+        IEnumerable<MacroDto> GetMacrosAssignedToUser(Guid userId);
         Task<MacroDto> GetById(Guid id);
         MacroDto CreateNewMacro(CreateMacroDto newMacro);
         MacroDto UpdateMacro(Guid id, MacroDto macro);
