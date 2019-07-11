@@ -121,7 +121,7 @@
       <e p="Nodester.Data.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
-          <e p="netstandard2.0" t="Include">
+          <e p="netcoreapp3.0" t="Include">
             <e p="Nodester.Data.AssemblyInfo.cs" t="Include" />
           </e>
         </e>
@@ -374,7 +374,7 @@
       <e p="Nodester.Services.Data.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
-          <e p="netstandard2.0" t="Include">
+          <e p="netcoreapp3.0" t="Include">
             <e p="Nodester.Services.Data.AssemblyInfo.cs" t="Include" />
           </e>
         </e>
@@ -403,7 +403,7 @@
       <e p="Nodester.Services.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
-          <e p="netstandard2.0" t="Include">
+          <e p="netcoreapp3.0" t="Include">
             <e p="Nodester.Services.AssemblyInfo.cs" t="Include" />
           </e>
         </e>
@@ -462,7 +462,7 @@
       <e p="Nodester.WebApi.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
-          <e p="netcoreapp2.2" t="Include">
+          <e p="netcoreapp3.0" t="Include">
             <e p="Nodester.WebApi.AssemblyInfo.cs" t="Include" />
           </e>
         </e>

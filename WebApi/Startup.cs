@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,28 +11,25 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using NLog.Extensions.Logging;
-using NLog.Web;
 using Nodester.Data.Contexts;
 using Nodester.Data.Models;
 using Nodester.Data.Settings;
 using Nodester.Services;
 using Nodester.Services.Hubs;
-using Swashbuckle.AspNetCore.Swagger;
-using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace Nodester.WebApi
 {
     public class Startup
     {
         public IConfiguration Configuration { get; }
-        private IHostingEnvironment Environment { get; }
+        private IWebHostEnvironment Environment { get; }
 
-        public Startup(IConfiguration configuration, IHostingEnvironment env)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
             Environment = env;
@@ -109,14 +105,6 @@ namespace Nodester.WebApi
                     };
                 });
 
-            services.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-                .AddJsonOptions(options =>
-                {
-                    options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
-                    options.SerializerSettings.Converters.Add(new StringEnumConverter());
-                });
-
             services.AddServices();
 
             services.AddCors();
@@ -125,39 +113,25 @@ namespace Nodester.WebApi
                 options.EnableDetailedErrors = Environment.IsDevelopment() || Environment.IsStaging();
             });
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new Info {Title = "Nodester API", Version = "v1"});
-
-                var security = new Dictionary<string, IEnumerable<string>>
-                {
-                    {"Bearer", new string[] { }},
-                };
-
-                c.AddSecurityDefinition("Bearer", new ApiKeyScheme
-                {
-                    Description =
-                        "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
-                    Name = "Authorization",
-                    In = "Header",
-                    Type = "Token"
-                });
-                c.AddSecurityRequirement(security);
-            });
-
             services.AddLogging(logging =>
             {
                 if (Environment.IsDevelopment())
                 {
                     logging.AddConsole();
                 }
-                
-                logging.AddNLog();
             });
+            
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Latest)
+                .AddNewtonsoftJson(options =>
+                {
+                    options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                    options.SerializerSettings.Converters.Add(new StringEnumConverter());
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env,
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
             NodesterDBContext nodesterContext, IServiceProvider provider)
         {
             
@@ -166,33 +140,30 @@ namespace Nodester.WebApi
             if (env.IsDevelopment() || env.IsStaging())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
             }
 
             if (env.IsStaging() || env.IsProduction())
             {
-                app.UseHttpsRedirection();
                 app.UseHsts();                
             }
+
+            app.UseHttpsRedirection();
+
+            app.UseRouting();
 
             var domains = Configuration.GetSection("CorsSettings:AllowedHosts").Get<string>().Split(',');
             app.UseCors(
                 builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins(domains).AllowCredentials());                
 
-            env.ConfigureNLog("nlog.config");
             app.UseAuthentication();
 
             app.UseWebSockets();
-            app.UseSignalR(routes =>
+            app.UseEndpoints(routes =>
             {
+                routes.MapControllers();
                 routes.MapHub<GraphHub>("/graphHub");
                 routes.MapHub<TerminalHub>("/terminalHub");
             });
-
-            app.UseSwagger();
-            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Nodester API V1"); });
-
-            app.UseMvc();
 
             NodeCache.CacheNodeData(provider);
 
