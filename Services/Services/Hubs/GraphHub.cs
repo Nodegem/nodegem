@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Logging;
 using Nodester.Common.Extensions;
+using Nodester.Data;
 using Nodester.Data.Dto.GraphDtos;
 using Nodester.Data.Dto.MacroDtos;
 
@@ -35,17 +36,12 @@ namespace Nodester.Services.Hubs
             return base.OnDisconnectedAsync(exception);
         }
 
-        public void EstablishBridge(string deviceName)
+        public void EstablishBridge(BridgeInfo info)
         {
             var userId = Context.User.GetUserId();
-            _logger.LogInformation($"Establishing bridge. Device: {deviceName}");
-            var bridgeInfo = new BridgeInfo
-            {
-                ConnectionId = Context.ConnectionId,
-                DeviceName = deviceName,
-                UserId = userId
-            };
-            Bridges.TryAdd(userId, bridgeInfo);
+            info.ConnectionId = Context.ConnectionId;
+            _logger.LogInformation($"Establishing bridge. Device: {info.DeviceName} ({info.OperatingSystem})");
+            Bridges.TryAdd(userId, info);
         }
         
         public async Task RemoveBridge()
@@ -53,7 +49,7 @@ namespace Nodester.Services.Hubs
             var userId = Context.User.GetUserId();
             var removed = Bridges.TryRemove(userId, out var info);
             if (!removed) return;
-            _logger.LogInformation($"Removing bridge. Device: {info.DeviceName}");
+            _logger.LogInformation($"Removing bridge. Device: {info.DeviceName} ({info.OperatingSystem})");
             await Clients.Group(userId.ToString()).SendAsync("LostBridge");
         }
 
@@ -81,11 +77,5 @@ namespace Nodester.Services.Hubs
                 .SendAsync("RemoteExecuteMacro", macro, flowInputFieldKey);
         }
 
-        private struct BridgeInfo
-        {
-            public string DeviceName { get; set; }
-            public string ConnectionId { get; set; }
-            public Guid UserId { get; set; }
-        }
     }
 }

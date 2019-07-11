@@ -11,7 +11,7 @@ namespace Nodester.Graph.Core.Fields.Macro
 
         private Func<IFlowGraph> _getGraph; 
         
-        public MacroFlowOutput(string key) : base(key, flow => null)
+        public MacroFlowOutput(string key) : base(key, flow => Task.FromResult(default(IFlowOutputField)))
         {
         }
 

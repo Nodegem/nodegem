@@ -1,12 +1,14 @@
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Bridge.Data;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Nodester.Data;
 using Nodester.Services;
 
 namespace Nodester.Bridge.BackgroundServices
@@ -99,7 +101,18 @@ namespace Nodester.Bridge.BackgroundServices
             try
             {
                 await RetrieveToken();
-                await _graphConnection.StartAsync(cancellationToken);
+                
+                var bridgeInfo = new BridgeInfo
+                {
+                    DeviceName = Environment.MachineName,
+                    OperatingSystem = RuntimeInformation.OSDescription,
+                    ProcessorCount = Environment.ProcessorCount,
+                    UserId = AppState.Instance.UserId
+                };
+
+                AppState.Instance.Info = bridgeInfo;
+                
+                await _graphConnection.StartAsync(bridgeInfo, cancellationToken);
                 await _terminalHubConnection.StartAsync(cancellationToken);
             }
             catch (TimeoutException ex)

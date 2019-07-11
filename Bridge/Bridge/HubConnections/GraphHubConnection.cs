@@ -1,9 +1,9 @@
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Bridge.Data;
 using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.Extensions.Options;
+using Nodester.Data;
 using Nodester.Data.Dto.GraphDtos;
 using Nodester.Data.Dto.MacroDtos;
 
@@ -38,10 +38,10 @@ namespace Nodester.Bridge.HubConnections
             });
         }
 
-        public async Task StartAsync(CancellationToken cancelToken)
+        public async Task StartAsync(BridgeInfo info, CancellationToken cancelToken)
         {
             await _connection.StartAsync(cancelToken);
-            await _connection.InvokeAsync("EstablishBridge", Environment.MachineName, cancelToken);
+            await _connection.InvokeAsync("EstablishBridge", info, cancelToken);
         }
 
         public async Task StopAsync(CancellationToken cancelToken)

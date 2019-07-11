@@ -1,7 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Nodester.Common.Data;
+using Nodester.Data;
 using Nodester.Data.Dto.GraphDtos;
 using Nodester.Data.Dto.MacroDtos;
 
@@ -17,7 +17,7 @@ namespace Bridge.Data
         event OnRemoteExecuteGraph ExecuteGraphEvent;
         event OnRemoteExecuteMacro ExecuteMacroEvent;
         
-        Task StartAsync(CancellationToken cancelToken);
+        Task StartAsync(BridgeInfo info, CancellationToken cancelToken);
 
         Task StopAsync(CancellationToken cancelToken);
 

@@ -51,7 +51,7 @@ namespace Nodester.Graph.Core
             return default;
         }
 
-        public async Task RunAsync(bool isLocal = false)
+        public async Task RunAsync(bool isLocal = true)
         {
             if (!Nodes.TryGetValueOfType(typeof(Start), out var start))
             {

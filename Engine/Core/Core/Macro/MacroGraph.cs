@@ -78,9 +78,9 @@ namespace Nodester.Graph.Core.Macro
             return _flow.GetValue<T>(output);
         }
 
-        public async Task<IFlowOutputField> ExecuteAsync(IMacroFlowInputField input)
+        public async Task<IFlowOutputField> ExecuteAsync(IMacroFlowInputField input, bool isLocal = true)
         {
-            return await _flow.Execute(input);
+            return await _flow.Execute(input, isLocal);
         }
 
         public bool IsMacroFlowOutputField(string key)

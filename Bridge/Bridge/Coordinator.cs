@@ -116,7 +116,7 @@ namespace Nodester.Bridge
 
                 if (!canRun) continue;
                     
-                await Task.Run(() => flowGraph.RunAsync(true));
+                await flowGraph.RunAsync();
                 GraphStates[id].LastRan = DateTime.UtcNow;
             }
         }

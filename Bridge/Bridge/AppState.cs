@@ -4,6 +4,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using Nodester.Common.Data;
 using Nodester.Common.Extensions;
+using Nodester.Data;
 using Nodester.Data.Dto.GraphDtos;
 using Nodester.Data.Models;
 
@@ -24,6 +25,8 @@ namespace Nodester.Bridge
         public string Environment { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+        
+        public BridgeInfo Info { get; set; }
 
         public IEnumerable<GraphDto> Graphs => GraphLookUp.Values;
         public IDictionary<Guid, GraphDto> GraphLookUp { get; set; }

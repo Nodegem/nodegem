@@ -3,7 +3,6 @@ using Nodester.Common.Data.Interfaces;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
-using ValueInput = Nodester.Graph.Core.Fields.Graph.ValueInput;
 
 namespace Nodester.Graph.Core.Nodes.Logging
 {

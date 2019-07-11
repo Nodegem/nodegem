@@ -15,21 +15,23 @@ namespace Nodester.Graph.Core.Macro
             _flow = new Flow();
         }
 
-        public async Task RunAsync(IMacroFlowInputField start, bool isLocal = false)
+        public async Task RunAsync(IMacroFlowInputField start, bool isLocal = true)
         {
-            _flow.IsRunningLocally = isLocal;
             var startConnection = start.Connection?.Destination;
             if (startConnection == null)
             {
                 return;
             }
 
+            _flow.IsRunningLocally = isLocal;
             var flowOutput = await startConnection.Action(_flow);
             await _flow.RunAsync(flowOutput);
         }
 
-        public async Task<IFlowOutputField> Execute(IMacroFlowInputField start)
+        public async Task<IFlowOutputField> Execute(IMacroFlowInputField start, bool isLocal = true)
         {
+            _flow.IsRunningLocally = isLocal;
+            
             var startConnection = start.Connection?.Destination;
             if (startConnection == null)
             {

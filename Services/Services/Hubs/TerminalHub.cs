@@ -12,13 +12,6 @@ namespace Nodester.Services.Hubs
     public class TerminalHub : Hub
     {
 
-        private ILogger<TerminalHub> _logger;
-
-        public TerminalHub(ILogger<TerminalHub> logger)
-        {
-            _logger = logger;
-        }
-        
         public override Task OnConnectedAsync()
         {
             Groups.AddToGroupAsync(Context.ConnectionId, Context.User.GetUserId().ToString());

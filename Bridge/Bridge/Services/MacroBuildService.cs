@@ -101,7 +101,7 @@ namespace Nodester.Bridge.Services
             }
         }
 
-        private void EstablishConnections(IDictionary<Guid, INode> nodes,
+        private static void EstablishConnections(IDictionary<Guid, INode> nodes,
             IDictionary<string, IField> fieldDictionary,
             IEnumerable<MacroLinkDto> links)
         {

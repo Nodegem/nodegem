@@ -99,6 +99,7 @@
     </e>
     <e p="C:\Users\rszem\Documents\Projects\nodester\Data" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
+      <e p="BridgeInfo.cs" t="Include" />
       <e p="Configurations" t="Include">
         <e p="AccessTokenConfiguration.cs" t="Include" />
         <e p="GraphConfiguration.cs" t="Include" />
