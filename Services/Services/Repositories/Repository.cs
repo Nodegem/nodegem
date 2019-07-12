@@ -51,11 +51,11 @@ namespace Nodester.Services.Repositories
             Context.SaveChanges();
         }
         
-        public Task CreateAsync(TEntity entity)
+        public async Task CreateAsync(TEntity entity)
         {
             entity.CreatedOn = DateTime.UtcNow;
             entity.LastUpdated = DateTime.UtcNow;
-            return DbSet.AddAsync(entity);
+            await DbSet.AddAsync(entity);
         }
 
         public void Update(Guid id, TEntity entity)

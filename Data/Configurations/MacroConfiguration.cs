@@ -1,10 +1,7 @@
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Newtonsoft.Json;
 using Nodester.Data.Extensions;
 using Nodester.Data.Models;
-using Nodester.Data.Models.Json_Models;
 
 namespace Nodester.Data.Configurations
 {

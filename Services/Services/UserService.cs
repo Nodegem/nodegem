@@ -42,15 +42,13 @@ namespace Nodester.Services
             registerUser.LastLoggedIn = time;
 
             var result = await _userManager.CreateAsync(registerUser, dto.Password);
-            if (result.Succeeded)
-            {
-                var user = FindUser(dto.UserName, dto.Email);
-                await _signInManager.SignInAsync(user, false);
-                await UpdateLastLoggedIn(user);
-                return GetUserWithToken(user);
-            }
+            if (!result.Succeeded) throw new RegistrationException(result);
+            
+            var user = FindUser(dto.UserName, dto.Email);
+            await _signInManager.SignInAsync(user, false);
+            await UpdateLastLoggedIn(user);
+            return GetUserWithToken(user);
 
-            throw new RegistrationException(result);
         }
 
         public async Task<TokenUserDto> LoginAsync(string username, string password)

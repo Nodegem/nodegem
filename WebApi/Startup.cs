@@ -144,17 +144,17 @@ namespace Nodester.WebApi
 
             if (env.IsStaging() || env.IsProduction())
             {
+                app.UseHttpsRedirection();
                 app.UseHsts();                
             }
-
-            app.UseHttpsRedirection();
 
             app.UseRouting();
 
             var domains = Configuration.GetSection("CorsSettings:AllowedHosts").Get<string>().Split(',');
             app.UseCors(
-                builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins(domains).AllowCredentials());                
+                builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins(domains).AllowCredentials());
 
+            app.UseAuthorization();
             app.UseAuthentication();
 
             app.UseWebSockets();
