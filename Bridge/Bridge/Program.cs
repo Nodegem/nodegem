@@ -17,8 +17,17 @@ namespace Nodester.Bridge
     public class Program
     {
 
-        public static void Main(string[] args) 
-            => CommandLineApplication.Execute<Program>(args);
+        public static void Main(string[] args)
+        {
+            try
+            {
+                CommandLineApplication.Execute<Program>(args);
+            }
+            catch (Exception)
+            {
+                System.Environment.Exit(1);
+            }
+        }
         
         [Option(Description = "The environment the app runs in", ShortName = "e")]
         public string Environment { get; }

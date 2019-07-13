@@ -43,12 +43,11 @@ namespace Nodester.Services
 
             var result = await _userManager.CreateAsync(registerUser, dto.Password);
             if (!result.Succeeded) throw new RegistrationException(result);
-            
+
             var user = FindUser(dto.UserName, dto.Email);
             await _signInManager.SignInAsync(user, false);
             await UpdateLastLoggedIn(user);
             return GetUserWithToken(user);
-
         }
 
         public async Task<TokenUserDto> LoginAsync(string username, string password)
@@ -61,13 +60,11 @@ namespace Nodester.Services
             }
 
             var result = await _signInManager.CheckPasswordSignInAsync(user, password, false);
-            if (result.Succeeded)
-            {
-                await UpdateLastLoggedIn(user);
-                return GetUserWithToken(user);
-            }
+            if (!result.Succeeded) throw new InvalidLoginCredentialException();
+            
+            await UpdateLastLoggedIn(user);
+            return GetUserWithToken(user);
 
-            throw new InvalidLoginCredentialException();
         }
 
         public async Task<UserDto> GetUser(Guid userId)
@@ -113,9 +110,10 @@ namespace Nodester.Services
 
         private ApplicationUser FindUser(string userName, string email)
         {
+            userName = userName.ToLower();
+            email = email.ToLower();
             return _userManager.Users.SingleOrDefault(x =>
-                string.Equals(x.UserName, userName, StringComparison.CurrentCultureIgnoreCase) ||
-                string.Equals(x.Email, email, StringComparison.CurrentCultureIgnoreCase));
+                x.UserName.ToLower() == userName || x.Email.ToLower() == email);
         }
 
         private async Task UpdateLastLoggedIn(ApplicationUser user)

@@ -1,7 +1,9 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Bridge.Data;
 using Microsoft.AspNetCore.SignalR.Client;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Nodester.Common.Data;
@@ -10,23 +12,24 @@ namespace Nodester.Bridge.HubConnections
 {
     public class TerminalHubConnection : ITerminalHubConnection
     {
-        
         private readonly HubConnection _connection;
         private readonly ILogger<TerminalHubConnection> _logger;
-        
+
         public TerminalHubConnection(IOptions<AppConfig> config, ILogger<TerminalHubConnection> logger)
         {
             _logger = logger;
-            
+
             var url = config.Value.Host;
             _connection = new HubConnectionBuilder()
-                .WithUrl($"{url}/terminalHub", options =>
-                {
-                    options.AccessTokenProvider = () => Task.FromResult(AppState.Instance.Token.RawData);
-                })
+                .WithUrl(new Uri($"{url}/terminalHub"),
+                    options =>
+                    {
+                        options.AccessTokenProvider = () => Task.FromResult(AppState.Instance.Token.RawData);
+                    })
+                .AddNewtonsoftJsonProtocol()
                 .Build();
         }
-        
+
         public async Task StartAsync(CancellationToken cancelToken)
         {
             await _connection.StartAsync(cancelToken);

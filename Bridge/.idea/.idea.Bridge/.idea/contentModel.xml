@@ -26,6 +26,7 @@
           <e p="NodeExtensions.cs" t="Include" />
         </e>
         <e p="HubConnections" t="Include">
+          <e p="BaseHubConnection.cs" t="Include" />
           <e p="GraphHubConnection.cs" t="Include" />
           <e p="TerminalHubConnection.cs" t="Include" />
         </e>

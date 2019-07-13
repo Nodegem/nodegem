@@ -109,9 +109,10 @@ namespace Nodester.WebApi
 
             services.AddCors();
             services.AddSignalR(options =>
-            {
-                options.EnableDetailedErrors = Environment.IsDevelopment() || Environment.IsStaging();
-            });
+                {
+                    options.EnableDetailedErrors = Environment.IsDevelopment() || Environment.IsStaging();
+                })
+                .AddNewtonsoftJsonProtocol();
 
             services.AddLogging(logging =>
             {
@@ -120,7 +121,7 @@ namespace Nodester.WebApi
                     logging.AddConsole();
                 }
             });
-            
+
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Latest)
                 .AddNewtonsoftJson(options =>
@@ -134,9 +135,8 @@ namespace Nodester.WebApi
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
             NodesterDBContext nodesterContext, IServiceProvider provider)
         {
-            
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
-            
+
             if (env.IsDevelopment() || env.IsStaging())
             {
                 app.UseDeveloperExceptionPage();
@@ -145,19 +145,19 @@ namespace Nodester.WebApi
             if (env.IsStaging() || env.IsProduction())
             {
                 app.UseHttpsRedirection();
-                app.UseHsts();                
+                app.UseHsts();
             }
 
-            app.UseRouting();
+            app.UseAuthorization();
+            app.UseAuthentication();
 
             var domains = Configuration.GetSection("CorsSettings:AllowedHosts").Get<string>().Split(',');
             app.UseCors(
                 builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins(domains).AllowCredentials());
 
-            app.UseAuthorization();
-            app.UseAuthentication();
-
             app.UseWebSockets();
+
+            app.UseRouting();
             app.UseEndpoints(routes =>
             {
                 routes.MapControllers();
