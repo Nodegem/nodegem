@@ -20,24 +20,24 @@ namespace Nodester.Graph.Core.Nodes.Essential
 
         protected override void Define()
         {
-            _macroGraph.FlowInputs.ForEach(x => AddFlowInput(x.Key, flow => ExecuteMacro(x, flow.IsRunningLocally)));
+            _macroGraph.FlowInputs.ForEach(x => AddFlowInput(x.Key, flow => ExecuteMacroAsync(x, flow.IsRunningLocally)));
             _macroGraph.FlowOutputs.ForEach(x =>
             {
                  x.SetParentGraph(() => Graph as IFlowGraph);
                 AddFlowOutput(x.Key);
             });
             _macroGraph.ValueInputs.ForEach(x => AddValueInput(x.Key, x.DefaultValue));
-            _macroGraph.ValueOutputs.ForEach(x => AddValueOutput(x.Key, flow => GetOutput(x)));
+            _macroGraph.ValueOutputs.ForEach(x => AddValueOutput<object>(x.Key, flow => GetOutputAsync(x)));
         }
 
-        private Task<IFlowOutputField> ExecuteMacro(IMacroFlowInputField input, bool isLocal = true)
+        private Task<IFlowOutputField> ExecuteMacroAsync(IMacroFlowInputField input, bool isLocal = true)
         {
             return _macroGraph.ExecuteAsync(input, isLocal);
         }
 
-        private object GetOutput(IMacroValueOutputField output)
+        private async Task<object> GetOutputAsync(IMacroValueOutputField output)
         {
-            return _macroGraph.GetValue<object>(output);
+            return await _macroGraph.GetValueAsync<object>(output);
         }
     }
 }

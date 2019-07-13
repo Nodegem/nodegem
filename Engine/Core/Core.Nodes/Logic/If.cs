@@ -25,9 +25,9 @@ namespace Nodester.Graph.Core.Nodes.Logic
             False = AddFlowOutput(nameof(False));
         }
 
-        private Task<IFlowOutputField> CheckCondition(IFlow flow)
+        private async Task<IFlowOutputField> CheckCondition(IFlow flow)
         {
-            return Task.FromResult(flow.GetValue<bool>(Condition) ? True : False);
+            return await flow.GetValueAsync<bool>(Condition) ? True : False;
         }
     }
 }

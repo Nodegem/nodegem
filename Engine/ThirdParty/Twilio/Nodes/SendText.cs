@@ -42,11 +42,11 @@ namespace Nodester.ThirdParty.Twilio.Nodes
 
         private async Task<IFlowOutputField> SendTextMessage(IFlow flow)
         {
-            var accountSid = flow.GetValue<string>(AccountSid);
-            var authToken = flow.GetValue<string>(AuthToken);
-            var toPhoneNumber = flow.GetValue<string>(ToPhoneNumber);
-            var fromPhoneNumber = flow.GetValue<string>(FromPhoneNumber);
-            var message = flow.GetValue<string>(Message);
+            var accountSid = await flow.GetValueAsync<string>(AccountSid);
+            var authToken = await flow.GetValueAsync<string>(AuthToken);
+            var toPhoneNumber = await flow.GetValueAsync<string>(ToPhoneNumber);
+            var fromPhoneNumber = await flow.GetValueAsync<string>(FromPhoneNumber);
+            var message = await flow.GetValueAsync<string>(Message);
             await TwilioService.SendSMSAsync(accountSid, authToken, toPhoneNumber, fromPhoneNumber, message);
             return Out;
         }

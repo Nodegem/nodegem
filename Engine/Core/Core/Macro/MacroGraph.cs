@@ -68,19 +68,19 @@ namespace Nodester.Graph.Core.Macro
             await _flow.RunAsync(input, isLocal);
         }
 
-        public T GetValue<T>(string key)
+        public Task<T> GetValueAsync<T>(string key)
         {
-            return GetValue<T>(GetOutputByKey(key));
+            return GetValueAsync<T>(GetOutputByKey(key));
         }
 
-        public T GetValue<T>(IMacroValueOutputField output)
+        public Task<T> GetValueAsync<T>(IMacroValueOutputField output)
         {
-            return _flow.GetValue<T>(output);
+            return _flow.GetValueAsync<T>(output);
         }
 
         public async Task<IFlowOutputField> ExecuteAsync(IMacroFlowInputField input, bool isLocal = true)
         {
-            return await _flow.Execute(input, isLocal);
+            return await _flow.ExecuteAsync(input, isLocal);
         }
 
         public bool IsMacroFlowOutputField(string key)

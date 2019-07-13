@@ -56,19 +56,17 @@ namespace Nodester.Bridge.Services
         {
             try
             {
-                using (var provider = _provider.CreateScope())
-                {
-                    var graphConstantDictionary = graph.Constants.ToDictionary(k => k.Key, v => v.Adapt<Constant>());
-                    var constantDictionary = graphConstantDictionary.Concat(user.Constants)
-                        .ToDictionary(k => k.Key, v => v.Value.Adapt<Constant>());
+                using var provider = _provider.CreateScope();
+                var graphConstantDictionary = graph.Constants.ToDictionary(k => k.Key, v => v.Adapt<Constant>());
+                var constantDictionary = graphConstantDictionary.Concat(user.Constants)
+                    .ToDictionary(k => k.Key, v => v.Value.Adapt<Constant>());
 
-                    var nodes = await graph.Nodes.ToNodeDictionaryAsync(provider.ServiceProvider, _macroService, user,
-                        constantDictionary);
+                var nodes = await graph.Nodes.ToNodeDictionaryAsync(provider.ServiceProvider, _macroService, user,
+                    constantDictionary);
 
-                    EstablishLinks(nodes, graph.Links);
+                EstablishLinks(nodes, graph.Links);
 
-                    return new FlowGraph(graph.Name, nodes, constantDictionary, user);
-                }
+                return new FlowGraph(graph.Name, nodes, constantDictionary, user);
             }
             catch (Exception ex)
             {

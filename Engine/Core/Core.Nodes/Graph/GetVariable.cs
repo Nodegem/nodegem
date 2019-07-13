@@ -1,4 +1,4 @@
-using System;
+using System.Threading.Tasks;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Graph.Core.Fields.Graph;
@@ -15,12 +15,12 @@ namespace Nodester.Graph.Core.Nodes.Graph
         protected override void Define()
         {
             Variable = AddValueInput<string>(nameof(Variable));
-            Value = AddValueOutput(nameof(Value), GetValue);
+            Value = AddValueOutput<object>(nameof(Value), GetValue);
         }
 
-        private object GetValue(IFlow flow)
+        private async Task<object> GetValue(IFlow flow)
         {
-            return Graph.GetVariable<object>(flow.GetValue<string>(Variable));
+            return Graph.GetVariable<object>(await flow.GetValueAsync<string>(Variable));
         }
     }
 }

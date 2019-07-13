@@ -19,16 +19,16 @@ namespace Nodester.Graph.Core.Nodes.Control
             base.Define();
         }
 
-        private bool CanMoveNext(IFlow flow)
+        private async Task<bool> CanMoveNext(IFlow flow)
         {
-            return flow.GetValue<bool>(Condition);
+            return await flow.GetValueAsync<bool>(Condition);
         }
 
         protected override async Task<IFlowOutputField> OnLoop(IFlow flow)
         {
             var loopId = flow.EnterLoop();
 
-            while (flow.HasLoopExited(loopId) && CanMoveNext(flow))
+            while (flow.HasLoopExited(loopId) && await CanMoveNext(flow))
             {
                 await flow.RunAsync(Block);
             }

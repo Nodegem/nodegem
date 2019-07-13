@@ -68,15 +68,15 @@ namespace Nodester.Graph.Core
             }
         }
 
-        private object GetValue(IValueInputField input)
+        private async Task<object> GetValueAsync(IValueInputField input)
         {
             var connection = input.Connection;
-            return connection == null ? input.GetValue() : connection.Source.GetValue(this);
+            return connection == null ? input.GetValue() : await connection.Source.GetValueAsync(this);
         }
 
-        public T GetValue<T>(IValueInputField input)
+        public async Task<T> GetValueAsync<T>(IValueInputField input)
         {
-            return ConvertHelper.Cast<T>(GetValue(input));
+            return ConvertHelper.Cast<T>(await GetValueAsync(input));
         }
     }
 }

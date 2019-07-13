@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Graph.Core.Fields.Graph;
@@ -21,9 +22,9 @@ namespace Nodester.Graph.Core.Nodes.Math
             Product = AddValueOutput(nameof(Product), GetProduct);
         }
 
-        private double GetProduct(IFlow flow)
+        private async Task<double> GetProduct(IFlow flow)
         {
-            return flow.GetValue<double>(A) * flow.GetValue<double>(B);
+            return await flow.GetValueAsync<double>(A) * await flow.GetValueAsync<double>(B);
         }
     }
 }

@@ -33,11 +33,11 @@ namespace Nodester.Graph.Core.Nodes.Logic
             B = AddValueInput<double>(nameof(B));
         }
 
-        private Task<IFlowOutputField> IsGreaterThan(IFlow flow)
+        private async Task<IFlowOutputField> IsGreaterThan(IFlow flow)
         {
-            var a = flow.GetValue<double>(A);
-            var b = flow.GetValue<double>(B);
-            return Task.FromResult(a <= b ? True : False);
+            var a = await flow.GetValueAsync<double>(A);
+            var b = await flow.GetValueAsync<double>(B);
+            return a <= b ? True : False;
         }
     }
 }

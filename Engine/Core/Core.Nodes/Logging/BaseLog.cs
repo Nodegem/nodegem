@@ -28,10 +28,10 @@ namespace Nodester.Graph.Core.Nodes.Logging
             Message = AddValueInput(nameof(Message), "");
         }
 
-        private Task<IFlowOutputField> PerformLog(IFlow flow)
+        private async Task<IFlowOutputField> PerformLog(IFlow flow)
         {
-            ExecuteLog(flow.GetValue<string>(Message), !flow.IsRunningLocally);
-            return Task.FromResult(Out);
+            ExecuteLog(await flow.GetValueAsync<string>(Message), !flow.IsRunningLocally);
+            return Out;
         }
 
         protected abstract void ExecuteLog(string message, bool sendToClient);

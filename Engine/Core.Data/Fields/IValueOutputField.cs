@@ -1,7 +1,9 @@
+using System.Threading.Tasks;
+
 namespace Nodester.Engine.Data.Fields
 {
     public interface IValueOutputField : IValueField
     {
-        object GetValue(IFlow flow);
+        Task<object> GetValueAsync(IFlow flow);
     }
 }

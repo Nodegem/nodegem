@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Fields;
 
@@ -6,21 +7,21 @@ namespace Nodester.Graph.Core.Fields.Graph
 {
     public class ValueOutput : ValueField, IValueOutputField
     {
-        private Func<IFlow, object> ValueFunc { get; }
+        private Func<IFlow, Task<object>> ValueFunc { get; }
 
-        public ValueOutput(string key, Func<IFlow, object> valueFunc, Type returnType) : base(key, returnType)
+        public ValueOutput(string key, Func<IFlow, Task<object>> valueFunc, Type returnType) : base(key, returnType)
         {
             ValueFunc = valueFunc;
         }
 
         public ValueOutput(string key, Type returnType) : this(key, null, returnType)
         {
-            ValueFunc = f => GetValue();
+            ValueFunc = f => Task.FromResult(GetValue());
         }
 
-        public object GetValue(IFlow flow)
+        public async Task<object> GetValueAsync(IFlow flow)
         {
-            return ValueFunc(flow);
+            return await ValueFunc(flow);
         }
     }
 }

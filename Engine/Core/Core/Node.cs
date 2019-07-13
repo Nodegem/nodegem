@@ -140,9 +140,14 @@ namespace Nodester.Graph.Core
             return output;
         }
 
-        protected ValueOutput AddValueOutput<T>(string key, Func<IFlow, T> valueFunc)
+        protected ValueOutput AddValueOutput<T>(string key, Func<IFlow, Task<T>> valueFunc)
         {
-            var output = new ValueOutput(key, (flow) => valueFunc(flow), typeof(T));
+            return AddValueOutput(key, async flow => await valueFunc(flow), typeof(T));
+        }
+        
+        private ValueOutput AddValueOutput(string key, Func<IFlow, Task<object>> valueFunc, Type type)
+        {
+            var output = new ValueOutput(key, valueFunc, type);
             ValueOutputs.Add(output);
             return output;
         }

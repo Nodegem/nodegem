@@ -43,9 +43,9 @@ namespace Nodester.Graph.Core.Nodes.Control
 
         protected override async Task<IFlowOutputField> OnLoop(IFlow flow)
         {
-            var start = flow.GetValue<double>(From);
-            var end = flow.GetValue<double>(To);
-            var step = flow.GetValue<double>(Step);
+            var start = await flow.GetValueAsync<double>(From);
+            var end = await flow.GetValueAsync<double>(To);
+            var step = await flow.GetValueAsync<double>(Step);
             var ascending = start <= end;
             var currentIndex = start;
             Index.SetValue(currentIndex);

@@ -1,6 +1,5 @@
 using System.Threading.Tasks;
 using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
 using ThirdParty.Data.Discord;
 
@@ -11,7 +10,9 @@ namespace Nodester.ThirdParty.Discord.Nodes
     public class OnMessageReceived : DiscordNode
     {
         
-        private IValueOutputField Message { get; set; }
+        public IFlowOutputField On { get; set; }
+        
+        public IValueOutputField Message { get; set; }
         
         public OnMessageReceived(IDiscordService discordService) : base(discordService)
         {
@@ -19,16 +20,12 @@ namespace Nodester.ThirdParty.Discord.Nodes
 
         protected override void Define()
         {
+            On = AddFlowOutput(nameof(On));
             Message = AddValueOutput(nameof(Message), HandleMessage);
         }
 
-        private string HandleMessage(IFlow flow)
+        private async Task<string> HandleMessage(IFlow flow)
         {
-//            DiscordService.Client.MessageReceived += async message =>
-//            {
-//                await Task.CompletedTask;
-//            };
-
             return null;
         }
     }

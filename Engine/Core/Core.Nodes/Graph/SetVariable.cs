@@ -25,18 +25,18 @@ namespace Nodester.Graph.Core.Nodes.Graph
 
             Variable = AddValueInput<string>(nameof(Variable));
             NewValue = AddValueInput<object>(nameof(NewValue));
-            Value = AddValueOutput(nameof(Value), GetValue);
+            Value = AddValueOutput<object>(nameof(Value), GetValue);
         }
 
-        private Task<IFlowOutputField> SetValue(IFlow flow)
+        private async Task<IFlowOutputField> SetValue(IFlow flow)
         {
-            Graph.SetVariable(flow.GetValue<string>(Variable), flow.GetValue<object>(NewValue));
-            return Task.FromResult(Out);
+            Graph.SetVariable(await flow.GetValueAsync<string>(Variable), flow.GetValueAsync<object>(NewValue));
+            return Out;
         }
 
-        private object GetValue(IFlow flow)
+        private async Task<object> GetValue(IFlow flow)
         {
-            return Graph.GetVariable<object>(flow.GetValue<string>(Variable));
+            return Graph.GetVariable<object>(await flow.GetValueAsync<string>(Variable));
         }
     }
 }

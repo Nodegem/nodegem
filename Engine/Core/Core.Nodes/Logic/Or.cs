@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Graph.Core.Fields.Graph;
@@ -20,9 +21,9 @@ namespace Nodester.Graph.Core.Nodes.Logic
             Result = AddValueOutput(nameof(Result), PerformOrOp);
         }
 
-        private bool PerformOrOp(IFlow flow)
+        private async Task<bool> PerformOrOp(IFlow flow)
         {
-            return flow.GetValue<bool>(A) || flow.GetValue<bool>(B);
+            return await flow.GetValueAsync<bool>(A) || await flow.GetValueAsync<bool>(B);
         }
     }
 }

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Nodester.Common.Data;
+using Nodester.Common.Extensions;
 
 namespace Nodester.Bridge.HubConnections
 {
@@ -19,10 +20,11 @@ namespace Nodester.Bridge.HubConnections
 
         public async Task LogAsync(User user, string message, bool sendToClient)
         {
-            _logger.LogInformation(message, user);
+            _logger.LogInformation($"Logging: {message} User ID: {user.Id}");
             if (sendToClient)
             {
-                await Client.InvokeAsync("Log", user, message);
+                var truncatedMessage = message.TruncateAtWord(1024);
+                await Client.InvokeAsync("Log", user, truncatedMessage);
             }
         }
 
@@ -30,9 +32,10 @@ namespace Nodester.Bridge.HubConnections
         {
             if (isDebug)
             {
-                _logger.LogDebug(message, user);
+                _logger.LogDebug($"Logging: {message} User ID: {user.Id}");
                 if (sendToClient)
                 {
+                    var truncatedMessage = message.TruncateAtWord(1024);
                     await Client.InvokeAsync("DebugLog", user, message);
                 }
             }
@@ -40,19 +43,21 @@ namespace Nodester.Bridge.HubConnections
 
         public async Task WarnLogAsync(User user, string message, bool sendToClient)
         {
-            _logger.LogWarning(message, user);
+            _logger.LogWarning($"Logging: {message} User ID: {user.Id}");
             if (sendToClient)
             {
-                await Client.InvokeAsync("WarnLog", user, message);
+                var truncatedMessage = message.TruncateAtWord(1024);
+                await Client.InvokeAsync("WarnLog", user, truncatedMessage);
             }
         }
 
         public async Task ErrorLogAsync(User user, string message, bool sendToClient)
         {
-            _logger.LogError(message, user);
+            _logger.LogError($"Logging: {message} User ID: {user.Id}");
             if (sendToClient)
             {
-                await Client.InvokeAsync("ErrorLog", user, message);
+                var truncatedMessage = message.TruncateAtWord(1024);
+                await Client.InvokeAsync("ErrorLog", user, truncatedMessage);
             }
         }
     }

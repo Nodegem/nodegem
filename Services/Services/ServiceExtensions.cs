@@ -27,6 +27,7 @@ namespace Nodester.Services
 
         public static void AddServicesForBridge(this IServiceCollection services)
         {
+            services.AddHttpClient<INodeHttpClient, NodeHttpClient>();
             services.RegisterCommonServices();
         }
 

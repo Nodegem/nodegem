@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Graph.Core.Fields.Graph;
@@ -20,9 +21,9 @@ namespace Nodester.Graph.Core.Nodes.Logic
             Result = AddValueOutput<bool>(nameof(Result), Compare);
         }
 
-        private bool Compare(IFlow flow)
+        private async Task<bool> Compare(IFlow flow)
         {
-            return flow.GetValue<object>(A).Equals(flow.GetValue<object>(B));
+            return (await flow.GetValueAsync<object>(A)).Equals(await flow.GetValueAsync<object>(B));
         }
     }
 }

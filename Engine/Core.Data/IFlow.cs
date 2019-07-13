@@ -12,6 +12,6 @@ namespace Nodester.Engine.Data
         void BreakLoop();
         void ExitLoop(Guid loopId);
         Task RunAsync(IFlowOutputField output);
-        T GetValue<T>(IValueInputField input);
+        Task<T> GetValueAsync<T>(IValueInputField input);
     }
 }

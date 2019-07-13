@@ -16,18 +16,8 @@ namespace Nodester.Bridge
 {
     public class Program
     {
-
-        public static void Main(string[] args)
-        {
-            try
-            {
-                CommandLineApplication.Execute<Program>(args);
-            }
-            catch (Exception)
-            {
-                System.Environment.Exit(1);
-            }
-        }
+        
+        private static IServiceProvider Provider { get; set; }
         
         [Option(Description = "The environment the app runs in", ShortName = "e")]
         public string Environment { get; }
@@ -37,6 +27,20 @@ namespace Nodester.Bridge
         
         [Option(Description = "Account password", ShortName = "p")]
         public string Password { get; }
+
+        public static void Main(string[] args)
+        {
+            try
+            {
+                CommandLineApplication.Execute<Program>(args);
+            }
+            catch (Exception ex)
+            {
+                var logger = Provider.GetService<ILogger<Program>>();
+                logger.LogCritical("An uncaught exception occurred.", ex);
+                System.Environment.Exit(1);
+            }
+        }
 
         // ReSharper disable once UnusedMember.Local
         private async Task OnExecute()
@@ -66,7 +70,6 @@ namespace Nodester.Bridge
                 })
                 .ConfigureServices((hostingContext, services) =>
                 {
-
                     services.AddOptions();
                     services.Configure<AppConfig>(hostingContext.Configuration.GetSection("AppConfig"));
 
@@ -89,6 +92,8 @@ namespace Nodester.Bridge
                 {
                     logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
                     logging.AddConsole();
+                    logging.AddDebug();
+                    logging.AddEventSourceLogger();
                 });
 
             await hostBuilder.RunConsoleAsync();

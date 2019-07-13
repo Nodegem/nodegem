@@ -16,6 +16,7 @@
         <e p="AttributeExtensions.cs" t="Include" />
         <e p="ClaimExtensions.cs" t="Include" />
         <e p="LinqExtensions.cs" t="Include" />
+        <e p="StringExtensions.cs" t="Include" />
       </e>
       <e p="Nodester.Common.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
@@ -201,6 +202,7 @@
         </e>
         <e p="HTTP" t="Include">
           <e p="Fetch.cs" t="Include" />
+          <e p="HttpNode.cs" t="Include" />
           <e p="Post.cs" t="Include" />
         </e>
         <e p="Logging" t="Include">
@@ -241,7 +243,7 @@
       <e p="Nodester.Engine.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
-          <e p="netstandard2.0" t="Include">
+          <e p="netcoreapp3.0" t="Include">
             <e p="Nodester.Engine.AssemblyInfo.cs" t="Include" />
           </e>
         </e>
@@ -301,7 +303,7 @@
       <e p="Nodester.Engine.Data.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
-          <e p="netstandard2.0" t="Include">
+          <e p="netcoreapp3.0" t="Include">
             <e p="Nodester.Engine.Data.AssemblyInfo.cs" t="Include" />
           </e>
         </e>
@@ -325,7 +327,7 @@
       <e p="Nodester.Engine.ThirdParty.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
-          <e p="netstandard2.0" t="Include">
+          <e p="netcoreapp3.0" t="Include">
             <e p="Nodester.Engine.ThirdParty.AssemblyInfo.cs" t="Include" />
           </e>
         </e>
@@ -355,7 +357,7 @@
       <e p="Nodester.Engine.ThirdParty.Data.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
-          <e p="netstandard2.0" t="Include">
+          <e p="netcoreapp3.0" t="Include">
             <e p="Nodester.Engine.ThirdParty.Data.AssemblyInfo.cs" t="Include" />
           </e>
         </e>
@@ -369,6 +371,7 @@
     </e>
     <e p="C:\Users\rszem\Documents\Projects\nodester\Services\Data" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
+      <e p="INodeHttpClient.cs" t="Include" />
       <e p="ITokenService.cs" t="Include" />
       <e p="IUserService.cs" t="Include" />
       <e p="Nodester.Services.Data.csproj" t="IncludeRecursive" />
@@ -400,6 +403,7 @@
         <e p="TerminalHub.cs" t="Include" />
       </e>
       <e p="NodeCache.cs" t="Include" />
+      <e p="NodeHttpClient.cs" t="Include" />
       <e p="Nodester.Services.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">

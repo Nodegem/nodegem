@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Graph.Core.Fields.Graph;
 
@@ -12,7 +13,7 @@ namespace Nodester.Graph.Core.Nodes.Metadata.User
         
         protected override void Define()
         {
-            Email = AddValueOutput(nameof(Email), flow => Graph.User.Email);
+            Email = AddValueOutput(nameof(Email), flow => Task.FromResult(Graph.User.Email));
         }
     }
 }

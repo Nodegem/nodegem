@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Graph.Core.Fields.Graph;
@@ -21,9 +22,9 @@ namespace Nodester.Graph.Core.Nodes.Math
             Difference = AddValueOutput(nameof(Difference), GetDifference);
         }
 
-        private int GetDifference(IFlow flow)
+        private async Task<int> GetDifference(IFlow flow)
         {
-            return flow.GetValue<int>(A) - flow.GetValue<int>(B);
+            return await flow.GetValueAsync<int>(A) - await flow.GetValueAsync<int>(B);
         }
     }
 }

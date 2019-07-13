@@ -47,12 +47,12 @@ namespace Nodester.ThirdParty.SendGrid.Nodes
 
         private async Task<IFlowOutputField> SendOutEmail(IFlow flow)
         {
-            var apiKey = flow.GetValue<string>(ApiKey);
-            var fromEmail = flow.GetValue<string>(EmailFrom);
-            var toEmail = flow.GetValue<string>(EmailTo);
-            var subject = flow.GetValue<string>(Subject);
-            var plainTextContent = flow.GetValue<string>(PlainTextContent);
-            var htmlContent = flow.GetValue<string>(HtmlContent);
+            var apiKey = await flow.GetValueAsync<string>(ApiKey);
+            var fromEmail = await flow.GetValueAsync<string>(EmailFrom);
+            var toEmail = await flow.GetValueAsync<string>(EmailTo);
+            var subject = await flow.GetValueAsync<string>(Subject);
+            var plainTextContent = await flow.GetValueAsync<string>(PlainTextContent);
+            var htmlContent = await flow.GetValueAsync<string>(HtmlContent);
             await SendGridService.SendEmailAsync(apiKey, fromEmail, "", toEmail, "", subject, plainTextContent,
                 htmlContent);
 

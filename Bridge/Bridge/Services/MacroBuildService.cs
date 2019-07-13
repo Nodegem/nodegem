@@ -69,30 +69,28 @@ namespace Nodester.Bridge.Services
         {
             try
             {
-                using (var provider = _provider.CreateScope())
+                using var provider = _provider.CreateScope();
+                var nodes = await macro.Nodes.ToNodeDictionaryAsync(provider.ServiceProvider, this, user);
+
+                var fields = BuildFields(macro);
+                var fieldDictionary = fields.FieldDictionary;
+
+                // Filter out links that are connected to field "nodes"
+                var fieldNodes = macro.Nodes.Where(n => n.MacroFieldId.HasValue).ToList();
+                var links = macro.Links.Select(x => new MacroLinkDto
                 {
-                    var nodes = await macro.Nodes.ToNodeDictionaryAsync(provider.ServiceProvider, this, user);
+                    SourceNode = fieldNodes.Any(f => f.Id == x.SourceNode) ? null : x.SourceNode,
+                    SourceKey = x.SourceKey,
+                    DestinationNode = fieldNodes.Any(f => f.Id == x.DestinationNode) ? null : x.DestinationNode,
+                    DestinationKey = x.DestinationKey
+                });
 
-                    var fields = BuildFields(macro);
-                    var fieldDictionary = fields.FieldDictionary;
+                EstablishConnections(nodes, fieldDictionary, links);
 
-                    // Filter out links that are connected to field "nodes"
-                    var fieldNodes = macro.Nodes.Where(n => n.MacroFieldId.HasValue).ToList();
-                    var links = macro.Links.Select(x => new MacroLinkDto
-                    {
-                        SourceNode = fieldNodes.Any(f => f.Id == x.SourceNode) ? null : x.SourceNode,
-                        SourceKey = x.SourceKey,
-                        DestinationNode = fieldNodes.Any(f => f.Id == x.DestinationNode) ? null : x.DestinationNode,
-                        DestinationKey = x.DestinationKey
-                    });
+                var builtMacro = new MacroGraph(macro.Name, nodes, fields.FlowInputs, fields.FlowOutputs,
+                    fields.ValueInputs, fields.ValueOutputs, fieldDictionary, user);
 
-                    EstablishConnections(nodes, fieldDictionary, links);
-
-                    var builtMacro = new MacroGraph(macro.Name, nodes, fields.FlowInputs, fields.FlowOutputs,
-                        fields.ValueInputs, fields.ValueOutputs, fieldDictionary, user);
-
-                    return builtMacro;
-                }
+                return builtMacro;
             }
             catch (Exception ex)
             {

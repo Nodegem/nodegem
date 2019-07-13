@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Graph.Core.Fields.Graph;
@@ -22,12 +23,12 @@ namespace Nodester.Graph.Core.Nodes.Graph
 
         protected override void Define()
         {
-            Value = AddValueOutput(ValueKey, GetValue);
+            Value = AddValueOutput<object>(ValueKey, GetValue);
         }
 
-        private object GetValue(IFlow flow)
+        private Task<object> GetValue(IFlow flow)
         {
-            return Graph.GetConstant<object>(Key);
+            return Task.FromResult(Graph.GetConstant<object>(Key));
         }
     }
 }

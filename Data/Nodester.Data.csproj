@@ -13,6 +13,5 @@
   <ItemGroup>
     <ProjectReference Include="..\Common\Nodester.Common.csproj" />
     <ProjectReference Include="..\Engine\Core.Data\Nodester.Engine.Data.csproj" />
-    <ProjectReference Include="..\Engine\Core\Nodester.Engine.csproj" />
   </ItemGroup>
 </Project>

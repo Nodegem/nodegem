@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Fields;
@@ -28,7 +29,7 @@ namespace Nodester.Graph.Core.Macro
             await _flow.RunAsync(flowOutput);
         }
 
-        public async Task<IFlowOutputField> Execute(IMacroFlowInputField start, bool isLocal = true)
+        public async Task<IFlowOutputField> ExecuteAsync(IMacroFlowInputField start, bool isLocal = true)
         {
             _flow.IsRunningLocally = isLocal;
             
@@ -47,9 +48,9 @@ namespace Nodester.Graph.Core.Macro
             return flowOutput;
         }
 
-        public T GetValue<T>(IMacroValueOutputField output)
+        public async Task<T> GetValueAsync<T>(IMacroValueOutputField output)
         {
-            return (T) output.Connection.Destination.GetValue(_flow);
+            return (T) Convert.ChangeType(await output.Connection.Destination.GetValueAsync(_flow), typeof(T));
         }
     }
 }

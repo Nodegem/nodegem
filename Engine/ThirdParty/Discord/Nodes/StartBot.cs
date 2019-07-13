@@ -30,7 +30,7 @@ namespace Nodester.ThirdParty.Discord.Nodes
 
         private async Task<IFlowOutputField> StartConnection(IFlow flow)
         {
-            await DiscordService.StartBotAsync(flow.GetValue<string>(BotToken));
+            await DiscordService.StartBotAsync(await flow.GetValueAsync<string>(BotToken));
             return Started;
         }
     }
