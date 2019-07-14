@@ -18,7 +18,7 @@ namespace Nodester.Graph.Core
 {
     public abstract class Node : INode
     {
-        public IGraph Graph { get; private set; }
+        public virtual IGraph Graph { get; private set; }
         public Type Type { get; }
         public string Title => GetNodeTitle();
         public string Namespace => Type.GetAttributeValue((NodeNamespaceAttribute nc) => nc.Namespace);

@@ -5,8 +5,8 @@ namespace Nodester.Engine.Data
 {
     public interface IMacroFlow
     {
-        Task RunAsync(IMacroFlowInputField start, bool isLocal = true);
-        Task<IFlowOutputField> ExecuteAsync(IMacroFlowInputField start, bool isLocal = true);
+        Task RunAsync(IMacroFlowInputField start);
+        Task<IFlowOutputField> ExecuteAsync(IMacroFlowInputField start);
         Task<T> GetValueAsync<T>(IMacroValueOutputField output);
     }
 }

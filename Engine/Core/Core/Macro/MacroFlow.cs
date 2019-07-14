@@ -16,7 +16,7 @@ namespace Nodester.Graph.Core.Macro
             _flow = new Flow();
         }
 
-        public async Task RunAsync(IMacroFlowInputField start, bool isLocal = true)
+        public async Task RunAsync(IMacroFlowInputField start)
         {
             var startConnection = start.Connection?.Destination;
             if (startConnection == null)
@@ -24,15 +24,12 @@ namespace Nodester.Graph.Core.Macro
                 return;
             }
 
-            _flow.IsRunningLocally = isLocal;
             var flowOutput = await startConnection.Action(_flow);
             await _flow.RunAsync(flowOutput);
         }
 
-        public async Task<IFlowOutputField> ExecuteAsync(IMacroFlowInputField start, bool isLocal = true)
+        public async Task<IFlowOutputField> ExecuteAsync(IMacroFlowInputField start)
         {
-            _flow.IsRunningLocally = isLocal;
-            
             var startConnection = start.Connection?.Destination;
             if (startConnection == null)
             {

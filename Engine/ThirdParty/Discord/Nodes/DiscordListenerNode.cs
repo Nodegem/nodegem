@@ -1,15 +1,13 @@
-using Nodester.Engine.Data.Attributes;
 using Nodester.Graph.Core;
 using ThirdParty.Data.Discord;
 
 namespace Nodester.ThirdParty.Discord.Nodes
 {
-    [ListenerNode]
-    public abstract class DiscordNode : Node
+    public abstract class DiscordListenerNode : ListenerNode
     {
         protected IDiscordService DiscordService { get; }
 
-        protected DiscordNode(IDiscordService discordService)
+        protected DiscordListenerNode(IDiscordService discordService)
         {
             DiscordService = discordService;
         }

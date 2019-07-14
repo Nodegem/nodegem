@@ -38,7 +38,8 @@ namespace Nodester.Bridge.Services
             {
                 var compiledMacro = await BuildMacroAsync(user, macro);
                 compiledMacro.DebugMode = macro.IsDebugModeEnabled;
-                await compiledMacro.RunAsync(flowInputFieldId, isRunningLocally);
+                compiledMacro.IsRunningLocally = isRunningLocally;
+                await compiledMacro.RunAsync(flowInputFieldId);
             }
             catch (GraphException ex)
             {

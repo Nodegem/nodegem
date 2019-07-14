@@ -10,6 +10,7 @@ using Nodester.Bridge.Extensions;
 using Nodester.Common.Data;
 using Nodester.Data.Dto.ComponentDtos;
 using Nodester.Data.Dto.GraphDtos;
+using Nodester.Data.Models;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Exceptions;
 using Nodester.Engine.Data.Fields;
@@ -32,13 +33,14 @@ namespace Nodester.Bridge.Services
             _macroService = macroService;
         }
 
-        public async Task ExecuteGraphAsync(User user, GraphDto graph, bool isRunningLocally = true)
+        public async Task ExecuteFlowGraphAsync(User user, GraphDto graph, bool isRunningLocally = true)
         {
             try
             {
                 var compiledGraph = await BuildGraphAsync(user, graph);
                 compiledGraph.DebugMode = graph.IsDebugModeEnabled;
-                await compiledGraph.RunAsync(isRunningLocally);
+                compiledGraph.IsRunningLocally = isRunningLocally;
+                await compiledGraph.RunAsync();
             }
             catch (GraphException ex)
             {
@@ -70,11 +72,34 @@ namespace Nodester.Bridge.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Error building the graph with ID: {graph.Id}.", ex);
+                _logger.LogError($"Error building graph with ID: {graph.Id}.", ex);
                 throw;
             }
         }
 
+        public async Task<IListenerGraph> BuildListenerGraphAsync(User user, GraphDto graph)
+        {
+            try
+            {
+                using var provider = _provider.CreateScope();
+                var graphConstantDictionary = graph.Constants.ToDictionary(k => k.Key, v => v.Adapt<Constant>());
+                var constantDictionary = graphConstantDictionary.Concat(user.Constants)
+                    .ToDictionary(k => k.Key, v => v.Value.Adapt<Constant>());
+
+                var nodes = await graph.Nodes.ToNodeDictionaryAsync(provider.ServiceProvider, _macroService, user,
+                    constantDictionary);
+
+                EstablishLinks(nodes, graph.Links);
+
+                return new ListenerGraph(graph.Name, nodes, constantDictionary, user);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error building listener graph with ID: {graph.Id}.", ex);
+                throw;
+            }
+        }
+        
         private static void EstablishLinks(IDictionary<Guid, INode> nodes, IEnumerable<LinkDto> links)
         {
             foreach (var link in links)

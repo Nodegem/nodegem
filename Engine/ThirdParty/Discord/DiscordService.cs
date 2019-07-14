@@ -10,10 +10,14 @@ namespace Nodester.ThirdParty.Discord
         
         public DiscordSocketClient Client { get; private set; }
         
-        public async Task StartBotAsync(string botToken, DiscordSocketConfig config = null)
+        public async Task InitializeBotAsync(string botToken, DiscordSocketConfig config = null)
         {
             Client = new DiscordSocketClient(config ?? new DiscordSocketConfig());
             await Client.LoginAsync(TokenType.Bot, botToken);
+        }
+        
+        public async Task StartBotAsync()
+        {
             await Client.StartAsync();
         }
 

@@ -13,7 +13,8 @@ namespace Nodester.Graph.Core
         
         public string Name { get; }
         public User User { get; }
-        public bool DebugMode { get; set; } 
+        public bool DebugMode { get; set; }
+        public bool IsRunningLocally { get; set; } = true;
         
         protected Dictionary<string, object> Variables { get; }
         protected Dictionary<Guid, INode> Nodes { get; }

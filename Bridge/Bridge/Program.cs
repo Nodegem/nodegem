@@ -16,15 +16,12 @@ namespace Nodester.Bridge
 {
     public class Program
     {
-        
-        private static IServiceProvider Provider { get; set; }
-        
         [Option(Description = "The environment the app runs in", ShortName = "e")]
         public string Environment { get; }
-        
+
         [Option(Description = "Account username", ShortName = "u")]
         public string Username { get; }
-        
+
         [Option(Description = "Account password", ShortName = "p")]
         public string Password { get; }
 
@@ -34,10 +31,8 @@ namespace Nodester.Bridge
             {
                 CommandLineApplication.Execute<Program>(args);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                var logger = Provider.GetService<ILogger<Program>>();
-                logger.LogCritical("An uncaught exception occurred.", ex);
                 System.Environment.Exit(1);
             }
         }
@@ -51,7 +46,7 @@ namespace Nodester.Bridge
             {
                 throw new ArgumentException("Username and password values are required.");
             }
-            
+
             AppState.Instance.Username = Username;
             AppState.Instance.Password = Password;
             AppState.Instance.Environment = environment;
@@ -60,12 +55,12 @@ namespace Nodester.Bridge
                 .ConfigureAppConfiguration((hostingContext, config) =>
                 {
                     hostingContext.HostingEnvironment.EnvironmentName = environment;
-                    
+
                     config
                         .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
                     config
                         .AddJsonFile($"appsettings.{environment}.json", optional: true, reloadOnChange: true);
-                    
+
                     config.AddEnvironmentVariables();
                 })
                 .ConfigureServices((hostingContext, services) =>
@@ -79,13 +74,14 @@ namespace Nodester.Bridge
 
                     services.AddSingleton<IHostedService, EngineService>();
                     services.AddSingleton<IGraphHubConnection, GraphHubConnection>();
-                    
+
                     services.AddSingleton<ITerminalHubConnection, TerminalHubConnection>();
-                    services.AddSingleton<ITerminalHubService>(provider => provider.GetService<ITerminalHubConnection>());
-                    
+                    services.AddSingleton<ITerminalHubService>(
+                        provider => provider.GetService<ITerminalHubConnection>());
+
                     services.AddSingleton<IBuildGraphService, GraphBuildService>();
                     services.AddSingleton<IBuildMacroService, MacroBuildService>();
-                    
+
                     services.AddServicesForBridge();
                 })
                 .ConfigureLogging((hostingContext, logging) =>

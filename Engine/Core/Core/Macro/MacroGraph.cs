@@ -58,14 +58,14 @@ namespace Nodester.Graph.Core.Macro
             return (IMacroValueOutputField) FieldDictionary[key];
         }
 
-        public async Task RunAsync(string flowInputFieldKey, bool isLocal = false)
+        public async Task RunAsync(string flowInputFieldKey)
         {
-            await RunAsync(GetInputByKey(flowInputFieldKey), isLocal);
+            await RunAsync(GetInputByKey(flowInputFieldKey));
         }
 
-        public async Task RunAsync(IMacroFlowInputField input, bool isLocal = false)
+        public async Task RunAsync(IMacroFlowInputField input)
         {
-            await _flow.RunAsync(input, isLocal);
+            await _flow.RunAsync(input);
         }
 
         public Task<T> GetValueAsync<T>(string key)
@@ -78,9 +78,9 @@ namespace Nodester.Graph.Core.Macro
             return _flow.GetValueAsync<T>(output);
         }
 
-        public async Task<IFlowOutputField> ExecuteAsync(IMacroFlowInputField input, bool isLocal = true)
+        public async Task<IFlowOutputField> ExecuteAsync(IMacroFlowInputField input)
         {
-            return await _flow.ExecuteAsync(input, isLocal);
+            return await _flow.ExecuteAsync(input);
         }
 
         public bool IsMacroFlowOutputField(string key)

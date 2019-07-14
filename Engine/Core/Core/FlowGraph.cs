@@ -51,14 +51,13 @@ namespace Nodester.Graph.Core
             return default;
         }
 
-        public async Task RunAsync(bool isLocal = true)
+        public async Task RunAsync()
         {
             if (!Nodes.TryGetValueOfType(typeof(Start), out var start))
             {
                 throw new StartNotFoundException(this);
             }
 
-            _flow.IsRunningLocally = isLocal;
             await _flow.RunAsync(((Start) start.Value).StartFlow);
         }
 

@@ -1,6 +1,7 @@
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
@@ -45,31 +46,60 @@ namespace Nodester.Bridge.BackgroundServices
             Initialize(provider);
         }
 
-        private static void Initialize(IServiceProvider provider)
+        private void Initialize(IServiceProvider provider)
         {
-            NodeCache.CacheNodeData(provider);
+            try
+            {
+                NodeCache.CacheNodeData(provider);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogCritical("Error during node cache.", ex);
+                throw;
+            }
         }
 
         public override async Task StartAsync(CancellationToken cancellationToken)
         {
-            _logger.LogInformation("Starting...");
+            try
+            {
+                _logger.LogInformation("Starting...");
 
-            _logger.LogInformation("Establishing Connection...");
-            await ConnectToServices(cancellationToken);
-            _logger.LogInformation("Connected!!");
+                _logger.LogInformation("Establishing Connection...");
+                await ConnectToServices(cancellationToken);
+                _logger.LogInformation("Connected!!");
 
-            _logger.LogInformation("Retrieving Graphs...");
-            AppState.Instance.GraphLookUp = (await _graphService.GetGraphsAsync()).ToDictionary(k => k.Id, v => v);
+                _logger.LogInformation("Retrieving Graphs...");
+                AppState.Instance.GraphLookUp = (await _graphService.GetGraphsAsync()).ToDictionary(k => k.Id, v => v);
 
-            _coordinator = new Coordinator(_graphConnection, _buildGraphService, _buildMacroService);
-            await _coordinator.InitializeAsync();
+                _coordinator = new Coordinator(_graphConnection, _buildGraphService, _buildMacroService);
+                await _coordinator.InitializeAsync();
 
-            await base.StartAsync(cancellationToken);
+                await base.StartAsync(cancellationToken);
+            }
+            catch (HttpRequestException ex)
+            {
+                _logger.LogCritical($"Unable to reach service: {_appConfig.Host}", ex);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogCritical("Something went wrong.", ex);
+                throw;
+            }
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            await _coordinator.ManageGraphsAsync(stoppingToken);
+            try
+            {
+                await _coordinator.ManageGraphsAsync(stoppingToken);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogCritical("Error during graph setup or execution", ex);
+                throw;
+            }
         }
 
         public override async Task StopAsync(CancellationToken cancellationToken)
@@ -98,34 +128,20 @@ namespace Nodester.Bridge.BackgroundServices
 
         private async Task ConnectToServices(CancellationToken cancellationToken)
         {
-            try
-            {
-                await RetrieveToken();
-                
-                var bridgeInfo = new BridgeInfo
-                {
-                    DeviceName = Environment.MachineName,
-                    OperatingSystem = RuntimeInformation.OSDescription,
-                    ProcessorCount = Environment.ProcessorCount,
-                    UserId = AppState.Instance.UserId
-                };
+            await RetrieveToken();
 
-                AppState.Instance.Info = bridgeInfo;
-                
-                await _graphConnection.StartAsync(bridgeInfo, cancellationToken);
-                await _terminalHubConnection.StartAsync(cancellationToken);
-            }
-            catch (TimeoutException ex)
+            var bridgeInfo = new BridgeInfo
             {
-                _logger.LogError($"Unable to reach service: {_appConfig.Host}", ex);
-                throw;
-            }
+                DeviceName = Environment.MachineName,
+                OperatingSystem = RuntimeInformation.OSDescription,
+                ProcessorCount = Environment.ProcessorCount,
+                UserId = AppState.Instance.UserId
+            };
 
-            catch (Exception ex)
-            {
-                _logger.LogError($"Something went wrong.", ex);
-                throw;
-            }
+            AppState.Instance.Info = bridgeInfo;
+
+            await _graphConnection.StartAsync(bridgeInfo, cancellationToken);
+            await _terminalHubConnection.StartAsync(cancellationToken);
         }
     }
 }

@@ -30,7 +30,7 @@ namespace Nodester.Graph.Core.Nodes.Logging
 
         private async Task<IFlowOutputField> PerformLog(IFlow flow)
         {
-            ExecuteLog(await flow.GetValueAsync<string>(Message), !flow.IsRunningLocally);
+            ExecuteLog(await flow.GetValueAsync<string>(Message), !Graph.IsRunningLocally);
             return Out;
         }
 

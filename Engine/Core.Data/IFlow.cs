@@ -6,7 +6,6 @@ namespace Nodester.Engine.Data
 {
     public interface IFlow
     {
-        bool IsRunningLocally { get; set; }
         Guid EnterLoop();
         bool HasLoopExited(Guid loopId);
         void BreakLoop();

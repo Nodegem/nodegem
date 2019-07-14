@@ -11,6 +11,7 @@ namespace Nodester.Engine.Data
         User User { get; }
         
         bool DebugMode { get; set; }
+        bool IsRunningLocally { get; set; }
         
         INode GetNode(Guid nodeId);
 

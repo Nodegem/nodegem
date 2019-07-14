@@ -240,6 +240,7 @@
             <e p="MacroValueLink.cs" t="Include" />
           </e>
         </e>
+        <e p="ListenerGraph.cs" t="Include" />
         <e p="ListenerNode.cs" t="Include" />
         <e p="Macro" t="Include">
           <e p="MacroFlow.cs" t="Include" />
@@ -256,6 +257,7 @@
       <e p="Core.Nodes" t="Include">
         <e p="Control" t="Include">
           <e p="Break.cs" t="Include" />
+          <e p="Delay.cs" t="Include" />
           <e p="For.cs" t="Include" />
           <e p="LoopNode.cs" t="Include" />
           <e p="TryCatch.cs" t="Include" />
@@ -323,7 +325,6 @@
       <e p="Attributes" t="Include">
         <e p="DefinedNodeAttribute.cs" t="Include" />
         <e p="FieldAttributesAttribute.cs" t="Include" />
-        <e p="ListenerNodeAttribute.cs" t="Include" />
         <e p="NodeNamespaceAttribute.cs" t="Include" />
       </e>
       <e p="bin" t="ExcludeRecursive" />
@@ -358,6 +359,7 @@
       <e p="IFlow.cs" t="Include" />
       <e p="IFlowGraph.cs" t="Include" />
       <e p="IGraph.cs" t="Include" />
+      <e p="IListenerGraph.cs" t="Include" />
       <e p="IMacroFlow.cs" t="Include" />
       <e p="IMacroGraph.cs" t="Include" />
       <e p="Links" t="Include">
@@ -368,6 +370,7 @@
         <e p="IValueLink.cs" t="Include" />
       </e>
       <e p="Nodes" t="Include">
+        <e p="IListenerNode.cs" t="Include" />
         <e p="INode.cs" t="Include" />
       </e>
       <e p="Nodester.Engine.Data.csproj" t="IncludeRecursive" />
@@ -388,7 +391,7 @@
           <e p="DiscordException.cs" t="Include" />
         </e>
         <e p="Nodes" t="Include">
-          <e p="DiscordNode.cs" t="Include" />
+          <e p="DiscordListenerNode.cs" t="Include" />
           <e p="OnMessageReceived.cs" t="Include" />
           <e p="StartBot.cs" t="Include" />
         </e>

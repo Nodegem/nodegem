@@ -5,7 +5,7 @@ namespace Nodester.Engine.Data
 {
     public interface IFlowGraph : IGraph
     {
-        Task RunAsync(bool isLocal = true);
+        Task RunAsync();
 
         IFlowLink GetConnection(string fromFieldKey);
     }

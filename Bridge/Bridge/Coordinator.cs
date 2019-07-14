@@ -7,21 +7,23 @@ using Bridge.Data;
 using Nodester.Bridge.Extensions;
 using Nodester.Data.Dto.GraphDtos;
 using Nodester.Data.Dto.MacroDtos;
+using Nodester.Data.Models;
 using Nodester.Data.Models.Json_Models;
 using Nodester.Engine.Data;
 
 namespace Nodester.Bridge
 {
-    
     public class Coordinator : IDisposable
     {
         private readonly IBuildGraphService _buildGraphService;
         private readonly IBuildMacroService _buildMacroService;
 
         private IDictionary<Guid, IFlowGraph> CompiledRecurringGraphs { get; set; }
-        private IDictionary<Guid, IFlowGraph> CompiledListenerGraphs { get; set; }
-        
+        private IDictionary<Guid, IListenerGraph> CompiledListenerGraphs { get; set; }
+
         private IDictionary<Guid, RecurringGraphState> GraphStates { get; set; }
+
+        private IDictionary<Guid, IListenerGraph> ListenerGraphSandbox { get; }
 
         public Coordinator(IGraphHubConnection graphConnection, IBuildGraphService buildGraphService,
             IBuildMacroService buildMacroService)
@@ -29,9 +31,10 @@ namespace Nodester.Bridge
             _buildGraphService = buildGraphService;
             _buildMacroService = buildMacroService;
 
+            ListenerGraphSandbox = new Dictionary<Guid, IListenerGraph>();
+
             graphConnection.ExecuteGraphEvent += OnRemoteExecuteGraphAsync;
             graphConnection.ExecuteMacroEvent += OnRemoteExecuteMacroAsync;
-            
         }
 
         public async Task InitializeAsync()
@@ -45,20 +48,42 @@ namespace Nodester.Bridge
 
             GraphStates = AppState.Instance.RecurringGraphs.ToDictionary(k => k.Id, v => new RecurringGraphState
             {
-                LastRan = v.RecurringOptions.Start 
+                LastRan = v.RecurringOptions.Start
             });
 
             var compiledListenerGraphList =
                 await Task.WhenAll(AppState.Instance.ListenerGraphs.Select(async x =>
-                    new KeyValuePair<Guid, IFlowGraph>(x.Id,
-                        await _buildGraphService.BuildGraphAsync(AppState.Instance.User, x))));
+                    new KeyValuePair<Guid, IListenerGraph>(x.Id,
+                        await _buildGraphService.BuildGraphAsync(AppState.Instance.User, x) as IListenerGraph)));
 
             CompiledListenerGraphs = compiledListenerGraphList.ToDictionary(k => k.Key, v => v.Value);
         }
 
         private async Task OnRemoteExecuteGraphAsync(GraphDto graph)
         {
-            await _buildGraphService.ExecuteGraphAsync(AppState.Instance.User, graph, false);
+            if (graph.Type == ExecutionType.Listener)
+            {
+                await ManageSandboxListenerGraphs(graph);
+            }
+            else
+            {
+                await _buildGraphService.ExecuteFlowGraphAsync(AppState.Instance.User, graph, false);
+            }
+        }
+
+        private async Task ManageSandboxListenerGraphs(GraphDto graph)
+        {
+            if (ListenerGraphSandbox.ContainsKey(graph.Id))
+            {
+                var listenerGraph = ListenerGraphSandbox[graph.Id];
+                await listenerGraph.DisposeAsync();
+            }
+
+            var compiledListenerGraph = await _buildGraphService.BuildListenerGraphAsync(AppState.Instance.User, graph);
+            compiledListenerGraph.IsRunningLocally = false;
+            ListenerGraphSandbox[graph.Id] = compiledListenerGraph;
+
+            await compiledListenerGraph.RunAsync();
         }
 
         private async Task OnRemoteExecuteMacroAsync(MacroDto macro, string flowInputFieldId)
@@ -115,7 +140,7 @@ namespace Nodester.Bridge
                 }
 
                 if (!canRun) continue;
-                    
+
                 await flowGraph.RunAsync();
                 GraphStates[id].LastRan = DateTime.UtcNow;
             }
@@ -130,6 +155,5 @@ namespace Nodester.Bridge
         {
             public DateTime LastRan { get; set; }
         }
-        
     }
 }

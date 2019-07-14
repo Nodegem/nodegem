@@ -7,11 +7,11 @@ namespace Nodester.Engine.Data
 {
     public interface IMacroGraph : IGraph
     {
-        Task RunAsync(string flowInputFieldKey, bool isLocal = false);
+        Task RunAsync(string flowInputFieldKey);
+        Task RunAsync(IMacroFlowInputField input);
         INode ToMacroNode();
         void PopulateInputsWithNewDefaults(IEnumerable<FieldData> fieldData);
         IMacroFlowInputField GetInputByKey(string key);
         IMacroValueOutputField GetOutputByKey(string key);
-        Task RunAsync(IMacroFlowInputField input, bool isLocal = false);
     }
 }
