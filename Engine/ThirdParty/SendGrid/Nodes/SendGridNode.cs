@@ -7,7 +7,7 @@ namespace Nodester.ThirdParty.SendGrid.Nodes
     {
         protected readonly ISendGridService SendGridService;
 
-        public SendGridNode(ISendGridService sendGridService)
+        protected SendGridNode(ISendGridService sendGridService)
         {
             SendGridService = sendGridService;
         }

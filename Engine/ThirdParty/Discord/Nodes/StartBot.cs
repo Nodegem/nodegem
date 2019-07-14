@@ -12,7 +12,6 @@ namespace Nodester.ThirdParty.Discord.Nodes
     {
         
         public IFlowInputField In { get; set; }
-        public IFlowOutputField Started { get; set; }
         
         [FieldAttributes("Bot Token")]
         public IValueInputField BotToken { get; set; }
@@ -24,14 +23,14 @@ namespace Nodester.ThirdParty.Discord.Nodes
         protected override void Define()
         {
             In = AddFlowInput(nameof(In), StartConnection);
-            Started = AddFlowOutput(nameof(Started));
             BotToken = AddValueInput<string>(nameof(BotToken));
         }
 
         private async Task<IFlowOutputField> StartConnection(IFlow flow)
         {
             await DiscordService.StartBotAsync(await flow.GetValueAsync<string>(BotToken));
-            return Started;
+            await Task.Delay(-1);
+            return null;
         }
     }
 }

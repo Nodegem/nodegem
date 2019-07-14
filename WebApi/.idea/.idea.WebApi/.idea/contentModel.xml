@@ -171,6 +171,7 @@
             <e p="MacroValueLink.cs" t="Include" />
           </e>
         </e>
+        <e p="ListenerNode.cs" t="Include" />
         <e p="Macro" t="Include">
           <e p="MacroFlow.cs" t="Include" />
           <e p="MacroGraph.cs" t="Include" />
