@@ -8,11 +8,11 @@ namespace Nodester.Graph.Core.Nodes.Logging
 {
     public abstract class BaseLog : Node
     {
-        public IFlowInputField In { get; private set; }
-        public IFlowOutputField Out { get; private set; }
+        public IFlowInputField In { get; set; }
+        public IFlowOutputField Out { get; set; }
 
         [FieldAttributes(Type = ValueType.TextArea)]
-        public IValueInputField Message { get; private set; }
+        public IValueInputField Message { get; set; }
 
         protected ITerminalHubService LogService { get; }
 

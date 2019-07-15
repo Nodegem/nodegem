@@ -71,7 +71,7 @@ namespace Nodester.Graph.Core
 
         public INode PopulateWithData(IEnumerable<FieldData> fields)
         {
-            MapDataToIO(fields);
+            MapDataToIo(fields);
             return this;
         }
 
@@ -89,7 +89,7 @@ namespace Nodester.Graph.Core
 
         protected abstract void Define();
 
-        private void MapDataToIO(IEnumerable<FieldData> fields)
+        private void MapDataToIo(IEnumerable<FieldData> fields)
         {
             var inputDict = ValueInputs.ToDictionary(k => k.Key, v => v);
             fields.ForEach(x => inputDict[x.Key].SetValue(x.Value));
@@ -158,7 +158,7 @@ namespace Nodester.Graph.Core
             return string.IsNullOrEmpty(value) ? Type.Name : value;
         }
 
-        protected void AggregateFields()
+        private void AggregateFields()
         {
             var allFields = EnumerableHelper.Concat<IField>(FlowInputs, FlowOutputs, ValueInputs, ValueOutputs)
                 .ToList();
@@ -176,7 +176,7 @@ namespace Nodester.Graph.Core
                         var defaultLabel = v.GetValue<IField>(this).Key.ToTitleCase();
                         var fieldAttributes = v.GetCustomAttribute<FieldAttributesAttribute>() ??
                                               new FieldAttributesAttribute(defaultLabel);
-                        fieldAttributes.Label = fieldAttributes.Label ?? defaultLabel;
+                        fieldAttributes.Label ??= defaultLabel;
                         return fieldAttributes;
                     });
         }

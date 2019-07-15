@@ -6,10 +6,7 @@
     <e p="C:\Users\rszem\Documents\Projects\nodester\Bridge" t="IncludeFlat">
       <e p="Bridge" t="IncludeRecursive">
         <e p="AppConfig.cs" t="Include" />
-        <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
-        <e p="appsettings.Production.json" t="Include" />
-        <e p="appsettings.Staging.json" t="Include" />
         <e p="AppState.cs" t="Include" />
         <e p="BackgroundServices" t="Include">
           <e p="EngineService.cs" t="Include" />

@@ -219,3 +219,5 @@ project.lock.json
 **/appsettings.production.json
 
 logs/
+
+.config/

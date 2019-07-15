@@ -17,13 +17,13 @@ namespace Nodester.Bridge
     public class Program
     {
         [Option(Description = "The environment the app runs in", ShortName = "e")]
-        public string Environment { get; }
+        private string Environment { get; }
 
         [Option(Description = "Account username", ShortName = "u")]
-        public string Username { get; }
+        private string Username { get; }
 
         [Option(Description = "Account password", ShortName = "p")]
-        public string Password { get; }
+        private string Password { get; }
 
         public static void Main(string[] args)
         {

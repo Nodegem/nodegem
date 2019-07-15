@@ -18,7 +18,7 @@ namespace Nodester.ThirdParty.Discord.Nodes
         [FieldAttributes("Bot Token")]
         public IValueInputField BotToken { get; set; }
 
-        private ITerminalHubService _terminalHub;
+        private readonly ITerminalHubService _terminalHub;
 
         public StartBot(IDiscordService service, ITerminalHubService terminalHub) : base(service)
         {
