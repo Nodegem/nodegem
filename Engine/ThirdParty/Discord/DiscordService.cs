@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Discord;
 using Discord.WebSocket;
@@ -12,7 +13,15 @@ namespace Nodester.ThirdParty.Discord
         
         public async Task InitializeBotAsync(string botToken, DiscordSocketConfig config = null)
         {
-            Client = new DiscordSocketClient(config ?? new DiscordSocketConfig());
+            if (string.IsNullOrEmpty(botToken))
+            {
+                throw new ArgumentException("Bot token cannot be null.");
+            }
+            
+            Client = new DiscordSocketClient(config ?? new DiscordSocketConfig
+            {
+                MessageCacheSize = 500
+            });
             await Client.LoginAsync(TokenType.Bot, botToken);
         }
         

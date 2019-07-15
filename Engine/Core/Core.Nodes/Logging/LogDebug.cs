@@ -3,8 +3,6 @@ using Nodester.Engine.Data.Attributes;
 
 namespace Nodester.Graph.Core.Nodes.Logging
 {
-    [DefinedNode("Log Debug")]
-    [NodeNamespace("Core.Logging")]
     public class LogDebug : BaseLog
     {
         public LogDebug(ITerminalHubService logService) : base(logService)

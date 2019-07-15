@@ -155,7 +155,7 @@ namespace Nodester.Graph.Core
         private string GetNodeTitle()
         {
             var value = Type.GetAttributeValue((DefinedNodeAttribute dn) => dn.Title);
-            return string.IsNullOrEmpty(value) ? Type.Name : value;
+            return string.IsNullOrEmpty(value) ? Type.Name.SplitOnCapitalLetters() : value;
         }
 
         private void AggregateFields()
@@ -173,9 +173,10 @@ namespace Nodester.Graph.Core
                     x => x.GetValue<IField>(this).Key,
                     v =>
                     {
-                        var defaultLabel = v.GetValue<IField>(this).Key.ToTitleCase();
-                        var fieldAttributes = v.GetCustomAttribute<FieldAttributesAttribute>() ??
-                                              new FieldAttributesAttribute(defaultLabel);
+                        var field = v.GetValue<IField>(this);
+                        var defaultLabel = field.OriginalName.SplitOnCapitalLetters().ToTitleCase();
+                        var fieldAttributes = v.GetCustomAttribute<FieldAttributesAttribute>()
+                                ?? new FieldAttributesAttribute(defaultLabel);
                         fieldAttributes.Label ??= defaultLabel;
                         return fieldAttributes;
                     });

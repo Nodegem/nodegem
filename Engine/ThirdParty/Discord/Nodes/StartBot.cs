@@ -39,7 +39,8 @@ namespace Nodester.ThirdParty.Discord.Nodes
         private async Task<IFlowOutputField> StartConnection(IFlow flow)
         {
             await LogMessage("Initializing bot...");
-            await DiscordService.InitializeBotAsync(await flow.GetValueAsync<string>(BotToken));
+            var botToken = await flow.GetValueAsync<string>(BotToken);
+            await DiscordService.InitializeBotAsync(botToken);
             await LogMessage("Configuring event listeners...");
             Graph.ListenerNodes.ForEach(x => x.SetupEventListeners());
             await DiscordService.StartBotAsync();

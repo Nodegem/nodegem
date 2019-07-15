@@ -139,7 +139,6 @@
           <e p="DefinitionExtensions.cs" t="Include" />
           <e p="LinqExtensions.cs" t="Include" />
           <e p="PropertyInfoExtensions.cs" t="Include" />
-          <e p="StringExtensions.cs" t="Include" />
         </e>
         <e p="Fields" t="Include">
           <e p="BaseField.cs" t="Include" />
@@ -242,6 +241,10 @@
           </e>
         </e>
         <e p="ServiceExtensions.cs" t="Include" />
+        <e p="Utils" t="Include">
+          <e p="Concat.cs" t="Include" />
+          <e p="StringFormat.cs" t="Include" />
+        </e>
       </e>
       <e p="Nodester.Engine.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
@@ -322,8 +325,14 @@
           <e p="DiscordException.cs" t="Include" />
         </e>
         <e p="Nodes" t="Include">
+          <e p="DiscordEventListenerNode.cs" t="Include" />
           <e p="DiscordListenerNode.cs" t="Include" />
+          <e p="OnConnected.cs" t="Include" />
+          <e p="OnDisconnected.cs" t="Include" />
+          <e p="OnMessageDeleted.cs" t="Include" />
           <e p="OnMessageReceived.cs" t="Include" />
+          <e p="OnMessageUpdated.cs" t="Include" />
+          <e p="OnReactionAdded.cs" t="Include" />
           <e p="StartBot.cs" t="Include" />
         </e>
         <e p="ServiceExtensions.cs" t="Include" />

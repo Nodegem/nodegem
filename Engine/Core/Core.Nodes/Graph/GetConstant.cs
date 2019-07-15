@@ -23,7 +23,7 @@ namespace Nodester.Graph.Core.Nodes.Graph
 
         protected override void Define()
         {
-            Value = AddValueOutput<object>(ValueKey, GetValue);
+            Value = AddValueOutput(ValueKey, GetValue);
         }
 
         private Task<object> GetValue(IFlow flow)

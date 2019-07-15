@@ -6,6 +6,8 @@ using Nodester.Engine.Data.Fields;
 
 namespace Nodester.Graph.Core.Nodes.Logging
 {
+    [DefinedNode]
+    [NodeNamespace("Core.Logging")]
     public abstract class BaseLog : Node
     {
         public IFlowInputField In { get; set; }
