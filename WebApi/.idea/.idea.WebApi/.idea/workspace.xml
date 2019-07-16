@@ -2,32 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/Concat.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/StringFormat.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/DiscordEventListenerNode.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnConnected.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnDisconnected.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnMessageDeleted.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnMessageUpdated.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnReactionAdded.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/EventListenerNode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/DiscordNode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/MessageEventListenerNode.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Common/Extensions/StringExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Extensions/StringExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Dto/GraphDtos/CreateGraphDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/GraphDtos/CreateGraphDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IField.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Graph/GetConstant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Graph/GetConstant.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/BaseLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/BaseLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/Log.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/Log.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogDebug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogDebug.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogWarn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogWarn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Extensions/StringExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Fields/BaseField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/BaseField.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Nodes/IListenerNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Nodes/IListenerNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Nodes/INode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Nodes/INode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/ListenerNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/ListenerNode.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/DiscordService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/DiscordService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/DiscordEventListenerNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/DiscordEventListenerNode.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/DiscordListenerNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/DiscordListenerNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnMessageReceived.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnMessageReceived.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnConnected.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Connections/OnConnected.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnDisconnected.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Connections/OnDisconnected.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnMessageDeleted.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/OnMessageDeleted.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnMessageReceived.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/OnMessageReceived.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnMessageUpdated.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/OnMessageUpdated.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnReactionAdded.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Reaction Events/OnReactionAdded.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/StartBot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/StartBot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Nodester.Engine.ThirdParty.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Nodester.Engine.ThirdParty.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -56,33 +49,49 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../Engine/Core/Core/Node.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="178" column="78" lean-forward="true" selection-start-line="178" selection-start-column="78" selection-end-line="178" selection-end-column="78" />
+            <state relative-caret-position="-47">
+              <caret line="164" column="66" lean-forward="true" selection-start-line="164" selection-start-column="66" selection-end-line="164" selection-end-column="66" />
               <folding>
-                <marker date="1563231752695" expanded="false" signature="6:476" ph="..." />
-                <marker date="1563231752695" expanded="true" signature="507:6540" ph="{...}" />
-                <marker date="1563231752695" expanded="true" signature="548:6538" ph="{...}" />
-                <marker date="1563231752695" expanded="true" signature="1613:1756" ph="{...}" />
-                <marker date="1563231752695" expanded="true" signature="1688:1746" ph="{...}" />
-                <marker date="1563231752695" expanded="true" signature="1805:2028" ph="{...}" />
-                <marker date="1563231752695" expanded="true" signature="1859:1983" ph="{...}" />
-                <marker date="1563231752695" expanded="true" signature="2065:2364" ph="{...}" />
-                <marker date="1563231752695" expanded="true" signature="2434:2512" ph="{...}" />
-                <marker date="1563231752695" expanded="true" signature="2549:2615" ph="{...}" />
-                <marker date="1563231752695" expanded="true" signature="2660:2732" ph="{...}" />
-                <marker date="1563231752695" expanded="true" signature="2840:3003" ph="{...}" />
-                <marker date="1563231752695" expanded="true" signature="3058:3888" ph="{...}" />
-                <marker date="1563231752695" expanded="true" signature="3168:3877" ph="{...}" />
-                <marker date="1563231752695" expanded="true" signature="3986:4119" ph="{...}" />
-                <marker date="1563231752695" expanded="true" signature="4175:4305" ph="{...}" />
-                <marker date="1563231752695" expanded="true" signature="4386:4534" ph="{...}" />
-                <marker date="1563231752695" expanded="true" signature="4592:4735" ph="{...}" />
-                <marker date="1563231752695" expanded="true" signature="4828:4936" ph="{...}" />
-                <marker date="1563231752695" expanded="true" signature="5048:5197" ph="{...}" />
-                <marker date="1563231752695" expanded="true" signature="5236:5435" ph="{...}" />
-                <marker date="1563231752695" expanded="true" signature="5475:5701" ph="{...}" />
-                <marker date="1563231752695" expanded="true" signature="5781:6532" ph="{...}" />
-                <marker date="1563231752695" expanded="true" signature="6048:6520" ph="{...}" />
+                <marker date="1563238864413" expanded="false" signature="6:476" ph="..." />
+                <marker date="1563238864413" expanded="true" signature="507:6653" ph="{...}" />
+                <marker date="1563238864413" expanded="true" signature="548:6651" ph="{...}" />
+                <marker date="1563238864413" expanded="true" signature="1613:1756" ph="{...}" />
+                <marker date="1563238864413" expanded="true" signature="1688:1746" ph="{...}" />
+                <marker date="1563238864413" expanded="true" signature="1805:2028" ph="{...}" />
+                <marker date="1563238864413" expanded="true" signature="1859:1983" ph="{...}" />
+                <marker date="1563238864413" expanded="true" signature="2065:2364" ph="{...}" />
+                <marker date="1563238864413" expanded="true" signature="2434:2512" ph="{...}" />
+                <marker date="1563238864413" expanded="true" signature="2549:2615" ph="{...}" />
+                <marker date="1563238864413" expanded="true" signature="2660:2732" ph="{...}" />
+                <marker date="1563238864413" expanded="true" signature="2840:3003" ph="{...}" />
+                <marker date="1563238864413" expanded="true" signature="3058:3888" ph="{...}" />
+                <marker date="1563238864413" expanded="true" signature="3168:3877" ph="{...}" />
+                <marker date="1563238864413" expanded="true" signature="3986:4119" ph="{...}" />
+                <marker date="1563238864413" expanded="true" signature="4175:4305" ph="{...}" />
+                <marker date="1563238864413" expanded="true" signature="4386:4534" ph="{...}" />
+                <marker date="1563238864413" expanded="true" signature="4592:4735" ph="{...}" />
+                <marker date="1563238864413" expanded="true" signature="4828:4936" ph="{...}" />
+                <marker date="1563238864413" expanded="true" signature="5048:5197" ph="{...}" />
+                <marker date="1563238864413" expanded="true" signature="5236:5435" ph="{...}" />
+                <marker date="1563238864413" expanded="true" signature="5475:5701" ph="{...}" />
+                <marker date="1563238864413" expanded="true" signature="5781:6532" ph="{...}" />
+                <marker date="1563238864413" expanded="true" signature="6048:6520" ph="{...}" />
+                <marker date="1563238864413" expanded="true" signature="6589:6645" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Program.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+              <folding>
+                <marker date="1563037972404" expanded="true" signature="6:63" ph="..." />
+                <marker date="1563037972404" expanded="true" signature="90:417" ph="{...}" />
+                <marker date="1563037972404" expanded="true" signature="117:415" ph="{...}" />
+                <marker date="1563037972404" expanded="true" signature="170:244" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -233,11 +242,11 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/FlowGraph.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnMessageDeleted.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/OnMessageDeleted.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/RegisterAssembly.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnDisconnected.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnConnected.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnMessageUpdated.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Connections/OnDisconnected.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Connections/OnConnected.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/OnMessageUpdated.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Fields/BaseField.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3DD0F165-668F-4E15-9909-81582B90BED6/28/cc94d988/ConcurrentDictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/B701FFD3-92B3-4AC5-A97A-C8639686536F/4/NpgsqlServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
@@ -288,7 +297,7 @@
     <setting file="file://$PROJECT_DIR$/../Data/Configurations/MacroConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Configurations/GraphConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Configurations/AccessTokenConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnMessageReceived.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/OnMessageReceived.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Data/ITokenService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/DiscordService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Data/IUserService.cs" root0="FORCE_HIGHLIGHTING" />
@@ -327,9 +336,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A0986E49-7E78-45C0-B81C-3A0E6BE3F001/76/75fda512/MvcOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/BaseLog.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/Nodes/SendGridNode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/DiscordEventListenerNode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Node.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnReactionAdded.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Reaction Events/OnReactionAdded.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -547,7 +555,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74552000" />
+    <option name="totallyTimeSpent" value="76286000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -976,22 +984,9 @@
         <state relative-caret-position="135">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
           <folding>
-            <marker date="1563134382038" expanded="true" signature="36:91" ph="..." />
-            <marker date="1563134382038" expanded="true" signature="122:490" ph="{...}" />
-            <marker date="1563134382038" expanded="true" signature="185:488" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Program.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-          <folding>
-            <marker date="1563037972404" expanded="true" signature="6:63" ph="..." />
-            <marker date="1563037972404" expanded="true" signature="90:417" ph="{...}" />
-            <marker date="1563037972404" expanded="true" signature="117:415" ph="{...}" />
-            <marker date="1563037972404" expanded="true" signature="170:244" ph="{...}" />
+            <marker date="1563240682673" expanded="true" signature="6:61" ph="..." />
+            <marker date="1563240682673" expanded="true" signature="92:366" ph="{...}" />
+            <marker date="1563240682673" expanded="true" signature="155:364" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1039,15 +1034,15 @@
         <state relative-caret-position="75">
           <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
           <folding>
-            <marker date="1563228075263" expanded="false" signature="6:235" ph="..." />
-            <marker date="1563228075263" expanded="true" signature="280:2022" ph="{...}" />
-            <marker date="1563228075263" expanded="true" signature="414:2020" ph="{...}" />
-            <marker date="1563228075263" expanded="true" signature="739:799" ph="{...}" />
-            <marker date="1563228075263" expanded="true" signature="849:993" ph="{...}" />
-            <marker date="1563228075263" expanded="true" signature="1045:1086" ph="{...}" />
-            <marker date="1563228075263" expanded="true" signature="1160:1626" ph="{...}" />
-            <marker date="1563228075263" expanded="true" signature="1681:1788" ph="{...}" />
-            <marker date="1563228075263" expanded="true" signature="1844:2014" ph="{...}" />
+            <marker date="1563240925084" expanded="false" signature="6:235" ph="..." />
+            <marker date="1563240925084" expanded="true" signature="280:2020" ph="{...}" />
+            <marker date="1563240925084" expanded="true" signature="412:2018" ph="{...}" />
+            <marker date="1563240925084" expanded="true" signature="737:797" ph="{...}" />
+            <marker date="1563240925084" expanded="true" signature="847:991" ph="{...}" />
+            <marker date="1563240925084" expanded="true" signature="1043:1084" ph="{...}" />
+            <marker date="1563240925084" expanded="true" signature="1158:1624" ph="{...}" />
+            <marker date="1563240925084" expanded="true" signature="1679:1786" ph="{...}" />
+            <marker date="1563240925084" expanded="true" signature="1842:2012" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1064,44 +1059,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnMessageReceived.cs">
+    <entry file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/OnMessageReceived.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
-            <marker date="1563229851754" expanded="false" signature="6:69" ph="..." />
-            <marker date="1563229851754" expanded="true" signature="114:566" ph="{...}" />
-            <marker date="1563229851754" expanded="true" signature="178:564" ph="{...}" />
-            <marker date="1563229851754" expanded="true" signature="281:301" ph="{...}" />
-            <marker date="1563229851754" expanded="true" signature="353:558" ph="{...}" />
-            <marker date="1563229851754" expanded="true" signature="446:547" ph="{...}" />
+            <marker date="1563239076080" expanded="false" signature="6:30" ph="..." />
+            <marker date="1563239076080" expanded="true" signature="90:542" ph="{...}" />
+            <marker date="1563239076080" expanded="true" signature="154:540" ph="{...}" />
+            <marker date="1563239076080" expanded="true" signature="257:277" ph="{...}" />
+            <marker date="1563239076080" expanded="true" signature="329:534" ph="{...}" />
+            <marker date="1563239076080" expanded="true" signature="422:523" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnMessageUpdated.cs">
+    <entry file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/OnMessageUpdated.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
           <folding>
-            <marker date="1563229838232" expanded="false" signature="6:104" ph="..." />
-            <marker date="1563229838232" expanded="true" signature="149:963" ph="{...}" />
-            <marker date="1563229838232" expanded="true" signature="212:961" ph="{...}" />
-            <marker date="1563229838232" expanded="true" signature="381:401" ph="{...}" />
-            <marker date="1563229838232" expanded="true" signature="443:559" ph="{...}" />
-            <marker date="1563229838232" expanded="true" signature="611:955" ph="{...}" />
-            <marker date="1563229838232" expanded="true" signature="720:944" ph="{...}" />
+            <marker date="1563239078692" expanded="false" signature="0:65" ph="..." />
+            <marker date="1563239078692" expanded="true" signature="110:939" ph="{...}" />
+            <marker date="1563239078692" expanded="true" signature="188:937" ph="{...}" />
+            <marker date="1563239078692" expanded="true" signature="357:377" ph="{...}" />
+            <marker date="1563239078692" expanded="true" signature="419:535" ph="{...}" />
+            <marker date="1563239078692" expanded="true" signature="587:931" ph="{...}" />
+            <marker date="1563239078692" expanded="true" signature="696:920" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnReactionAdded.cs">
+    <entry file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Reaction Events/OnReactionAdded.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
           <folding>
-            <marker date="1563227910403" expanded="true" signature="43:101" ph="{...}" />
-            <marker date="1563227910403" expanded="true" signature="78:99" ph="{...}" />
+            <marker date="1563240891301" expanded="true" signature="91:578" ph="{...}" />
+            <marker date="1563240891301" expanded="true" signature="153:576" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1111,21 +1106,21 @@
         <state relative-caret-position="90">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
           <folding>
-            <marker date="1563231488606" expanded="true" signature="6:96" ph="..." />
-            <marker date="1563231488606" expanded="true" signature="141:535" ph="{...}" />
-            <marker date="1563231488606" expanded="true" signature="265:533" ph="{...}" />
-            <marker date="1563231488606" expanded="true" signature="409:474" ph="{...}" />
+            <marker date="1563239408746" expanded="true" signature="6:96" ph="..." />
+            <marker date="1563239408746" expanded="true" signature="141:475" ph="{...}" />
+            <marker date="1563239408746" expanded="true" signature="265:473" ph="{...}" />
+            <marker date="1563239408746" expanded="true" signature="409:474" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnDisconnected.cs">
+    <entry file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Connections/OnDisconnected.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
           <folding>
-            <marker date="1563227847953" expanded="true" signature="43:100" ph="{...}" />
-            <marker date="1563227847953" expanded="true" signature="77:98" ph="{...}" />
+            <marker date="1563240926382" expanded="true" signature="122:790" ph="{...}" />
+            <marker date="1563240926382" expanded="true" signature="183:788" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1134,27 +1129,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="57" lean-forward="true" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
-          <folding>
-            <marker date="1563229686122" expanded="true" signature="6:105" ph="..." />
-            <marker date="1563229686122" expanded="true" signature="150:1514" ph="{...}" />
-            <marker date="1563229686122" expanded="true" signature="225:1512" ph="{...}" />
-            <marker date="1563229686122" expanded="true" signature="664:684" ph="{...}" />
-            <marker date="1563229686122" expanded="true" signature="726:1125" ph="{...}" />
-            <marker date="1563229686122" expanded="true" signature="1181:1506" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnMessageDeleted.cs">
+    <entry file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/OnMessageDeleted.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="57" lean-forward="true" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
           <folding>
-            <marker date="1563229863829" expanded="true" signature="75:560" ph="{...}" />
-            <marker date="1563229863829" expanded="true" signature="138:558" ph="{...}" />
-            <marker date="1563229863829" expanded="true" signature="240:260" ph="{...}" />
-            <marker date="1563229863829" expanded="true" signature="312:552" ph="{...}" />
-            <marker date="1563229863829" expanded="true" signature="414:541" ph="{...}" />
+            <marker date="1563239062160" expanded="true" signature="75:575" ph="{...}" />
+            <marker date="1563239062160" expanded="true" signature="153:573" ph="{...}" />
+            <marker date="1563239062160" expanded="true" signature="255:275" ph="{...}" />
+            <marker date="1563239062160" expanded="true" signature="327:567" ph="{...}" />
+            <marker date="1563239062160" expanded="true" signature="429:556" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1178,13 +1165,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnConnected.cs">
+    <entry file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Connections/OnConnected.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
           <folding>
-            <marker date="1563227839991" expanded="true" signature="43:97" ph="{...}" />
-            <marker date="1563227839991" expanded="true" signature="74:95" ph="{...}" />
+            <marker date="1563240877782" expanded="true" signature="87:427" ph="{...}" />
+            <marker date="1563240877782" expanded="true" signature="145:425" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1313,35 +1300,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Program.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+          <folding>
+            <marker date="1563037972404" expanded="true" signature="6:63" ph="..." />
+            <marker date="1563037972404" expanded="true" signature="90:417" ph="{...}" />
+            <marker date="1563037972404" expanded="true" signature="117:415" ph="{...}" />
+            <marker date="1563037972404" expanded="true" signature="170:244" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../Engine/Core/Core/Node.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="178" column="78" lean-forward="true" selection-start-line="178" selection-start-column="78" selection-end-line="178" selection-end-column="78" />
+        <state relative-caret-position="-47">
+          <caret line="164" column="66" lean-forward="true" selection-start-line="164" selection-start-column="66" selection-end-line="164" selection-end-column="66" />
           <folding>
-            <marker date="1563231752695" expanded="false" signature="6:476" ph="..." />
-            <marker date="1563231752695" expanded="true" signature="507:6540" ph="{...}" />
-            <marker date="1563231752695" expanded="true" signature="548:6538" ph="{...}" />
-            <marker date="1563231752695" expanded="true" signature="1613:1756" ph="{...}" />
-            <marker date="1563231752695" expanded="true" signature="1688:1746" ph="{...}" />
-            <marker date="1563231752695" expanded="true" signature="1805:2028" ph="{...}" />
-            <marker date="1563231752695" expanded="true" signature="1859:1983" ph="{...}" />
-            <marker date="1563231752695" expanded="true" signature="2065:2364" ph="{...}" />
-            <marker date="1563231752695" expanded="true" signature="2434:2512" ph="{...}" />
-            <marker date="1563231752695" expanded="true" signature="2549:2615" ph="{...}" />
-            <marker date="1563231752695" expanded="true" signature="2660:2732" ph="{...}" />
-            <marker date="1563231752695" expanded="true" signature="2840:3003" ph="{...}" />
-            <marker date="1563231752695" expanded="true" signature="3058:3888" ph="{...}" />
-            <marker date="1563231752695" expanded="true" signature="3168:3877" ph="{...}" />
-            <marker date="1563231752695" expanded="true" signature="3986:4119" ph="{...}" />
-            <marker date="1563231752695" expanded="true" signature="4175:4305" ph="{...}" />
-            <marker date="1563231752695" expanded="true" signature="4386:4534" ph="{...}" />
-            <marker date="1563231752695" expanded="true" signature="4592:4735" ph="{...}" />
-            <marker date="1563231752695" expanded="true" signature="4828:4936" ph="{...}" />
-            <marker date="1563231752695" expanded="true" signature="5048:5197" ph="{...}" />
-            <marker date="1563231752695" expanded="true" signature="5236:5435" ph="{...}" />
-            <marker date="1563231752695" expanded="true" signature="5475:5701" ph="{...}" />
-            <marker date="1563231752695" expanded="true" signature="5781:6532" ph="{...}" />
-            <marker date="1563231752695" expanded="true" signature="6048:6520" ph="{...}" />
+            <marker date="1563238864413" expanded="false" signature="6:476" ph="..." />
+            <marker date="1563238864413" expanded="true" signature="507:6653" ph="{...}" />
+            <marker date="1563238864413" expanded="true" signature="548:6651" ph="{...}" />
+            <marker date="1563238864413" expanded="true" signature="1613:1756" ph="{...}" />
+            <marker date="1563238864413" expanded="true" signature="1688:1746" ph="{...}" />
+            <marker date="1563238864413" expanded="true" signature="1805:2028" ph="{...}" />
+            <marker date="1563238864413" expanded="true" signature="1859:1983" ph="{...}" />
+            <marker date="1563238864413" expanded="true" signature="2065:2364" ph="{...}" />
+            <marker date="1563238864413" expanded="true" signature="2434:2512" ph="{...}" />
+            <marker date="1563238864413" expanded="true" signature="2549:2615" ph="{...}" />
+            <marker date="1563238864413" expanded="true" signature="2660:2732" ph="{...}" />
+            <marker date="1563238864413" expanded="true" signature="2840:3003" ph="{...}" />
+            <marker date="1563238864413" expanded="true" signature="3058:3888" ph="{...}" />
+            <marker date="1563238864413" expanded="true" signature="3168:3877" ph="{...}" />
+            <marker date="1563238864413" expanded="true" signature="3986:4119" ph="{...}" />
+            <marker date="1563238864413" expanded="true" signature="4175:4305" ph="{...}" />
+            <marker date="1563238864413" expanded="true" signature="4386:4534" ph="{...}" />
+            <marker date="1563238864413" expanded="true" signature="4592:4735" ph="{...}" />
+            <marker date="1563238864413" expanded="true" signature="4828:4936" ph="{...}" />
+            <marker date="1563238864413" expanded="true" signature="5048:5197" ph="{...}" />
+            <marker date="1563238864413" expanded="true" signature="5236:5435" ph="{...}" />
+            <marker date="1563238864413" expanded="true" signature="5475:5701" ph="{...}" />
+            <marker date="1563238864413" expanded="true" signature="5781:6532" ph="{...}" />
+            <marker date="1563238864413" expanded="true" signature="6048:6520" ph="{...}" />
+            <marker date="1563238864413" expanded="true" signature="6589:6645" ph="{...}" />
           </folding>
         </state>
       </provider>

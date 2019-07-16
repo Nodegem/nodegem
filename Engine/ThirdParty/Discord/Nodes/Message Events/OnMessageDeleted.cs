@@ -1,8 +1,8 @@
 using ThirdParty.Data.Discord;
 
-namespace Nodester.ThirdParty.Discord.Nodes
+namespace Nodester.ThirdParty.Discord.Nodes.Message_Events
 {
-    public class OnMessageDeleted : DiscordEventListenerNode
+    public class OnMessageDeleted : MessageEventListenerNode
     {
         
         public OnMessageDeleted(IDiscordService discordService) : base(discordService)

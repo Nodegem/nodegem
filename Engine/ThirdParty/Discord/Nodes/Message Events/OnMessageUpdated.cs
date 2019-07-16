@@ -1,10 +1,9 @@
-using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
 using ThirdParty.Data.Discord;
 
-namespace Nodester.ThirdParty.Discord.Nodes
+namespace Nodester.ThirdParty.Discord.Nodes.Message_Events
 {
-    public class OnMessageUpdated : DiscordEventListenerNode
+    public class OnMessageUpdated : MessageEventListenerNode
     {
         
         public IValueOutputField OldMessage { get; set; }

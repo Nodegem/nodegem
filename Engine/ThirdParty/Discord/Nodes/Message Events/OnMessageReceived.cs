@@ -1,9 +1,8 @@
-using Nodester.Engine.Data.Attributes;
 using ThirdParty.Data.Discord;
 
-namespace Nodester.ThirdParty.Discord.Nodes
+namespace Nodester.ThirdParty.Discord.Nodes.Message_Events
 {
-    public class OnMessageReceived : DiscordEventListenerNode
+    public class OnMessageReceived : MessageEventListenerNode
     {
         
         public OnMessageReceived(IDiscordService discordService) : base(discordService)

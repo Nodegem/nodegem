@@ -8,7 +8,7 @@ using ThirdParty.Data.Discord;
 
 namespace Nodester.ThirdParty.Discord.Nodes
 {
-    [DefinedNode("Start Bot (Discord)")]
+    [DefinedNode("Start Discord Bot")]
     [NodeNamespace("Third Party.Discord")]
     public class StartBot : DiscordListenerNode
     {

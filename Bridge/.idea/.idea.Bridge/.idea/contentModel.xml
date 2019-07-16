@@ -204,6 +204,7 @@
       <e p="bin" t="ExcludeRecursive" />
       <e p="Core" t="Include">
         <e p="BaseGraph.cs" t="Include" />
+        <e p="EventListenerNode.cs" t="Include" />
         <e p="Extensions" t="Include">
           <e p="DefinitionExtensions.cs" t="Include" />
           <e p="LinqExtensions.cs" t="Include" />
@@ -394,15 +395,27 @@
           <e p="DiscordException.cs" t="Include" />
         </e>
         <e p="Nodes" t="Include">
+          <e p="Channel Events" t="Include" />
+          <e p="Connections" t="Include">
+            <e p="OnConnected.cs" t="Include" />
+            <e p="OnDisconnected.cs" t="Include" />
+          </e>
           <e p="DiscordEventListenerNode.cs" t="Include" />
           <e p="DiscordListenerNode.cs" t="Include" />
-          <e p="OnConnected.cs" t="Include" />
-          <e p="OnDisconnected.cs" t="Include" />
-          <e p="OnMessageDeleted.cs" t="Include" />
-          <e p="OnMessageReceived.cs" t="Include" />
-          <e p="OnMessageUpdated.cs" t="Include" />
-          <e p="OnReactionAdded.cs" t="Include" />
+          <e p="DiscordNode.cs" t="Include" />
+          <e p="Guild Events" t="Include" />
+          <e p="Message Events" t="Include">
+            <e p="MessageEventListenerNode.cs" t="Include" />
+            <e p="OnMessageDeleted.cs" t="Include" />
+            <e p="OnMessageReceived.cs" t="Include" />
+            <e p="OnMessageUpdated.cs" t="Include" />
+          </e>
+          <e p="Reaction Events" t="Include">
+            <e p="OnReactionAdded.cs" t="Include" />
+          </e>
+          <e p="Role Events" t="Include" />
           <e p="StartBot.cs" t="Include" />
+          <e p="User Events" t="Include" />
         </e>
         <e p="ServiceExtensions.cs" t="Include" />
       </e>

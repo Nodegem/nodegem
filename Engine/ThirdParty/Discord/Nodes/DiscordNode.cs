@@ -6,15 +6,10 @@ namespace Nodester.ThirdParty.Discord.Nodes
 {
     [DefinedNode]
     [NodeNamespace("Third Party.Discord")]
-    public abstract class DiscordListenerNode : ListenerNode
+    public abstract class DiscordNode : Node
     {
-
-        protected IDiscordService DiscordService { get; }
-
-        protected DiscordListenerNode(IDiscordService discordService)
+        protected DiscordNode(IDiscordService discordService)
         {
-            DiscordService = discordService;
         }
-
     }
 }

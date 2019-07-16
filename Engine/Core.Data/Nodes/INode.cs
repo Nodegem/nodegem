@@ -6,7 +6,7 @@ using Nodester.Engine.Data.Links;
 
 namespace Nodester.Engine.Data.Nodes
 {
-    public interface INode
+    public interface INode : IAsyncDisposable
     {
         Guid Id { get; }
 

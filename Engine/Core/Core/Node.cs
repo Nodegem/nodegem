@@ -181,5 +181,10 @@ namespace Nodester.Graph.Core
                         return fieldAttributes;
                     });
         }
+        
+        public virtual ValueTask DisposeAsync()
+        {
+            return new ValueTask();
+        }
     }
 }
