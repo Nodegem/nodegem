@@ -6,27 +6,27 @@ variables:
     HEROKU_PROD_NAME: nodester-prod
 
 stages:
-   #- build
-   #- migrate
+#    - build
+#    - migrate
     - deploy
 
-build_project:
-    stage: build
-    script:
-        - cd WebApi/ && dotnet build WebApi.sln
-    only:
-        - develop
-        - master
+#build_project:
+#    stage: build
+#    script:
+#        - cd WebApi/ && dotnet build WebApi.sln
+#    only:
+#        - develop
+#        - master
 
-migrate_stage:
-    stage: migrate
-    variables:
-        ASPNETCORE_ENVIRONMENT: Staging
-        ConnectionStrings__nodesterDb: $STAGE_DB
-    script:
-        - cd WebApi/ && dotnet ef database update --context NodesterDbContext
-    only:
-        - develop
+#migrate_stage:
+#    stage: migrate
+#    variables:
+#        ASPNETCORE_ENVIRONMENT: Staging
+#        ConnectionStrings__nodesterDb: $STAGE_DB
+#    script:
+#        - cd WebApi/ && dotnet ef database update --context NodesterDbContext
+#    only:
+#        - develop
 
 deploy_stage:
     stage: deploy
@@ -46,3 +46,4 @@ deploy_stage:
 #   stage: deploy
 #   only:
 #     - master
+
