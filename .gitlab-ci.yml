@@ -1,4 +1,4 @@
-image: microsoft/dotnet:3.0.100-preview7-bionic
+image: microsoft/dotnet/core-nightly/sdk:3.0.100-preview7-bionic
 
 variables:
     PROJECT_NAME: WebApi
