@@ -20,9 +20,7 @@ namespace Nodester.Bridge
 
         private IDictionary<Guid, IFlowGraph> CompiledRecurringGraphs { get; set; }
         private IDictionary<Guid, IListenerGraph> CompiledListenerGraphs { get; set; }
-
         private IDictionary<Guid, RecurringGraphState> GraphStates { get; set; }
-
         private IDictionary<Guid, IListenerGraph> ListenerGraphSandbox { get; }
 
         public Coordinator(IGraphHubConnection graphConnection, IBuildGraphService buildGraphService,
@@ -63,7 +61,7 @@ namespace Nodester.Bridge
         {
             if (graph.Type == ExecutionType.Listener)
             {
-                await ManageSandboxListenerGraphs(graph);
+                await ManageSandboxListenerGraphsAsync(graph);
             }
             else
             {
@@ -71,7 +69,7 @@ namespace Nodester.Bridge
             }
         }
 
-        private async Task ManageSandboxListenerGraphs(GraphDto graph)
+        private async Task ManageSandboxListenerGraphsAsync(GraphDto graph)
         {
             if (ListenerGraphSandbox.ContainsKey(graph.Id))
             {
@@ -91,11 +89,11 @@ namespace Nodester.Bridge
             await _buildMacroService.ExecuteMacroAsync(AppState.Instance.User, macro, flowInputFieldId, false);
         }
 
-        public async Task ManageGraphsAsync(CancellationToken cancelToken)
+        public async Task ExecuteRecurringGraphsAsync(CancellationToken cancelToken)
         {
             while (!cancelToken.IsCancellationRequested)
             {
-                await ManageRecurringGraphs();
+                await ManageRecurringGraphsAsync();
                 await Task.Delay(100, cancelToken);
             }
         }
@@ -105,7 +103,7 @@ namespace Nodester.Bridge
             await Task.CompletedTask;
         }
 
-        private async Task ManageRecurringGraphs()
+        private async Task ManageRecurringGraphsAsync()
         {
             var graphLookup = AppState.Instance.GraphLookUp;
 

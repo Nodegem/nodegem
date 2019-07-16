@@ -27,5 +27,11 @@ namespace Nodester.Bridge.HubConnections
             await base.StartAsync(cancelToken);
             await Client.InvokeAsync("EstablishBridge", info, cancelToken);
         }
+
+        public override async Task StopAsync(CancellationToken cancelToken)
+        {
+            await Client.InvokeAsync("RemoveBridge", cancelToken);
+            await base.StopAsync(cancelToken);
+        }
     }
 }

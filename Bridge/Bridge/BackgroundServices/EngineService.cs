@@ -27,10 +27,14 @@ namespace Nodester.Bridge.BackgroundServices
 
         private Coordinator _coordinator;
 
-        public EngineService(ILogger<EngineService> logger, IOptions<AppConfig> appConfig,
+        public EngineService(
+            ILogger<EngineService> logger,
+            IOptions<AppConfig> appConfig,
             IGraphHubConnection connection,
-            INodesterLoginService loginService, INodesterGraphService graphService,
-            IServiceProvider provider, IBuildGraphService buildGraphService,
+            INodesterLoginService loginService,
+            INodesterGraphService graphService,
+            IServiceProvider provider,
+            IBuildGraphService buildGraphService,
             IBuildMacroService buildMacroService,
             ITerminalHubConnection terminalHubConnection)
         {
@@ -50,11 +54,22 @@ namespace Nodester.Bridge.BackgroundServices
         {
             try
             {
+                if (string.IsNullOrEmpty(AppState.Instance.Username) ||
+                    string.IsNullOrEmpty(AppState.Instance.Password))
+                {
+                    throw new ArgumentException();
+                }
+
                 NodeCache.CacheNodeData(provider);
+            }
+            catch (ArgumentException)
+            {
+                _logger.LogCritical("Must provide username and password for application to run.");
+                throw;
             }
             catch (Exception ex)
             {
-                _logger.LogCritical("Error during node cache.", ex);
+                _logger.LogCritical($"Error during node cache. Ex: {ex.Message}", ex);
                 throw;
             }
         }
@@ -63,7 +78,8 @@ namespace Nodester.Bridge.BackgroundServices
         {
             try
             {
-                _logger.LogInformation("Starting...");
+                var appId = AppState.Instance.DeviceIdentifier;
+                _logger.LogInformation($"Starting bridge... (ID: {appId})");
 
                 _logger.LogInformation("Establishing Connection...");
                 await ConnectToServices(cancellationToken);
@@ -84,7 +100,7 @@ namespace Nodester.Bridge.BackgroundServices
             }
             catch (Exception ex)
             {
-                _logger.LogCritical("Something went wrong.", ex);
+                _logger.LogCritical($"Something went wrong. Ex: {ex.Message}", ex);
                 throw;
             }
         }
@@ -93,12 +109,15 @@ namespace Nodester.Bridge.BackgroundServices
         {
             try
             {
-                await _coordinator.ManageGraphsAsync(stoppingToken);
+                await _coordinator.ExecuteRecurringGraphsAsync(stoppingToken);
+            }
+            catch (TaskCanceledException)
+            {
+                //Ignored
             }
             catch (Exception ex)
             {
-                _logger.LogCritical("Error during graph setup or execution", ex);
-                throw;
+                _logger.LogCritical($"Error during execution. Ex: {ex.Message}", ex);
             }
         }
 
@@ -132,6 +151,7 @@ namespace Nodester.Bridge.BackgroundServices
 
             var bridgeInfo = new BridgeInfo
             {
+                DeviceIdentifier = AppState.Instance.DeviceIdentifier,
                 DeviceName = Environment.MachineName,
                 OperatingSystem = RuntimeInformation.OSDescription,
                 ProcessorCount = Environment.ProcessorCount,

@@ -14,10 +14,11 @@ namespace Nodester.Bridge
     {
 
         private static AppState _instance;
-        public static AppState Instance => _instance ?? (_instance = new AppState());
+        public static AppState Instance => _instance ??= new AppState();
 
         public bool IsLoggedIn => Token != null;
 
+        public Guid DeviceIdentifier { get; } = Guid.NewGuid();
         public JwtSecurityToken Token { get; set; }
 
         public Guid UserId => Token.Claims.GetUserId();

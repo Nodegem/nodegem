@@ -16,6 +16,7 @@ namespace Nodester.Bridge
 {
     public class Program
     {
+        
         [Option(Description = "The environment the app runs in", ShortName = "e")]
         private string Environment { get; }
 
@@ -42,19 +43,14 @@ namespace Nodester.Bridge
         {
             var environment = Environment ?? "Development";
 
-            if (string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password))
-            {
-                throw new ArgumentException("Username and password values are required.");
-            }
-
             AppState.Instance.Username = Username;
             AppState.Instance.Password = Password;
             AppState.Instance.Environment = environment;
 
             var hostBuilder = new HostBuilder()
+                .UseEnvironment(environment)
                 .ConfigureAppConfiguration((hostingContext, config) =>
                 {
-                    hostingContext.HostingEnvironment.EnvironmentName = environment;
 
                     config
                         .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
@@ -86,6 +82,7 @@ namespace Nodester.Bridge
                 })
                 .ConfigureLogging((hostingContext, logging) =>
                 {
+                    logging.ClearProviders();
                     logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
                     logging.AddConsole();
                     logging.AddDebug();

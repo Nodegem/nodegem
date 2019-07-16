@@ -25,17 +25,17 @@ namespace Nodester.Bridge.HubConnections
                 .Build();
         }
         
-        public async Task StartAsync(CancellationToken cancelToken)
+        public virtual async Task StartAsync(CancellationToken cancelToken)
         {
             await Client.StartAsync(cancelToken);
         }
 
-        public async Task StopAsync(CancellationToken cancelToken)
+        public virtual async Task StopAsync(CancellationToken cancelToken)
         {
             await Client.StopAsync(cancelToken);
         }
         
-        public void Dispose()
+        public virtual void Dispose()
         {
             Task.FromResult(Client.DisposeAsync());
         }
