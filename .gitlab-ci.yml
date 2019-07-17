@@ -44,6 +44,7 @@ build_artifacts:
     script:
         - ./build_binaries
     only:
+        - feature/devops
         - develop
         - tags
 # migrate_prod:
