@@ -42,7 +42,8 @@ deploy_stage:
 build_artifacts:
     stage: artifacts
     script:
-        - build_binaries
+        - ls
+        - exec build_binaries
     artifacts:
         paths:
             - binaries/
