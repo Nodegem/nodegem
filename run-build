@@ -1,0 +1,14 @@
+#!/bin/bash
+
+CWD="$(pwd)"
+
+cd Bridge/Bridge
+echo 'Building Windows'
+dotnet publish -c release -r win-x64 -o $CWD/binaries/win64
+echo 'Building OSX'
+dotnet publish -c release -r osx-x64 -o $CWD/binaries/osx
+echo 'Building Linux'
+dotnet publish -c release -r linux-x64 -o $CWD/binaries/linux
+echo 'Building Linux Arm'
+dotnet publish -c release -r linux-arm -o $CWD/binaries/linux-arm
+cd $CWD
