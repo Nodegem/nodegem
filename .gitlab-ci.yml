@@ -6,9 +6,10 @@ variables:
     HEROKU_PROD_NAME: nodester-prod
 
 stages:
-#    - build
-#    - migrate
+    #    - build
+    #    - migrate
     - deploy
+    - artifacts
 
 #build_project:
 #    stage: build
@@ -37,6 +38,14 @@ deploy_stage:
         - dpl --provider=heroku --app=$HEROKU_STAGE_NAME --api-key=$HEROKU_API_KEY
     only:
         - develop
+
+build_artifacts:
+    stage: artifacts
+    script:
+        - ./build_binaries
+    only:
+        - develop
+        - tags
 # migrate_prod:
 #   stage: deploy
 #   only:

@@ -4,7 +4,6 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>Nodester.Bridge</RootNamespace>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <PublishSingleFile>true</PublishSingleFile>
   </PropertyGroup>
 
   <ItemGroup>

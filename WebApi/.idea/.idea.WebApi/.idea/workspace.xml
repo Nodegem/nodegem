@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/AppState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/AppState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/BackgroundServices/EngineService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/BackgroundServices/EngineService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/Coordinator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/Coordinator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/HubConnections/BaseHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/HubConnections/BaseHubConnection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/HubConnections/GraphHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/HubConnections/GraphHubConnection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/BridgeInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/BridgeInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/Bridge.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/Bridge.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-binaries" beforeDir="false" afterPath="$PROJECT_DIR$/../build-binaries" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -256,7 +253,7 @@
           </expand>
           <select />
         </subPane>
-        <option name="show-all-files" value="false" />
+        <option name="show-all-files" value="true" />
       </pane>
       <pane id="AssemblyExplorer" />
     </panes>
@@ -327,7 +324,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78340000" />
+    <option name="totallyTimeSpent" value="78345000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -340,14 +337,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="2552" y="-8" width="2576" height="1416" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15137067" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15137067" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.27062452" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.27062452" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
