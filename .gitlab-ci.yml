@@ -42,7 +42,10 @@ deploy_stage:
 build_artifacts:
     stage: artifacts
     script:
-        - ./build_binaries
+        - build_binaries
+    artifacts:
+        paths:
+            - binaries/
     only:
         - feature/devops
         - develop
