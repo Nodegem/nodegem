@@ -11,13 +11,13 @@ stages:
     - deploy
     - artifacts
 
-#build_project:
-#    stage: build
-#    script:
-#        - cd WebApi/ && dotnet build WebApi.sln
-#    only:
-#        - develop
-#        - master
+build_project:
+    stage: build
+    script:
+        - cd WebApi/ && dotnet build WebApi.sln
+    only:
+        - develop
+        - master
 
 #migrate_stage:
 #    stage: migrate
@@ -44,10 +44,10 @@ build_artifacts:
     script:
         - bash build_binaries
     artifacts:
+        name: '$CI_JOB_NAME-$CI_COMMIT_REF_SLUG'
         paths:
             - binaries/
     only:
-        - feature/devops
         - develop
         - tags
 # migrate_prod:
