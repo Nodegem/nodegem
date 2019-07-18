@@ -6,7 +6,7 @@ variables:
     HEROKU_PROD_NAME: nodester-prod
 
 stages:
-    #    - build
+    - build
     #    - migrate
     - deploy
     - artifacts
