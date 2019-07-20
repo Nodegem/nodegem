@@ -7,6 +7,8 @@ namespace Nodester.Engine.Data.Attributes
     {
         public string Label { get; set; }
         public ValueType Type { get; set; } = ValueType.Any;
+        
+        public bool Indefinite { get; set; } = false;
 
         public FieldAttributesAttribute()
         {

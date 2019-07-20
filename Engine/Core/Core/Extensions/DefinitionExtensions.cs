@@ -25,14 +25,15 @@ namespace Nodester.Graph.Core.Extensions
             };
         }
 
-        public static ValueInputDefinition ToValueInputDefinition(this IValueInputField input, string label, ValueType type)
+        public static ValueInputDefinition ToValueInputDefinition(this IValueInputField input, string label, ValueType type, bool isIndefinite)
         {
             return new ValueInputDefinition
             {
                 Label = label,
                 DefaultValue = input.DefaultValue,
                 Key = input.Key,
-                ValueType = type
+                ValueType = type,
+                Indefinite = isIndefinite
             };
         }
 

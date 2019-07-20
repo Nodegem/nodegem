@@ -19,22 +19,22 @@ namespace Nodester.Graph.Core
     public abstract class Node : INode
     {
         public virtual IGraph Graph { get; private set; }
-        public Type Type { get; }
-        public string Title => GetNodeTitle();
-        public string Namespace => Type.GetAttributeValue((NodeNamespaceAttribute nc) => nc.Namespace);
+        private Type Type { get; }
+        private string Title => GetNodeTitle();
+        private string Namespace => Type.GetAttributeValue((NodeNamespaceAttribute nc) => nc.Namespace);
 
         public Guid Id { get; private set; }
-        public IList<IFlowInputField> FlowInputs { get; private set; }
-        public IList<IFlowOutputField> FlowOutputs { get; private set; }
-        public IList<IValueInputField> ValueInputs { get; private set; }
-        public IList<IValueOutputField> ValueOutputs { get; private set; }
+        private IList<IFlowInputField> FlowInputs { get; set; }
+        private IList<IFlowOutputField> FlowOutputs { get; set; }
+        private IList<IValueInputField> ValueInputs { get; set; }
+        private IList<IValueOutputField> ValueOutputs { get; set; }
 
         public IEnumerable<IValueLink> ValueConnections =>
             FieldMap.Values.OfType<IValueInputField>().Where(x => x.Connection != null).Select(x => x.Connection);
 
         public IEnumerable<IFlowLink> FlowConnections =>
             FieldMap.Values.OfType<IFlowOutputField>().Where(x => x.Connection != null).Select(x => x.Connection);
-        
+
         private IDictionary<string, IField> FieldMap { get; set; }
 
         protected Node(bool shouldInitialize = true)
@@ -107,7 +107,8 @@ namespace Nodester.Graph.Core
                 FlowInputs = FlowInputs.Select(x => x.ToFlowInputDefinition(fieldLabels[x.Key].Label)).ToList(),
                 FlowOutputs = FlowOutputs.Select(x => x.ToFlowOutputDefinition(fieldLabels[x.Key].Label)).ToList(),
                 ValueInputs = ValueInputs
-                    .Select(x => x.ToValueInputDefinition(fieldLabels[x.Key].Label, fieldLabels[x.Key].Type)).ToList(),
+                    .Select(x => x.ToValueInputDefinition(fieldLabels[x.Key].Label, fieldLabels[x.Key].Type,
+                        fieldLabels[x.Key].Indefinite)).ToList(),
                 ValueOutputs = ValueOutputs.Select(x => x.ToValueOutputDefinition(fieldLabels[x.Key].Label)).ToList()
             };
         }
@@ -144,7 +145,7 @@ namespace Nodester.Graph.Core
         {
             return AddValueOutput(key, async flow => await valueFunc(flow), typeof(T));
         }
-        
+
         private ValueOutput AddValueOutput(string key, Func<IFlow, Task<object>> valueFunc, Type type)
         {
             var output = new ValueOutput(key, valueFunc, type);
@@ -176,12 +177,12 @@ namespace Nodester.Graph.Core
                         var field = v.GetValue<IField>(this);
                         var defaultLabel = field.OriginalName.SplitOnCapitalLetters().ToTitleCase();
                         var fieldAttributes = v.GetCustomAttribute<FieldAttributesAttribute>()
-                                ?? new FieldAttributesAttribute(defaultLabel);
+                                              ?? new FieldAttributesAttribute(defaultLabel);
                         fieldAttributes.Label ??= defaultLabel;
                         return fieldAttributes;
                     });
         }
-        
+
         public virtual ValueTask DisposeAsync()
         {
             return new ValueTask();
