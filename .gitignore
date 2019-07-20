@@ -218,7 +218,7 @@ WebApi/appsettings.Development.json
 WebApi/appsettings.Staging.json
 WebApi/appsettings.Production.json
 
-logs/
+**/logs/
 
 .config/
 

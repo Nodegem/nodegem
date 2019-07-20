@@ -26,7 +26,7 @@ namespace Nodester.WebApi
 {
     public class Startup
     {
-        public IConfiguration Configuration { get; }
+        private IConfiguration Configuration { get; }
         private IWebHostEnvironment Environment { get; }
 
         public Startup(IConfiguration configuration, IWebHostEnvironment env)
@@ -113,14 +113,6 @@ namespace Nodester.WebApi
                     options.EnableDetailedErrors = Environment.IsDevelopment() || Environment.IsStaging();
                 })
                 .AddNewtonsoftJsonProtocol();
-
-            services.AddLogging(logging =>
-            {
-                if (Environment.IsDevelopment())
-                {
-                    logging.AddConsole();
-                }
-            });
 
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Latest)

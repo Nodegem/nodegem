@@ -78,6 +78,11 @@ namespace Nodester.WebApi.Controllers
                 _logger.LogError($"Invalid credentials. Username: {username}");
                 return Unauthorized();
             }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Invalid credentials. Username: {username}");
+                return BadRequest("Something went wrong.");
+            }
         }
 
         [HttpGet("constants")]
@@ -119,6 +124,11 @@ namespace Nodester.WebApi.Controllers
             {
                 _logger.LogError($"Invalid credentials. Username: {username}");
                 return Unauthorized();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Something went wrong during token retrieval");
+                return BadRequest("Something went wrong");
             }
         }
 

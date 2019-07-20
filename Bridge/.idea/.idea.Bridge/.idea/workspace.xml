@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbc70a65-0271-4a7a-995d-0bc022bc22ed" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Bridge/BackgroundServices/EngineService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/BackgroundServices/EngineService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/Extensions/NodeExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/Extensions/NodeExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/Services/GraphBuildService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/Services/GraphBuildService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/Services/MacroBuildService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/Services/MacroBuildService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WebApi/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Controllers/AccountController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApi/Controllers/NodesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Controllers/NodesController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebApi/Extensions/HttpRequestExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Extensions/HttpRequestExtension.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebApi/Nodester.WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Nodester.WebApi.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebApi/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebApi/nlog.config" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/nlog.config" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,8 +37,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Bridge/BackgroundServices/EngineService.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="730">
-              <caret line="129" column="9" lean-forward="true" selection-start-line="129" selection-start-column="9" selection-end-line="129" selection-end-column="9" />
+            <state relative-caret-position="438">
+              <caret line="129" column="9" selection-start-line="129" selection-start-column="9" selection-end-line="129" selection-end-column="9" />
               <folding>
                 <marker date="1563589540419" expanded="false" signature="6:359" ph="..." />
                 <marker date="1563589540419" expanded="true" signature="405:5926" ph="{...}" />
@@ -464,12 +466,12 @@
       <workItem from="1563145257601" duration="2624000" />
       <workItem from="1563315934731" duration="3342000" />
       <workItem from="1563403689296" duration="4416000" />
-      <workItem from="1563588811790" duration="1374000" />
+      <workItem from="1563588811790" duration="1881000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120673000" />
+    <option name="totallyTimeSpent" value="121180000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -490,7 +492,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3299923" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49980134" weight="0.21665382" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49980134" visible="true" weight="0.21665382" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -1243,8 +1245,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Bridge/BackgroundServices/EngineService.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="730">
-          <caret line="129" column="9" lean-forward="true" selection-start-line="129" selection-start-column="9" selection-end-line="129" selection-end-column="9" />
+        <state relative-caret-position="438">
+          <caret line="129" column="9" selection-start-line="129" selection-start-column="9" selection-end-line="129" selection-end-column="9" />
           <folding>
             <marker date="1563589540419" expanded="false" signature="6:359" ph="..." />
             <marker date="1563589540419" expanded="true" signature="405:5926" ph="{...}" />
