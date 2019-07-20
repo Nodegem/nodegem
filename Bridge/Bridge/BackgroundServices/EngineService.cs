@@ -69,7 +69,7 @@ namespace Nodester.Bridge.BackgroundServices
             }
             catch (Exception ex)
             {
-                _logger.LogCritical($"Error during node cache. Ex: {ex.Message}", ex);
+                _logger.LogCritical(ex, $"Error during node cache.");
                 throw;
             }
         }
@@ -95,12 +95,12 @@ namespace Nodester.Bridge.BackgroundServices
             }
             catch (HttpRequestException ex)
             {
-                _logger.LogCritical($"Unable to reach service: {_appConfig.Host}", ex);
+                _logger.LogCritical(ex, $"Unable to reach service: {_appConfig.Host}");
                 throw;
             }
             catch (Exception ex)
             {
-                _logger.LogCritical($"Something went wrong. Ex: {ex.Message}", ex);
+                _logger.LogCritical(ex, $"Something went wrong");
                 throw;
             }
         }
@@ -117,7 +117,7 @@ namespace Nodester.Bridge.BackgroundServices
             }
             catch (Exception ex)
             {
-                _logger.LogCritical($"Error during execution. Ex: {ex.Message}", ex);
+                _logger.LogCritical(ex, $"Error during execution");
             }
         }
 

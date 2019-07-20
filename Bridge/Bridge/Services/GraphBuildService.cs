@@ -44,12 +44,12 @@ namespace Nodester.Bridge.Services
             }
             catch (GraphException ex)
             {
-                _logger.LogError($"Error during graph run with ID: {graph.Id}", ex);
+                _logger.LogError(ex, $"Error during graph run with ID: {graph.Id}");
                 throw;
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Something went wrong with graph ID: {graph.Id}", ex);
+                _logger.LogError(ex, $"Something went wrong with graph ID: {graph.Id}");
                 throw;
             }
         }
@@ -72,7 +72,7 @@ namespace Nodester.Bridge.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Error building graph with ID: {graph.Id}.", ex);
+                _logger.LogError(ex, $"Error building graph with ID: {graph.Id}.");
                 throw;
             }
         }
@@ -95,7 +95,7 @@ namespace Nodester.Bridge.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Error building listener graph with ID: {graph.Id}.", ex);
+                _logger.LogError(ex,$"Error building listener graph with ID: {graph.Id}.");
                 throw;
             }
         }

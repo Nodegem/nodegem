@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Nodester.Common.Extensions;
 using Nodester.Data.Dto;
 using Nodester.Data.Dto.ComponentDtos;
@@ -21,10 +22,12 @@ namespace Nodester.WebApi.Controllers
     public class AccountController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly ILogger<AccountController> _logger;
 
-        public AccountController(IUserService userService)
+        public AccountController(IUserService userService, ILogger<AccountController> logger)
         {
             _userService = userService;
+            _logger = logger;
         }
 
         [AllowAnonymous]
@@ -40,7 +43,14 @@ namespace Nodester.WebApi.Controllers
             }
             catch (RegistrationException ex)
             {
+                _logger.LogError(ex, "Unable to register new account");
                 return BadRequest(ex.Errors);
+            }
+            catch (Exception ex)
+            {
+                const string message = "Something went wrong during registration";
+                _logger.LogError(ex, message);
+                return BadRequest(message);
             }
         }
 
@@ -51,17 +61,21 @@ namespace Nodester.WebApi.Controllers
         [ProducesResponseType(401)]
         public async Task<ActionResult<TokenUserDto>> Login()
         {
+            var username = "";
             try
             {
-                var (username, password) = Request.GetAuthorization();
+                var (u, password) = Request.GetAuthorization();
+                username = u;
                 return await _userService.LoginAsync(username, password);
             }
             catch (NoUserFoundException ex)
             {
+                _logger.LogError(ex, $"No user found with username: {username}");
                 return BadRequest(ex.Message);
             }
             catch (InvalidLoginCredentialException)
             {
+                _logger.LogError($"Invalid credentials. Username: {username}");
                 return Unauthorized();
             }
         }
@@ -69,12 +83,14 @@ namespace Nodester.WebApi.Controllers
         [HttpGet("constants")]
         public async Task<ActionResult<IEnumerable<ConstantDto>>> GetUserConstantsAsync()
         {
+            var userId = User.GetUserId();
             try
             {
-                return Ok(await _userService.GetConstantsAsync(User.GetUserId()));
+                return Ok(await _userService.GetConstantsAsync(userId));
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, $"Unable to get user's constants. User ID: {userId}");
                 return BadRequest(ex.Message);
             }
         }
@@ -86,18 +102,22 @@ namespace Nodester.WebApi.Controllers
         [ProducesResponseType(401)]
         public async Task<ActionResult<TokenDto>> GetToken()
         {
+            var username = "";
             try
             {
-                var (username, password) = Request.GetAuthorization();
+                var (u, password) = Request.GetAuthorization();
+                username = u;
                 var user = await _userService.LoginAsync(username, password);
                 return user.Token;
             }
             catch (NoUserFoundException ex)
             {
+                _logger.LogError(ex, $"No user found with username: {username}");
                 return BadRequest(ex.Message);
             }
             catch (InvalidLoginCredentialException)
             {
+                _logger.LogError($"Invalid credentials. Username: {username}");
                 return Unauthorized();
             }
         }

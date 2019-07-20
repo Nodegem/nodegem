@@ -59,11 +59,6 @@ namespace Nodester.Bridge.Extensions
                     throw;
                 }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                throw;
-            }
 
             node.SetId(nodeDto.Id);
             return node;

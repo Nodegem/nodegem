@@ -43,12 +43,12 @@ namespace Nodester.Bridge.Services
             }
             catch (GraphException ex)
             {
-                _logger.LogError($"Error during macro run with macro ID: {macro.Id}", ex);
+                _logger.LogError(ex, $"Error during macro run with macro ID: {macro.Id}");
                 throw;
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Something went wrong running macro with ID: {macro.Id}", ex);
+                _logger.LogError(ex, $"Something went wrong running macro with ID: {macro.Id}");
                 throw;
             }
         }
@@ -95,7 +95,7 @@ namespace Nodester.Bridge.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Error building macro with ID: {macro.Id}", ex);
+                _logger.LogError(ex, $"Error building macro with ID: {macro.Id}");
                 throw;
             }
         }
