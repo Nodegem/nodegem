@@ -3,12 +3,25 @@
 CWD="$(pwd)"
 
 cd Bridge/Bridge
-echo 'Building Windows'
-dotnet publish -c release -r win-x64 /p:PublishSingleFile=true -o $CWD/binaries/win64
-echo 'Building OSX'
-dotnet publish -c release -r osx-x64 /p:PublishSingleFile=true -o $CWD/binaries/osx
-echo 'Building Linux'
-dotnet publish -c release -r linux-x64 /p:PublishSingleFile=true -o $CWD/binaries/linux 
-echo 'Building Linux Arm'
-dotnet publish -c release -r linux-arm /p:PublishSingleFile=true -o $CWD/binaries/linux-arm
+
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    echo 'Building Windows'
+    dotnet publish -c release -r win-x64 /p:PublishSingleFile=true -o $CWD/binaries/win64 -v q
+    echo 'Building OSX'
+    dotnet publish -c release -r osx-x64 /p:PublishSingleFile=true -o $CWD/binaries/osx -v q
+    echo 'Building Linux'
+    dotnet publish -c release -r linux-x64 /p:PublishSingleFile=true -o $CWD/binaries/linux -v q
+    echo 'Building Linux Arm'
+    dotnet publish -c release -r linux-arm /p:PublishSingleFile=true -o $CWD/binaries/linux-arm -v q 
+elif [[ "$OSTYPE" == "msys" ]]; then
+    echo 'Building Windows'
+    dotnet publish -c release -r win-x64 //p:PublishSingleFile=true -o $CWD/binaries/win64 -v q
+    echo 'Building OSX'
+    dotnet publish -c release -r osx-x64 //p:PublishSingleFile=true -o $CWD/binaries/osx -v q
+    echo 'Building Linux'
+    dotnet publish -c release -r linux-x64 //p:PublishSingleFile=true -o $CWD/binaries/linux -v q
+    echo 'Building Linux Arm'
+    dotnet publish -c release -r linux-arm //p:PublishSingleFile=true -o $CWD/binaries/linux-arm -v q
+fi
+
 cd $CWD
