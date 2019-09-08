@@ -9,10 +9,8 @@ namespace Nodester.Common.Extensions
             Func<TAttribute, TValue> valueSelector, TValue @default = default(TValue))
             where TAttribute : Attribute
         {
-            var att = type.GetCustomAttributes(typeof(TAttribute), true)
-                .FirstOrDefault() as TAttribute;
-
-            return att != null ? valueSelector(att) : @default;
+            return type.GetCustomAttributes(typeof(TAttribute), true)
+                .FirstOrDefault() is TAttribute att ? valueSelector(att) : @default;
         }
     }
 }
