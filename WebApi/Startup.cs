@@ -40,6 +40,7 @@ namespace Nodester.WebApi
         {
             services.Configure<TokenSettings>(Configuration.GetSection("TokenSettings"));
 
+            services.AddHttpContextAccessor();
             services.AddMemoryCache();
 
             services.AddEntityFrameworkNpgsql()

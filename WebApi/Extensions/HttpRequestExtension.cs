@@ -17,7 +17,7 @@ namespace Nodester.WebApi.Extensions
                 var info = decoded.Split(":");
                 return (info[0], info[1]);
             }
-            catch (IndexOutOfRangeException ex)
+            catch (IndexOutOfRangeException)
             {
                 throw new Exception("No credentials were provided");
             }
