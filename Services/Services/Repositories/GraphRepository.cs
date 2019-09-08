@@ -37,6 +37,7 @@ namespace Nodester.Services.Repositories
         public GraphDto CreateGraph(CreateGraphDto graph)
         {
             var newGraph = graph.Adapt<Nodester.Data.Models.Graph>();
+            newGraph.IsActive = true;
             Create(newGraph);
             return newGraph.Adapt<GraphDto>();
         }

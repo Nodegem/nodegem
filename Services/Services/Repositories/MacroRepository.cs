@@ -32,6 +32,7 @@ namespace Nodester.Services.Repositories
         public MacroDto CreateNewMacro(CreateMacroDto newMacro)
         {
             var macro = newMacro.Adapt<Macro>();
+            macro.IsActive = true;
             Create(macro);
             return macro.Adapt<MacroDto>();
         }
