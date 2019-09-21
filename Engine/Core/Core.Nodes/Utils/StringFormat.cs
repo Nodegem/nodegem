@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
@@ -21,7 +22,7 @@ namespace Nodester.Graph.Core.Nodes.Utils
         protected override void Define()
         {
             Format = AddValueInput(nameof(Format), "{0}");
-            Strings = AddValueInput(nameof(Strings), new[] { "" });
+            Strings = AddValueInput(nameof(Strings), Enumerable.Empty<string>());
             Formatted = AddValueOutput(nameof(Formatted), FormatString);
         }
 

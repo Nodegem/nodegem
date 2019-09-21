@@ -6,25 +6,23 @@ namespace Nodester.Engine.Data
     {
         [EnumMember(Value = "any")]
         Any = 0,
-        [EnumMember(Value = "color")]
-        Color = 1,
         [EnumMember(Value = "time")]
-        Time = 2,
+        Time = 1,
         [EnumMember(Value = "date")]
-        Date = 3,
+        Date = 2,
         [EnumMember(Value = "datetime")]
-        DateTime = 4,
+        DateTime = 3,
         [EnumMember(Value = "boolean")]
-        Boolean = 5,
+        Boolean = 4,
         [EnumMember(Value = "text")]
-        Text = 6,
+        Text = 5,
         [EnumMember(Value = "textarea")]
-        TextArea = 7,
+        TextArea = 6,
         [EnumMember(Value = "url")]
-        Url = 8,
+        Url = 7,
         [EnumMember(Value = "phonenumber")]
-        PhoneNumber = 9,
+        PhoneNumber = 8,
         [EnumMember(Value = "number")]
-        Number = 10
+        Number = 9
     }
 }
