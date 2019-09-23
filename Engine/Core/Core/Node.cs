@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -13,6 +14,7 @@ using Nodester.Engine.Data.Nodes;
 using Nodester.Graph.Core.Extensions;
 using Nodester.Graph.Core.Fields.Graph;
 using Nodester.Graph.Core.Utils;
+using ValueType = Nodester.Engine.Data.ValueType;
 
 namespace Nodester.Graph.Core
 {
@@ -98,7 +100,6 @@ namespace Nodester.Graph.Core
         public virtual NodeDefinition GetDefinition()
         {
             var fieldLabels = GetFieldLabels();
-
             return new NodeDefinition
             {
                 FullName = $"{Namespace}.{Type.Name}",
@@ -109,7 +110,8 @@ namespace Nodester.Graph.Core
                 ValueInputs = ValueInputs
                     .Select(x => x.ToValueInputDefinition(fieldLabels[x.Key].Label, fieldLabels[x.Key].Type,
                         fieldLabels[x.Key].Indefinite)).ToList(),
-                ValueOutputs = ValueOutputs.Select(x => x.ToValueOutputDefinition(fieldLabels[x.Key].Label)).ToList()
+                ValueOutputs = ValueOutputs
+                    .Select(x => x.ToValueOutputDefinition(fieldLabels[x.Key].Label, fieldLabels[x.Key].Type)).ToList()
             };
         }
 
@@ -166,26 +168,62 @@ namespace Nodester.Graph.Core
             FieldMap = allFields.ToDictionary(k => k.Key, v => v);
         }
 
-        private IDictionary<string, FieldAttributesAttribute> GetFieldLabels()
+        private IDictionary<string, FieldInfo> GetFieldLabels()
         {
             return Type.GetProperties()
-                .Where(p => p.PropertyType.GetInterfaces().Contains(typeof(IField)))
-                .ToDictionary(
-                    x => x.GetValue<IField>(this).Key,
-                    v =>
+                .Where(p =>
+                {
+                    var pType = p.PropertyType;
+                    var interfaces = pType.GetInterfaces();
+                    if (!interfaces.Contains(typeof(IField)) && !typeof(IEnumerable).IsAssignableFrom(pType))
                     {
-                        var field = v.GetValue<IField>(this);
-                        var defaultLabel = field.OriginalName.SplitOnCapitalLetters().ToTitleCase();
-                        var fieldAttributes = v.GetCustomAttribute<FieldAttributesAttribute>()
-                                              ?? new FieldAttributesAttribute(defaultLabel);
-                        fieldAttributes.Label ??= defaultLabel;
-                        return fieldAttributes;
-                    });
+                        return false;
+                    }
+
+                    if (interfaces.Contains(typeof(IField)))
+                    {
+                        return true;
+                    }
+
+                    if (pType.IsGenericType && pType.GenericTypeArguments.Any())
+                    {
+                        return pType.GenericTypeArguments.Any(gta => gta.GetInterfaces().Contains(typeof(IField)));
+                    }
+
+                    return false;
+                })
+                .Select(pi =>
+                {
+                    var field = pi.GetValue<IField>(this);
+                    var label = field?.OriginalName.SplitOnCapitalLetters().ToTitleCase();
+                    var fieldAttributes = pi.GetCustomAttribute<FieldAttributesAttribute>() ??
+                                          new FieldAttributesAttribute(label);
+                    fieldAttributes.Label ??= label;
+                    return new FieldInfo
+                    {
+                        Key = field?.Key ?? fieldAttributes.Key,
+                        Label = label ?? fieldAttributes.Label,
+                        Indefinite = field == null,
+                        Type = fieldAttributes.Type ??
+                               (field is IValueField valueField ? valueField.ValueType : ValueType.Any)
+                    };
+                })
+                .ToDictionary(
+                    x => x.Key,
+                    v => v);
         }
 
         public virtual ValueTask DisposeAsync()
         {
             return new ValueTask();
+        }
+
+        private struct FieldInfo
+        {
+            public string Key { get; set; }
+            public string Label { get; set; }
+            public bool Indefinite { get; set; }
+            public Engine.Data.ValueType Type { get; set; }
         }
     }
 }

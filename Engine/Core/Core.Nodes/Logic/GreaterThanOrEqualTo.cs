@@ -20,10 +20,10 @@ namespace Nodester.Graph.Core.Nodes.Logic
         public IFlowOutputField False { get; set; }
         
         
-        [FieldAttributes(Type = ValueType.Number)]
+        [FieldAttributes(ValueType.Number)]
         public IValueInputField A { get; set; }
         
-        [FieldAttributes(Type = ValueType.Number)]
+        [FieldAttributes(ValueType.Number)]
         public IValueInputField B { get; set; }
         
         protected override void Define()

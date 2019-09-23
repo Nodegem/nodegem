@@ -25,7 +25,8 @@ namespace Nodester.Graph.Core.Extensions
             };
         }
 
-        public static ValueInputDefinition ToValueInputDefinition(this IValueInputField input, string label, ValueType type, bool isIndefinite)
+        public static ValueInputDefinition ToValueInputDefinition(this IValueInputField input, string label,
+            ValueType type, bool isIndefinite)
         {
             return new ValueInputDefinition
             {
@@ -37,12 +38,14 @@ namespace Nodester.Graph.Core.Extensions
             };
         }
 
-        public static ValueOutputDefinition ToValueOutputDefinition(this IValueOutputField output, string label)
+        public static ValueOutputDefinition ToValueOutputDefinition(this IValueOutputField output, string label,
+            ValueType type)
         {
             return new ValueOutputDefinition
             {
                 Label = label,
-                Key = output.Key
+                Key = output.Key,
+                ValueType = type
             };
         }
     }

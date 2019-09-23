@@ -6,10 +6,16 @@ namespace Nodester.Engine.Data.Attributes
     public class FieldAttributesAttribute : Attribute
     {
         public string Label { get; set; }
-        public ValueType Type { get; set; } = ValueType.Any;
-        
-        public bool Indefinite { get; set; } = false;
 
+        private string _key;
+
+        public string Key
+        {
+            get => _key;
+            set => _key = value.ToLower();
+        }
+        public ValueType? Type { get; set; }
+        
         public FieldAttributesAttribute()
         {
         }
@@ -17,6 +23,11 @@ namespace Nodester.Engine.Data.Attributes
         public FieldAttributesAttribute(string label)
         {
             Label = label;
+        }
+
+        public FieldAttributesAttribute(ValueType type)
+        {
+            Type = type;
         }
 
         public FieldAttributesAttribute(string label, ValueType type) : this(label)

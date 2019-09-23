@@ -10,7 +10,7 @@ namespace Nodester.Graph.Core.Nodes.Control
     [NodeNamespace("Core.Control")]
     public class While : LoopNode
     {
-        [FieldAttributes(Type = ValueType.Boolean)]
+        [FieldAttributes(ValueType.Boolean)]
         public ValueInput Condition { get; private set; }
 
         protected override void Define()

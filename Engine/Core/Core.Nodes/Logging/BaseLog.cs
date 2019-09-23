@@ -13,7 +13,7 @@ namespace Nodester.Graph.Core.Nodes.Logging
         public IFlowInputField In { get; set; }
         public IFlowOutputField Out { get; set; }
 
-        [FieldAttributes(Type = ValueType.TextArea)]
+        [FieldAttributes(ValueType.TextArea)]
         public IValueInputField Message { get; set; }
 
         protected ITerminalHubService LogService { get; }

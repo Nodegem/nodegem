@@ -9,10 +9,10 @@ namespace Nodester.Graph.Core.Nodes.Math
     [NodeNamespace("Core.Math")]
     public class Add : Node
     {
-        [FieldAttributes(Type = ValueType.Number)]
+        [FieldAttributes(ValueType.Number)]
         public ValueInput A { get; private set; }
 
-        [FieldAttributes(Type = ValueType.Number)]
+        [FieldAttributes(ValueType.Number)]
         public ValueInput B { get; private set; }
 
         [FieldAttributes("A + B")] 

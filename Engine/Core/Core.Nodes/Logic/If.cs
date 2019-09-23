@@ -11,7 +11,7 @@ namespace Nodester.Graph.Core.Nodes.Logic
     {
         public IFlowInputField In { get; private set; }
 
-        [FieldAttributes(Type = ValueType.Boolean)]
+        [FieldAttributes(ValueType.Boolean)]
         public IValueInputField Condition { get; private set; }
 
         public IFlowOutputField True { get; private set; }

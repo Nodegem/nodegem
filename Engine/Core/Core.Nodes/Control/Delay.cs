@@ -14,7 +14,7 @@ namespace Nodester.Graph.Core.Nodes.Control
         public IFlowInputField In { get; set; }
         public IFlowOutputField Out { get; set; }
 
-        [FieldAttributes(Type = ValueType.Number)]
+        [FieldAttributes(ValueType.Number)]
         public IValueInputField DelayAmount { get; set; }
 
         protected override void Define()

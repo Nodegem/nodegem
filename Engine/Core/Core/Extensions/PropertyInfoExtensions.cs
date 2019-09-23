@@ -1,3 +1,4 @@
+using System;
 using System.Reflection;
 
 namespace Nodester.Graph.Core.Extensions
@@ -6,7 +7,15 @@ namespace Nodester.Graph.Core.Extensions
     {
         public static T GetValue<T>(this PropertyInfo info, object obj)
         {
-            return (T) info.GetValue(obj);
+            try
+            {
+                var value = (T) info.GetValue(obj);
+                return value;
+            }
+            catch (Exception)
+            {
+                return default;
+            }
         }
     }
 }
