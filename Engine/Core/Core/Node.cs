@@ -136,6 +136,16 @@ namespace Nodester.Graph.Core
             return input;
         }
 
+        protected IEnumerable<ValueInput> InitializeValueInputList<T>(string baseKey, T @default = default,
+            int amount = 1)
+        {
+            var inputs = Enumerable.Range(0, amount)
+                .Select(x => new ValueInput($"{baseKey}|{Guid.NewGuid():N}", @default, typeof(T)))
+                .ToList();
+            inputs.ForEach(vi => ValueInputs.Add(vi));
+            return inputs;
+        }
+
         public ValueOutput AddValueOutput<T>(string key)
         {
             var output = new ValueOutput(key, typeof(T));
@@ -192,20 +202,40 @@ namespace Nodester.Graph.Core
 
                     return false;
                 })
-                .Select(pi =>
+                .SelectMany(pi =>
                 {
                     var field = pi.GetValue<IField>(this);
+                    var indefinite = field == null;
+
                     var label = field?.OriginalName.SplitOnCapitalLetters().ToTitleCase();
                     var fieldAttributes = pi.GetCustomAttribute<FieldAttributesAttribute>() ??
                                           new FieldAttributesAttribute(label);
                     fieldAttributes.Label ??= label;
-                    return new FieldInfo
+                    var key = field?.Key ?? fieldAttributes.Key;
+
+                    if (indefinite)
                     {
-                        Key = field?.Key ?? fieldAttributes.Key,
-                        Label = label ?? fieldAttributes.Label,
-                        Indefinite = field == null,
-                        Type = fieldAttributes.Type ??
-                               (field is IValueField valueField ? valueField.ValueType : ValueType.Any)
+                        var fieldList = pi.GetValue<IEnumerable<IField>>(this);
+                        return fieldList.Select(f => new FieldInfo
+                        {
+                            Key = f.Key,
+                            Indefinite = true,
+                            Label = label ?? fieldAttributes.Label,
+                            Type = fieldAttributes.Type ??
+                                   (field is IValueField valueField ? valueField.ValueType : ValueType.Any)
+                        });
+                    }
+
+                    return new List<FieldInfo>
+                    {
+                        new FieldInfo
+                        {
+                            Key = key,
+                            Label = label ?? fieldAttributes.Label,
+                            Indefinite = indefinite,
+                            Type = fieldAttributes.Type ??
+                                   (field is IValueField valueField ? valueField.ValueType : ValueType.Any)
+                        }
                     };
                 })
                 .ToDictionary(

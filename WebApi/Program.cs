@@ -32,7 +32,8 @@ namespace Nodester.WebApi
                 .ConfigureLogging((hostingContext, logging) =>
                 {
                     logging.ClearProviders();
-                    logging.SetMinimumLevel(LogLevel.Trace);
+                    logging.AddConfiguration(hostingContext.Configuration);
+                    logging.AddConsole();
                 })
                 .UseNLog();
     }

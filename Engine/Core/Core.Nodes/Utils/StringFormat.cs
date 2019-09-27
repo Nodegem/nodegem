@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Nodester.Common.Extensions;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
+using ValueType = Nodester.Engine.Data.ValueType;
 
 namespace Nodester.Graph.Core.Nodes.Utils
 {
@@ -13,7 +15,7 @@ namespace Nodester.Graph.Core.Nodes.Utils
     {
         public IValueInputField Format { get; set; }
 
-        [FieldAttributes(nameof(Strings), ValueType.Text, Key = nameof(Strings))]
+        [FieldAttributes(nameof(Strings), ValueType.Text)]
         public IEnumerable<IValueInputField> Strings { get; set; }
 
         public IValueOutputField Formatted { get; set; }
@@ -21,14 +23,14 @@ namespace Nodester.Graph.Core.Nodes.Utils
         protected override void Define()
         {
             Format = AddValueInput(nameof(Format), "{0}");
-            Strings = new List<IValueInputField> {AddValueInput<string>(nameof(Strings))};
+            Strings = InitializeValueInputList<string>(nameof(Strings));
             Formatted = AddValueOutput(nameof(Formatted), FormatString);
         }
 
         private async Task<string> FormatString(IFlow flow)
         {
             var format = await flow.GetValueAsync<string>(Format);
-            var strings = await Strings.SelectAsync(async x => await flow.GetValueAsync<string>(x));
+            var strings = await Strings.SelectAsync(flow.GetValueAsync<string>);
             return string.Format(format, strings);
         }
     }
