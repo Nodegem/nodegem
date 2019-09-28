@@ -85,7 +85,12 @@ namespace Nodester.Bridge
                     logging.ClearProviders();
                     logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
                     logging.AddConsole();
-                    logging.AddDebug();
+
+                    if (hostingContext.HostingEnvironment.IsDevelopment())
+                    {
+                        logging.AddDebug();
+                    }
+                    
                     logging.AddEventSourceLogger();
                 });
 

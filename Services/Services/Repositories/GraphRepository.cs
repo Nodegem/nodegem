@@ -7,7 +7,10 @@ using Nodester.Data.Contexts;
 using Nodester.Data.Dto.ComponentDtos;
 using Nodester.Data.Dto.GraphDtos;
 using Nodester.Data.Models;
+using Nodester.Data.Models.Json_Models;
 using Nodester.Services.Data.Repositories;
+using Twilio.TwiML.Voice;
+using Start = Nodester.Graph.Core.Nodes.Essential.Start;
 
 namespace Nodester.Services.Repositories
 {
@@ -38,6 +41,8 @@ namespace Nodester.Services.Repositories
         {
             var newGraph = graph.Adapt<Nodester.Data.Models.Graph>();
             newGraph.IsActive = true;
+            newGraph.Nodes = new List<Node>
+                {new Node {Id = Guid.NewGuid(), Position = Vector2.Default, FullName = Start.StartFullName, Permanent = true, }};
             Create(newGraph);
             return newGraph.Adapt<GraphDto>();
         }

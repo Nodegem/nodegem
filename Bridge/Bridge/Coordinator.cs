@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Bridge.Data;
 using Nodester.Bridge.Extensions;
+using Nodester.Common.Extensions;
 using Nodester.Data.Dto.GraphDtos;
 using Nodester.Data.Dto.MacroDtos;
 using Nodester.Data.Models;
@@ -38,9 +39,11 @@ namespace Nodester.Bridge
         public async Task InitializeAsync()
         {
             var compiledRecurringGraphList =
-                await Task.WhenAll(AppState.Instance.RecurringGraphs.Select(async x =>
+                await AppState.Instance.RecurringGraphs.SelectAsync(async x =>
                     new KeyValuePair<Guid, IFlowGraph>(x.Id,
-                        await _buildGraphService.BuildGraphAsync(AppState.Instance.User, x))));
+                        await _buildGraphService.BuildGraphAsync(AppState.Instance.User, x)));
+
+            compiledRecurringGraphList = compiledRecurringGraphList.Where(x => x.Value != null).ToList();
 
             CompiledRecurringGraphs = compiledRecurringGraphList.ToDictionary(k => k.Key, v => v.Value);
 

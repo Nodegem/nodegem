@@ -73,7 +73,7 @@ namespace Nodester.Bridge.Services
             catch (Exception ex)
             {
                 _logger.LogError(ex, $"Error building graph with ID: {graph.Id}.");
-                throw;
+                return null;
             }
         }
 
@@ -96,7 +96,7 @@ namespace Nodester.Bridge.Services
             catch (Exception ex)
             {
                 _logger.LogError(ex,$"Error building listener graph with ID: {graph.Id}.");
-                throw;
+                return null;
             }
         }
         

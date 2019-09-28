@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Nodester.Common.Extensions;
 using Nodester.Engine.Data;
@@ -31,7 +32,7 @@ namespace Nodester.Graph.Core.Nodes.Utils
         {
             var format = await flow.GetValueAsync<string>(Format);
             var strings = await Strings.SelectAsync(flow.GetValueAsync<string>);
-            return string.Format(format, strings);
+            return string.Format(format, strings.ToArray());
         }
     }
 }

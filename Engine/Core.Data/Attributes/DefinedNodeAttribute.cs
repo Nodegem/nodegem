@@ -12,6 +12,7 @@ namespace Nodester.Engine.Data.Attributes
         /// Ignore the node aggregator which is sent out to clients
         /// </summary>
         public bool Ignore { get; set; }
+        public bool IgnoreDisplay { get; set; }
 
         public DefinedNodeAttribute()
         {
