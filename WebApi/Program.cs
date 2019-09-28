@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NLog.Web;
 
@@ -34,6 +35,12 @@ namespace Nodester.WebApi
                     logging.ClearProviders();
                     logging.AddConfiguration(hostingContext.Configuration);
                     logging.AddConsole();
+                    if (hostingContext.HostingEnvironment.IsDevelopment())
+                    {
+                        logging.AddDebug();
+                    }
+
+                    logging.AddEventSourceLogger();
                 })
                 .UseNLog();
     }
