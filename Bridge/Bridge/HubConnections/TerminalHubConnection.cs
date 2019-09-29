@@ -24,7 +24,7 @@ namespace Nodester.Bridge.HubConnections
             if (sendToClient)
             {
                 var truncatedMessage = message.TruncateAtWord(1024);
-                await Client.InvokeAsync("Log", user, truncatedMessage);
+                await Client.InvokeAsync("LogAsync", user, truncatedMessage);
             }
         }
 
@@ -36,7 +36,7 @@ namespace Nodester.Bridge.HubConnections
                 if (sendToClient)
                 {
                     var truncatedMessage = message.TruncateAtWord(1024);
-                    await Client.InvokeAsync("DebugLog", user, message);
+                    await Client.InvokeAsync("DebugLogAsync", user, message);
                 }
             }
         }
@@ -47,7 +47,7 @@ namespace Nodester.Bridge.HubConnections
             if (sendToClient)
             {
                 var truncatedMessage = message.TruncateAtWord(1024);
-                await Client.InvokeAsync("WarnLog", user, truncatedMessage);
+                await Client.InvokeAsync("WarnLogAsync", user, truncatedMessage);
             }
         }
 
@@ -57,7 +57,7 @@ namespace Nodester.Bridge.HubConnections
             if (sendToClient)
             {
                 var truncatedMessage = message.TruncateAtWord(1024);
-                await Client.InvokeAsync("ErrorLog", user, truncatedMessage);
+                await Client.InvokeAsync("ErrorLogAsync", user, truncatedMessage);
             }
         }
     }

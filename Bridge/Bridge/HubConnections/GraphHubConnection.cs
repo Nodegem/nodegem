@@ -16,21 +16,21 @@ namespace Nodester.Bridge.HubConnections
 
         public GraphHubConnection(IOptions<AppConfig> config) : base("/graphHub", config)
         {
-            Client.On<GraphDto>("RemoteExecuteGraph", graph => { ExecuteGraphEvent?.Invoke(graph); });
+            Client.On<GraphDto>("RemoteExecuteGraphAsync", graph => { ExecuteGraphEvent?.Invoke(graph); });
 
-            Client.On<MacroDto, string>("RemoteExecuteMacro",
+            Client.On<MacroDto, string>("RemoteExecuteMacroAsync",
                 (macro, inputId) => { ExecuteMacroEvent?.Invoke(macro, inputId); });
         }
 
         public async Task StartAsync(BridgeInfo info, CancellationToken cancelToken)
         {
             await base.StartAsync(cancelToken);
-            await Client.InvokeAsync("EstablishBridge", info, cancelToken);
+            await Client.InvokeAsync("EstablishBridgeAsync", info, cancelToken);
         }
 
         public override async Task StopAsync(CancellationToken cancelToken)
         {
-            await Client.InvokeAsync("RemoveBridge", cancelToken);
+            await Client.InvokeAsync("RemoveBridgeAsync", cancelToken);
             await base.StopAsync(cancelToken);
         }
     }

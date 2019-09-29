@@ -16,5 +16,6 @@ namespace Nodester.Data.Dto.ComponentDtos
         public string FullName { get; set; }
         public Vector2 Position { get; set; }
         public IEnumerable<FieldData> FieldData { get; set; } = new List<FieldData>();
+        public bool Permanent { get; set; }
     }
 }

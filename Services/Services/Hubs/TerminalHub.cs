@@ -2,7 +2,6 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
-using Microsoft.Extensions.Logging;
 using Nodester.Common.Data;
 using Nodester.Common.Extensions;
 
@@ -24,24 +23,24 @@ namespace Nodester.Services.Hubs
             return base.OnDisconnectedAsync(exception);
         }
 
-        public async Task Log(User user, string message)
+        public async Task LogAsync(User user, string message)
         {
-            await Clients.Group(user.Id).SendAsync("ReceiveLog", message);
+            await Clients.Group(user.Id).SendAsync("ReceiveLogAsync", message, "log");
         }
         
-        public async Task DebugLog(User user, string message)
+        public async Task DebugLogAsync(User user, string message)
         {
-            await Clients.Group(user.Id).SendAsync("ReceiveDebugLog", message);
+            await Clients.Group(user.Id).SendAsync("ReceiveLogAsync", message, "debug");
         }
         
-        public async Task WarnLog(User user, string message)
+        public async Task WarnLogAsync(User user, string message)
         {
-            await Clients.Group(user.Id).SendAsync("ReceiveWarnLog", message);
+            await Clients.Group(user.Id).SendAsync("ReceiveLogAsync", message, "warn");
         }
         
-        public async Task ErrorLog(User user, string message)
+        public async Task ErrorLogAsync(User user, string message)
         {
-            await Clients.Group(user.Id).SendAsync("ReceiveErrorLog", message);
+            await Clients.Group(user.Id).SendAsync("ReceiveLogAsync", message, "error");
         }
         
     }
