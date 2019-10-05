@@ -149,6 +149,7 @@
           <e p="UserDto.cs" t="Include" />
         </e>
       </e>
+      <e p="ExecutionErrorData.cs" t="Include" />
       <e p="Extensions" t="Include">
         <e p="ConfigurationExtensions.cs" t="Include" />
         <e p="DbSetExtensions.cs" t="Include" />

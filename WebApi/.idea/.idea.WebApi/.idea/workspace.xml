@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Data/ExecutionErrorData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/Coordinator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/Coordinator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/HubConnections/GraphHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/HubConnections/GraphHubConnection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/HubConnections/TerminalHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/HubConnections/TerminalHubConnection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Dto/ComponentDtos/NodeDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/ComponentDtos/NodeDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/Data/IGraphHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Data/IGraphHubConnection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Common/Extensions/LinqExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Extensions/LinqExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Services/Hubs/TerminalHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Hubs/TerminalHub.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Nodester.WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Nodester.WebApi.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -117,8 +122,10 @@
     <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/ValueType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/nlog.config" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/683863A9-A743-41BB-98D1-F802CCB963EE/29/6a762eca/ResponseCompressionOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Startup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Extensions/HttpRequestExtension.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/ExecutionErrorData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Migrations/20181214043957_SeedUserData.Designer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueField.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueOutputField.cs" root0="FORCE_HIGHLIGHTING" />
@@ -148,8 +155,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Controllers/MacroController.cs" />
-        <option value="$PROJECT_DIR$/../Data/BridgeHardwareInfo.cs" />
         <option value="$PROJECT_DIR$/../Data/Dto/GraphDtos/CreateGraphDto.cs" />
         <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/DiscordEventListenerNode.cs" />
         <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnMessageReceived.cs" />
@@ -171,7 +176,6 @@
         <option value="$PROJECT_DIR$/../Common/Extensions/AttributeExtensions.cs" />
         <option value="$PROJECT_DIR$/Extensions/HttpRequestExtension.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core.Data/ValueType.cs" />
-        <option value="$PROJECT_DIR$/../Common/Extensions/LinqExtensions.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core/Extensions/PropertyInfoExtensions.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueField.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core.Data/Attributes/FieldAttributesAttribute.cs" />
@@ -191,14 +195,17 @@
         <option value="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/Repositories/TokenRepository.cs" />
         <option value="$PROJECT_DIR$/Program.cs" />
-        <option value="$PROJECT_DIR$/Startup.cs" />
         <option value="$PROJECT_DIR$/../Data/Models/Json Models/Node.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core.Data/Attributes/DefinedNodeAttribute.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Start.cs" />
         <option value="$PROJECT_DIR$/../Data/Dto/ComponentDtos/NodeDto.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/Hubs/TerminalHub.cs" />
+        <option value="$PROJECT_DIR$/../Common/Extensions/LinqExtensions.cs" />
+        <option value="$PROJECT_DIR$/../Common/Data/ExecutionErrorData.cs" />
+        <option value="$PROJECT_DIR$/../Data/ExecutionErrorData.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" />
+        <option value="$PROJECT_DIR$/Startup.cs" />
       </list>
     </option>
   </component>
@@ -323,6 +330,9 @@
       <workItem from="1569366971295" duration="5488000" />
       <workItem from="1569691539288" duration="188000" />
       <workItem from="1569691747817" duration="3664000" />
+      <workItem from="1569880378230" duration="5461000" />
+      <workItem from="1570288837068" duration="34000" />
+      <workItem from="1570289049439" duration="310000" />
     </task>
     <servers />
   </component>

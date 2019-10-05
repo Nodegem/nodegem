@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbc70a65-0271-4a7a-995d-0bc022bc22ed" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Data/ExecutionErrorData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bridge/Coordinator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/Coordinator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bridge/HubConnections/GraphHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/HubConnections/GraphHubConnection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/HubConnections/TerminalHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/HubConnections/TerminalHubConnection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Dto/ComponentDtos/NodeDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/ComponentDtos/NodeDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/IGraphHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/IGraphHubConnection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Common/Extensions/LinqExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Extensions/LinqExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Services/Hubs/TerminalHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Hubs/TerminalHub.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebApi/Nodester.WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Nodester.WebApi.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebApi/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Startup.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -209,7 +214,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/BaseLog.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroFlow.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroGraph.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Macro.cs" />
@@ -253,13 +257,14 @@
         <option value="$PROJECT_DIR$/Bridge/BackgroundServices/EngineService.cs" />
         <option value="$PROJECT_DIR$/Bridge/Extensions/NodeExtensions.cs" />
         <option value="$PROJECT_DIR$/Bridge/Program.cs" />
-        <option value="$PROJECT_DIR$/Bridge/Coordinator.cs" />
         <option value="$PROJECT_DIR$/Bridge/Services/GraphBuildService.cs" />
         <option value="$PROJECT_DIR$/Bridge/Services/MacroBuildService.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/StringFormat.cs" />
-        <option value="$PROJECT_DIR$/Bridge/HubConnections/GraphHubConnection.cs" />
         <option value="$PROJECT_DIR$/Bridge/HubConnections/TerminalHubConnection.cs" />
+        <option value="$PROJECT_DIR$/Bridge/HubConnections/GraphHubConnection.cs" />
+        <option value="$PROJECT_DIR$/Data/IGraphHubConnection.cs" />
+        <option value="$PROJECT_DIR$/Bridge/Coordinator.cs" />
       </list>
     </option>
   </component>
@@ -412,6 +417,9 @@
       <workItem from="1569691588172" duration="139000" />
       <workItem from="1569691763025" duration="5926000" />
       <workItem from="1569703179757" duration="2693000" />
+      <workItem from="1569882153950" duration="2727000" />
+      <workItem from="1570288856134" duration="18000" />
+      <workItem from="1570289043318" duration="316000" />
     </task>
     <servers />
   </component>

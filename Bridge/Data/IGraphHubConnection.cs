@@ -21,5 +21,7 @@ namespace Bridge.Data
 
         Task StopAsync(CancellationToken cancelToken);
 
+        Task RelayExecutionErrorAsync(ExecutionErrorData errorData);
+
     }
 }

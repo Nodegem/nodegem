@@ -33,5 +33,10 @@ namespace Nodester.Bridge.HubConnections
             await Client.InvokeAsync("RemoveBridgeAsync", cancelToken);
             await base.StopAsync(cancelToken);
         }
+
+        public async Task RelayExecutionErrorAsync(ExecutionErrorData errorData)
+        {
+            await Client.InvokeAsync("ExecutionErrorAsync", errorData);
+        }
     }
 }

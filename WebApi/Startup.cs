@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -37,6 +38,8 @@ namespace Nodester.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHealthChecks()
+                .AddNpgSql(Configuration.GetConnectionString("nodesterDb"), name: "NodesterDB");
             services.Configure<TokenSettings>(Configuration.GetSection("TokenSettings"));
 
             services.AddHttpContextAccessor();
@@ -107,6 +110,15 @@ namespace Nodester.WebApi
 
             services.AddServices();
 
+            services.AddResponseCompression(options =>
+            {
+                options.Providers.Add<BrotliCompressionProvider>();
+                options.Providers.Add<GzipCompressionProvider>();
+                options.EnableForHttps = true;
+            });
+
+            services.AddResponseCaching(options => { options.UseCaseSensitivePaths = true; });
+
             services.AddCors();
             services.AddSignalR(options =>
                 {
@@ -145,16 +157,22 @@ namespace Nodester.WebApi
 
             var domains = Configuration.GetSection("CorsSettings:AllowedHosts").Get<string>().Split(',');
             app.UseCors(
-                builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins(domains).AllowCredentials());
+                builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins(domains).AllowCredentials()
+                    .SetPreflightMaxAge(TimeSpan.FromMinutes(5)));
 
             app.UseWebSockets();
 
             app.UseRouting();
+            
+            app.UseResponseCompression();
+            app.UseResponseCaching();
+            
             app.UseEndpoints(routes =>
             {
                 routes.MapControllers();
                 routes.MapHub<GraphHub>("/graphHub");
                 routes.MapHub<TerminalHub>("/terminalHub");
+                routes.MapHealthChecks("/health").RequireAuthorization();
             });
 
             NodeCache.CacheNodeData(provider);

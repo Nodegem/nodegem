@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Bridge.Data;
 using Nodester.Bridge.Extensions;
 using Nodester.Common.Extensions;
+using Nodester.Data;
 using Nodester.Data.Dto.GraphDtos;
 using Nodester.Data.Dto.MacroDtos;
 using Nodester.Data.Models;
@@ -18,6 +19,7 @@ namespace Nodester.Bridge
     {
         private readonly IBuildGraphService _buildGraphService;
         private readonly IBuildMacroService _buildMacroService;
+        private readonly IGraphHubConnection _graphConnection;
 
         private IDictionary<Guid, IFlowGraph> CompiledRecurringGraphs { get; set; }
         private IDictionary<Guid, IListenerGraph> CompiledListenerGraphs { get; set; }
@@ -29,6 +31,7 @@ namespace Nodester.Bridge
         {
             _buildGraphService = buildGraphService;
             _buildMacroService = buildMacroService;
+            _graphConnection = graphConnection;
 
             ListenerGraphSandbox = new Dictionary<Guid, IListenerGraph>();
 
@@ -53,22 +56,35 @@ namespace Nodester.Bridge
             });
 
             var compiledListenerGraphList =
-                await Task.WhenAll(AppState.Instance.ListenerGraphs.Select(async x =>
+                await AppState.Instance.ListenerGraphs.SelectAsync(async x =>
                     new KeyValuePair<Guid, IListenerGraph>(x.Id,
-                        await _buildGraphService.BuildGraphAsync(AppState.Instance.User, x) as IListenerGraph)));
+                        await _buildGraphService.BuildGraphAsync(AppState.Instance.User, x) as IListenerGraph));
 
             CompiledListenerGraphs = compiledListenerGraphList.ToDictionary(k => k.Key, v => v.Value);
         }
 
         private async Task OnRemoteExecuteGraphAsync(GraphDto graph)
         {
-            if (graph.Type == ExecutionType.Listener)
+            try
             {
-                await ManageSandboxListenerGraphsAsync(graph);
+                if (graph.Type == ExecutionType.Listener)
+                {
+                    await ManageSandboxListenerGraphsAsync(graph);
+                }
+                else
+                {
+                    await _buildGraphService.ExecuteFlowGraphAsync(AppState.Instance.User, graph, false);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                await _buildGraphService.ExecuteFlowGraphAsync(AppState.Instance.User, graph, false);
+                _graphConnection.RelayExecutionErrorAsync(new ExecutionErrorData
+                {
+                    Bridge = AppState.Instance.Info,
+                    Message = ex.Message,
+                    GraphId = graph.Id.ToString(),
+                    GraphName = graph.Name
+                });
             }
         }
 
@@ -89,7 +105,20 @@ namespace Nodester.Bridge
 
         private async Task OnRemoteExecuteMacroAsync(MacroDto macro, string flowInputFieldId)
         {
-            await _buildMacroService.ExecuteMacroAsync(AppState.Instance.User, macro, flowInputFieldId, false);
+            try
+            {
+                await _buildMacroService.ExecuteMacroAsync(AppState.Instance.User, macro, flowInputFieldId, false);
+            }
+            catch (Exception ex)
+            {
+                _graphConnection.RelayExecutionErrorAsync(new ExecutionErrorData
+                {
+                    Bridge = AppState.Instance.Info,
+                    Message = ex.Message,
+                    GraphId = macro.Id.ToString(),
+                    GraphName = macro.Name
+                });
+            }
         }
 
         public async Task ExecuteRecurringGraphsAsync(CancellationToken cancelToken)
@@ -97,7 +126,7 @@ namespace Nodester.Bridge
             while (!cancelToken.IsCancellationRequested)
             {
                 await ManageRecurringGraphsAsync();
-                await Task.Delay(100, cancelToken);
+                await Task.Delay(1, cancelToken);
             }
         }
 
