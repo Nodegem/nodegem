@@ -158,7 +158,7 @@ namespace Nodester.WebApi
             var domains = Configuration.GetSection("CorsSettings:AllowedHosts").Get<string>().Split(',');
             app.UseCors(
                 builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins(domains).AllowCredentials()
-                    .SetPreflightMaxAge(TimeSpan.FromMinutes(5)));
+                    .SetPreflightMaxAge(TimeSpan.FromMinutes(30)));
 
             app.UseWebSockets();
 
