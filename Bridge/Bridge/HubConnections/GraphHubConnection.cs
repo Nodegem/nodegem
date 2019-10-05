@@ -34,9 +34,9 @@ namespace Nodester.Bridge.HubConnections
             await base.StopAsync(cancelToken);
         }
 
-        public async Task RelayExecutionErrorAsync(ExecutionErrorData errorData)
+        public async Task OnGraphCompleteAsync(ExecutionErrorData? errorData = null)
         {
-            await Client.InvokeAsync("ExecutionErrorAsync", errorData);
+            await Client.InvokeAsync("OnGraphCompleteAsync", errorData);
         }
     }
 }

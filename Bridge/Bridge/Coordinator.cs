@@ -75,10 +75,12 @@ namespace Nodester.Bridge
                 {
                     await _buildGraphService.ExecuteFlowGraphAsync(AppState.Instance.User, graph, false);
                 }
+                
+                await _graphConnection.OnGraphCompleteAsync();
             }
             catch (Exception ex)
             {
-                _graphConnection.RelayExecutionErrorAsync(new ExecutionErrorData
+                await _graphConnection.OnGraphCompleteAsync(new ExecutionErrorData
                 {
                     Bridge = AppState.Instance.Info,
                     Message = ex.Message,
@@ -108,10 +110,11 @@ namespace Nodester.Bridge
             try
             {
                 await _buildMacroService.ExecuteMacroAsync(AppState.Instance.User, macro, flowInputFieldId, false);
+                await _graphConnection.OnGraphCompleteAsync();
             }
             catch (Exception ex)
             {
-                _graphConnection.RelayExecutionErrorAsync(new ExecutionErrorData
+                await _graphConnection.OnGraphCompleteAsync(new ExecutionErrorData
                 {
                     Bridge = AppState.Instance.Info,
                     Message = ex.Message,

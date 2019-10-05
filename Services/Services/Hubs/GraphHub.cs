@@ -111,10 +111,10 @@ namespace Nodester.Services.Hubs
             }
         }
 
-        public async Task RelayExecutionErrorsAsync(ExecutionErrorData errorData)
+        public async Task OnGraphCompleteAsync(ExecutionErrorData? errorData = null)
         {
             var userId = Context.User.GetUserId();
-            await Clients.Groups(userId.ToString()).SendAsync("ExecutionErrorAsync", errorData);
+            await Clients.Groups(userId.ToString()).SendAsync("GraphCompletedAsync", errorData);
         }
 
         private async Task<(bool found, List<BridgeInfo> info)> GetBridgesAsync()
