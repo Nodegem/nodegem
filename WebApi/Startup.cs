@@ -43,7 +43,7 @@ namespace Nodester.WebApi
             services.Configure<TokenSettings>(Configuration.GetSection("TokenSettings"));
 
             services.AddHttpContextAccessor();
-            services.AddMemoryCache();
+            services.AddDistributedMemoryCache();
 
             services.AddEntityFrameworkNpgsql()
                 .AddDbContext<NodesterDBContext>(options =>

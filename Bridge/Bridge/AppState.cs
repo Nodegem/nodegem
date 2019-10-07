@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using DeviceId;
 using Nodester.Common.Data;
 using Nodester.Common.Extensions;
 using Nodester.Data;
@@ -18,7 +19,7 @@ namespace Nodester.Bridge
 
         public bool IsLoggedIn => Token != null;
 
-        public Guid DeviceIdentifier { get; } = Guid.NewGuid();
+        public string DeviceIdentifier { get; }
         public JwtSecurityToken Token { get; set; }
 
         public Guid UserId => Token.Claims.GetUserId();
@@ -42,5 +43,14 @@ namespace Nodester.Bridge
             Username = Username,
             Constants = Token.Claims.GetConstants().ToDictionary(k => k.Key, v => v)
         };
+
+        public AppState()
+        {
+            var deviceBuilder = new DeviceIdBuilder()
+                .AddMacAddress()
+                .AddSystemUUID()
+                .ToString();
+            DeviceIdentifier = deviceBuilder;
+        }
     }
 }

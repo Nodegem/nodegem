@@ -1,7 +1,9 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Bridge.Data;
 using Microsoft.AspNetCore.SignalR.Client;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Nodester.Data;
 using Nodester.Data.Dto.GraphDtos;
@@ -14,18 +16,39 @@ namespace Nodester.Bridge.HubConnections
         public event OnRemoteExecuteGraph ExecuteGraphEvent;
         public event OnRemoteExecuteMacro ExecuteMacroEvent;
 
-        public GraphHubConnection(IOptions<AppConfig> config) : base("/graphHub", config)
+        private readonly ILogger<IGraphHubConnection> _logger;
+
+        public GraphHubConnection(IOptions<AppConfig> config, ILogger<GraphHubConnection> logger) : base("/graphHub", config)
         {
+            _logger = logger;
             Client.On<GraphDto>("RemoteExecuteGraphAsync", graph => { ExecuteGraphEvent?.Invoke(graph); });
 
             Client.On<MacroDto, string>("RemoteExecuteMacroAsync",
                 (macro, inputId) => { ExecuteMacroEvent?.Invoke(macro, inputId); });
+            
         }
 
-        public async Task StartAsync(BridgeInfo info, CancellationToken cancelToken)
+        protected override Task OnReconnectingAsync(Exception ex)
+        {
+            _logger.LogError(ex, "Lost connection to server. Attempting reconnect...");
+            return Task.CompletedTask;
+        }
+
+        protected override async Task OnReconnectedAsync(string newConnectionId)
+        {
+            await UpdateBridgeAsync(CancellationToken.None);
+            _logger.LogInformation("Reestablished connection to server!");
+        }
+
+        private async Task UpdateBridgeAsync(CancellationToken cancelToken)
+        {
+            await Client.InvokeAsync("EstablishBridgeAsync", AppState.Instance.Info, cancelToken);
+        }
+
+        public override async Task StartAsync(CancellationToken cancelToken)
         {
             await base.StartAsync(cancelToken);
-            await Client.InvokeAsync("EstablishBridgeAsync", info, cancelToken);
+            await UpdateBridgeAsync(cancelToken);
         }
 
         public override async Task StopAsync(CancellationToken cancelToken)

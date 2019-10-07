@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Bridge.Data;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -60,7 +61,8 @@ namespace Nodester.Bridge.BackgroundServices
                     throw new ArgumentException();
                 }
 
-                NodeCache.CacheNodeData(provider);
+                using var scopedProvider = provider.CreateScope();
+                NodeCache.CacheNodeData(scopedProvider.ServiceProvider);
             }
             catch (ArgumentException)
             {
@@ -78,6 +80,7 @@ namespace Nodester.Bridge.BackgroundServices
         {
             try
             {
+
                 var appId = AppState.Instance.DeviceIdentifier;
                 _logger.LogInformation($"Starting bridge... (ID: {appId})");
 
@@ -160,7 +163,7 @@ namespace Nodester.Bridge.BackgroundServices
 
             AppState.Instance.Info = bridgeInfo;
 
-            await _graphConnection.StartAsync(bridgeInfo, cancellationToken);
+            await _graphConnection.StartAsync(cancellationToken);
             await _terminalHubConnection.StartAsync(cancellationToken);
         }
     }

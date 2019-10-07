@@ -17,7 +17,7 @@ namespace Bridge.Data
         event OnRemoteExecuteGraph ExecuteGraphEvent;
         event OnRemoteExecuteMacro ExecuteMacroEvent;
         
-        Task StartAsync(BridgeInfo info, CancellationToken cancelToken);
+        Task StartAsync(CancellationToken cancelToken);
 
         Task StopAsync(CancellationToken cancelToken);
 

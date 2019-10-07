@@ -22,7 +22,21 @@ namespace Nodester.Bridge.HubConnections
                         options.AccessTokenProvider = () => Task.FromResult(AppState.Instance.Token.RawData);
                     })
                 .AddNewtonsoftJsonProtocol()
+                .WithAutomaticReconnect()
                 .Build();
+
+            Client.Reconnecting += OnReconnectingAsync;
+            Client.Reconnected += OnReconnectedAsync;
+        }
+
+        protected virtual Task OnReconnectingAsync(Exception ex)
+        {
+            return Task.CompletedTask;
+        }
+
+        protected virtual Task OnReconnectedAsync(string newConnectionId)
+        {
+            return Task.CompletedTask;
         }
         
         public virtual async Task StartAsync(CancellationToken cancelToken)

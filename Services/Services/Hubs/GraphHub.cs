@@ -1,15 +1,15 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using System.Collections.Concurrent;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
 using Nodester.Common.Extensions;
 using Nodester.Data;
 using Nodester.Data.Dto.GraphDtos;
 using Nodester.Data.Dto.MacroDtos;
+using Nodester.WebApi.Extensions;
 using Task = System.Threading.Tasks.Task;
 
 namespace Nodester.Services.Hubs
@@ -17,14 +17,15 @@ namespace Nodester.Services.Hubs
     [Authorize]
     public class GraphHub : Hub
     {
-        private static ConcurrentDictionary<Guid, List<BridgeInfo>> Bridges { get; } =
-            new ConcurrentDictionary<Guid, List<BridgeInfo>>();
+        private const int ExpirationTimeInMinutes = 60;
 
+        private readonly IDistributedCache _cache;
         private readonly ILogger<GraphHub> _logger;
 
-        public GraphHub(ILogger<GraphHub> logger)
+        public GraphHub(ILogger<GraphHub> logger, IDistributedCache cache)
         {
             _logger = logger;
+            _cache = cache;
         }
 
         public override Task OnConnectedAsync()
@@ -44,13 +45,17 @@ namespace Nodester.Services.Hubs
             var userId = Context.User.GetUserId();
             info.ConnectionId = Context.ConnectionId;
             _logger.LogInformation($"Establishing bridge. Device: {info.DeviceName} ({info.OperatingSystem})");
-            if (Bridges.ContainsKey(userId))
+
+            if (await _cache.ContainsKeyAsync(userId))
             {
-                Bridges[userId].Add(info);
+                var bridges = await _cache.GetAsync<List<BridgeInfo>>(userId);
+                bridges.AddOrUpdate(info, x => x.DeviceIdentifier == info.DeviceIdentifier);
+                await _cache.SetAsync(userId, bridges, TimeSpan.FromSeconds(ExpirationTimeInMinutes * 60));
             }
             else
             {
-                Bridges.TryAdd(userId, new List<BridgeInfo> {info});
+                await _cache.SetAsync(userId, new List<BridgeInfo> {info},
+                    TimeSpan.FromSeconds(ExpirationTimeInMinutes * 60));
             }
 
             await Clients.Group(userId.ToString()).SendAsync("BridgeEstablishedAsync", info);
@@ -60,21 +65,23 @@ namespace Nodester.Services.Hubs
         {
             var userId = Context.User.GetUserId();
             var connectionId = Context.ConnectionId;
-            var (found, bridges) = await GetBridgesAsync();
 
-            if (found)
+            if (await _cache.ContainsKeyAsync(userId))
             {
+                var bridges = await _cache.GetAsync<List<BridgeInfo>>(userId);
                 bridges.RemoveAll(x => x.ConnectionId == connectionId);
+                await _cache.SetAsync(userId, bridges, TimeSpan.FromSeconds(ExpirationTimeInMinutes * 60));
                 await Clients.Group(userId.ToString()).SendAsync("LostBridgeAsync");
             }
         }
 
         public async Task RequestBridgesAsync()
         {
-            var (found, info) = await GetBridgesAsync();
-            if (found)
+            var userId = Context.User.GetUserId();
+            if (await _cache.ContainsKeyAsync(userId))
             {
-                await Clients.Client(Context.ConnectionId).SendAsync("BridgeAsync", info);
+                await Clients.Client(Context.ConnectionId).SendAsync("BridgeAsync",
+                    await _cache.GetAsync<IEnumerable<BridgeInfo>>(userId));
             }
             else
             {
@@ -84,9 +91,10 @@ namespace Nodester.Services.Hubs
 
         public async Task RunGraphAsync(GraphDto graph, string connectionId)
         {
-            var (found, bridges) = await GetBridgesAsync();
-            if (found)
+            var userId = Context.User.GetUserId();
+            if (await _cache.ContainsKeyAsync(userId))
             {
+                var bridges = await _cache.GetAsync<IEnumerable<BridgeInfo>>(userId);
                 if (bridges.Any(b => b.ConnectionId == connectionId))
                 {
                     _logger.LogInformation(
@@ -98,9 +106,10 @@ namespace Nodester.Services.Hubs
 
         public async Task RunMacroAsync(MacroDto macro, string flowInputFieldKey, string connectionId)
         {
-            var (found, bridges) = await GetBridgesAsync();
-            if (found)
+            var userId = Context.User.GetUserId();
+            if (await _cache.ContainsKeyAsync(userId))
             {
+                var bridges = await _cache.GetAsync<IEnumerable<BridgeInfo>>(userId);
                 if (bridges.Any(b => b.ConnectionId == connectionId))
                 {
                     _logger.LogInformation(
@@ -115,13 +124,6 @@ namespace Nodester.Services.Hubs
         {
             var userId = Context.User.GetUserId();
             await Clients.Groups(userId.ToString()).SendAsync("GraphCompletedAsync", errorData);
-        }
-
-        private async Task<(bool found, List<BridgeInfo> info)> GetBridgesAsync()
-        {
-            var userId = Context.User.GetUserId();
-            var found = Bridges.TryGetValue(userId, out var info);
-            return (found, info);
         }
     }
 }

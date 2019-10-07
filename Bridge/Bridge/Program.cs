@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using Bridge.Data;
-using McMaster.Extensions.CommandLineUtils;
+﻿using Bridge.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -16,70 +13,13 @@ namespace Nodester.Bridge
 {
     public class Program
     {
-        
-        [Option(Description = "The environment the app runs in", ShortName = "e")]
-        private string Environment { get; }
-
-        [Option(Description = "Account username", ShortName = "u")]
-        private string Username { get; }
-
-        [Option(Description = "Account password", ShortName = "p")]
-        private string Password { get; }
-
         public static void Main(string[] args)
         {
-            try
-            {
-                CommandLineApplication.Execute<Program>(args);
-            }
-            catch (Exception)
-            {
-                System.Environment.Exit(1);
-            }
+            CreateHostBuilder(args).Build().Run();
         }
 
-        // ReSharper disable once UnusedMember.Local
-        private async Task OnExecute()
-        {
-            var environment = Environment ?? "Development";
-
-            AppState.Instance.Username = Username;
-            AppState.Instance.Password = Password;
-            AppState.Instance.Environment = environment;
-
-            var hostBuilder = new HostBuilder()
-                .UseEnvironment(environment)
-                .ConfigureAppConfiguration((hostingContext, config) =>
-                {
-
-                    config
-                        .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-                    config
-                        .AddJsonFile($"appsettings.{environment}.json", optional: true, reloadOnChange: true);
-
-                    config.AddEnvironmentVariables();
-                })
-                .ConfigureServices((hostingContext, services) =>
-                {
-                    services.AddOptions();
-                    services.Configure<AppConfig>(hostingContext.Configuration.GetSection("AppConfig"));
-
-                    services.AddHttpClient<INodesterLoginService, NodesterLoginService>();
-                    services.AddHttpClient<INodesterGraphService, NodesterGraphService>();
-                    services.AddHttpClient<INodesterUserService, NodesterUserService>();
-
-                    services.AddSingleton<IHostedService, EngineService>();
-                    services.AddSingleton<IGraphHubConnection, GraphHubConnection>();
-
-                    services.AddSingleton<ITerminalHubConnection, TerminalHubConnection>();
-                    services.AddSingleton<ITerminalHubService>(
-                        provider => provider.GetService<ITerminalHubConnection>());
-
-                    services.AddSingleton<IBuildGraphService, GraphBuildService>();
-                    services.AddSingleton<IBuildMacroService, MacroBuildService>();
-
-                    services.AddServicesForBridge();
-                })
+        private static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
                 .ConfigureLogging((hostingContext, logging) =>
                 {
                     logging.ClearProviders();
@@ -90,11 +30,43 @@ namespace Nodester.Bridge
                     {
                         logging.AddDebug();
                     }
-                    
-                    logging.AddEventSourceLogger();
-                });
 
-            await hostBuilder.RunConsoleAsync();
-        }
+                    logging.AddEventSourceLogger();
+                })
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    config
+                        .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                    config
+                        .AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json", optional: true, reloadOnChange: true);
+
+                    config.AddEnvironmentVariables();
+                    config.AddCommandLine(args);
+                })
+                .ConfigureServices((hostingContext, services) =>
+                {
+                    AppState.Instance.Username = hostingContext.Configuration.GetValue<string>("username");
+                    AppState.Instance.Password = hostingContext.Configuration.GetValue<string>("password");
+                    
+                    services.AddOptions();
+                    services.Configure<AppConfig>(hostingContext.Configuration.GetSection("AppConfig"));
+
+                    services.AddHttpClient<INodesterLoginService, NodesterLoginService>();
+                    services.AddHttpClient<INodesterGraphService, NodesterGraphService>();
+                    services.AddHttpClient<INodesterUserService, NodesterUserService>();
+
+                    services.AddSingleton<IGraphHubConnection, GraphHubConnection>();
+
+                    services.AddSingleton<ITerminalHubConnection, TerminalHubConnection>();
+                    services.AddSingleton<ITerminalHubService>(
+                        provider => provider.GetService<ITerminalHubConnection>());
+
+                    services.AddSingleton<IBuildGraphService, GraphBuildService>();
+                    services.AddSingleton<IBuildMacroService, MacroBuildService>();
+
+                    services.AddServicesForBridge();
+                    
+                    services.AddHostedService<EngineService>();
+                });
     }
 }

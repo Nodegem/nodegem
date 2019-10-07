@@ -36,5 +36,32 @@ namespace Nodester.Common.Extensions
             return source.Skip(start).Take(to);
         }
 
+        public static void AddOrUpdate<TSource>(this IList<TSource> source, TSource value, Func<TSource, bool> predicate = null)
+        {
+            if (predicate == null)
+            {
+                predicate = x => source.Equals(value);
+            }
+
+            var index = source.FindIndex(predicate);
+            if (index > -1)
+            {
+                source[index] = value;
+            }
+            else
+            {
+                source.Add(value);
+            }
+        }
+
+        public static int FindIndex<T>(this IEnumerable<T> items, Func<T, bool> predicate) {
+            var retVal = 0;
+            foreach (var item in items) {
+                if (predicate(item)) return retVal;
+                retVal++;
+            }
+            return -1;
+        }
+
     }
 }
