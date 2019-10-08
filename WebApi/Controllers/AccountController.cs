@@ -35,7 +35,7 @@ namespace Nodester.WebApi.Controllers
         [ProducesResponseType(200, Type = typeof(TokenUserDto))]
         [ProducesResponseType(400, Type = typeof(IEnumerable<IdentityError>))]
         [ProducesResponseType(401)]
-        public async Task<ActionResult<TokenUserDto>> Register([FromBody] RegisterDto dto)
+        public async Task<ActionResult<TokenUserDto>> RegisterAsync([FromBody] RegisterDto dto)
         {
             try
             {
@@ -59,7 +59,7 @@ namespace Nodester.WebApi.Controllers
         [ProducesResponseType(200, Type = typeof(TokenUserDto))]
         [ProducesResponseType(400, Type = typeof(string))]
         [ProducesResponseType(401)]
-        public async Task<ActionResult<TokenUserDto>> Login()
+        public async Task<ActionResult<TokenUserDto>> LoginAsync()
         {
             var username = "";
             try
@@ -101,19 +101,38 @@ namespace Nodester.WebApi.Controllers
         }
 
         [AllowAnonymous]
+        [HttpGet("refreshToken/{oldToken}")]
+        public ActionResult<TokenDto> RefreshToken(string oldToken)
+        {
+            try
+            {
+                return _userService.RefreshToken(oldToken);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Unable to refresh token. Old Token: {oldToken}");
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [AllowAnonymous]
         [HttpGet("token")]
         [ProducesResponseType(200, Type = typeof(TokenUserDto))]
         [ProducesResponseType(400, Type = typeof(string))]
         [ProducesResponseType(401)]
-        public async Task<ActionResult<TokenDto>> GetToken()
+        public async Task<ActionResult<TokenDto>> GetTokenAsync()
         {
             var username = "";
             try
             {
                 var (u, password) = Request.GetAuthorization();
                 username = u;
-                var user = await _userService.LoginAsync(username, password);
-                return user.Token;
+                var tokenDto = await _userService.LoginAsync(username, password);
+                return tokenDto.Token;
             }
             catch (NoUserFoundException ex)
             {
@@ -127,8 +146,8 @@ namespace Nodester.WebApi.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Something went wrong during token retrieval");
-                return BadRequest("Something went wrong");
+                _logger.LogError(ex, $"Invalid credentials. Username: {username}");
+                return BadRequest("Something went wrong.");
             }
         }
 
@@ -153,7 +172,7 @@ namespace Nodester.WebApi.Controllers
         }
 
         [HttpPut("update")]
-        public ActionResult<UserDto> Update([FromBody] UserDto userDto)
+        public ActionResult<UserDto> UpdateAsync([FromBody] UserDto userDto)
         {
             return Ok();
         }

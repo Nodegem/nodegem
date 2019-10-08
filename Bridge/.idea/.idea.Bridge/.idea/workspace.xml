@@ -3,16 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="bbc70a65-0271-4a7a-995d-0bc022bc22ed" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/AppConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/AppConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/BackgroundServices/EngineService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/BackgroundServices/EngineService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/Bridge.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/Bridge.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/HubConnections/GraphHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/HubConnections/GraphHubConnection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/IGraphHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/IGraphHubConnection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Common/Extensions/ClaimExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Extensions/ClaimExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Data/ITokenService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Data/ITokenService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Data/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Data/IUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/TokenService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/TokenService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/UserService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApi/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebApi/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Controllers/AccountController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WebApi/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/appsettings.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -425,7 +422,7 @@
       <workItem from="1570288856134" duration="18000" />
       <workItem from="1570289043318" duration="1992000" />
       <workItem from="1570315524368" duration="3248000" />
-      <workItem from="1570405208059" duration="12725000" />
+      <workItem from="1570405208059" duration="14519000" />
     </task>
     <servers />
   </component>

@@ -11,6 +11,7 @@ using Nodester.Services.Exceptions;
 using Nodester.Services.Exceptions.Login;
 using Microsoft.EntityFrameworkCore;
 using Nodester.Common.Data;
+using Nodester.Common.Extensions;
 using Nodester.Data.Dto;
 using Nodester.Data.Dto.ComponentDtos;
 
@@ -80,6 +81,21 @@ namespace Nodester.Services
                 : user.Constants.Select(c => c.Adapt<ConstantDto>());
         }
 
+        public TokenDto RefreshToken(string token)
+        {
+            var (isValid, user) = _tokenService.IsValidToken(token);
+            if (!isValid) throw new UnauthorizedAccessException();
+            
+            var (newToken, expires) = _tokenService.GenerateJwtToken(user.GetEmail(), user.GetUsername(), user.GetUserId(),
+                user.GetConstants());
+            return new TokenDto
+            {
+                AccessToken = newToken,
+                ExpiresUtc = expires,
+                IssuedUtc = DateTime.UtcNow
+            };
+        }
+
         public void UpdateUser()
         {
             throw new NotImplementedException();
@@ -140,5 +156,6 @@ namespace Nodester.Services
                 User = userDto
             };
         }
+        
     }
 }

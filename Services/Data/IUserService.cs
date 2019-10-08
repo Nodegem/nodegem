@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Nodester.Data.Dto;
 using Nodester.Data.Dto.ComponentDtos;
 using Nodester.Data.Dto.UserDtos;
 
@@ -12,6 +13,7 @@ namespace Nodester.Services.Data
         Task<TokenUserDto> LoginAsync(string username, string password);
         Task<UserDto> GetUser(Guid userId);
         Task<IEnumerable<ConstantDto>> GetConstantsAsync(Guid userId);
+        TokenDto RefreshToken(string token);
         void UpdateUser();
         void ResetPassword();
         void Logout(Guid userId);

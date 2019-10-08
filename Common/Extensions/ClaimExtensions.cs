@@ -30,6 +30,11 @@ namespace Nodester.Common.Extensions
             return Guid.Parse(claim);
         }
 
+        public static IEnumerable<Constant> GetConstants(this ClaimsPrincipal principal)
+        {
+            return principal.Claims.GetConstants();
+        }
+        
         public static IEnumerable<Constant> GetConstants(this IEnumerable<Claim> claims)
         {
             var constants = claims.GetClaim(ConstantClaimId);

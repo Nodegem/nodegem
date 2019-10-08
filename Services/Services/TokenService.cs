@@ -28,6 +28,36 @@ namespace Nodester.Services
             _tokenSettings = tokenSettings.Value;
         }
 
+        public (bool valid, ClaimsPrincipal user) IsValidToken(string oldToken)
+        {
+            
+            var validationParameters =
+                new TokenValidationParameters
+                {
+                    ValidIssuer = _tokenSettings.Issuer,
+                    ValidAudience = _tokenSettings.Audience,
+                    RequireExpirationTime = true,
+                    ValidateLifetime = false,
+                    ValidateIssuer = true,
+                    IssuerSigningKey =
+                        new SymmetricSecurityKey(
+                            Encoding.UTF8.GetBytes(_tokenSettings.Key)),
+                    ClockSkew = TimeSpan.Zero,
+                };
+            
+            var handler = new JwtSecurityTokenHandler();
+
+            try
+            {
+                var user = handler.ValidateToken(oldToken, validationParameters, out _);
+                return (true, user);
+            }
+            catch
+            {
+                return (false, null);
+            }
+        }
+
         public (string token, DateTime expires) GenerateJwtToken(string email, string username, Guid userId,
             IEnumerable<Common.Data.Constant> constants)
         {
