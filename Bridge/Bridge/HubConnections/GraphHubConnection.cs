@@ -40,7 +40,7 @@ namespace Nodester.Bridge.HubConnections
             _logger.LogInformation("Reestablished connection to server!");
         }
 
-        private async Task UpdateBridgeAsync(CancellationToken cancelToken)
+        public async Task UpdateBridgeAsync(CancellationToken cancelToken)
         {
             await Client.InvokeAsync("EstablishBridgeAsync", AppState.Instance.Info, cancelToken);
         }

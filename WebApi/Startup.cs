@@ -123,14 +123,13 @@ namespace Nodester.WebApi
             services.AddSignalR(options =>
                 {
                     options.EnableDetailedErrors = Environment.IsDevelopment() || Environment.IsStaging();
+                    options.KeepAliveInterval = TimeSpan.FromSeconds(25);
                 })
                 .AddNewtonsoftJsonProtocol();
 
-            services.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Latest)
+            services.AddControllers()
                 .AddNewtonsoftJson(options =>
                 {
-                    options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
                     options.SerializerSettings.Converters.Add(new StringEnumConverter());
                 });
         }
@@ -152,21 +151,22 @@ namespace Nodester.WebApi
                 app.UseHsts();
             }
 
-            app.UseAuthorization();
-            app.UseAuthentication();
-
-            var domains = Configuration.GetSection("CorsSettings:AllowedHosts").Get<string>().Split(',');
+            var domains = Configuration.GetSection("CorsSettings:AllowedHosts").Get<string>()
+                .Replace(" ", "")
+                .Split(',');
+            
             app.UseCors(
                 builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins(domains).AllowCredentials()
-                    .SetPreflightMaxAge(TimeSpan.FromMinutes(30)));
-
-            app.UseWebSockets();
+                    .SetPreflightMaxAge(TimeSpan.FromMinutes(60)));
 
             app.UseRouting();
-            
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseResponseCompression();
             app.UseResponseCaching();
-            
+
             app.UseEndpoints(routes =>
             {
                 routes.MapControllers();

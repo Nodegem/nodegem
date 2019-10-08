@@ -12,11 +12,15 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Nodester.Data;
 using Nodester.Services;
+using Timer = System.Timers.Timer;
 
 namespace Nodester.Bridge.BackgroundServices
 {
     public class EngineService : BackgroundService
     {
+
+        private const int PingTimeInMinutes = 3;
+        
         private readonly AppConfig _appConfig;
         private readonly ILogger<EngineService> _logger;
         private readonly IGraphHubConnection _graphConnection;
@@ -27,6 +31,7 @@ namespace Nodester.Bridge.BackgroundServices
         private readonly ITerminalHubConnection _terminalHubConnection;
 
         private Coordinator _coordinator;
+        private Timer _timer;
 
         public EngineService(
             ILogger<EngineService> logger,
@@ -94,6 +99,18 @@ namespace Nodester.Bridge.BackgroundServices
                 _coordinator = new Coordinator(_graphConnection, _buildGraphService, _buildMacroService);
                 await _coordinator.InitializeAsync();
 
+                _timer = new Timer(_appConfig.PingTime)
+                {
+                    AutoReset = true,
+                };
+
+                _timer.Elapsed += async (sender, e) =>
+                {
+                    await _graphConnection.UpdateBridgeAsync(CancellationToken.None);
+                };
+                
+                _timer.Start();
+
                 await base.StartAsync(cancellationToken);
             }
             catch (HttpRequestException ex)
@@ -129,6 +146,7 @@ namespace Nodester.Bridge.BackgroundServices
             _logger.LogInformation("Stopping...");
             await _graphConnection.StopAsync(cancellationToken);
             await _terminalHubConnection.StopAsync(cancellationToken);
+            _timer.Stop();
             await base.StopAsync(cancellationToken);
         }
 
@@ -138,6 +156,7 @@ namespace Nodester.Bridge.BackgroundServices
             _graphConnection?.Dispose();
             _terminalHubConnection?.Dispose();
             _coordinator?.Dispose();
+            _timer?.Dispose();
             base.Dispose();
         }
 

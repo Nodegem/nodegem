@@ -1,4 +1,5 @@
-﻿using Bridge.Data;
+﻿using System;
+using Bridge.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -8,11 +9,19 @@ using Nodester.Bridge.HubConnections;
 using Nodester.Bridge.Services;
 using Nodester.Common.Data.Interfaces;
 using Nodester.Services;
+using Polly;
 
 namespace Nodester.Bridge
 {
     public class Program
     {
+
+        private static TimeSpan[] Retries =
+        {
+            TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2), TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(10),
+            TimeSpan.FromSeconds(30)
+        };
+        
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
@@ -51,9 +60,12 @@ namespace Nodester.Bridge
                     services.AddOptions();
                     services.Configure<AppConfig>(hostingContext.Configuration.GetSection("AppConfig"));
 
-                    services.AddHttpClient<INodesterLoginService, NodesterLoginService>();
-                    services.AddHttpClient<INodesterGraphService, NodesterGraphService>();
-                    services.AddHttpClient<INodesterUserService, NodesterUserService>();
+                    services.AddHttpClient<INodesterLoginService, NodesterLoginService>()
+                        .AddTransientHttpErrorPolicy(x => x.WaitAndRetryAsync(Retries));
+                    services.AddHttpClient<INodesterGraphService, NodesterGraphService>()
+                        .AddTransientHttpErrorPolicy(x => x.WaitAndRetryAsync(Retries));
+                    services.AddHttpClient<INodesterUserService, NodesterUserService>()
+                        .AddTransientHttpErrorPolicy(x => x.WaitAndRetryAsync(Retries));
 
                     services.AddSingleton<IGraphHubConnection, GraphHubConnection>();
 

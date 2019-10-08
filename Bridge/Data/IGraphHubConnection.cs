@@ -21,6 +21,8 @@ namespace Bridge.Data
 
         Task StopAsync(CancellationToken cancelToken);
 
+        Task UpdateBridgeAsync(CancellationToken cancelToken);
+
         Task OnGraphCompleteAsync(ExecutionErrorData? errorData = null);
 
     }

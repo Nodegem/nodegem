@@ -2,22 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbc70a65-0271-4a7a-995d-0bc022bc22ed" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Extensions/DistributedCacheExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/AppState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/AppState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bridge/AppConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/AppConfig.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bridge/BackgroundServices/EngineService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/BackgroundServices/EngineService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bridge/Bridge.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/Bridge.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/HubConnections/BaseHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/HubConnections/BaseHubConnection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bridge/HubConnections/GraphHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/HubConnections/GraphHubConnection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bridge/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bridge/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/appsettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/IGraphHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/IGraphHubConnection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Common/Extensions/LinqExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Extensions/LinqExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/BridgeInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/BridgeInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WebApi/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebApi/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/appsettings.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,6 +83,7 @@
     <setting file="file://$PROJECT_DIR$/../Data/Extensions/DbSetExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Configurations/MacroConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Configurations/AccessTokenConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/68B37D21-CC38-48F8-9785-4B36D682E9CC/c4/f6ac706d/Timer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/ListenerNode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CF55FC6C-CE60-45B1-ABC7-6679FEC0B70B/9e/d73f5b0c/CommandLineConfigurationExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Node.cs" root0="FORCE_HIGHLIGHTING" />
@@ -199,8 +196,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroFlow.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroGraph.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Macro.cs" />
         <option value="$PROJECT_DIR$/../Engine/ThirdParty.Data/Discord/IDiscordService.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/Delay.cs" />
@@ -245,9 +240,11 @@
         <option value="$PROJECT_DIR$/Bridge/Coordinator.cs" />
         <option value="$PROJECT_DIR$/Bridge/AppState.cs" />
         <option value="$PROJECT_DIR$/../Data/BridgeInfo.cs" />
-        <option value="$PROJECT_DIR$/Data/IGraphHubConnection.cs" />
         <option value="$PROJECT_DIR$/Bridge/HubConnections/BaseHubConnection.cs" />
         <option value="$PROJECT_DIR$/Bridge/HubConnections/GraphHubConnection.cs" />
+        <option value="$PROJECT_DIR$/Data/IGraphHubConnection.cs" />
+        <option value="$PROJECT_DIR$/Bridge/AppConfig.cs" />
+        <option value="$PROJECT_DIR$/Bridge/appsettings.json" />
         <option value="$PROJECT_DIR$/Bridge/BackgroundServices/EngineService.cs" />
         <option value="$PROJECT_DIR$/Bridge/Program.cs" />
       </list>
@@ -428,7 +425,7 @@
       <workItem from="1570288856134" duration="18000" />
       <workItem from="1570289043318" duration="1992000" />
       <workItem from="1570315524368" duration="3248000" />
-      <workItem from="1570405208059" duration="7214000" />
+      <workItem from="1570405208059" duration="12725000" />
     </task>
     <servers />
   </component>
@@ -470,19 +467,6 @@
           <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Bridge/BackgroundServices/EngineService.cs</url>
-          <line>83</line>
-          <properties documentPath="$PROJECT_DIR$/Bridge/BackgroundServices/EngineService.cs" initialLine="83">
-            <startOffsets>
-              <option value="2896" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2943" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

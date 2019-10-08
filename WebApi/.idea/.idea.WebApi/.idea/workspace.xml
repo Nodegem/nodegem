@@ -2,22 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Extensions/DistributedCacheExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/AppState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/AppState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/AppConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/AppConfig.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/BackgroundServices/EngineService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/BackgroundServices/EngineService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/Bridge.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/Bridge.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/HubConnections/BaseHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/HubConnections/BaseHubConnection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/HubConnections/GraphHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/HubConnections/GraphHubConnection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/appsettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Bridge/Data/IGraphHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Data/IGraphHubConnection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Common/Extensions/LinqExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Extensions/LinqExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/BridgeInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/BridgeInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,10 +74,12 @@
     <setting file="file://$PROJECT_DIR$/../Data/Models/AccessToken.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Models/BaseGraph.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Services/UserService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/TokenService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Models/Graph.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Models/ApplicationUser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Models/Json Models/Node.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/NodeHttpClient.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Services/NodeCache.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Models/Json Models/RecurringOptions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Services/Hubs/TerminalHub.cs" root0="FORCE_HIGHLIGHTING" />
@@ -162,7 +160,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnMessageReceived.cs" />
         <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnMessageUpdated.cs" />
         <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/DiscordListenerNode.cs" />
         <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/OnMessageDeleted.cs" />
@@ -209,9 +206,10 @@
         <option value="$PROJECT_DIR$/../Common/Data/ExecutionErrorData.cs" />
         <option value="$PROJECT_DIR$/../Data/ExecutionErrorData.cs" />
         <option value="$PROJECT_DIR$/../Common/Extensions/LinqExtensions.cs" />
-        <option value="$PROJECT_DIR$/Startup.cs" />
         <option value="$PROJECT_DIR$/Extensions/DistributedCacheExtension.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/Extensions/DistributedCacheExtension.cs" />
+        <option value="$PROJECT_DIR$/appsettings.json" />
+        <option value="$PROJECT_DIR$/Startup.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" />
       </list>
     </option>
@@ -341,7 +339,7 @@
       <workItem from="1570288837068" duration="34000" />
       <workItem from="1570289049439" duration="1748000" />
       <workItem from="1570314469311" duration="4999000" />
-      <workItem from="1570405180347" duration="6114000" />
+      <workItem from="1570405180347" duration="14309000" />
     </task>
     <servers />
   </component>
