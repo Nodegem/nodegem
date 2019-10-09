@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/Bridge.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/Bridge.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Settings/TokenSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Settings/TokenSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Services/TokenService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/TokenService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -253,7 +248,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Run WebApi">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Nodester.WebApi: Unit">
     <configuration name="Nodester.WebApi: Unit" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Nodester.WebApi.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value=".NETCoreApp,Version=v2.2" />
@@ -337,7 +332,7 @@
       <workItem from="1570288837068" duration="34000" />
       <workItem from="1570289049439" duration="1748000" />
       <workItem from="1570314469311" duration="4999000" />
-      <workItem from="1570405180347" duration="23324000" />
+      <workItem from="1570405180347" duration="26036000" />
     </task>
     <servers />
   </component>

@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bbc70a65-0271-4a7a-995d-0bc022bc22ed" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/Bridge.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/Bridge.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bridge/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Settings/TokenSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Settings/TokenSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Services/TokenService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/TokenService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApi/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApi/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/appsettings.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -176,6 +171,7 @@
     <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/IFlowGraph.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/ValueType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Nodes/IListenerNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/46EF0819-097C-4425-88EF-4D250CCA6720/bf/060f3b5c/HostingHostBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Nodes/INode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueField.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueOutputField.cs" root0="FORCE_HIGHLIGHTING" />
@@ -421,7 +417,7 @@
       <workItem from="1570288856134" duration="18000" />
       <workItem from="1570289043318" duration="1992000" />
       <workItem from="1570315524368" duration="3248000" />
-      <workItem from="1570405208059" duration="16992000" />
+      <workItem from="1570405208059" duration="19599000" />
     </task>
     <servers />
   </component>
@@ -463,6 +459,45 @@
           <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Bridge/Program.cs</url>
+          <line>49</line>
+          <properties documentPath="$PROJECT_DIR$/Bridge/Program.cs" initialLine="40">
+            <startOffsets>
+              <option value="1631" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1814" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Bridge/Program.cs</url>
+          <line>41</line>
+          <properties documentPath="$PROJECT_DIR$/Bridge/Program.cs" initialLine="36">
+            <startOffsets>
+              <option value="1264" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1307" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Bridge/Program.cs</url>
+          <line>38</line>
+          <properties documentPath="$PROJECT_DIR$/Bridge/Program.cs" initialLine="38">
+            <startOffsets>
+              <option value="1185" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1221" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

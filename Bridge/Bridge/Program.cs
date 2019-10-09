@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using Bridge.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,6 +9,7 @@ using Nodester.Bridge.BackgroundServices;
 using Nodester.Bridge.HubConnections;
 using Nodester.Bridge.Services;
 using Nodester.Common.Data.Interfaces;
+using Nodester.Common.Extensions;
 using Nodester.Services;
 using Polly;
 
@@ -15,10 +17,9 @@ namespace Nodester.Bridge
 {
     public class Program
     {
-
         private static TimeSpan[] Retries =
         {
-            TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2), 
+            TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2),
             TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(10),
             TimeSpan.FromSeconds(30), TimeSpan.FromSeconds(60)
         };
@@ -27,11 +28,46 @@ namespace Nodester.Bridge
         {
             CreateHostBuilder(args).Build().Run();
         }
+        
+        private static string Environment { get; set; }
 
-        private static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .UseWindowsService()
-                .UseSystemd()
+        private static IHostBuilder CreateHostBuilder(string[] args)
+        {
+
+            var environment = args.FindIndex(x => x.ToLower() == "--environment");
+            if (environment >= 0  && args.Length > environment + 1)
+            {
+                Environment = args[environment + 1];
+            }   
+            
+            var host = Host.CreateDefaultBuilder(args);
+
+            if (!string.IsNullOrEmpty(Environment))
+            {
+                host.UseEnvironment(Environment);
+            }
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                host.UseWindowsService();
+            }
+            else
+            {
+                host.UseSystemd();
+            }
+
+            return host
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    config
+                        .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                    config
+                        .AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json",
+                            optional: true, reloadOnChange: true);
+
+                    config.AddEnvironmentVariables();
+                    config.AddCommandLine(args);
+                })
                 .ConfigureLogging((hostingContext, logging) =>
                 {
                     logging.ClearProviders();
@@ -45,21 +81,11 @@ namespace Nodester.Bridge
 
                     logging.AddEventSourceLogger();
                 })
-                .ConfigureAppConfiguration((hostingContext, config) =>
-                {
-                    config
-                        .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-                    config
-                        .AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json", optional: true, reloadOnChange: true);
-
-                    config.AddEnvironmentVariables();
-                    config.AddCommandLine(args);
-                })
                 .ConfigureServices((hostingContext, services) =>
                 {
                     AppState.Instance.Username = hostingContext.Configuration.GetValue<string>("username");
                     AppState.Instance.Password = hostingContext.Configuration.GetValue<string>("password");
-                    
+
                     services.AddOptions();
                     services.Configure<AppConfig>(hostingContext.Configuration.GetSection("AppConfig"));
 
@@ -80,8 +106,9 @@ namespace Nodester.Bridge
                     services.AddSingleton<IBuildMacroService, MacroBuildService>();
 
                     services.AddServicesForBridge();
-                    
+
                     services.AddHostedService<EngineService>();
                 });
+        }
     }
 }
