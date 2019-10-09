@@ -83,8 +83,8 @@ namespace Nodester.WebApi
                     options.SaveToken = true;
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
-                        RequireExpirationTime = true,
-                        ValidateLifetime = true,
+//                        RequireExpirationTime = true,
+//                        ValidateLifetime = true,
                         ValidateIssuer = true,
                         ValidAudience = Configuration.GetValue<string>("TokenSettings:Audience"),
                         ValidIssuer = Configuration.GetValue<string>("TokenSettings:Issuer"),

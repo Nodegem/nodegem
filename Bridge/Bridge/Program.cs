@@ -18,8 +18,9 @@ namespace Nodester.Bridge
 
         private static TimeSpan[] Retries =
         {
-            TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2), TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(10),
-            TimeSpan.FromSeconds(30)
+            TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2), 
+            TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(10),
+            TimeSpan.FromSeconds(30), TimeSpan.FromSeconds(60)
         };
         
         public static void Main(string[] args)
@@ -29,6 +30,8 @@ namespace Nodester.Bridge
 
         private static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .UseWindowsService()
+                .UseSystemd()
                 .ConfigureLogging((hostingContext, logging) =>
                 {
                     logging.ClearProviders();

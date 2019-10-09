@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Options;
@@ -30,7 +31,6 @@ namespace Nodester.Services
 
         public (bool valid, ClaimsPrincipal user) IsValidToken(string oldToken)
         {
-            
             var validationParameters =
                 new TokenValidationParameters
                 {
@@ -44,13 +44,20 @@ namespace Nodester.Services
                             Encoding.UTF8.GetBytes(_tokenSettings.Key)),
                     ClockSkew = TimeSpan.Zero,
                 };
-            
+
             var handler = new JwtSecurityTokenHandler();
 
             try
             {
                 var user = handler.ValidateToken(oldToken, validationParameters, out _);
-                return (true, user);
+
+                var expires = long.Parse(user.GetClaim(JwtRegisteredClaimNames.Exp));
+                var fileTimeUTC = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)
+                    .AddSeconds(expires);
+                var bufferPeriod = TimeSpan.FromSeconds(_tokenSettings.ExpirationBuffer);
+                return DateTime.UtcNow - fileTimeUTC < bufferPeriod
+                    ? (true, user)
+                    : (false, null);
             }
             catch
             {
@@ -68,7 +75,8 @@ namespace Nodester.Services
                 new Claim(JwtRegisteredClaimNames.NameId, userId.ToString()),
                 new Claim(JwtRegisteredClaimNames.UniqueName, username),
                 new Claim(ClaimExtensions.ConstantClaimId,
-                    JsonConvert.SerializeObject(constants ?? new List<Common.Data.Constant>(), SerializerSettings))
+                    JsonConvert.SerializeObject(constants ?? Enumerable.Empty<Common.Data.Constant>(),
+                        SerializerSettings))
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenSettings.Key));

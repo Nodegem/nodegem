@@ -6,5 +6,6 @@ namespace Nodester.Data.Settings
         public string Audience { get; set; }
         public string Issuer { get; set; }
         public int Expiration { get; set; }
+        public long ExpirationBuffer { get; set; }
     }
 }
