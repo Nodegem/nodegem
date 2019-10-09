@@ -33,34 +33,9 @@ namespace Nodester.Bridge
 
         private static IHostBuilder CreateHostBuilder(string[] args)
         {
-
-            var environment = args.FindIndex(x => x.ToLower() == "--environment");
-            if (environment >= 0  && args.Length > environment + 1)
-            {
-                Environment = args[environment + 1];
-            }   
-            
-            var host = Host.CreateDefaultBuilder(args);
-
-            if (!string.IsNullOrEmpty(Environment))
-            {
-                host.UseEnvironment(Environment);
-            }
-
-            return host
+            return Host.CreateDefaultBuilder(args)
                 .UseWindowsService()
                 .UseSystemd()
-                .ConfigureAppConfiguration((hostingContext, config) =>
-                {
-                    config
-                        .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-                    config
-                        .AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json",
-                            optional: true, reloadOnChange: true);
-
-                    config.AddEnvironmentVariables();
-                    config.AddCommandLine(args);
-                })
                 .ConfigureLogging((hostingContext, logging) =>
                 {
                     logging.ClearProviders();
