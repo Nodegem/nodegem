@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
-using DeviceId;
 using Nodester.Common.Data;
 using Nodester.Common.Extensions;
+using Nodester.Common.Utilities;
 using Nodester.Data;
 using Nodester.Data.Dto.GraphDtos;
 using Nodester.Data.Models;
@@ -46,11 +46,7 @@ namespace Nodester.Bridge
 
         public AppState()
         {
-            var deviceBuilder = new DeviceIdBuilder()
-                .AddMacAddress()
-                .AddSystemUUID()
-                .ToString();
-            DeviceIdentifier = deviceBuilder;
+            DeviceIdentifier = DeviceUtilities.GetMacAddress();
         }
     }
 }
