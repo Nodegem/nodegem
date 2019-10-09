@@ -47,16 +47,9 @@ namespace Nodester.Bridge
                 host.UseEnvironment(Environment);
             }
 
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-                host.UseWindowsService();
-            }
-            else
-            {
-                host.UseSystemd();
-            }
-
             return host
+                .UseWindowsService()
+                .UseSystemd()
                 .ConfigureAppConfiguration((hostingContext, config) =>
                 {
                     config
