@@ -104,9 +104,12 @@ namespace Nodester.Services.Hubs
             if (await _cache.ContainsKeyAsync(userId))
             {
                 var clientData = await _cache.GetAsync<ClientData>(userId);
-                clientData.Bridges.RemoveAll(x => x.ConnectionId == connectionId);
-                await UpdateClientDataAsync(clientData);
-                await Clients.Clients(clientData.ClientConnectionIds).SendAsync("LostBridgeAsync");
+                if (clientData.ContainsConnectionId(connectionId))
+                {
+                    clientData.Bridges.RemoveAll(x => x.ConnectionId == connectionId);
+                    await UpdateClientDataAsync(clientData);
+                    await Clients.Clients(clientData.ClientConnectionIds).SendAsync("LostBridgeAsync", connectionId);                    
+                }
             }
         }
 
