@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/Bridge.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/Bridge.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -194,7 +195,6 @@
         <option value="$PROJECT_DIR$/../Common/Extensions/LinqExtensions.cs" />
         <option value="$PROJECT_DIR$/Extensions/DistributedCacheExtension.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/Extensions/DistributedCacheExtension.cs" />
-        <option value="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" />
         <option value="$PROJECT_DIR$/../Services/Data/ITokenService.cs" />
         <option value="$PROJECT_DIR$/../Common/Extensions/ClaimExtensions.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/UserService.cs" />
@@ -204,6 +204,7 @@
         <option value="$PROJECT_DIR$/../Services/Services/TokenService.cs" />
         <option value="$PROJECT_DIR$/appsettings.json" />
         <option value="$PROJECT_DIR$/Startup.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" />
       </list>
     </option>
   </component>
@@ -333,6 +334,7 @@
       <workItem from="1570289049439" duration="1748000" />
       <workItem from="1570314469311" duration="4999000" />
       <workItem from="1570405180347" duration="26036000" />
+      <workItem from="1570660716921" duration="978000" />
     </task>
     <servers />
   </component>

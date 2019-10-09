@@ -119,12 +119,12 @@ namespace Nodester.Services.Hubs
             if (await _cache.ContainsKeyAsync(userId))
             {
                 var clientData = await _cache.GetAsync<ClientData>(userId);
-                await Clients.Client(Context.ConnectionId).SendAsync("BridgeAsync",
+                await Clients.Client(Context.ConnectionId).SendAsync("RequestedBridgesAsync",
                     clientData?.Bridges);
             }
             else
             {
-                await Clients.Client(Context.ConnectionId).SendAsync("BridgeAsync", Enumerable.Empty<BridgeInfo>());
+                await Clients.Client(Context.ConnectionId).SendAsync("RequestedBridgesAsync", Enumerable.Empty<BridgeInfo>());
             }
         }
 
