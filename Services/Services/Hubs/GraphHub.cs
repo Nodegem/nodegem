@@ -82,9 +82,13 @@ namespace Nodester.Services.Hubs
             if (await _cache.ContainsKeyAsync(userId))
             {
                 var clientData = await _cache.GetAsync<ClientData>(userId);
-                clientData.Bridges.AddOrUpdate(info, x => x.DeviceIdentifier == info.DeviceIdentifier);
-                await UpdateClientDataAsync(clientData);
-                await Clients.Clients(clientData.ClientConnectionIds).SendAsync("BridgeEstablishedAsync", info);
+
+                if (clientData.Bridges.All(x => x.DeviceIdentifier != info.DeviceIdentifier))
+                {
+                    clientData.Bridges.Add(info);
+                    await UpdateClientDataAsync(clientData);
+                    await Clients.Clients(clientData.ClientConnectionIds).SendAsync("BridgeEstablishedAsync", info);                    
+                }
             }
             else
             {
