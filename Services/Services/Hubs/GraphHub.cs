@@ -83,12 +83,16 @@ namespace Nodester.Services.Hubs
             {
                 var clientData = await _cache.GetAsync<ClientData>(userId);
 
-                if (clientData.Bridges.All(x => x.DeviceIdentifier != info.DeviceIdentifier))
+                // Just a ping
+                if (clientData.Bridges.Any(x =>
+                    x.DeviceIdentifier == info.DeviceIdentifier && x.ConnectionId == info.ConnectionId))
                 {
-                    clientData.Bridges.Add(info);
-                    await UpdateClientDataAsync(clientData);
-                    await Clients.Clients(clientData.ClientConnectionIds).SendAsync("BridgeEstablishedAsync", info);                    
+                    return;
                 }
+
+                clientData.Bridges.AddOrUpdate(info, x => x.DeviceIdentifier == info.DeviceIdentifier);
+                await UpdateClientDataAsync(clientData);
+                await Clients.Clients(clientData.ClientConnectionIds).SendAsync("BridgeEstablishedAsync", info);
             }
             else
             {
@@ -112,7 +116,7 @@ namespace Nodester.Services.Hubs
                 {
                     clientData.Bridges.RemoveAll(x => x.ConnectionId == connectionId);
                     await UpdateClientDataAsync(clientData);
-                    await Clients.Clients(clientData.ClientConnectionIds).SendAsync("LostBridgeAsync", connectionId);                    
+                    await Clients.Clients(clientData.ClientConnectionIds).SendAsync("LostBridgeAsync", connectionId);
                 }
             }
         }
@@ -128,7 +132,8 @@ namespace Nodester.Services.Hubs
             }
             else
             {
-                await Clients.Client(Context.ConnectionId).SendAsync("RequestedBridgesAsync", Enumerable.Empty<BridgeInfo>());
+                await Clients.Client(Context.ConnectionId)
+                    .SendAsync("RequestedBridgesAsync", Enumerable.Empty<BridgeInfo>());
             }
         }
 

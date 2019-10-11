@@ -47,6 +47,14 @@
           <e p="NodesterLoginService.cs" t="Include" />
           <e p="NodesterUserService.cs" t="Include" />
         </e>
+        <e p="test" t="Include">
+          <e p="appsettings.Development.json" t="Include" />
+          <e p="appsettings.json" t="Include" />
+          <e p="appsettings.Production.json" t="Include" />
+          <e p="appsettings.Staging.json" t="Include" />
+          <e p="Bridge.exe" t="Include" />
+          <e p="Bridge.pdb" t="Include" />
+        </e>
       </e>
       <e p="Bridge.sln" t="IncludeFlat" />
       <e p="Data" t="IncludeRecursive">
