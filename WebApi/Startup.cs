@@ -7,14 +7,12 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Nodester.Data.Contexts;
 using Nodester.Data.Models;
@@ -38,6 +36,8 @@ namespace Nodester.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDataProtection();
+            
             services.AddHealthChecks()
                 .AddNpgSql(Configuration.GetConnectionString("nodesterDb"), name: "NodesterDB");
             services.Configure<TokenSettings>(Configuration.GetSection("TokenSettings"));
@@ -71,7 +71,7 @@ namespace Nodester.WebApi
                     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
                 options.User.RequireUniqueEmail = true;
             });
-
+            
             services.AddAuthentication(options =>
                 {
                     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -83,8 +83,8 @@ namespace Nodester.WebApi
                     options.SaveToken = true;
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
-//                        RequireExpirationTime = true,
-//                        ValidateLifetime = true,
+                        //RequireExpirationTime = true,
+                        //ValidateLifetime = true,
                         ValidateIssuer = true,
                         ValidAudience = Configuration.GetValue<string>("TokenSettings:Audience"),
                         ValidIssuer = Configuration.GetValue<string>("TokenSettings:Issuer"),
@@ -106,6 +106,21 @@ namespace Nodester.WebApi
                             return Task.CompletedTask;
                         }
                     };
+                })
+                .AddGoogle(options =>
+                {
+                    options.ClientId = Configuration["Authentication:Google:ClientId"];
+                    options.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+                })
+                .AddGitHub(options =>
+                {
+                    options.ClientId = Configuration["Authentication:GitHub:ClientId"];
+                    options.ClientSecret = Configuration["Authentication:GitHub:ClientSecret"];
+                })
+                .AddMicrosoftAccount(options =>
+                {
+                    options.ClientId = Configuration["Authentication:Microsoft:ClientId"];
+                    options.ClientSecret = Configuration["Authentication:Microsoft:ClientSecret"];
                 });
 
             services.AddServices();

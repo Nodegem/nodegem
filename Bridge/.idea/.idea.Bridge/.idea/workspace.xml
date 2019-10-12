@@ -7,6 +7,7 @@
       <change beforePath="$PROJECT_DIR$/Bridge/Bridge.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/Bridge.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bridge/Extensions/NodeExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/Extensions/NodeExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bridge/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WebApi/Nodester.WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Nodester.WebApi.csproj" afterDir="false" />
@@ -227,7 +228,6 @@
         <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/StartBot.cs" />
         <option value="$PROJECT_DIR$/Bridge/Services/GraphBuildService.cs" />
         <option value="$PROJECT_DIR$/Bridge/Services/MacroBuildService.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/StringFormat.cs" />
         <option value="$PROJECT_DIR$/Bridge/HubConnections/TerminalHubConnection.cs" />
         <option value="$PROJECT_DIR$/Bridge/Coordinator.cs" />
@@ -242,6 +242,7 @@
         <option value="$PROJECT_DIR$/Bridge/Bridge.csproj" />
         <option value="$PROJECT_DIR$/Bridge/Program.cs" />
         <option value="$PROJECT_DIR$/Bridge/Extensions/NodeExtensions.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" />
       </list>
     </option>
   </component>
@@ -422,7 +423,7 @@
       <workItem from="1570315524368" duration="3248000" />
       <workItem from="1570405208059" duration="20618000" />
       <workItem from="1570661147182" duration="548000" />
-      <workItem from="1570853263058" duration="1613000" />
+      <workItem from="1570853263058" duration="1874000" />
     </task>
     <servers />
   </component>
@@ -464,32 +465,6 @@
           <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Bridge/Services/GraphBuildService.cs</url>
-          <line>39</line>
-          <properties documentPath="$PROJECT_DIR$/Bridge/Services/GraphBuildService.cs" initialLine="39">
-            <startOffsets>
-              <option value="1244" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1299" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Bridge/Extensions/NodeExtensions.cs</url>
-          <line>46</line>
-          <properties documentPath="$PROJECT_DIR$/Bridge/Extensions/NodeExtensions.cs" initialLine="43">
-            <startOffsets>
-              <option value="1722" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1822" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

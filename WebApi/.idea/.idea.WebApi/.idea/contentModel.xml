@@ -454,6 +454,7 @@
       <e p="UserService.cs" t="Include" />
     </e>
     <e p="C:\Users\rszem\Documents\Projects\nodester\WebApi" t="IncludeRecursive">
+      <e p="appsettings.Development.json" t="Include" />
       <e p="appsettings.json" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
       <e p="Controllers" t="Include">

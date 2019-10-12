@@ -3,6 +3,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using NLog.Extensions.Logging;
 using NLog.Web;
 
 namespace Nodester.WebApi
@@ -32,15 +33,7 @@ namespace Nodester.WebApi
                 .UseStartup<Startup>()
                 .ConfigureLogging((hostingContext, logging) =>
                 {
-                    logging.ClearProviders();
-                    logging.AddConfiguration(hostingContext.Configuration);
-                    logging.AddConsole();
-                    if (hostingContext.HostingEnvironment.IsDevelopment())
-                    {
-                        logging.AddDebug();
-                    }
-
-                    logging.AddEventSourceLogger();
+                    logging.AddEventLog();
                 })
                 .UseNLog();
     }

@@ -107,6 +107,11 @@ namespace Nodester.Graph.Core
             });
             var inputDict = ValueInputs.ToDictionary(k => k.Key, v => v);
             fieldList.ForEach(x => inputDict[x.Key].SetValue(x.Value));
+
+            if (fieldList.Any())
+            {
+                AggregateFields();
+            }
         }
 
         public virtual NodeDefinition GetDefinition()
