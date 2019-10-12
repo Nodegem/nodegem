@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Bridge.Data;
 using Nodester.Common.Data;
+using Nodester.Common.Extensions;
 using Nodester.Data.Dto.ComponentDtos;
 using Nodester.Engine.Data.Nodes;
 using Nodester.Graph.Core.Nodes.Graph;
@@ -14,14 +15,16 @@ namespace Nodester.Bridge.Extensions
     public static class NodeExtensions
     {
         public static async Task<Dictionary<Guid, INode>> ToNodeDictionaryAsync(this IEnumerable<NodeDto> nodes,
-            IServiceProvider provider, IBuildMacroService macroService, User user, IDictionary<Guid, Constant> constants = null)
+            IServiceProvider provider, IBuildMacroService macroService, User user,
+            IDictionary<Guid, Constant> constants = null)
         {
             if (nodes == null) return new Dictionary<Guid, INode>();
 
             var keyValArray =
-                await Task.WhenAll(nodes.Where(x => x.MacroFieldId == null)
-                    .Select(async p =>
-                        new KeyValuePair<Guid, INode>(p.Id, await BuildNode(p, user, macroService, provider, constants))));
+                await nodes.Where(x => x.MacroFieldId == null)
+                    .SelectAsync(async p =>
+                        new KeyValuePair<Guid, INode>(p.Id,
+                            await BuildNode(p, user, macroService, provider, constants)));
 
             return keyValArray.ToDictionary(k => k.Key, v => v.Value);
         }
