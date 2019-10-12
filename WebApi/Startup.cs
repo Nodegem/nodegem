@@ -71,7 +71,7 @@ namespace Nodester.WebApi
                     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
                 options.User.RequireUniqueEmail = true;
             });
-            
+
             services.AddAuthentication(options =>
                 {
                     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -106,22 +106,22 @@ namespace Nodester.WebApi
                             return Task.CompletedTask;
                         }
                     };
-                })
-                .AddGoogle(options =>
-                {
-                    options.ClientId = Configuration["Authentication:Google:ClientId"];
-                    options.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
-                })
-                .AddGitHub(options =>
-                {
-                    options.ClientId = Configuration["Authentication:GitHub:ClientId"];
-                    options.ClientSecret = Configuration["Authentication:GitHub:ClientSecret"];
-                })
-                .AddMicrosoftAccount(options =>
-                {
-                    options.ClientId = Configuration["Authentication:Microsoft:ClientId"];
-                    options.ClientSecret = Configuration["Authentication:Microsoft:ClientSecret"];
                 });
+//                .AddGoogle(options =>
+//                {
+//                    options.ClientId = Configuration["Authentication:Google:ClientId"];
+//                    options.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+//                })
+//                .AddGitHub(options =>
+//                {
+//                    options.ClientId = Configuration["Authentication:GitHub:ClientId"];
+//                    options.ClientSecret = Configuration["Authentication:GitHub:ClientSecret"];
+//                })
+//                .AddMicrosoftAccount(options =>
+//                {
+//                    options.ClientId = Configuration["Authentication:Microsoft:ClientId"];
+//                    options.ClientSecret = Configuration["Authentication:Microsoft:ClientSecret"];
+//                });
 
             services.AddServices();
 
