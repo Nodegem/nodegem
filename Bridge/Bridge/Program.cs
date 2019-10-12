@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using Bridge.Data;
 using CommandLine;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,10 +33,7 @@ namespace Nodester.Bridge
         public static void Main(string[] args)
         {
             Parser.Default.ParseArguments<Options>(args)
-                .WithParsed(o =>
-                {
-                    CreateHostBuilder(args, o).Build().Run();
-                });
+                .WithParsed(o => { CreateHostBuilder(args, o).Build().Run(); });
         }
 
         private static IHostBuilder CreateHostBuilder(string[] args, Options option)
@@ -46,11 +44,17 @@ namespace Nodester.Bridge
             {
                 host.UseEnvironment(option.Environment);
             }
-            
+
             return host
                 .UseWindowsService()
                 .UseSystemd()
-                .ConfigureLogging((hostingContext, logging) => { logging.AddEventLog(); })
+                .ConfigureLogging((hostingContext, logging) =>
+                {
+                    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                    {
+                        logging.AddEventLog();
+                    }
+                })
                 .ConfigureServices((hostingContext, services) =>
                 {
                     AppState.Instance.Username = option.Username;

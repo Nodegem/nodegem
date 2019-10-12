@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
@@ -33,7 +35,10 @@ namespace Nodester.WebApi
                 .UseStartup<Startup>()
                 .ConfigureLogging((hostingContext, logging) =>
                 {
-                    logging.AddEventLog();
+                    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                    {
+                        logging.AddEventLog();
+                    }
                 })
                 .UseNLog();
     }
