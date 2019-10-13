@@ -33,13 +33,6 @@ namespace Nodester.WebApi
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .ConfigureLogging((hostingContext, logging) =>
-                {
-                    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                    {
-                        logging.AddEventLog();
-                    }
-                })
                 .UseNLog();
     }
 }
