@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Threading.Tasks;
@@ -171,8 +171,15 @@ namespace Nodester.WebApi
                 .Split(',');
             
             app.UseCors(
-                builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins(domains).AllowCredentials()
-                    .SetPreflightMaxAge(TimeSpan.FromMinutes(60)));
+                builder => 
+                    builder
+                    .SetIsOriginAllowedToAllowWildcardSubdomains()
+                    .WithOrigins(domains)
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials()
+                    .SetPreflightMaxAge(TimeSpan.FromMinutes(60))
+                );
 
             app.UseRouting();
 
