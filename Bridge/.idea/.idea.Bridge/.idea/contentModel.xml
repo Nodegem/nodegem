@@ -41,6 +41,7 @@
         <e p="Services" t="Include">
           <e p="GraphBuildService.cs" t="Include" />
           <e p="MacroBuildService.cs" t="Include" />
+          <e p="NodesterApiService.cs" t="Include" />
           <e p="NodesterAuthorizedBaseService.cs" t="Include" />
           <e p="NodesterBaseService.cs" t="Include" />
           <e p="NodesterGraphService.cs" t="Include" />
@@ -55,6 +56,7 @@
         <e p="IBuildGraphService.cs" t="Include" />
         <e p="IBuildMacroService.cs" t="Include" />
         <e p="IGraphHubConnection.cs" t="Include" />
+        <e p="INodesterApiService.cs" t="Include" />
         <e p="INodesterGraphService.cs" t="Include" />
         <e p="INodesterLoginService.cs" t="Include" />
         <e p="INodesterUserService.cs" t="Include" />

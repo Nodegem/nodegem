@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Runtime.InteropServices;
 using Nodester.Common.Data;
 using Nodester.Common.Extensions;
 using Nodester.Common.Utilities;
@@ -19,7 +20,6 @@ namespace Nodester.Bridge
 
         public bool IsLoggedIn => Token != null;
 
-        public string DeviceIdentifier { get; }
         public JwtSecurityToken Token { get; set; }
 
         public Guid UserId => Token.Claims.GetUserId();
@@ -27,8 +27,15 @@ namespace Nodester.Bridge
         public string Environment { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        
-        public BridgeInfo Info { get; set; }
+
+        public BridgeInfo Info => new BridgeInfo
+        {
+            DeviceIdentifier = _identifier,
+            DeviceName = System.Environment.MachineName,
+            OperatingSystem = RuntimeInformation.OSDescription,
+            ProcessorCount = System.Environment.ProcessorCount,
+            UserId = UserId
+        };
 
         public IEnumerable<GraphDto> Graphs => GraphLookUp.Values;
         public IDictionary<Guid, GraphDto> GraphLookUp { get; set; }
@@ -44,9 +51,13 @@ namespace Nodester.Bridge
             Constants = Token.Claims.GetConstants().ToDictionary(k => k.Key, v => v)
         };
 
-        public AppState()
+        public string Identifier => _identifier;
+
+        private readonly string _identifier;
+
+        private AppState()
         {
-            DeviceIdentifier = DeviceUtilities.GetMacAddress();
+            _identifier = DeviceUtilities.GetMacAddress();
         }
     }
 }

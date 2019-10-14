@@ -8,7 +8,7 @@ namespace Nodester.Bridge.Extensions
     public static class HttpClientExtensions
     {
 
-        private static JsonSerializerSettings Settings = new JsonSerializerSettings
+        private static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
         {
             ContractResolver = new CamelCasePropertyNamesContractResolver(),
             NullValueHandling = NullValueHandling.Ignore

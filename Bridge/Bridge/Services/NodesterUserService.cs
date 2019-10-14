@@ -10,7 +10,7 @@ namespace Nodester.Bridge.Services
 {
     public class NodesterUserService : NodesterAuthorizedBaseService, INodesterUserService
     {
-        public NodesterUserService(HttpClient client, IOptions<AppConfig> config) : base(client, config)
+        public NodesterUserService(HttpClient client) : base(client)
         {
         }
 

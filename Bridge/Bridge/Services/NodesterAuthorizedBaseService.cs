@@ -1,5 +1,6 @@
 using System;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using Microsoft.Extensions.Options;
 using Nodester.Bridge.Exceptions;
 
@@ -18,23 +19,16 @@ namespace Nodester.Bridge.Services
                     throw new NodesterAuthorizationException();
                 }
 
-                if (!_client.DefaultRequestHeaders.Contains("Authorization"))
-                {
-                    _client.DefaultRequestHeaders.Add("Authorization",
-                        $"Bearer {AppState.Instance.Token.RawData}");
-                }
+                _client.DefaultRequestHeaders.Clear();
+                _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                _client.DefaultRequestHeaders.Add("Authorization", $"Bearer {AppState.Instance.Token.RawData}");
 
                 return _client;
             }
         }
 
-        protected NodesterAuthorizedBaseService(HttpClient client, IOptions<AppConfig> config)
+        protected NodesterAuthorizedBaseService(HttpClient client)
         {
-            var host = config.Value.Host;
-
-            client.BaseAddress = new Uri($"{host}/api/");
-            client.DefaultRequestHeaders.Add("Accept", "application/json");
-
             _client = client;
         }
     }

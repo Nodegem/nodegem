@@ -8,13 +8,8 @@ namespace Nodester.Bridge.Services
     {
         protected HttpClient Client { get; }
 
-        protected NodesterBaseService(HttpClient client, IOptions<AppConfig> config)
+        protected NodesterBaseService(HttpClient client)
         {
-            var host = config.Value.Host;
-
-            client.BaseAddress = new Uri($"{host}/api/");
-            client.DefaultRequestHeaders.Add("Accept", "application/json");
-
             Client = client;
         }
     }

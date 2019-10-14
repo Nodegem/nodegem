@@ -11,7 +11,7 @@ namespace Nodester.Bridge.Services
 {
     public class NodesterLoginService : NodesterBaseService, INodesterLoginService
     {
-        public NodesterLoginService(HttpClient client, IOptions<AppConfig> config) : base(client, config)
+        public NodesterLoginService(HttpClient client) : base(client)
         {
         }
 

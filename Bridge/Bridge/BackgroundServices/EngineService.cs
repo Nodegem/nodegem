@@ -2,7 +2,6 @@ using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Net.Http;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Bridge.Data;
@@ -10,7 +9,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Nodester.Data;
 using Nodester.Services;
 using Timer = System.Timers.Timer;
 
@@ -18,14 +16,12 @@ namespace Nodester.Bridge.BackgroundServices
 {
     public class EngineService : BackgroundService
     {
-
         private const int PingTimeInMinutes = 3;
-        
+
         private readonly AppConfig _appConfig;
         private readonly ILogger<EngineService> _logger;
         private readonly IGraphHubConnection _graphConnection;
-        private readonly INodesterLoginService _loginService;
-        private readonly INodesterGraphService _graphService;
+        private readonly INodesterApiService _apiService;
         private readonly IBuildGraphService _buildGraphService;
         private readonly IBuildMacroService _buildMacroService;
         private readonly ITerminalHubConnection _terminalHubConnection;
@@ -37,8 +33,7 @@ namespace Nodester.Bridge.BackgroundServices
             ILogger<EngineService> logger,
             IOptions<AppConfig> appConfig,
             IGraphHubConnection connection,
-            INodesterLoginService loginService,
-            INodesterGraphService graphService,
+            INodesterApiService apiService,
             IServiceProvider provider,
             IBuildGraphService buildGraphService,
             IBuildMacroService buildMacroService,
@@ -46,9 +41,8 @@ namespace Nodester.Bridge.BackgroundServices
         {
             _logger = logger;
             _appConfig = appConfig.Value;
+            _apiService = apiService;
             _graphConnection = connection;
-            _loginService = loginService;
-            _graphService = graphService;
             _buildGraphService = buildGraphService;
             _terminalHubConnection = terminalHubConnection;
             _buildMacroService = buildMacroService;
@@ -85,16 +79,15 @@ namespace Nodester.Bridge.BackgroundServices
         {
             try
             {
-
-                var appId = AppState.Instance.DeviceIdentifier;
-                _logger.LogInformation($"Starting bridge... (ID: {appId})");
+                _logger.LogInformation($"Starting bridge... (ID: {AppState.Instance.Identifier})");
 
                 _logger.LogInformation("Establishing Connection...");
                 await ConnectToServices(cancellationToken);
                 _logger.LogInformation("Connected!!");
 
                 _logger.LogInformation("Retrieving Graphs...");
-                AppState.Instance.GraphLookUp = (await _graphService.GetGraphsAsync()).ToDictionary(k => k.Id, v => v);
+                var graphs = await _apiService.GraphService.GetGraphsAsync();
+                AppState.Instance.GraphLookUp = graphs.ToDictionary(k => k.Id, v => v);
 
                 _coordinator = new Coordinator(_graphConnection, _buildGraphService, _buildMacroService);
                 await _coordinator.InitializeAsync();
@@ -108,7 +101,7 @@ namespace Nodester.Bridge.BackgroundServices
                 {
                     await _graphConnection.UpdateBridgeAsync(CancellationToken.None);
                 };
-                
+
                 _timer.Start();
 
                 await base.StartAsync(cancellationToken);
@@ -162,7 +155,8 @@ namespace Nodester.Bridge.BackgroundServices
 
         private async Task RetrieveToken()
         {
-            var token = await _loginService.GetAccessTokenAsync(AppState.Instance.Username, AppState.Instance.Password);
+            var token = await _apiService.LoginService.GetAccessTokenAsync(AppState.Instance.Username,
+                AppState.Instance.Password);
             AppState.Instance.Token =
                 new JwtSecurityTokenHandler().ReadJwtToken(token.AccessToken);
         }
@@ -170,17 +164,6 @@ namespace Nodester.Bridge.BackgroundServices
         private async Task ConnectToServices(CancellationToken cancellationToken)
         {
             await RetrieveToken();
-
-            var bridgeInfo = new BridgeInfo
-            {
-                DeviceIdentifier = AppState.Instance.DeviceIdentifier,
-                DeviceName = Environment.MachineName,
-                OperatingSystem = RuntimeInformation.OSDescription,
-                ProcessorCount = Environment.ProcessorCount,
-                UserId = AppState.Instance.UserId
-            };
-
-            AppState.Instance.Info = bridgeInfo;
 
             await _graphConnection.StartAsync(cancellationToken);
             await _terminalHubConnection.StartAsync(cancellationToken);

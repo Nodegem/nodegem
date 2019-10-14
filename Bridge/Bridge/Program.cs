@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
 using Bridge.Data;
 using CommandLine;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -61,13 +64,16 @@ namespace Nodester.Bridge
                     AppState.Instance.Password = option.Password;
 
                     services.AddOptions();
+                    var baseUrl = hostingContext.Configuration.GetSection("AppConfig").GetValue<string>("Host");
                     services.Configure<AppConfig>(hostingContext.Configuration.GetSection("AppConfig"));
 
-                    services.AddHttpClient<INodesterLoginService, NodesterLoginService>()
-                        .AddTransientHttpErrorPolicy(x => x.WaitAndRetryAsync(Retries));
-                    services.AddHttpClient<INodesterGraphService, NodesterGraphService>()
-                        .AddTransientHttpErrorPolicy(x => x.WaitAndRetryAsync(Retries));
-                    services.AddHttpClient<INodesterUserService, NodesterUserService>()
+                    services.AddHttpClient<INodesterApiService, NodesterApiService>
+                        (client =>
+                        {
+                            client.BaseAddress = new Uri($"{baseUrl}/api/");
+                            client.DefaultRequestHeaders.Accept.Add(
+                                new MediaTypeWithQualityHeaderValue("application/json"));
+                        })
                         .AddTransientHttpErrorPolicy(x => x.WaitAndRetryAsync(Retries));
 
                     services.AddSingleton<IGraphHubConnection, GraphHubConnection>();

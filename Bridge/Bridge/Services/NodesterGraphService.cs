@@ -13,7 +13,7 @@ namespace Nodester.Bridge.Services
     public class NodesterGraphService : NodesterAuthorizedBaseService, INodesterGraphService
     {
         
-        public NodesterGraphService(HttpClient client, IOptions<AppConfig> config) : base(client, config)
+        public NodesterGraphService(HttpClient client) : base(client)
         {
         }
 

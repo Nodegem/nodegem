@@ -22,17 +22,20 @@ namespace Nodester.Bridge.Services
     {
         private readonly ILogger<MacroBuildService> _logger;
         private readonly IServiceProvider _provider;
-        private readonly INodesterGraphService _graphService;
+        private readonly INodesterApiService _apiService;
 
-        public MacroBuildService(IServiceProvider serviceProvider,
-            INodesterGraphService graphService, ILogger<MacroBuildService> logger)
+        public MacroBuildService(
+            IServiceProvider serviceProvider,
+            INodesterApiService apiService,
+            ILogger<MacroBuildService> logger)
         {
             _provider = serviceProvider;
-            _graphService = graphService;
+            _apiService = apiService;
             _logger = logger;
         }
 
-        public async Task ExecuteMacroAsync(User user, MacroDto macro, string flowInputFieldId, bool isRunningLocally = true)
+        public async Task ExecuteMacroAsync(User user, MacroDto macro, string flowInputFieldId,
+            bool isRunningLocally = true)
         {
             try
             {
@@ -55,7 +58,7 @@ namespace Nodester.Bridge.Services
 
         public async Task<IMacroGraph> BuildMacroAsync(User user, Guid id)
         {
-            var macro = await _graphService.GetMacroByIdAsync(id);
+            var macro = await _apiService.GraphService.GetMacroByIdAsync(id);
 
             // TODO: Throw a macro exception here
             if (macro == null)
