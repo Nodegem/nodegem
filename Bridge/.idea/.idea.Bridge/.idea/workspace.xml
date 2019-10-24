@@ -2,25 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbc70a65-0271-4a7a-995d-0bc022bc22ed" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/BackgroundServices/EngineService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/BackgroundServices/EngineService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/Coordinator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/Coordinator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/HubConnections/TerminalHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/HubConnections/TerminalHubConnection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/Services/GraphBuildService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/Services/GraphBuildService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bridge/Services/MacroBuildService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/Services/MacroBuildService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Common/Data/Interfaces/ITerminalHubService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Data/Interfaces/ITerminalHubService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/IGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/IGraph.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/Log.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/Log.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogDebug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogDebug.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogWarn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogWarn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/BaseGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/BaseGraph.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/FlowGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/FlowGraph.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/ListenerGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/ListenerGraph.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroGraph.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/StartBot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/StartBot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Services/Hubs/TerminalHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Hubs/TerminalHub.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WebApi/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Startup.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -439,7 +420,7 @@
       <workItem from="1570661147182" duration="548000" />
       <workItem from="1570853263058" duration="2006000" />
       <workItem from="1571024209505" duration="3083000" />
-      <workItem from="1571879430729" duration="6133000" />
+      <workItem from="1571879430729" duration="6732000" />
     </task>
     <servers />
   </component>

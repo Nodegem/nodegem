@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Threading.Tasks;
@@ -140,7 +140,12 @@ namespace Nodester.WebApi
             {
                 options.AddPolicy("AppCors", builder =>
                 {
-                    builder.AllowAnyHeader().AllowAnyMethod().WithOrigins(domains).AllowCredentials()
+                    builder
+                        .SetIsOriginAllowedToAllowWildcardSubdomains()
+                        .WithOrigins(domains)
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowCredentials()
                         .SetPreflightMaxAge(TimeSpan.FromMinutes(60));
                 });
             });
@@ -177,7 +182,7 @@ namespace Nodester.WebApi
                 app.UseHttpsRedirection();
                 app.UseHsts();
             }
-
+            
             app.UseRouting();
             
             app.UseCors("AppCors");
