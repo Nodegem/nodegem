@@ -22,13 +22,14 @@ namespace Nodester.Graph.Core.Macro
         private readonly IMacroFlow _flow;
 
         public MacroGraph(
+            Guid id,
             string name,
             Dictionary<Guid, INode> nodes,
             IEnumerable<IMacroFlowInputField> flowInputs, IEnumerable<IMacroFlowOutputField> flowOutputs,
             IEnumerable<IMacroValueInputField> valueInputs, IEnumerable<IMacroValueOutputField> valueOutputs,
             IDictionary<string, IField> fieldDictionary,
             User user)
-            : base(name, nodes, user)
+            : base(id, name, nodes, user)
         {
             FieldDictionary = fieldDictionary;
             FlowInputs = flowInputs;

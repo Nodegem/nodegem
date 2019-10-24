@@ -91,7 +91,7 @@ namespace Nodester.Bridge.Services
 
                 EstablishConnections(nodes, fieldDictionary, links);
 
-                var builtMacro = new MacroGraph(macro.Name, nodes, fields.FlowInputs, fields.FlowOutputs,
+                var builtMacro = new MacroGraph(macro.Id, macro.Name, nodes, fields.FlowInputs, fields.FlowOutputs,
                     fields.ValueInputs, fields.ValueOutputs, fieldDictionary, user);
 
                 return builtMacro;

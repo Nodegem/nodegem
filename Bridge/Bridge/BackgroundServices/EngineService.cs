@@ -89,7 +89,7 @@ namespace Nodester.Bridge.BackgroundServices
                 var graphs = await _apiService.GraphService.GetGraphsAsync();
                 AppState.Instance.GraphLookUp = graphs.ToDictionary(k => k.Id, v => v);
 
-                _coordinator = new Coordinator(_graphConnection, _buildGraphService, _buildMacroService);
+                _coordinator = new Coordinator(_graphConnection, _buildGraphService, _buildMacroService, _logger);
                 await _coordinator.InitializeAsync();
 
                 _timer = new Timer(_appConfig.PingTime)

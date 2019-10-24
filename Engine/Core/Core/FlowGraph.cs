@@ -18,11 +18,12 @@ namespace Nodester.Graph.Core
         private Dictionary<Guid, Constant> Constants { get; }
 
         public FlowGraph(
+            Guid id,
             string name,
             Dictionary<Guid, INode> nodes, 
             Dictionary<Guid, Constant> constants, 
             User user)
-            : base(name, nodes, user)
+            : base(id, name, nodes, user)
         {
             _flow = new Flow();
             Constants = constants;

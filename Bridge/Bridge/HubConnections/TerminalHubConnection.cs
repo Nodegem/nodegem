@@ -18,46 +18,46 @@ namespace Nodester.Bridge.HubConnections
             _logger = logger;
         }
 
-        public async Task LogAsync(User user, string message, bool sendToClient)
+        public async Task LogAsync(User user, string graphId, string message, bool sendToClient)
         {
-            _logger.LogInformation($"Logging: {message} User ID: {user.Id}");
+            _logger.LogInformation($"Logging: {message} User ID: {user.Id} Graph ID: {graphId}");
             if (sendToClient)
             {
                 var truncatedMessage = message.TruncateAtWord(1024);
-                await Client.InvokeAsync("LogAsync", user, truncatedMessage);
+                await Client.InvokeAsync("LogAsync", user, graphId, truncatedMessage);
             }
         }
 
-        public async Task DebugLogAsync(User user, string message, bool isDebug, bool sendToClient)
+        public async Task DebugLogAsync(User user, string graphId, string message, bool isDebug, bool sendToClient)
         {
             if (isDebug)
             {
-                _logger.LogDebug($"Logging: {message} User ID: {user.Id}");
+                _logger.LogDebug($"Logging: {message} User ID: {user.Id} Graph ID: {graphId}");
                 if (sendToClient)
                 {
                     var truncatedMessage = message.TruncateAtWord(1024);
-                    await Client.InvokeAsync("DebugLogAsync", user, message);
+                    await Client.InvokeAsync("DebugLogAsync", user, graphId, message);
                 }
             }
         }
 
-        public async Task WarnLogAsync(User user, string message, bool sendToClient)
+        public async Task WarnLogAsync(User user, string graphId, string message, bool sendToClient)
         {
-            _logger.LogWarning($"Logging: {message} User ID: {user.Id}");
+            _logger.LogWarning($"Logging: {message} User ID: {user.Id} Graph ID: {graphId}");
             if (sendToClient)
             {
                 var truncatedMessage = message.TruncateAtWord(1024);
-                await Client.InvokeAsync("WarnLogAsync", user, truncatedMessage);
+                await Client.InvokeAsync("WarnLogAsync", user, graphId, truncatedMessage);
             }
         }
 
-        public async Task ErrorLogAsync(User user, string message, bool sendToClient)
+        public async Task ErrorLogAsync(User user, string graphId, string message, bool sendToClient)
         {
-            _logger.LogError($"Logging: {message} User ID: {user.Id}");
+            _logger.LogError($"Logging: {message} User ID: {user.Id} Graph ID: {graphId}");
             if (sendToClient)
             {
                 var truncatedMessage = message.TruncateAtWord(1024);
-                await Client.InvokeAsync("ErrorLogAsync", user, truncatedMessage);
+                await Client.InvokeAsync("ErrorLogAsync", user, graphId, truncatedMessage);
             }
         }
     }

@@ -10,7 +10,6 @@ namespace Nodester.Services.Hubs
     [Authorize]
     public class TerminalHub : Hub
     {
-
         public override Task OnConnectedAsync()
         {
             Groups.AddToGroupAsync(Context.ConnectionId, Context.User.GetUserId().ToString());
@@ -23,25 +22,24 @@ namespace Nodester.Services.Hubs
             return base.OnDisconnectedAsync(exception);
         }
 
-        public async Task LogAsync(User user, string message)
+        public async Task LogAsync(User user, string graphId, string message)
         {
-            await Clients.Group(user.Id).SendAsync("ReceiveLogAsync", message, "log");
+            await Clients.Group(user.Id).SendAsync("ReceiveLogAsync", graphId, message, "log");
         }
-        
-        public async Task DebugLogAsync(User user, string message)
+
+        public async Task DebugLogAsync(User user, string graphId, string message)
         {
-            await Clients.Group(user.Id).SendAsync("ReceiveLogAsync", message, "debug");
+            await Clients.Group(user.Id).SendAsync("ReceiveLogAsync", graphId, message, "debug");
         }
-        
-        public async Task WarnLogAsync(User user, string message)
+
+        public async Task WarnLogAsync(User user, string graphId, string message)
         {
-            await Clients.Group(user.Id).SendAsync("ReceiveLogAsync", message, "warn");
+            await Clients.Group(user.Id).SendAsync("ReceiveLogAsync", graphId, message, "warn");
         }
-        
-        public async Task ErrorLogAsync(User user, string message)
+
+        public async Task ErrorLogAsync(User user, string graphId, string message)
         {
-            await Clients.Group(user.Id).SendAsync("ReceiveLogAsync", message, "error");
+            await Clients.Group(user.Id).SendAsync("ReceiveLogAsync", graphId, message, "error");
         }
-        
     }
 }

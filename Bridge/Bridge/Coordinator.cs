@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Bridge.Data;
+using Microsoft.Extensions.Logging;
+using Nodester.Bridge.BackgroundServices;
 using Nodester.Bridge.Extensions;
 using Nodester.Common.Extensions;
 using Nodester.Data;
@@ -26,12 +28,15 @@ namespace Nodester.Bridge
         private IDictionary<Guid, RecurringGraphState> GraphStates { get; set; }
         private IDictionary<Guid, IListenerGraph> ListenerGraphSandbox { get; }
 
+        private readonly ILogger _logger;
+
         public Coordinator(IGraphHubConnection graphConnection, IBuildGraphService buildGraphService,
-            IBuildMacroService buildMacroService)
+            IBuildMacroService buildMacroService, ILogger logger)
         {
             _buildGraphService = buildGraphService;
             _buildMacroService = buildMacroService;
             _graphConnection = graphConnection;
+            _logger = logger;
 
             ListenerGraphSandbox = new Dictionary<Guid, IListenerGraph>();
 
@@ -94,8 +99,16 @@ namespace Nodester.Bridge
         {
             if (ListenerGraphSandbox.ContainsKey(graph.Id))
             {
-                var listenerGraph = ListenerGraphSandbox[graph.Id];
-                await listenerGraph.DisposeAsync();
+                try
+                {
+                    var listenerGraph = ListenerGraphSandbox[graph.Id];
+                    await listenerGraph.DisposeAsync();
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, $"Error occured while executing graph {graph.Name}");
+                    ListenerGraphSandbox.Remove(graph.Id);
+                }
             }
 
             var compiledListenerGraph = await _buildGraphService.BuildListenerGraphAsync(AppState.Instance.User, graph);

@@ -68,7 +68,7 @@ namespace Nodester.Bridge.Services
 
                 EstablishLinks(nodes, graph.Links);
 
-                return new FlowGraph(graph.Name, nodes, constantDictionary, user);
+                return new FlowGraph(graph.Id, graph.Name, nodes, constantDictionary, user);
             }
             catch (Exception ex)
             {
@@ -91,15 +91,15 @@ namespace Nodester.Bridge.Services
 
                 EstablishLinks(nodes, graph.Links);
 
-                return new ListenerGraph(graph.Name, nodes, constantDictionary, user);
+                return new ListenerGraph(graph.Id, graph.Name, nodes, constantDictionary, user);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex,$"Error building listener graph with ID: {graph.Id}.");
+                _logger.LogError(ex, $"Error building listener graph with ID: {graph.Id}.");
                 return null;
             }
         }
-        
+
         private static void EstablishLinks(IDictionary<Guid, INode> nodes, IEnumerable<LinkDto> links)
         {
             foreach (var link in links)

@@ -13,8 +13,8 @@ namespace Nodester.Graph.Core
     {
         public IEnumerable<IListenerNode> ListenerNodes { get; }
 
-        public ListenerGraph(string name, Dictionary<Guid, INode> nodes, Dictionary<Guid, Constant> constants,
-            User user) : base(name, nodes, constants, user)
+        public ListenerGraph(Guid id, string name, Dictionary<Guid, INode> nodes, Dictionary<Guid, Constant> constants,
+            User user) : base(id, name, nodes, constants, user)
         {
             ListenerNodes = Nodes.Values.OfType<IListenerNode>();
         }

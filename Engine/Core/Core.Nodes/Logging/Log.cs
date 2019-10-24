@@ -11,7 +11,7 @@ namespace Nodester.Graph.Core.Nodes.Logging
 
         protected override void ExecuteLog(string message, bool sendToClient)
         {
-            LogService.LogAsync(Graph.User, message, sendToClient);
+            LogService.LogAsync(Graph.User, Graph.Id.ToString(), message, sendToClient);
         }
     }
 }

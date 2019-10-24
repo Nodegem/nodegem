@@ -83,8 +83,6 @@ namespace Nodester.WebApi
                     options.SaveToken = true;
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
-                        //RequireExpirationTime = true,
-                        //ValidateLifetime = true,
                         ValidateIssuer = true,
                         ValidAudience = Configuration.GetValue<string>("TokenSettings:Audience"),
                         ValidIssuer = Configuration.GetValue<string>("TokenSettings:Issuer"),
@@ -134,7 +132,19 @@ namespace Nodester.WebApi
 
             services.AddResponseCaching(options => { options.UseCaseSensitivePaths = true; });
 
-            services.AddCors();
+            var domains = Configuration.GetSection("CorsSettings:AllowedHosts").Get<string>()
+                .Replace(" ", "")
+                .Split(',');
+            
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AppCors", builder =>
+                {
+                    builder.AllowAnyHeader().AllowAnyMethod().WithOrigins(domains).AllowCredentials()
+                        .SetPreflightMaxAge(TimeSpan.FromMinutes(60));
+                });
+            });
+            
             services.AddSignalR(options =>
                 {
                     options.EnableDetailedErrors = Environment.IsDevelopment() || Environment.IsStaging();
@@ -142,6 +152,8 @@ namespace Nodester.WebApi
                 })
                 .AddNewtonsoftJsonProtocol();
 
+            services.AddRouting();
+            
             services.AddControllers()
                 .AddNewtonsoftJson(options =>
                 {
@@ -166,15 +178,9 @@ namespace Nodester.WebApi
                 app.UseHsts();
             }
 
-            var domains = Configuration.GetSection("CorsSettings:AllowedHosts").Get<string>()
-                .Replace(" ", "")
-                .Split(',');
-            
-            app.UseCors(
-                builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins(domains).AllowCredentials()
-                    .SetPreflightMaxAge(TimeSpan.FromMinutes(60)));
-
             app.UseRouting();
+            
+            app.UseCors("AppCors");
 
             app.UseAuthentication();
             app.UseAuthorization();

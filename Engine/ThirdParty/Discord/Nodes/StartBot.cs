@@ -50,14 +50,17 @@ namespace Nodester.ThirdParty.Discord.Nodes
 
         private async Task LogMessage(string message)
         {
-            await _terminalHub.LogAsync(Graph.User, message, !Graph.IsRunningLocally);
+            await _terminalHub.LogAsync(Graph.User, Graph.Id.ToString(), message, !Graph.IsRunningLocally);
         }
 
         public override async ValueTask DisposeAsync()
         {
             await LogMessage("Disposing bot...");
-            await DiscordService.Client.LogoutAsync();
-            DiscordService.Client.Dispose();
+            if (DiscordService.Client != null)
+            {
+                await DiscordService.Client.LogoutAsync();
+                DiscordService.Client.Dispose();
+            }
         }
     }
 }
