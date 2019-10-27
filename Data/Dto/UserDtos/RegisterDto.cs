@@ -11,6 +11,8 @@ namespace Nodester.Data.Dto.UserDtos
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        
+        public string AvatarUrl { get; set; }
 
         [Required] public string Password { get; set; }
     }

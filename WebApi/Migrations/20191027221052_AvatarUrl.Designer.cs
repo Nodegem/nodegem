@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Nodester.Data.Contexts;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -9,9 +10,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Nodester.WebApi.Migrations
 {
     [DbContext(typeof(NodesterDBContext))]
-    partial class NodesterDBContextModelSnapshot : ModelSnapshot
+    [Migration("20191027221052_AvatarUrl")]
+    partial class AvatarUrl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -252,9 +254,9 @@ namespace Nodester.WebApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6ae8a45b-def7-4233-97a2-ddcf54419a8e"),
+                            Id = new Guid("87a8f3a6-2175-4134-9fa1-3abed6248a93"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "399ba5a3-3b71-476e-a04c-a4ddedc5f925",
+                            ConcurrencyStamp = "f914125a-84eb-4e42-baa2-ae781185c2f1",
                             Constants = "[]",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@admin.com",
@@ -266,9 +268,9 @@ namespace Nodester.WebApi.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMINUSER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFUpwtd1m3xcpcuraWW2zPCd0reuzVUSAORdAQIaYwvxQ360d+2cVJKbswn+Imc+Kw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENr2Y4zC5SC3ALPlQAW3BfJrr3ZhMt76c70euJ9BfxhKMug0KlaCZWL1faK0l1klGg==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "36ee55cb32304ca0b777bcf24a6a2b0d",
+                            SecurityStamp = "2eb902eae9d1467694610dda85398fb0",
                             TwoFactorEnabled = false,
                             UserName = "AdminUser"
                         });

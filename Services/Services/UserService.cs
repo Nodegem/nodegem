@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
+using System.Text;
 using Mapster;
 using Nodester.Services.Data;
 using Nodester.Services.Exceptions;
@@ -22,18 +23,33 @@ namespace Nodester.Services
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ITokenService _tokenService;
+        private readonly ISendEmail _emailService;
+        private IUserService _userServiceImplementation;
 
         public UserService(
             SignInManager<ApplicationUser> signInManager,
             UserManager<ApplicationUser> userManager,
-            ITokenService tokenService)
+            ITokenService tokenService,
+            ISendEmail emailService)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _tokenService = tokenService;
+            _emailService = emailService;
         }
 
-        public async Task<TokenUserDto> RegisterAsync(RegisterDto dto)
+        public async Task<bool> UserExistsAsync(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            return user != null;
+        }
+
+        public async Task<UserDto> GetUserByEmailAsync(string email)
+        {
+            return (await _userManager.FindByEmailAsync(email)).Adapt<UserDto>();
+        }
+
+        public async Task<TokenDto> RegisterAsync(RegisterDto dto, UserLoginInfo info = null)
         {
             var registerUser = dto.Adapt<ApplicationUser>();
 
@@ -45,13 +61,20 @@ namespace Nodester.Services
             var result = await _userManager.CreateAsync(registerUser, dto.Password);
             if (!result.Succeeded) throw new RegistrationException(result);
 
+//            await _emailService.SendEmailAsync(registerUser.Email, "Hello");
+
             var user = FindUser(dto.UserName, dto.Email);
+            if (info != null)
+            {
+                await _userManager.AddLoginAsync(user, info);
+            }
+
             await _signInManager.SignInAsync(user, false);
             await UpdateLastLoggedIn(user);
-            return GetUserWithToken(user);
+            return GetToken(user);
         }
 
-        public async Task<TokenUserDto> LoginAsync(string username, string password)
+        public async Task<TokenDto> LoginAsync(string username, string password)
         {
             var user = FindUser(username);
 
@@ -62,10 +85,9 @@ namespace Nodester.Services
 
             var result = await _signInManager.CheckPasswordSignInAsync(user, password, false);
             if (!result.Succeeded) throw new InvalidLoginCredentialException();
-            
-            await UpdateLastLoggedIn(user);
-            return GetUserWithToken(user);
 
+            await UpdateLastLoggedIn(user);
+            return GetToken(user);
         }
 
         public async Task<UserDto> GetUser(Guid userId)
@@ -85,8 +107,10 @@ namespace Nodester.Services
         {
             var (isValid, user) = _tokenService.IsValidToken(token);
             if (!isValid) throw new UnauthorizedAccessException();
-            
-            var (newToken, expires) = _tokenService.GenerateJwtToken(user.GetEmail(), user.GetUsername(), user.GetUserId(),
+
+            var (newToken, expires) = _tokenService.GenerateJwtToken(user.GetEmail(), user.GetUsername(),
+                user.GetAvatarUrl(),
+                user.GetUserId(),
                 user.GetConstants());
             return new TokenDto
             {
@@ -129,7 +153,7 @@ namespace Nodester.Services
             userName = userName.ToLower();
             email = email.ToLower();
             return _userManager.Users.SingleOrDefault(x =>
-                x.UserName.ToLower() == userName || x.Email.ToLower() == email);
+                x.NormalizedUserName == userName.ToUpper() || x.NormalizedEmail == email.ToUpper());
         }
 
         private async Task UpdateLastLoggedIn(ApplicationUser user)
@@ -138,24 +162,64 @@ namespace Nodester.Services
             await _userManager.UpdateAsync(user);
         }
 
-        private TokenUserDto GetUserWithToken(ApplicationUser user)
+        public TokenDto GetToken(UserDto user)
+        {
+            return GetToken(user.Adapt<ApplicationUser>());
+        }
+
+        public TokenDto GetToken(ApplicationUser user)
         {
             var (accessToken, expires) =
-                _tokenService.GenerateJwtToken(user.Email, user.UserName, user.Id,
+                _tokenService.GenerateJwtToken(user.Email, user.UserName, user.AvatarUrl, user.Id,
                     user.Constants?.Select(x => x.Adapt<Constant>()));
-            var userDto = user.Adapt<UserDto>();
-
-            return new TokenUserDto
+            return new TokenDto
             {
-                Token = new TokenDto
-                {
-                    AccessToken = accessToken,
-                    IssuedUtc = DateTime.Now,
-                    ExpiresUtc = expires
-                },
-                User = userDto
+                AccessToken = accessToken,
+                IssuedUtc = DateTime.Now,
+                ExpiresUtc = expires
             };
         }
-        
+
+        public string GeneratePassword()
+        {
+            var options = _userManager.Options.Password;
+
+            var length = options.RequiredLength;
+
+            var nonAlphanumeric = options.RequireNonAlphanumeric;
+            var digit = options.RequireDigit;
+            var lowercase = options.RequireLowercase;
+            var uppercase = options.RequireUppercase;
+
+            var password = new StringBuilder();
+            var random = new Random();
+
+            while (password.Length < length)
+            {
+                var c = (char) random.Next(32, 126);
+
+                password.Append(c);
+
+                if (char.IsDigit(c))
+                    digit = false;
+                else if (char.IsLower(c))
+                    lowercase = false;
+                else if (char.IsUpper(c))
+                    uppercase = false;
+                else if (!char.IsLetterOrDigit(c))
+                    nonAlphanumeric = false;
+            }
+
+            if (nonAlphanumeric)
+                password.Append((char) random.Next(33, 48));
+            if (digit)
+                password.Append((char) random.Next(48, 58));
+            if (lowercase)
+                password.Append((char) random.Next(97, 123));
+            if (uppercase)
+                password.Append((char) random.Next(65, 91));
+
+            return password.ToString();
+        }
     }
 }

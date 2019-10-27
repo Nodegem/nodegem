@@ -2,6 +2,7 @@ using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -37,7 +38,7 @@ namespace Nodester.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDataProtection();
-            
+
             services.AddHealthChecks()
                 .AddNpgSql(Configuration.GetConnectionString("nodesterDb"), name: "NodesterDB");
             services.Configure<TokenSettings>(Configuration.GetSection("TokenSettings"));
@@ -74,6 +75,7 @@ namespace Nodester.WebApi
 
             services.AddAuthentication(options =>
                 {
+                    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
                     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 })
@@ -104,22 +106,19 @@ namespace Nodester.WebApi
                             return Task.CompletedTask;
                         }
                     };
+                })
+                .AddGoogle(options =>
+                {
+                    options.SaveTokens = true;
+                    options.ClientId = Configuration["Authentication:Google:ClientId"];
+                    options.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+                    options.ClaimActions.MapJsonKey("urn:google:picture", "picture", "url");
+                })
+                .AddGitHub(options =>
+                {
+                    options.ClientId = Configuration["Authentication:GitHub:ClientId"];
+                    options.ClientSecret = Configuration["Authentication:GitHub:ClientSecret"];
                 });
-//                .AddGoogle(options =>
-//                {
-//                    options.ClientId = Configuration["Authentication:Google:ClientId"];
-//                    options.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
-//                })
-//                .AddGitHub(options =>
-//                {
-//                    options.ClientId = Configuration["Authentication:GitHub:ClientId"];
-//                    options.ClientSecret = Configuration["Authentication:GitHub:ClientSecret"];
-//                })
-//                .AddMicrosoftAccount(options =>
-//                {
-//                    options.ClientId = Configuration["Authentication:Microsoft:ClientId"];
-//                    options.ClientSecret = Configuration["Authentication:Microsoft:ClientSecret"];
-//                });
 
             services.AddServices();
 
@@ -135,7 +134,7 @@ namespace Nodester.WebApi
             var domains = Configuration.GetSection("CorsSettings:AllowedHosts").Get<string>()
                 .Replace(" ", "")
                 .Split(',');
-            
+
             services.AddCors(options =>
             {
                 options.AddPolicy("AppCors", builder =>
@@ -149,7 +148,7 @@ namespace Nodester.WebApi
                         .SetPreflightMaxAge(TimeSpan.FromMinutes(60));
                 });
             });
-            
+
             services.AddSignalR(options =>
                 {
                     options.EnableDetailedErrors = Environment.IsDevelopment() || Environment.IsStaging();
@@ -158,7 +157,7 @@ namespace Nodester.WebApi
                 .AddNewtonsoftJsonProtocol();
 
             services.AddRouting();
-            
+
             services.AddControllers()
                 .AddNewtonsoftJson(options =>
                 {
@@ -182,9 +181,9 @@ namespace Nodester.WebApi
                 app.UseHttpsRedirection();
                 app.UseHsts();
             }
-            
+
             app.UseRouting();
-            
+
             app.UseCors("AppCors");
 
             app.UseAuthentication();

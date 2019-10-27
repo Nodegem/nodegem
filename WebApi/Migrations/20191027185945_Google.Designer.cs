@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Nodester.Data.Contexts;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -9,9 +10,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Nodester.WebApi.Migrations
 {
     [DbContext(typeof(NodesterDBContext))]
-    partial class NodesterDBContextModelSnapshot : ModelSnapshot
+    [Migration("20191027185945_Google")]
+    partial class Google
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -163,9 +165,6 @@ namespace Nodester.WebApi.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("integer");
 
-                    b.Property<string>("AvatarUrl")
-                        .HasColumnType("text");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("text");
@@ -252,9 +251,9 @@ namespace Nodester.WebApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6ae8a45b-def7-4233-97a2-ddcf54419a8e"),
+                            Id = new Guid("cd168e8b-30df-4fe2-add1-0dd0b1e47477"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "399ba5a3-3b71-476e-a04c-a4ddedc5f925",
+                            ConcurrencyStamp = "0b6185c6-2375-454b-a031-bd6bae0f73a8",
                             Constants = "[]",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@admin.com",
@@ -266,9 +265,9 @@ namespace Nodester.WebApi.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMINUSER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFUpwtd1m3xcpcuraWW2zPCd0reuzVUSAORdAQIaYwvxQ360d+2cVJKbswn+Imc+Kw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFfrnupOJNBBEs6pMXlfCFOoWkelKwD99MdXfTyM6oGEmfLdRFi8EsRbJctQpg4bXQ==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "36ee55cb32304ca0b777bcf24a6a2b0d",
+                            SecurityStamp = "287e3bbe8546479eb2a36d853a32623f",
                             TwoFactorEnabled = false,
                             UserName = "AdminUser"
                         });

@@ -7,7 +7,7 @@ namespace Nodester.Services.Data
 {
     public interface ITokenService
     {
-        (string token, DateTime expires) GenerateJwtToken(string email, string username, Guid userId,
+        (string token, DateTime expires) GenerateJwtToken(string email, string username, string avatarUrl, Guid userId,
             IEnumerable<Constant> constants);
 
         (bool valid, ClaimsPrincipal user) IsValidToken(string token);

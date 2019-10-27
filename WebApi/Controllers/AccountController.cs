@@ -35,7 +35,7 @@ namespace Nodester.WebApi.Controllers
         [ProducesResponseType(200, Type = typeof(TokenUserDto))]
         [ProducesResponseType(400, Type = typeof(IEnumerable<IdentityError>))]
         [ProducesResponseType(401)]
-        public async Task<ActionResult<TokenUserDto>> RegisterAsync([FromBody] RegisterDto dto)
+        public async Task<ActionResult<TokenDto>> RegisterAsync([FromBody] RegisterDto dto)
         {
             try
             {
@@ -59,7 +59,7 @@ namespace Nodester.WebApi.Controllers
         [ProducesResponseType(200, Type = typeof(TokenUserDto))]
         [ProducesResponseType(400, Type = typeof(string))]
         [ProducesResponseType(401)]
-        public async Task<ActionResult<TokenUserDto>> LoginAsync()
+        public async Task<ActionResult<TokenDto>> LoginAsync()
         {
             var username = "";
             try
@@ -82,6 +82,24 @@ namespace Nodester.WebApi.Controllers
             {
                 _logger.LogError(ex, $"Invalid credentials. Username: {username}");
                 return BadRequest("Something went wrong.");
+            }
+        }
+        
+        [HttpGet("login-token")]
+        [ProducesResponseType(200, Type = typeof(TokenUserDto))]
+        [ProducesResponseType(400, Type = typeof(string))]
+        [ProducesResponseType(401)]
+        public async Task<ActionResult<TokenDto>> LoginTokenAsync()
+        {
+            try
+            {
+                var user = await _userService.GetUser(HttpContext.User.GetUserId());
+                return Ok(_userService.GetToken(user));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Something went wrong");
+                return BadRequest();
             }
         }
 
@@ -131,8 +149,7 @@ namespace Nodester.WebApi.Controllers
             {
                 var (u, password) = Request.GetAuthorization();
                 username = u;
-                var tokenDto = await _userService.LoginAsync(username, password);
-                return tokenDto.Token;
+                return await _userService.LoginAsync(username, password);
             }
             catch (NoUserFoundException ex)
             {

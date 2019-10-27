@@ -65,7 +65,8 @@ namespace Nodester.Services
             }
         }
 
-        public (string token, DateTime expires) GenerateJwtToken(string email, string username, Guid userId,
+        public (string token, DateTime expires) GenerateJwtToken(string email, string username, string avatarUrl,
+            Guid userId,
             IEnumerable<Common.Data.Constant> constants)
         {
             var claims = new List<Claim>
@@ -74,6 +75,7 @@ namespace Nodester.Services
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.NameId, userId.ToString()),
                 new Claim(JwtRegisteredClaimNames.UniqueName, username),
+                new Claim(ClaimExtensions.AvatarClaimId, avatarUrl ?? ""),
                 new Claim(ClaimExtensions.ConstantClaimId,
                     JsonConvert.SerializeObject(constants ?? Enumerable.Empty<Common.Data.Constant>(),
                         SerializerSettings))

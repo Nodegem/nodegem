@@ -400,6 +400,7 @@
     <e p="C:\Users\rszem\Documents\Projects\nodester\Services\Data" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="INodeHttpClient.cs" t="Include" />
+      <e p="ISendEmail.cs" t="Include" />
       <e p="ITokenService.cs" t="Include" />
       <e p="IUserService.cs" t="Include" />
       <e p="Nodester.Services.Data.csproj" t="IncludeRecursive" />
@@ -419,6 +420,7 @@
     </e>
     <e p="C:\Users\rszem\Documents\Projects\nodester\Services\Services" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
+      <e p="EmailService.cs" t="Include" />
       <e p="Exceptions" t="Include">
         <e p="Login" t="Include">
           <e p="InvalidLoginCredentialException.cs" t="Include" />
@@ -462,6 +464,7 @@
         <e p="GraphController.cs" t="Include" />
         <e p="MacroController.cs" t="Include" />
         <e p="NodesController.cs" t="Include" />
+        <e p="OAuthController.cs" t="Include" />
       </e>
       <e p="Extensions" t="Include">
         <e p="HttpRequestExtension.cs" t="Include" />
@@ -492,6 +495,12 @@
         <e p="20190705211736_GraphTypes.Designer.cs" t="Include" />
         <e p="20190705231350_GraphRecurringOptions.cs" t="Include" />
         <e p="20190705231350_GraphRecurringOptions.Designer.cs" t="Include" />
+        <e p="20191027185945_Google.cs" t="Include" />
+        <e p="20191027185945_Google.Designer.cs" t="Include" />
+        <e p="20191027221052_AvatarUrl.cs" t="Include" />
+        <e p="20191027221052_AvatarUrl.Designer.cs" t="Include" />
+        <e p="20191027224128_Github.cs" t="Include" />
+        <e p="20191027224128_Github.Designer.cs" t="Include" />
         <e p="NodesterDBContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="nlog.config" t="Include" />

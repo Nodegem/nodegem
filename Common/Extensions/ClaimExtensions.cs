@@ -13,6 +13,7 @@ namespace Nodester.Common.Extensions
     {
 
         public const string ConstantClaimId = "constantData";
+        public const string AvatarClaimId = "avatarUrl";
         
         public static Guid GetUserId(this ClaimsPrincipal principal)
         {
@@ -54,6 +55,16 @@ namespace Nodester.Common.Extensions
         public static string GetUsername(this ClaimsPrincipal principal)
         {
             return principal.Claims.GetUsername();
+        }
+        
+        public static string GetAvatarUrl(this ClaimsPrincipal principal)
+        {
+            return principal.Claims.GetUsername();
+        }
+        
+        public static string GetAvatarUrl(this IEnumerable<Claim> claims)
+        {
+            return claims.GetClaim(AvatarClaimId);
         }
         
         public static string GetUsername(this IEnumerable<Claim> claims)

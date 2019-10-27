@@ -17,6 +17,8 @@ namespace Nodester.Data.Models
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        
+        public string AvatarUrl { get; set; }
 
         public IEnumerable<Constant> Constants { get; set; } = new List<Constant>();
 

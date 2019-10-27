@@ -471,6 +471,7 @@
     <e p="C:\Users\rszem\Documents\Projects\nodester\Services\Data" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="INodeHttpClient.cs" t="Include" />
+      <e p="ISendEmail.cs" t="Include" />
       <e p="ITokenService.cs" t="Include" />
       <e p="IUserService.cs" t="Include" />
       <e p="Nodester.Services.Data.csproj" t="IncludeRecursive" />
@@ -490,6 +491,7 @@
     </e>
     <e p="C:\Users\rszem\Documents\Projects\nodester\Services\Services" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
+      <e p="EmailService.cs" t="Include" />
       <e p="Exceptions" t="Include">
         <e p="Login" t="Include">
           <e p="InvalidLoginCredentialException.cs" t="Include" />
