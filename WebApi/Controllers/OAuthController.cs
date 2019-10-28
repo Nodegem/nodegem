@@ -39,6 +39,7 @@ namespace Nodester.WebApi.Controllers
         [HttpGet("external-login-callback")]
         public async Task<IActionResult> ExternalLoginCallback(string returnUrl = null, string remoteError = null)
         {
+            var success = false;
             var info = await _signinManager.GetExternalLoginInfoAsync();
             var email = info.Principal.FindFirstValue(ClaimTypes.Email);
 
@@ -49,7 +50,8 @@ namespace Nodester.WebApi.Controllers
             {
                 var user = await _userService.GetUserByEmailAsync(email);
                 var token = _userService.GetToken(user);
-                return Redirect($"{returnUrl}?token={token.AccessToken}");
+                success = true;
+                return Redirect($"{returnUrl}?token={token.AccessToken}&success={success.ToString().ToLower()}");
             }
 
             var message = $"Unable to link account to {info.LoginProvider}";
@@ -76,9 +78,10 @@ namespace Nodester.WebApi.Controllers
                         LastName = surname,
                         AvatarUrl = avatarUrl
                     }, info);
+                    success = true;
                     message = "Successfully created account!";
                     return Redirect(
-                        $"{returnUrl}?token={token.AccessToken}&message={message}");
+                        $"{returnUrl}?token={token.AccessToken}&message={message}&success={success.ToString().ToLower()}");
                 }
             }
             catch (Exception ex)
@@ -87,7 +90,7 @@ namespace Nodester.WebApi.Controllers
             }
 
             return Redirect(
-                $"{returnUrl}?token=false&message={message}");
+                $"{returnUrl}?token=false&message={message}&success={success.ToString().ToLower()}");
         }
     }
 }

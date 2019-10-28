@@ -13,6 +13,7 @@ namespace Nodester.Data.Dto.UserDtos
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public bool IsActive { get; set; }
+        public string AvatarUrl { get; set; }
         public DateTime CreatedOn { get; set; }
         public DateTime LastUpdated { get; set; }
         public IEnumerable<ConstantDto> Constants { get; set; }
