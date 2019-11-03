@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Web;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -50,7 +51,7 @@ namespace Nodester.WebApi.Controllers
             {
                 const string message = "Something went wrong during registration";
                 _logger.LogError(ex, message);
-                return BadRequest(message);
+                return StatusCode(500, message);
             }
         }
 
@@ -84,7 +85,7 @@ namespace Nodester.WebApi.Controllers
                 return BadRequest("Something went wrong.");
             }
         }
-        
+
         [HttpGet("login-token")]
         [ProducesResponseType(200, Type = typeof(TokenUserDto))]
         [ProducesResponseType(400, Type = typeof(string))]
@@ -134,6 +135,63 @@ namespace Nodester.WebApi.Controllers
             {
                 _logger.LogError(ex, $"Unable to refresh token. Old Token: {oldToken}");
                 return BadRequest(ex.Message);
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpGet("email-confirmation")]
+        public async Task<IActionResult> EmailConfirmationAsync([FromQuery(Name = "userId")] Guid userId,
+            [FromQuery(Name = "token")] string token)
+        {
+            try
+            {
+                var result = await _userService.ConfirmEmailAsync(userId, HttpUtility.UrlDecode(token));
+                if (result)
+                {
+                    return Ok();
+                }
+
+                return BadRequest("Invalid token");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpPost("reset-password")]
+        public async Task<ActionResult> ResetPasswordAsync(ResetPasswordDto resetPasswordDto)
+        {
+            try
+            {
+                var result = await _userService.ResetPasswordAsync(resetPasswordDto);
+                if (result)
+                {
+                    return Ok();
+                }
+
+                return BadRequest("Invalid password");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unable to reset password");
+                return BadRequest("Unable to reset password");
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpPost("forgot-password")]
+        public async Task<ActionResult> ForgotPassword(ForgotPasswordDto forgotPasswordDto)
+        {
+            try
+            {
+                await _userService.ForgotPassword(forgotPasswordDto);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Something went wrong");
+                return BadRequest("Something went wrong");
             }
         }
 
@@ -188,10 +246,39 @@ namespace Nodester.WebApi.Controllers
             });
         }
 
-        [HttpPut("update")]
-        public ActionResult<UserDto> UpdateAsync([FromBody] UserDto userDto)
+        [HttpPost("update")]
+        public async Task<ActionResult<UserDto>> UpdateAsync([FromBody] UserDto userDto)
         {
-            return Ok();
+            try
+            {
+                var result = await _userService.UpdateUserAsync(userDto);
+                if (result)
+                {
+                    return Ok();
+                }
+
+                return BadRequest();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unable to update user");
+                return BadRequest();
+            }
+        }
+
+        [HttpDelete("delete/{userId}")]
+        public async Task<ActionResult> DeleteAsync(Guid userId)
+        {
+            try
+            {
+                await _userService.DeleteUserAsync(userId);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unable to delete user");
+                return BadRequest();
+            }
         }
     }
 }

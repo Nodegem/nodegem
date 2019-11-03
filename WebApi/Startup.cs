@@ -2,6 +2,7 @@ using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Threading.Tasks;
+using Digiop.Shared.Extensions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -20,6 +21,8 @@ using Nodester.Data.Models;
 using Nodester.Data.Settings;
 using Nodester.Services;
 using Nodester.Services.Hubs;
+using Nodester.WebApi.Services;
+using Nodester.WebApi.Settings;
 
 namespace Nodester.WebApi
 {
@@ -42,7 +45,9 @@ namespace Nodester.WebApi
             services.AddHealthChecks()
                 .AddNpgSql(Configuration.GetConnectionString("nodesterDb"), name: "NodesterDB");
             services.Configure<TokenSettings>(Configuration.GetSection("TokenSettings"));
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
+            services.AddAntiforgery();
             services.AddHttpContextAccessor();
             services.AddDistributedMemoryCache();
 
@@ -120,6 +125,8 @@ namespace Nodester.WebApi
                     options.ClientSecret = Configuration["Authentication:GitHub:ClientSecret"];
                 });
 
+            var mailConfig = Configuration.GetSection("MailConfiguration").Get<MailConfigurationSettings>();
+            services.AddEmailService(mailConfig, "EmailTemplates", false);
             services.AddServices();
 
             services.AddResponseCompression(options =>

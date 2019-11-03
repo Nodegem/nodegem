@@ -152,7 +152,7 @@ namespace Nodester.Services.Hubs
             }
         }
 
-        public async Task RunMacroAsync(MacroDto macro, string flowInputFieldKey, string connectionId)
+        public async Task RunMacroAsync(MacroDto macro, string connectionId, string flowInputFieldKey)
         {
             var userId = Context.User.GetUserId();
             if (await _cache.ContainsKeyAsync(userId))

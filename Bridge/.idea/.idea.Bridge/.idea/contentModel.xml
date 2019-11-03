@@ -121,9 +121,16 @@
           <e p="LinkDto.cs" t="Include" />
           <e p="NodeDto.cs" t="Include" />
         </e>
+        <e p="EmailDtos" t="Include">
+          <e p="ForgotPasswordEmailDto.cs" t="Include" />
+          <e p="RegisterUserDto.cs" t="Include" />
+          <e p="ResetPasswordEmailDto.cs" t="Include" />
+        </e>
+        <e p="ForgotPasswordDto.cs" t="Include" />
         <e p="GraphDtos" t="Include">
           <e p="CreateGraphDto.cs" t="Include" />
           <e p="GraphDto.cs" t="Include" />
+          <e p="RecurringOptionsDto.cs" t="Include" />
         </e>
         <e p="MacroDtos" t="Include">
           <e p="CreateMacroDto.cs" t="Include" />
@@ -143,7 +150,7 @@
           <e p="MacroDto.cs" t="Include" />
           <e p="MacroLinkDto.cs" t="Include" />
         </e>
-        <e p="RecurringOptionsDto.cs" t="Include" />
+        <e p="ResetPasswordDto.cs" t="Include" />
         <e p="TokenDto.cs" t="Include" />
         <e p="UserDtos" t="Include">
           <e p="RegisterDto.cs" t="Include" />
@@ -201,6 +208,8 @@
         </e>
       </e>
       <e p="Settings" t="Include">
+        <e p="AppSettings.cs" t="Include" />
+        <e p="MailConfigurationSettings.cs" t="Include" />
         <e p="TokenSettings.cs" t="Include" />
       </e>
     </e>
@@ -471,7 +480,7 @@
     <e p="C:\Users\rszem\Documents\Projects\nodester\Services\Data" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="INodeHttpClient.cs" t="Include" />
-      <e p="ISendEmail.cs" t="Include" />
+      <e p="ISendEmails.cs" t="Include" />
       <e p="ITokenService.cs" t="Include" />
       <e p="IUserService.cs" t="Include" />
       <e p="Nodester.Services.Data.csproj" t="IncludeRecursive" />
@@ -491,7 +500,6 @@
     </e>
     <e p="C:\Users\rszem\Documents\Projects\nodester\Services\Services" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
-      <e p="EmailService.cs" t="Include" />
       <e p="Exceptions" t="Include">
         <e p="Login" t="Include">
           <e p="InvalidLoginCredentialException.cs" t="Include" />

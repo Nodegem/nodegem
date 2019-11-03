@@ -2,10 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/EmailDtos/ForgotPasswordEmailDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/EmailDtos/RegisterUserDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/EmailDtos/ResetPasswordEmailDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/ForgotPasswordDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/ResetPasswordDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Settings/AppSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Settings/MailConfigurationSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Services/Data/ISendEmails.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EmailTemplates/ForgotPassword.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EmailTemplates/Registration.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EmailTemplates/ResetPassword.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Extensions/EmailServiceExtension.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/EmailSenderService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/appsettings.Development.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/appsettings.Staging.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Dto/UserDtos/UserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/UserDtos/UserDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/BackgroundServices/EngineService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/BackgroundServices/EngineService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Dto/GraphDtos/CreateGraphDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/GraphDtos/CreateGraphDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Dto/MacroDtos/CreateMacroDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/CreateMacroDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Dto/RecurringOptionsDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/GraphDtos/RecurringOptionsDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Data/ISendEmail.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Data/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Data/IUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Data/Nodester.Services.Data.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Data/Nodester.Services.Data.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/EmailService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/OAuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/OAuthController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/AccountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Nodester.WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Nodester.WebApi.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +78,7 @@
     <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/OnMessageDeleted.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/OnMessageUpdated.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Reaction Events/OnReactionAdded.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Dto/RecurringOptionsDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/GraphDtos/RecurringOptionsDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGridService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/Nodes/SendEmail.cs" root0="FORCE_HIGHLIGHTING" />
@@ -59,8 +90,13 @@
     <setting file="file://$PROJECT_DIR$/../Data/Dto/GraphDtos/CreateGraphDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Dto/MacroDtos/MacroDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Dto/MacroDtos/MacroLinkDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/MacroDtos/CreateMacroDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/BaseFieldDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty.Data/Discord/IDiscordService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Data/ITokenService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/ValueFieldDtos/ValueFieldDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/ValueFieldDtos/ValueInputDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/ValueFieldDtos/ValueOutputDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Dto/ComponentDtos/NodeDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Data/IUserService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Dto/ComponentDtos/ConstantDto.cs" root0="FORCE_HIGHLIGHTING" />
@@ -71,6 +107,7 @@
     <setting file="file://$PROJECT_DIR$/../Services/Services/UserService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Services/TokenService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Models/Graph.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Models/ApplicationUser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Models/Json Models/Node.cs" root0="FORCE_HIGHLIGHTING" />
@@ -86,10 +123,16 @@
     <setting file="file://$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Services/Repositories/MacroRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Settings/TokenSettings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Extensions/ConfigurationExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Configurations/MacroConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Configurations/UserConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/RegisterAssembly.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/ListenerNode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Node.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Services/EmailSenderService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Settings/MailConfigurationSettings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Extensions/EmailServiceExtension.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/FlowGraph.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/91D9403A-72D3-4940-88E8-00AB646530E7/56/c6265d80/WebHostBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Fields/BaseField.cs" root0="FORCE_HIGHLIGHTING" />
@@ -106,22 +149,30 @@
     <setting file="file://$PROJECT_DIR$/Migrations/20191027185945_Google.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThanOrEqualTo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThan.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Services/Services/EmailService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThanOrEqualTo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThan.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/If.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/StringFormat.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EmailTemplates/Registration.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/Delay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/While.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/BaseLog.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogError.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/Log.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Settings/AppSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogDebug.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/EmailDtos/ResetPasswordEmailDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/EmailDtos/ForgotPasswordEmailDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/EmailDtos/RegisterUserDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Macro.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EmailTemplates/ResetPassword.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Start.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EmailTemplates/ForgotPassword.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/ForgotPasswordDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/ResetPasswordDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/FieldData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/IGraph.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Services/Data/ISendEmail.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Data/ISendEmails.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/GraphType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/947CFA9E-93C5-4D21-8EE6-CD975672A1F8/e9/770b3f0d/Task`1.cs" root0="SKIP_HIGHLIGHTING" />
@@ -164,27 +215,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Extensions/HttpRequestExtension.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core.Data/ValueType.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core/Extensions/PropertyInfoExtensions.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueField.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core.Data/Attributes/FieldAttributesAttribute.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/While.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/Delay.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/BaseLog.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThanOrEqualTo.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThan.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThan.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThanOrEqualTo.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Add.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/If.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core/Fields/ValueField.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core/Extensions/DefinitionExtensions.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core/Extensions/StringExtensions.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/StringFormat.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" />
-        <option value="$PROJECT_DIR$/../Services/Services/Repositories/TokenRepository.cs" />
-        <option value="$PROJECT_DIR$/../Data/Models/Json Models/Node.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core.Data/Attributes/DefinedNodeAttribute.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Start.cs" />
@@ -195,26 +225,47 @@
         <option value="$PROJECT_DIR$/Extensions/DistributedCacheExtension.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/Extensions/DistributedCacheExtension.cs" />
         <option value="$PROJECT_DIR$/../Data/Settings/TokenSettings.cs" />
-        <option value="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" />
-        <option value="$PROJECT_DIR$/appsettings.json" />
-        <option value="$PROJECT_DIR$/appsettings.Development.json" />
         <option value="$PROJECT_DIR$/Program.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/Hubs/TerminalHub.cs" />
         <option value="$PROJECT_DIR$/../Services/Data/ISendEmail.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/EmailService.cs" />
-        <option value="$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" />
-        <option value="$PROJECT_DIR$/../Data/Dto/UserDtos/RegisterDto.cs" />
         <option value="$PROJECT_DIR$/../Data/Models/ApplicationUser.cs" />
         <option value="$PROJECT_DIR$/../Services/Data/ITokenService.cs" />
         <option value="$PROJECT_DIR$/../Common/Extensions/ClaimExtensions.cs" />
         <option value="$PROJECT_DIR$/../Data/Dto/UserDtos/TokenUserDto.cs" />
-        <option value="$PROJECT_DIR$/Controllers/AccountController.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/TokenService.cs" />
-        <option value="$PROJECT_DIR$/../Services/Data/IUserService.cs" />
-        <option value="$PROJECT_DIR$/../Services/Services/UserService.cs" />
-        <option value="$PROJECT_DIR$/Startup.cs" />
         <option value="$PROJECT_DIR$/../Data/Dto/UserDtos/UserDto.cs" />
         <option value="$PROJECT_DIR$/Controllers/OAuthController.cs" />
+        <option value="$PROJECT_DIR$/../Data/Dto/GraphDtos/CreateGraphDto.cs" />
+        <option value="$PROJECT_DIR$/../Data/Dto/MacroDtos/CreateMacroDto.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" />
+        <option value="$PROJECT_DIR$/EmailTemplates/Registration.cshtml.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/EmailServiceExtension.cs" />
+        <option value="$PROJECT_DIR$/Extensions/EmailServiceExtension.cs" />
+        <option value="$PROJECT_DIR$/Settings/MailConfigurationSettings.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" />
+        <option value="$PROJECT_DIR$/Services/ISendEmails.cs" />
+        <option value="$PROJECT_DIR$/Services/EmailSenderService.cs" />
+        <option value="$PROJECT_DIR$/../Services/Data/Data/RegisterUserEmail.cs" />
+        <option value="$PROJECT_DIR$/Nodester.WebApi.csproj" />
+        <option value="$PROJECT_DIR$/../Data/Dto/ForgotPasswordDto.cs" />
+        <option value="$PROJECT_DIR$/../Data/Dto/ResetPasswordDto.cs" />
+        <option value="$PROJECT_DIR$/../Data/Dto/EmailDtos/ForgotUserEmailDto.cs" />
+        <option value="$PROJECT_DIR$/appsettings.json" />
+        <option value="$PROJECT_DIR$/appsettings.Development.json" />
+        <option value="$PROJECT_DIR$/appsettings.Staging.json" />
+        <option value="$PROJECT_DIR$/../Data/Settings/AppSettings.cs" />
+        <option value="$PROJECT_DIR$/Startup.cs" />
+        <option value="$PROJECT_DIR$/../Data/Dto/EmailDtos/ResetPasswordEmailDto.cs" />
+        <option value="$PROJECT_DIR$/../Data/Dto/EmailDtos/ForgotPasswordEmailDto.cs" />
+        <option value="$PROJECT_DIR$/EmailTemplates/ForgotPassword.cshtml" />
+        <option value="$PROJECT_DIR$/EmailTemplates/ResetPassword.cshtml" />
+        <option value="$PROJECT_DIR$/../Data/Dto/UserDtos/RegisterDto.cs" />
+        <option value="$PROJECT_DIR$/EmailTemplates/Registration.cshtml" />
+        <option value="$PROJECT_DIR$/../Services/Data/IUserService.cs" />
+        <option value="$PROJECT_DIR$/Controllers/AccountController.cs" />
+        <option value="$PROJECT_DIR$/../Data/Dto/EmailDtos/RegisterUserDto.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/UserService.cs" />
       </list>
     </option>
   </component>
@@ -397,19 +448,6 @@
           <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Controllers/OAuthController.cs</url>
-          <line>82</line>
-          <properties documentPath="$PROJECT_DIR$/Controllers/OAuthController.cs" initialLine="81">
-            <startOffsets>
-              <option value="3637" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3777" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

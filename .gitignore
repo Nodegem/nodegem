@@ -214,10 +214,6 @@ project.lock.json
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)
 #####
 
-WebApi/appsettings.Development.json
-WebApi/appsettings.Staging.json
-WebApi/appsettings.Production.json
-
 **/logs/
 
 .config/

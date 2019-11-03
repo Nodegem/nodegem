@@ -1,0 +1,21 @@
+@model Nodester.Data.Dto.EmailDtos.RegisterUserDto
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="https://www.nodegem.io/favicon.ico" />
+    <title>Welcome to Nodegem</title>
+</head>
+<body>
+<div>
+    <h2>Welcome @Model.Username!</h2>
+    <p>To confirm your email please click this <a href="@Model.Url">link</a>.</p>    
+</div>
+</body>
+</html>
