@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using System.Text;
 using Mapster;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Http;
 using Nodester.Services.Data;
 using Nodester.Services.Exceptions;
@@ -31,6 +32,7 @@ namespace Nodester.Services
         private readonly ITokenService _tokenService;
         private readonly ISendEmails _emailService;
         private readonly AppSettings _appSettings;
+        private readonly IDataProtector _dataProtector;
 
         public UserService(
             SignInManager<ApplicationUser> signInManager,
@@ -38,7 +40,8 @@ namespace Nodester.Services
             ITokenService tokenService,
             ISendEmails emailService,
             IHttpContextAccessor contextAccessor,
-            IOptions<AppSettings> appSettings)
+            IOptions<AppSettings> appSettings,
+            IDataProtectionProvider protectionProvider)
         {
             _signInManager = signInManager;
             _userManager = userManager;
@@ -46,6 +49,7 @@ namespace Nodester.Services
             _emailService = emailService;
             _context = contextAccessor.HttpContext;
             _appSettings = appSettings.Value;
+            _dataProtector = protectionProvider.CreateProtector(_appSettings.SecretKey);
         }
 
         public async Task<bool> UserExistsAsync(string email)
@@ -56,7 +60,8 @@ namespace Nodester.Services
 
         public async Task<UserDto> GetUserByEmailAsync(string email)
         {
-            return (await _userManager.FindByEmailAsync(email)).Adapt<UserDto>();
+            var foundUser = await _userManager.FindByEmailAsync(email);
+            return foundUser == null ? null : UnprotectUser(foundUser);
         }
 
         public async Task<TokenDto> RegisterAsync(RegisterDto dto, UserLoginInfo info = null)
@@ -209,6 +214,7 @@ namespace Nodester.Services
                         });
                     return true;
                 }
+
                 return false;
             }
 
@@ -254,9 +260,10 @@ namespace Nodester.Services
 
         public TokenDto GetToken(ApplicationUser user)
         {
+            var userDto = UnprotectUser(user);
             var (accessToken, expires) =
-                _tokenService.GenerateJwtToken(user.Email, user.UserName, user.AvatarUrl, user.Id,
-                    user.Constants?.Select(x => x.Adapt<Constant>()));
+                _tokenService.GenerateJwtToken(userDto.Email, userDto.UserName, userDto.AvatarUrl, userDto.Id,
+                    userDto.Constants?.Select(x => x.Adapt<Constant>()));
             return new TokenDto
             {
                 AccessToken = accessToken,
@@ -269,8 +276,6 @@ namespace Nodester.Services
         {
             var options = _userManager.Options.Password;
 
-            var length = options.RequiredLength;
-
             var nonAlphanumeric = options.RequireNonAlphanumeric;
             var digit = options.RequireDigit;
             var lowercase = options.RequireLowercase;
@@ -278,6 +283,8 @@ namespace Nodester.Services
 
             var password = new StringBuilder();
             var random = new Random();
+
+            var length = random.Next(options.RequiredLength, options.RequiredLength + 16);
 
             while (password.Length < length)
             {
@@ -305,6 +312,34 @@ namespace Nodester.Services
                 password.Append((char) random.Next(65, 91));
 
             return password.ToString();
+        }
+
+        private ApplicationUser ProtectUser(UserDto user)
+        {
+            var userEntity = user.Adapt<ApplicationUser>();
+            userEntity.Constants = userEntity.Constants.Select(x =>
+            {
+                var constant = x.Adapt<Nodester.Data.Models.Json_Models.Graph_Constants.Constant>();
+                constant.Value = constant.IsSecret
+                    ? _dataProtector.Protect(constant.Value.ToString())
+                    : constant.Value;
+                return constant;
+            });
+            return userEntity;
+        }
+
+        private UserDto UnprotectUser(ApplicationUser user)
+        {
+            var userDto = user.Adapt<UserDto>();
+            userDto.Constants = userDto.Constants.Select(x =>
+            {
+                var constant = x.Adapt<ConstantDto>();
+                constant.Value = constant.IsSecret
+                    ? _dataProtector.Unprotect(constant.Value.ToString())
+                    : constant.Value;
+                return constant;
+            });
+            return userDto;
         }
     }
 }

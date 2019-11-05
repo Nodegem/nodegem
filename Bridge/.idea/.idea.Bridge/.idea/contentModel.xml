@@ -355,7 +355,9 @@
         <e p="ValueOutputDefinition.cs" t="Include" />
       </e>
       <e p="Exceptions" t="Include">
+        <e p="GraphBuildException.cs" t="Include" />
         <e p="GraphException.cs" t="Include" />
+        <e p="GraphRunException.cs" t="Include" />
         <e p="StartNotFoundException.cs" t="Include" />
       </e>
       <e p="FieldData.cs" t="Include" />

@@ -44,9 +44,14 @@ namespace Nodester.Bridge.Services
                 compiledMacro.IsRunningLocally = isRunningLocally;
                 await compiledMacro.RunAsync(flowInputFieldId);
             }
-            catch (GraphException ex)
+            catch (GraphBuildException ex)
             {
-                _logger.LogError(ex, $"Error during macro run with macro ID: {macro.Id}");
+                _logger.LogError(ex, $"Error while building macro with macro ID: {macro.Id}");
+                throw;
+            }
+            catch (GraphRunException ex)
+            {
+                _logger.LogError(ex, $"Error during macro excution with macro ID: {macro.Id}");
                 throw;
             }
             catch (Exception ex)
@@ -75,6 +80,11 @@ namespace Nodester.Bridge.Services
             {
                 using var provider = _provider.CreateScope();
                 var nodes = await macro.Nodes.ToNodeDictionaryAsync(provider.ServiceProvider, this, user);
+
+                if (!nodes.Any())
+                {
+                    throw new GraphBuildException("No nodes found", null);
+                }
 
                 var fields = BuildFields(macro);
                 var fieldDictionary = fields.FieldDictionary;

@@ -6,5 +6,6 @@ namespace Nodester.Data
         public string GraphName { get; set; }
         public string GraphId { get; set; }
         public BridgeInfo Bridge { get; set; }
+        public bool IsBuildError { get; set; }
     }
 }

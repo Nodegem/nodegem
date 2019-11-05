@@ -2,40 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/EmailDtos/ForgotPasswordEmailDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/EmailDtos/RegisterUserDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/EmailDtos/ResetPasswordEmailDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/ForgotPasswordDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/ResetPasswordDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Settings/AppSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Settings/MailConfigurationSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Data/ISendEmails.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmailTemplates/ForgotPassword.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmailTemplates/Registration.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EmailTemplates/ResetPassword.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Extensions/EmailServiceExtension.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/EmailSenderService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appsettings.Development.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appsettings.Staging.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Exceptions/GraphBuildException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Exceptions/GraphRunException.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/BackgroundServices/EngineService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/BackgroundServices/EngineService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Dto/GraphDtos/CreateGraphDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/GraphDtos/CreateGraphDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Dto/MacroDtos/CreateMacroDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/CreateMacroDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Dto/RecurringOptionsDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/GraphDtos/RecurringOptionsDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Data/ISendEmail.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Data/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Data/IUserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Data/Nodester.Services.Data.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Data/Nodester.Services.Data.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Services/EmailService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/Coordinator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/Coordinator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/Services/GraphBuildService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/Services/GraphBuildService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bridge/Bridge/Services/MacroBuildService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Bridge/Bridge/Services/MacroBuildService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/ExecutionErrorData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/ExecutionErrorData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Settings/AppSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Settings/AppSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Exceptions/DiscordException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Exceptions/DiscordException.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Services/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/UserService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/AccountController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Nodester.WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Nodester.WebApi.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appsettings.Staging.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.Staging.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -107,7 +89,6 @@
     <setting file="file://$PROJECT_DIR$/../Services/Services/UserService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Services/TokenService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Models/Graph.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Models/ApplicationUser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Models/Json Models/Node.cs" root0="FORCE_HIGHLIGHTING" />
@@ -126,7 +107,7 @@
     <setting file="file://$PROJECT_DIR$/../Data/Extensions/ConfigurationExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Configurations/MacroConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Configurations/UserConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Configurations/GraphConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/RegisterAssembly.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/ListenerNode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Node.cs" root0="FORCE_HIGHLIGHTING" />
@@ -215,12 +196,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core.Data/Attributes/DefinedNodeAttribute.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Start.cs" />
         <option value="$PROJECT_DIR$/../Data/Dto/ComponentDtos/NodeDto.cs" />
         <option value="$PROJECT_DIR$/../Common/Data/ExecutionErrorData.cs" />
-        <option value="$PROJECT_DIR$/../Data/ExecutionErrorData.cs" />
         <option value="$PROJECT_DIR$/../Common/Extensions/LinqExtensions.cs" />
         <option value="$PROJECT_DIR$/Extensions/DistributedCacheExtension.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/Extensions/DistributedCacheExtension.cs" />
@@ -251,10 +230,6 @@
         <option value="$PROJECT_DIR$/../Data/Dto/ForgotPasswordDto.cs" />
         <option value="$PROJECT_DIR$/../Data/Dto/ResetPasswordDto.cs" />
         <option value="$PROJECT_DIR$/../Data/Dto/EmailDtos/ForgotUserEmailDto.cs" />
-        <option value="$PROJECT_DIR$/appsettings.json" />
-        <option value="$PROJECT_DIR$/appsettings.Development.json" />
-        <option value="$PROJECT_DIR$/appsettings.Staging.json" />
-        <option value="$PROJECT_DIR$/../Data/Settings/AppSettings.cs" />
         <option value="$PROJECT_DIR$/Startup.cs" />
         <option value="$PROJECT_DIR$/../Data/Dto/EmailDtos/ResetPasswordEmailDto.cs" />
         <option value="$PROJECT_DIR$/../Data/Dto/EmailDtos/ForgotPasswordEmailDto.cs" />
@@ -265,7 +240,13 @@
         <option value="$PROJECT_DIR$/../Services/Data/IUserService.cs" />
         <option value="$PROJECT_DIR$/Controllers/AccountController.cs" />
         <option value="$PROJECT_DIR$/../Data/Dto/EmailDtos/RegisterUserDto.cs" />
+        <option value="$PROJECT_DIR$/../Data/ExecutionErrorData.cs" />
+        <option value="$PROJECT_DIR$/appsettings.json" />
+        <option value="$PROJECT_DIR$/appsettings.Development.json" />
+        <option value="$PROJECT_DIR$/appsettings.Staging.json" />
+        <option value="$PROJECT_DIR$/../Data/Settings/AppSettings.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/UserService.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" />
       </list>
     </option>
   </component>
@@ -406,6 +387,8 @@
       <workItem from="1571786848889" duration="22000" />
       <workItem from="1571787052980" duration="6369000" />
       <workItem from="1572128312104" duration="18961000" />
+      <workItem from="1572839226382" duration="43000" />
+      <workItem from="1572839295869" duration="5723000" />
     </task>
     <servers />
   </component>
