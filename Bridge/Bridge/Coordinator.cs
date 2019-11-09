@@ -5,7 +5,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Bridge.Data;
 using Microsoft.Extensions.Logging;
-using Nodester.Bridge.BackgroundServices;
 using Nodester.Bridge.Extensions;
 using Nodester.Common.Extensions;
 using Nodester.Data;
@@ -14,6 +13,7 @@ using Nodester.Data.Dto.MacroDtos;
 using Nodester.Data.Models;
 using Nodester.Data.Models.Json_Models;
 using Nodester.Engine.Data;
+using Nodester.Engine.Data.Exceptions;
 
 namespace Nodester.Bridge
 {
@@ -90,7 +90,8 @@ namespace Nodester.Bridge
                     Bridge = AppState.Instance.Info,
                     Message = ex.Message,
                     GraphId = graph.Id.ToString(),
-                    GraphName = graph.Name
+                    GraphName = graph.Name,
+                    IsBuildError = ex is GraphBuildException
                 });
             }
         }
@@ -132,7 +133,8 @@ namespace Nodester.Bridge
                     Bridge = AppState.Instance.Info,
                     Message = ex.Message,
                     GraphId = macro.Id.ToString(),
-                    GraphName = macro.Name
+                    GraphName = macro.Name,
+                    IsBuildError = ex is GraphBuildException
                 });
             }
         }

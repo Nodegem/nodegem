@@ -8,8 +8,12 @@ namespace Nodester.ThirdParty.Discord.Nodes
     [NodeNamespace("Third Party.Discord")]
     public abstract class DiscordNode : Node
     {
+        
+        protected IDiscordService Service { get; }
+        
         protected DiscordNode(IDiscordService discordService)
         {
+            Service = discordService;
         }
     }
 }

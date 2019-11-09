@@ -2,10 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbc70a65-0271-4a7a-995d-0bc022bc22ed" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Connections/Disconnect.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Connections/GetConnectionState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/User/GetUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Dto/UserDtos/UserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/UserDtos/UserDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/BaseLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/BaseLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/Log.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/Log.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogDebug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogDebug.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogError.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogWarn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogWarn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/DiscordNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/DiscordNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/MessageEventListenerNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message/MessageEventListenerNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/OnMessageDeleted.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message/OnMessageDeleted.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/OnMessageReceived.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message/OnMessageReceived.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/OnMessageUpdated.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message/OnMessageUpdated.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Reaction Events/OnReactionAdded.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Reaction/OnReactionAdded.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Nodester.Engine.ThirdParty.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Nodester.Engine.ThirdParty.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApi/Controllers/OAuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Controllers/OAuthController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebApi/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Controllers/AccountController.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,21 +56,24 @@
     <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/StartBot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Common/Extensions/ClaimExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/DiscordEventListenerNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/User/GetUser.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Connections/GetConnectionState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/NamespaceNodeDefinition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/DiscordNode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Connections/OnDisconnected.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Connections/OnConnected.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/OnMessageReceived.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message/OnMessageReceived.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/BridgeInfo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/MessageEventListenerNode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/OnMessageDeleted.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/OnMessageUpdated.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Reaction Events/OnReactionAdded.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Dto/RecurringOptionsDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message/MessageEventListenerNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message/OnMessageDeleted.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message/OnMessageUpdated.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Reaction/OnReactionAdded.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/GraphDtos/RecurringOptionsDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Exceptions/DiscordException.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGridService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/Nodes/SendEmail.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/Nodes/SendGridNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/60ADED43-C16B-4602-AED6-6A085123BA8F/1f/e7624063/ConnectionState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Dto/GraphDtos/GraphDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty.Data/Discord/IDiscordService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty.Data/SendGrid/ISendGridService.cs" root0="FORCE_HIGHLIGHTING" />
@@ -67,10 +86,14 @@
     <setting file="file://$PROJECT_DIR$/../Services/Services/TokenService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Models/Graph.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/02DE10A4-DA01-49DE-A57B-50C54BA4697F/4b/53d71075/DiscordSocketClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Services/NodeHttpClient.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Models/Json Models/Node.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Services/NodeCache.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Connections/Disconnect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Exceptions/GraphRunException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Exceptions/GraphBuildException.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Contexts/HangfireContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Extensions/DbSetExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Configurations/MacroConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
@@ -122,7 +145,6 @@
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Graph/GetConstant.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThanOrEqualTo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThan.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Services/Services/EmailService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThanOrEqualTo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThan.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/Or.cs" root0="FORCE_HIGHLIGHTING" />
@@ -175,6 +197,7 @@
     <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/ValueType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../WebApi/Startup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Nodes/IListenerNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/ExecutionErrorData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Nodes/INode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueField.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueOutputField.cs" root0="FORCE_HIGHLIGHTING" />
@@ -192,19 +215,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../Engine/Core.Data/Nodes/INode.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core.Data/Nodes/IListenerNode.cs" />
-        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/OnMessageDeleted.cs" />
-        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/OnMessageReceived.cs" />
-        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/OnMessageUpdated.cs" />
-        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/DiscordNode.cs" />
-        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/DiscordListenerNode.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/EventListenerNode.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core/EventListenerNode.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core/ListenerNode.cs" />
-        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/DiscordEventListenerNode.cs" />
-        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Connections/OnConnected.cs" />
-        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Connections/OnDisconnected.cs" />
         <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/MessageEventListenerNode.cs" />
         <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Reaction Events/OnReactionAdded.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/StringFormat.cs" />
@@ -227,22 +237,35 @@
         <option value="$PROJECT_DIR$/Bridge/Services/NodesterGraphService.cs" />
         <option value="$PROJECT_DIR$/Bridge/Services/NodesterUserService.cs" />
         <option value="$PROJECT_DIR$/Bridge/Services/NodesterApiService.cs" />
-        <option value="$PROJECT_DIR$/Bridge/Coordinator.cs" />
-        <option value="$PROJECT_DIR$/Bridge/BackgroundServices/EngineService.cs" />
         <option value="$PROJECT_DIR$/../Common/Data/Interfaces/ITerminalHubService.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core.Data/IGraph.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/Log.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogError.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogDebug.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogWarn.cs" />
         <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/StartBot.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core/BaseGraph.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core/FlowGraph.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core/ListenerGraph.cs" />
-        <option value="$PROJECT_DIR$/Bridge/Services/GraphBuildService.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroGraph.cs" />
-        <option value="$PROJECT_DIR$/Bridge/Services/MacroBuildService.cs" />
         <option value="$PROJECT_DIR$/Bridge/HubConnections/TerminalHubConnection.cs" />
+        <option value="$PROJECT_DIR$/Bridge/BackgroundServices/EngineService.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Core.Data/Exceptions/GraphRunException.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Core.Data/Exceptions/GraphBuildException.cs" />
+        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Exceptions/DiscordException.cs" />
+        <option value="$PROJECT_DIR$/Bridge/Services/MacroBuildService.cs" />
+        <option value="$PROJECT_DIR$/Bridge/Services/GraphBuildService.cs" />
+        <option value="$PROJECT_DIR$/../Data/ExecutionErrorData.cs" />
+        <option value="$PROJECT_DIR$/Bridge/Coordinator.cs" />
+        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/DiscordNode.cs" />
+        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message Events/OnMessageReceived.cs" />
+        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Connections/GetConnectedState.cs" />
+        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Connections/Disconnect.cs" />
+        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Connections/GetConnectionState.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/Log.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogDebug.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogError.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogWarn.cs" />
+        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message/OnMessageReceived.cs" />
+        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/User/GetUser.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Core/Core/Utils/ConvertHelper.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/BaseLog.cs" />
       </list>
     </option>
   </component>
@@ -427,6 +450,7 @@
       <workItem from="1571024209505" duration="3083000" />
       <workItem from="1571879430729" duration="7341000" />
       <workItem from="1572128323511" duration="3250000" />
+      <workItem from="1572839320593" duration="11381000" />
     </task>
     <servers />
   </component>
@@ -468,6 +492,32 @@
           <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Bridge/Coordinator.cs</url>
+          <line>87</line>
+          <properties documentPath="$PROJECT_DIR$/Bridge/Coordinator.cs" initialLine="87">
+            <startOffsets>
+              <option value="3464" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3819" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message/OnMessageReceived.cs</url>
+          <line>23</line>
+          <properties documentPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message/OnMessageReceived.cs" initialLine="23">
+            <startOffsets>
+              <option value="663" />
+            </startOffsets>
+            <endOffsets>
+              <option value="691" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

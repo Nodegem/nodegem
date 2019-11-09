@@ -42,9 +42,14 @@ namespace Nodester.Bridge.Services
                 compiledGraph.IsRunningLocally = isRunningLocally;
                 await compiledGraph.RunAsync();
             }
-            catch (GraphException ex)
+            catch (GraphBuildException ex)
             {
-                _logger.LogError(ex, $"Error during graph run with ID: {graph.Id}");
+                _logger.LogError(ex, $"Error while building graph with ID: {graph.Id}");
+                throw;
+            }
+            catch (GraphRunException ex)
+            {
+                _logger.LogError(ex, $"Error during graph execution with ID: {graph.Id}");
                 throw;
             }
             catch (Exception ex)

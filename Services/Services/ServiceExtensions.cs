@@ -22,8 +22,6 @@ namespace Nodester.Services
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<ITokenService, TokenService>();
 
-            services.AddTransient<ISendEmail, EmailService>();
-
             services.RegisterCommonServices();
         }
 

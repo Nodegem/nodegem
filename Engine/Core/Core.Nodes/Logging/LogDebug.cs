@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Nodester.Common.Data.Interfaces;
 using Nodester.Engine.Data.Attributes;
 
@@ -9,9 +10,9 @@ namespace Nodester.Graph.Core.Nodes.Logging
         {
         }
 
-        protected override void ExecuteLog(string message, bool sendToClient)
+        protected override async Task ExecuteLogAsync(string message, bool sendToClient)
         {
-            LogService.DebugLogAsync(Graph.User, Graph.Id.ToString(), message, Graph.DebugMode, sendToClient);
+            await LogService.DebugLogAsync(Graph.User, Graph.Id.ToString(), message, Graph.DebugMode, sendToClient);
         }
     }
 }

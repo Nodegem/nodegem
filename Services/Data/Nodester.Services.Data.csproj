@@ -8,4 +8,8 @@
     <ProjectReference Include="..\..\Data\Nodester.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentEmail.Core" Version="2.7.0" />
+  </ItemGroup>
+
 </Project>

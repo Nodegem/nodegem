@@ -12,9 +12,8 @@
 
   <ItemGroup>
     <Folder Include="Discord\Nodes\Channel Events" />
-    <Folder Include="Discord\Nodes\Guild Events" />
-    <Folder Include="Discord\Nodes\Role Events" />
-    <Folder Include="Discord\Nodes\User Events" />
+    <Folder Include="Discord\Nodes\Guild" />
+    <Folder Include="Discord\Nodes\Role" />
     <Folder Include="SendGrid" />
     <Folder Include="Twilio" />
   </ItemGroup>

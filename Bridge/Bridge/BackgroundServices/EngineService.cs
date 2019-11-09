@@ -99,7 +99,14 @@ namespace Nodester.Bridge.BackgroundServices
 
                 _timer.Elapsed += async (sender, e) =>
                 {
-                    await _graphConnection.UpdateBridgeAsync(CancellationToken.None);
+                    try
+                    {
+                        await _graphConnection.UpdateBridgeAsync(CancellationToken.None);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError(ex, "Error while pinging server");
+                    }
                 };
 
                 _timer.Start();
