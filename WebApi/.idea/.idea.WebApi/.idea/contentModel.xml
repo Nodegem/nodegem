@@ -41,7 +41,7 @@
         <e p="UserConfiguration.cs" t="Include" />
       </e>
       <e p="Contexts" t="Include">
-        <e p="HangfireContext.cs" t="Include" />
+        <e p="KeysContext.cs" t="Include" />
         <e p="NodesterDBContext.cs" t="Include" />
       </e>
       <e p="Dto" t="Include">
@@ -494,34 +494,13 @@
         <e p="Engine" t="Include" />
       </e>
       <e p="Migrations" t="Include">
-        <e p="20181214041414_Initial.cs" t="Include" />
-        <e p="20181214041414_Initial.Designer.cs" t="Include" />
-        <e p="20181214043957_SeedUserData.cs" t="Include" />
-        <e p="20181214043957_SeedUserData.Designer.cs" t="Include" />
-        <e p="20181214045222_UpdatingAdminUserSeedData.cs" t="Include" />
-        <e p="20181214045222_UpdatingAdminUserSeedData.Designer.cs" t="Include" />
-        <e p="20181214180404_ExpiresUtcToRefreshTokens.cs" t="Include" />
-        <e p="20181214180404_ExpiresUtcToRefreshTokens.Designer.cs" t="Include" />
-        <e p="20181231180054_Hangfire.cs" t="Include" />
-        <e p="20181231180054_Hangfire.Designer.cs" t="Include" />
-        <e p="20190603221307_TokenNameChange.cs" t="Include" />
-        <e p="20190603221307_TokenNameChange.Designer.cs" t="Include" />
-        <e p="20190603221437_ActualTokenNameChange.cs" t="Include" />
-        <e p="20190603221437_ActualTokenNameChange.Designer.cs" t="Include" />
-        <e p="20190608190712_ChangingUpConstants.cs" t="Include" />
-        <e p="20190608190712_ChangingUpConstants.Designer.cs" t="Include" />
-        <e p="20190623213436_AddingDebugFlagToGraphs.cs" t="Include" />
-        <e p="20190623213436_AddingDebugFlagToGraphs.Designer.cs" t="Include" />
-        <e p="20190705211736_GraphTypes.cs" t="Include" />
-        <e p="20190705211736_GraphTypes.Designer.cs" t="Include" />
-        <e p="20190705231350_GraphRecurringOptions.cs" t="Include" />
-        <e p="20190705231350_GraphRecurringOptions.Designer.cs" t="Include" />
-        <e p="20191027185945_Google.cs" t="Include" />
-        <e p="20191027185945_Google.Designer.cs" t="Include" />
-        <e p="20191027221052_AvatarUrl.cs" t="Include" />
-        <e p="20191027221052_AvatarUrl.Designer.cs" t="Include" />
-        <e p="20191027224128_Github.cs" t="Include" />
-        <e p="20191027224128_Github.Designer.cs" t="Include" />
+        <e p="20191109183513_Initial.cs" t="Include" />
+        <e p="20191109183513_Initial.Designer.cs" t="Include" />
+        <e p="Keys" t="Include">
+          <e p="20191109184552_AddDataProtectionKeys.cs" t="Include" />
+          <e p="20191109184552_AddDataProtectionKeys.Designer.cs" t="Include" />
+          <e p="KeysContextModelSnapshot.cs" t="Include" />
+        </e>
         <e p="NodesterDBContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="nlog.config" t="Include" />

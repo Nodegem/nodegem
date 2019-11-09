@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Nodester.WebApi.Migrations
 {
     [DbContext(typeof(NodesterDBContext))]
-    [Migration("20191027224128_Github")]
-    partial class Github
+    [Migration("20191109183513_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -254,9 +254,9 @@ namespace Nodester.WebApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6ae8a45b-def7-4233-97a2-ddcf54419a8e"),
+                            Id = new Guid("c962c8ae-aaac-4a0b-aea4-1f13f06df12a"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "399ba5a3-3b71-476e-a04c-a4ddedc5f925",
+                            ConcurrencyStamp = "f9af2cc0-ee6b-4115-9526-ce931a34f2a7",
                             Constants = "[]",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@admin.com",
@@ -268,9 +268,9 @@ namespace Nodester.WebApi.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMINUSER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFUpwtd1m3xcpcuraWW2zPCd0reuzVUSAORdAQIaYwvxQ360d+2cVJKbswn+Imc+Kw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEEN3CwmfH0/+HE5jYg9F8Leq7ti8k3/ilsyLZFKPYkVhFTxd55ax49+cIll0UNLsg==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "36ee55cb32304ca0b777bcf24a6a2b0d",
+                            SecurityStamp = "5d4472a5b2204f3a970a61c6a2c8f6c8",
                             TwoFactorEnabled = false,
                             UserName = "AdminUser"
                         });

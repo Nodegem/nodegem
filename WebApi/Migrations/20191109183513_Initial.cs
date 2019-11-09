@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Nodester.WebApi.Migrations
 {
@@ -16,7 +17,10 @@ namespace Nodester.WebApi.Migrations
                     NormalizedName = table.Column<string>(maxLength: 256, nullable: true),
                     ConcurrencyStamp = table.Column<string>(nullable: true)
                 },
-                constraints: table => { table.PrimaryKey("PK_AspNetRoles", x => x.Id); });
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetRoles", x => x.Id);
+                });
 
             migrationBuilder.CreateTable(
                 name: "AspNetUsers",
@@ -39,21 +43,25 @@ namespace Nodester.WebApi.Migrations
                     Email = table.Column<string>(maxLength: 256, nullable: false),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
-                    EnvironmentVariables = table.Column<string>(nullable: true),
+                    AvatarUrl = table.Column<string>(nullable: true),
+                    Constants = table.Column<string>(nullable: true),
                     LastLoggedIn = table.Column<DateTime>(nullable: false),
                     IsLocked = table.Column<bool>(nullable: false),
                     IsActive = table.Column<bool>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     LastUpdated = table.Column<DateTime>(nullable: false)
                 },
-                constraints: table => { table.PrimaryKey("PK_AspNetUsers", x => x.Id); });
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
 
             migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     RoleId = table.Column<Guid>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -70,11 +78,36 @@ namespace Nodester.WebApi.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "AccessTokens",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    LastUpdated = table.Column<DateTime>(nullable: false),
+                    Token = table.Column<string>(nullable: false),
+                    IssuedUtc = table.Column<DateTime>(nullable: false),
+                    ExpiresUtc = table.Column<DateTime>(nullable: false),
+                    UserId = table.Column<Guid>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AccessTokens", x => x.Id);
+                    table.UniqueConstraint("AK_AccessTokens_Token", x => x.Token);
+                    table.UniqueConstraint("AK_AccessTokens_UserId", x => x.UserId);
+                    table.ForeignKey(
+                        name: "FK_AccessTokens_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetUserClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     UserId = table.Column<Guid>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -101,7 +134,7 @@ namespace Nodester.WebApi.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AspNetUserLogins", x => new {x.LoginProvider, x.ProviderKey});
+                    table.PrimaryKey("PK_AspNetUserLogins", x => new { x.LoginProvider, x.ProviderKey });
                     table.ForeignKey(
                         name: "FK_AspNetUserLogins_AspNetUsers_UserId",
                         column: x => x.UserId,
@@ -119,7 +152,7 @@ namespace Nodester.WebApi.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AspNetUserRoles", x => new {x.UserId, x.RoleId});
+                    table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
                     table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
                         column: x => x.RoleId,
@@ -145,7 +178,7 @@ namespace Nodester.WebApi.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AspNetUserTokens", x => new {x.UserId, x.LoginProvider, x.Name});
+                    table.PrimaryKey("PK_AspNetUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
                     table.ForeignKey(
                         name: "FK_AspNetUserTokens_AspNetUsers_UserId",
                         column: x => x.UserId,
@@ -162,12 +195,15 @@ namespace Nodester.WebApi.Migrations
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     LastUpdated = table.Column<DateTime>(nullable: false),
                     IsActive = table.Column<bool>(nullable: false),
+                    UserId = table.Column<Guid>(nullable: false),
+                    IsDebugModeEnabled = table.Column<bool>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Nodes = table.Column<string>(nullable: true),
-                    Constants = table.Column<string>(nullable: true),
-                    UserId = table.Column<Guid>(nullable: false),
-                    Links = table.Column<string>(nullable: true)
+                    Type = table.Column<int>(nullable: false),
+                    RecurringOptions = table.Column<string>(nullable: true),
+                    Links = table.Column<string>(nullable: true),
+                    Constants = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -188,11 +224,11 @@ namespace Nodester.WebApi.Migrations
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     LastUpdated = table.Column<DateTime>(nullable: false),
                     IsActive = table.Column<bool>(nullable: false),
+                    UserId = table.Column<Guid>(nullable: false),
+                    IsDebugModeEnabled = table.Column<bool>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Nodes = table.Column<string>(nullable: true),
-                    Constants = table.Column<string>(nullable: true),
-                    UserId = table.Column<Guid>(nullable: false),
                     FlowInputs = table.Column<string>(nullable: true),
                     FlowOutputs = table.Column<string>(nullable: true),
                     ValueInputs = table.Column<string>(nullable: true),
@@ -210,29 +246,10 @@ namespace Nodester.WebApi.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "RefreshTokens",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(nullable: false),
-                    CreatedOn = table.Column<DateTime>(nullable: false),
-                    LastUpdated = table.Column<DateTime>(nullable: false),
-                    IssuedUtc = table.Column<DateTime>(nullable: false),
-                    Token = table.Column<string>(nullable: false),
-                    UserId = table.Column<Guid>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RefreshTokens", x => x.Id);
-                    table.UniqueConstraint("AK_RefreshTokens_Token", x => x.Token);
-                    table.UniqueConstraint("AK_RefreshTokens_UserId", x => x.UserId);
-                    table.ForeignKey(
-                        name: "FK_RefreshTokens_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "AvatarUrl", "ConcurrencyStamp", "Constants", "CreatedOn", "Email", "EmailConfirmed", "FirstName", "IsActive", "IsLocked", "LastLoggedIn", "LastName", "LastUpdated", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { new Guid("c962c8ae-aaac-4a0b-aea4-1f13f06df12a"), 0, null, "f9af2cc0-ee6b-4115-9526-ce931a34f2a7", "[]", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@admin.com", true, null, true, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), false, null, "ADMIN@ADMIN.COM", "ADMINUSER", "AQAAAAEAACcQAAAAEEEN3CwmfH0/+HE5jYg9F8Leq7ti8k3/ilsyLZFKPYkVhFTxd55ax49+cIll0UNLsg==", null, true, "5d4472a5b2204f3a970a61c6a2c8f6c8", false, "AdminUser" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -291,6 +308,9 @@ namespace Nodester.WebApi.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "AccessTokens");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
             migrationBuilder.DropTable(
@@ -310,9 +330,6 @@ namespace Nodester.WebApi.Migrations
 
             migrationBuilder.DropTable(
                 name: "Macros");
-
-            migrationBuilder.DropTable(
-                name: "RefreshTokens");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

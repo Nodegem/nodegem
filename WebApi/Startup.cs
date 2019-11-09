@@ -6,6 +6,7 @@ using Digiop.Shared.Extensions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -21,7 +22,6 @@ using Nodester.Data.Models;
 using Nodester.Data.Settings;
 using Nodester.Services;
 using Nodester.Services.Hubs;
-using Nodester.WebApi.Services;
 using Nodester.WebApi.Settings;
 
 namespace Nodester.WebApi
@@ -40,10 +40,6 @@ namespace Nodester.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDataProtection();
-
-            services.AddHealthChecks()
-                .AddNpgSql(Configuration.GetConnectionString("nodesterDb"), name: "NodesterDB");
             services.Configure<TokenSettings>(Configuration.GetSection("TokenSettings"));
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
@@ -57,6 +53,20 @@ namespace Nodester.WebApi
                     options.UseNpgsql(Configuration.GetConnectionString("nodesterDb"),
                         b => b.MigrationsAssembly("Nodester.WebApi"));
                 });
+            
+            services.AddEntityFrameworkNpgsql()
+                .AddDbContext<KeysContext>(options =>
+                {
+                    options.UseNpgsql(Configuration.GetConnectionString("keysDb"),
+                        b => b.MigrationsAssembly("Nodester.WebApi"));
+                });
+            
+            services.AddDataProtection()
+                .SetApplicationName(Configuration["AppSettings:AppName"])
+                .PersistKeysToDbContext<KeysContext>();
+            
+            services.AddHealthChecks()
+                .AddNpgSql(Configuration.GetConnectionString("nodesterDb"), name: "NodesterDB");
 
             services.AddIdentity<ApplicationUser, Role>()
                 .AddEntityFrameworkStores<NodesterDBContext>()

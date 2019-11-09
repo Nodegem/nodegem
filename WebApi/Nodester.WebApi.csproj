@@ -55,4 +55,7 @@
     <ProjectReference Include="..\Services\Data\Nodester.Services.Data.csproj" />
     <ProjectReference Include="..\Services\Services\Nodester.Services.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Migrations" />
+  </ItemGroup>
 </Project>

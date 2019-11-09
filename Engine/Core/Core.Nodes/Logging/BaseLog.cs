@@ -13,8 +13,7 @@ namespace Nodester.Graph.Core.Nodes.Logging
         public IFlowInputField In { get; set; }
         public IFlowOutputField Out { get; set; }
 
-        [FieldAttributes(ValueType.TextArea)]
-        public IValueInputField Message { get; set; }
+        [FieldAttributes(ValueType.TextArea)] public IValueInputField Message { get; set; }
 
         protected ITerminalHubService LogService { get; }
 
@@ -32,7 +31,7 @@ namespace Nodester.Graph.Core.Nodes.Logging
 
         private async Task<IFlowOutputField> PerformLog(IFlow flow)
         {
-            ExecuteLogAsync((await flow.GetValueAsync<object>(Message)).ToString(), !Graph.IsRunningLocally);
+            await ExecuteLogAsync((await flow.GetValueAsync<object>(Message)).ToString(), !Graph.IsRunningLocally);
             return Out;
         }
 
