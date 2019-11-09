@@ -151,10 +151,12 @@ namespace Nodester.WebApi.Controllers
                     return Ok();
                 }
 
+                _logger.LogError("User has invalid token");
                 return BadRequest("Invalid token");
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Unable to confirm user's email");
                 return BadRequest();
             }
         }

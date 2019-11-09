@@ -1,3 +1,4 @@
+using System;
 using ThirdParty.Data.Discord;
 
 namespace Nodester.ThirdParty.Discord.Nodes.Message_Events
@@ -13,8 +14,15 @@ namespace Nodester.ThirdParty.Discord.Nodes.Message_Events
         {
             DiscordService.Client.MessageReceived += async message =>
             {
-                SetBaseValues(message);
-                await Graph.RunFlowAsync(On);
+                try
+                {
+                    SetBaseValues(message);
+                    await Graph.RunFlowAsync(On);
+                }
+                catch (Exception ex)
+                {
+                    Console.Error.WriteLine(ex);
+                }
             };
         }
     }

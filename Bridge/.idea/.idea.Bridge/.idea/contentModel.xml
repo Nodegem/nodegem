@@ -412,25 +412,29 @@
         <e p="Nodes" t="Include">
           <e p="Channel Events" t="Include" />
           <e p="Connections" t="Include">
+            <e p="Disconnect.cs" t="Include" />
+            <e p="GetConnectionState.cs" t="Include" />
             <e p="OnConnected.cs" t="Include" />
             <e p="OnDisconnected.cs" t="Include" />
           </e>
           <e p="DiscordEventListenerNode.cs" t="Include" />
           <e p="DiscordListenerNode.cs" t="Include" />
           <e p="DiscordNode.cs" t="Include" />
-          <e p="Guild Events" t="Include" />
-          <e p="Message Events" t="Include">
+          <e p="Guild" t="Include" />
+          <e p="Message" t="Include">
             <e p="MessageEventListenerNode.cs" t="Include" />
             <e p="OnMessageDeleted.cs" t="Include" />
             <e p="OnMessageReceived.cs" t="Include" />
             <e p="OnMessageUpdated.cs" t="Include" />
           </e>
-          <e p="Reaction Events" t="Include">
+          <e p="Reaction" t="Include">
             <e p="OnReactionAdded.cs" t="Include" />
           </e>
-          <e p="Role Events" t="Include" />
+          <e p="Role" t="Include" />
           <e p="StartBot.cs" t="Include" />
-          <e p="User Events" t="Include" />
+          <e p="User" t="Include">
+            <e p="GetUser.cs" t="Include" />
+          </e>
         </e>
         <e p="ServiceExtensions.cs" t="Include" />
       </e>
