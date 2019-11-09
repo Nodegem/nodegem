@@ -24,7 +24,6 @@ namespace Nodester.Services
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ITokenService _tokenService;
         private readonly ISendEmail _emailService;
-        private IUserService _userServiceImplementation;
 
         public UserService(
             SignInManager<ApplicationUser> signInManager,

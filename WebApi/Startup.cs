@@ -174,6 +174,7 @@ namespace Nodester.WebApi
             if (env.IsDevelopment() || env.IsStaging())
             {
                 app.UseDeveloperExceptionPage();
+                nodesterContext.Database.Migrate();
             }
 
             if (env.IsStaging() || env.IsProduction())
