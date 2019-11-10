@@ -14,7 +14,7 @@ using Nodester.Engine.Data.Nodes;
 using Nodester.Graph.Core.Extensions;
 using Nodester.Graph.Core.Fields.Graph;
 using Nodester.Graph.Core.Utils;
-using ValueType = Nodester.Engine.Data.ValueType;
+using ValueType = Nodester.Common.Data.ValueType;
 
 namespace Nodester.Graph.Core
 {
@@ -79,6 +79,22 @@ namespace Nodester.Graph.Core
             return this;
         }
 
+        public INode PopulateIndefinites(IEnumerable<KeyValuePair<string, string>> indefiniteKeyValuePairs)
+        {
+            if (!indefiniteKeyValuePairs.Any()) return this;
+            indefiniteKeyValuePairs.ForEach(i =>
+            {
+                var (key, value) = i;
+                if (!FieldMap.ContainsKey(value) && IndefiniteFields.ContainsKey(key))
+                {
+                    IndefiniteFields[key].Invoke(value);
+                }
+            });
+            AggregateFields();
+
+            return this;
+        }
+
         public INode SetId(Guid id)
         {
             Id = id;
@@ -96,22 +112,20 @@ namespace Nodester.Graph.Core
         private void MapDataToIo(IEnumerable<FieldData> fields)
         {
             var fieldList = fields.ToList();
-            fieldList.ForEach(f =>
+            var inputDict = ValueInputs.ToDictionary(k => k.Key, v => v);
+            var outputDict = ValueOutputs.ToDictionary(k => k.Key, v => v);
+            fieldList.ForEach(x =>
             {
-                if (!f.Key.Contains('|') || FieldMap.ContainsKey(f.Key)) return;
-                var @base = f.Key.Split('|')[0].ToLower();
-                if (IndefiniteFields.ContainsKey(@base))
+                if (inputDict.ContainsKey(x.Key))
                 {
-                    IndefiniteFields[@base].Invoke(f.Key);
+                    inputDict[x.Key].SetValue(x.Value);
+                }
+
+                if (outputDict.ContainsKey(x.Key))
+                {
+                    outputDict[x.Key].SetValue(x.Value);
                 }
             });
-            var inputDict = ValueInputs.ToDictionary(k => k.Key, v => v);
-            fieldList.ForEach(x => inputDict[x.Key].SetValue(x.Value));
-
-            if (fieldList.Any())
-            {
-                AggregateFields();
-            }
         }
 
         public virtual NodeDefinition GetDefinition()
@@ -124,12 +138,14 @@ namespace Nodester.Graph.Core
                 Description = Type.GetAttributeValue((DefinedNodeAttribute dn) => dn.Description),
                 IgnoreDisplay = Type.GetAttributeValue((DefinedNodeAttribute dn) => dn.IgnoreDisplay),
                 FlowInputs = FlowInputs.Select(x => x.ToFlowInputDefinition(fieldLabels[x.Key].Label)).ToList(),
-                FlowOutputs = FlowOutputs.Select(x => x.ToFlowOutputDefinition(fieldLabels[x.Key].Label)).ToList(),
+                FlowOutputs = FlowOutputs.Select(x =>
+                    x.ToFlowOutputDefinition(fieldLabels[x.Key].Label, fieldLabels[x.Key].Indefinite)).ToList(),
                 ValueInputs = ValueInputs
                     .Select(x => x.ToValueInputDefinition(fieldLabels[x.Key].Label, fieldLabels[x.Key].Type,
-                        fieldLabels[x.Key].Indefinite)).ToList(),
+                        fieldLabels[x.Key].Indefinite, fieldLabels[x.Key].IsEditable)).ToList(),
                 ValueOutputs = ValueOutputs
-                    .Select(x => x.ToValueOutputDefinition(fieldLabels[x.Key].Label, fieldLabels[x.Key].Type)).ToList()
+                    .Select(x => x.ToValueOutputDefinition(fieldLabels[x.Key].Label, fieldLabels[x.Key].Type,
+                        fieldLabels[x.Key].Indefinite)).ToList()
             };
         }
 
@@ -170,6 +186,45 @@ namespace Nodester.Graph.Core
                     ValueInputs.Add(newInput);
                 });
             return inputs;
+        }
+
+        protected IEnumerable<ValueOutput> InitializeValueOutputList<T>(string baseKey,
+            Func<IFlow, string, Task<object>> valueFunc,
+            int amount = 1)
+        {
+            // Initial "keys" will always be numeric but anything new will be a GUID
+            var outputs = Enumerable.Range(0, amount)
+                .Select((x, i) =>
+                    new ValueOutput($"{baseKey.ToLower()}|{i}", flow => valueFunc(flow, $"{baseKey.ToLower()}|{i}"),
+                        typeof(T)))
+                .ToList();
+            outputs.ForEach(ValueOutputs.Add);
+            IndefiniteFields.Add(baseKey.ToLower(),
+                key =>
+                {
+                    var newValueOutput = new ValueOutput(key, flow => valueFunc(flow, key), typeof(T));
+                    outputs.Add(newValueOutput);
+                    ValueOutputs.Add(newValueOutput);
+                });
+            return outputs;
+        }
+
+        protected IEnumerable<FlowOutput> InitializeFlowOutputList(string baseKey,
+            int amount = 1)
+        {
+            // Initial "keys" will always be numeric but anything new will be a GUID
+            var outputs = Enumerable.Range(0, amount)
+                .Select((x, i) => new FlowOutput($"{baseKey}|{i}"))
+                .ToList();
+            outputs.ForEach(FlowOutputs.Add);
+            IndefiniteFields.Add(baseKey.ToLower(),
+                key =>
+                {
+                    var newFlowOutput = new FlowOutput(key);
+                    outputs.Add(newFlowOutput);
+                    FlowOutputs.Add(newFlowOutput);
+                });
+            return outputs;
         }
 
         protected ValueOutput AddValueOutput<T>(string key)
@@ -248,7 +303,8 @@ namespace Nodester.Graph.Core
                             Indefinite = true,
                             Label = fieldAttributes.Label,
                             Type = fieldAttributes.Type ??
-                                   (field is IValueField vField ? vField.ValueType : ValueType.Any)
+                                   (field is IValueField vField ? vField.ValueType : ValueType.Any),
+                            IsEditable = fieldAttributes.IsEditable
                         });
                     }
 
@@ -260,7 +316,8 @@ namespace Nodester.Graph.Core
                             Label = label ?? fieldAttributes.Label,
                             Indefinite = false,
                             Type = fieldAttributes.Type ??
-                                   (field is IValueField valueField ? valueField.ValueType : ValueType.Any)
+                                   (field is IValueField valueField ? valueField.ValueType : ValueType.Any),
+                            IsEditable = fieldAttributes.IsEditable
                         }
                     };
                 })
@@ -279,7 +336,8 @@ namespace Nodester.Graph.Core
             public string Key { get; set; }
             public string Label { get; set; }
             public bool Indefinite { get; set; }
-            public Engine.Data.ValueType Type { get; set; }
+            public ValueType Type { get; set; }
+            public bool IsEditable { get; set; }
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Nodester.Common.Data;
 using Nodester.Common.Extensions;
+using Nodester.Data;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Fields;
 using Nodester.Engine.Data.Nodes;
@@ -23,13 +24,14 @@ namespace Nodester.Graph.Core.Macro
 
         public MacroGraph(
             Guid id,
+            BridgeInfo bridge,
             string name,
             Dictionary<Guid, INode> nodes,
             IEnumerable<IMacroFlowInputField> flowInputs, IEnumerable<IMacroFlowOutputField> flowOutputs,
             IEnumerable<IMacroValueInputField> valueInputs, IEnumerable<IMacroValueOutputField> valueOutputs,
             IDictionary<string, IField> fieldDictionary,
             User user)
-            : base(id, name, nodes, user)
+            : base(id, bridge, name, nodes, user)
         {
             FieldDictionary = fieldDictionary;
             FlowInputs = flowInputs;
@@ -103,6 +105,5 @@ namespace Nodester.Graph.Core.Macro
         {
             return new Nodes.Essential.Macro(this);
         }
-        
     }
 }

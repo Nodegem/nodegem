@@ -1,9 +1,7 @@
 using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Nodester.Engine.Data;
+using Nodester.Common.Data;
 
-namespace Nodester.Data.Dto.MacroDtos.FieldDtos.ValueFieldDtos
+namespace Nodester.Common.Dto.ValueFieldDtos
 {
     public abstract class ValueFieldDto : BaseFieldDto
     {

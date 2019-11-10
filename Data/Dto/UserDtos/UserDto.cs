@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using Nodester.Data.Dto.ComponentDtos;
+using Nodester.Common.Dto.ComponentDtos;
 
 namespace Nodester.Data.Dto.UserDtos
 {

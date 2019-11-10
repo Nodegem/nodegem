@@ -1,4 +1,4 @@
-namespace Nodester.Data.Dto.MacroDtos.FieldDtos.ValueFieldDtos
+namespace Nodester.Common.Dto.ValueFieldDtos
 {
     public class ValueOutputDto : ValueFieldDto
     {

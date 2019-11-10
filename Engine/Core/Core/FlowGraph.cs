@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Nodester.Common.Data;
+using Nodester.Data;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Exceptions;
 using Nodester.Engine.Data.Links;
@@ -19,11 +20,12 @@ namespace Nodester.Graph.Core
 
         public FlowGraph(
             Guid id,
+            BridgeInfo bridge,
             string name,
             Dictionary<Guid, INode> nodes, 
             Dictionary<Guid, Constant> constants, 
             User user)
-            : base(id, name, nodes, user)
+            : base(id, bridge, name, nodes, user)
         {
             _flow = new Flow();
             Constants = constants;

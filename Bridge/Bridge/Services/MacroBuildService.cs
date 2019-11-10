@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Bridge.Data;
+using Mapster;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Nodester.Bridge.Extensions;
 using Nodester.Common.Data;
+using Nodester.Common.Dto;
+using Nodester.Common.Dto.ComponentDtos;
 using Nodester.Data.Dto.MacroDtos;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Exceptions;
@@ -79,7 +82,10 @@ namespace Nodester.Bridge.Services
             try
             {
                 using var provider = _provider.CreateScope();
-                var nodes = await macro.Nodes.ToNodeDictionaryAsync(provider.ServiceProvider, this, user);
+                // That conversion is kinda unnecessary but I don't wanna make a new object right now
+                // TODO: Clean that up
+                var nodes = await macro.Nodes.ToNodeDictionaryAsync(macro.Links.Select(l => l.Adapt<LinkDto>()),
+                    provider.ServiceProvider, this, user);
 
                 if (!nodes.Any())
                 {
@@ -101,7 +107,8 @@ namespace Nodester.Bridge.Services
 
                 EstablishConnections(nodes, fieldDictionary, links);
 
-                var builtMacro = new MacroGraph(macro.Id, macro.Name, nodes, fields.FlowInputs, fields.FlowOutputs,
+                var builtMacro = new MacroGraph(macro.Id, AppState.Instance.Info, macro.Name, nodes, fields.FlowInputs,
+                    fields.FlowOutputs,
                     fields.ValueInputs, fields.ValueOutputs, fieldDictionary, user);
 
                 return builtMacro;

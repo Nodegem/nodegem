@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Nodester.Common.Data;
 using Nodester.Common.Data.Interfaces;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
@@ -31,7 +32,7 @@ namespace Nodester.Graph.Core.Nodes.Logging
 
         private async Task<IFlowOutputField> PerformLog(IFlow flow)
         {
-            await ExecuteLogAsync((await flow.GetValueAsync<object>(Message)).ToString(), !Graph.IsRunningLocally);
+            await ExecuteLogAsync((await flow.GetValueAsync<string>(Message)), !Graph.IsRunningLocally);
             return Out;
         }
 

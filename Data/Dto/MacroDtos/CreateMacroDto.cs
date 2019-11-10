@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Nodester.Data.Dto.MacroDtos.FieldDtos.FlowFieldDtos;
-using Nodester.Data.Dto.MacroDtos.FieldDtos.ValueFieldDtos;
+using Nodester.Common.Dto.FlowFieldDtos;
+using Nodester.Common.Dto.ValueFieldDtos;
 
 namespace Nodester.Data.Dto.MacroDtos
 {

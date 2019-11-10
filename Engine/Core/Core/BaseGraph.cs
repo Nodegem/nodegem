@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using Nodester.Common.Data;
+using Nodester.Data;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Nodes;
 
@@ -12,6 +13,7 @@ namespace Nodester.Graph.Core
     {
         
         public Guid Id { get; }
+        public BridgeInfo Bridge { get; }
         public string Name { get; }
         public User User { get; }
         public bool DebugMode { get; set; }
@@ -22,11 +24,13 @@ namespace Nodester.Graph.Core
 
         protected BaseGraph(
             Guid id,
+            BridgeInfo bridge,
             string name,
             Dictionary<Guid, INode> nodes,
             User user)
         {
             Id = id;
+            Bridge = bridge;
             Name = name;
             Nodes = nodes;
             Variables = new Dictionary<string, object>();

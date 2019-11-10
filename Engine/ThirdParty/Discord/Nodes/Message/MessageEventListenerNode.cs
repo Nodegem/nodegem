@@ -1,3 +1,4 @@
+using Bridge.Data;
 using Discord;
 using Discord.WebSocket;
 using Nodester.Engine.Data.Fields;
@@ -13,7 +14,8 @@ namespace Nodester.ThirdParty.Discord.Nodes.Message_Events
         public IValueOutputField Username { get; set; }
         public IValueOutputField Message { get; set; }
 
-        protected MessageEventListenerNode(IDiscordService discordService) : base(discordService)
+        protected MessageEventListenerNode(IDiscordService discordService, IGraphHubConnection graphHubConnection) :
+            base(discordService, graphHubConnection)
         {
         }
 

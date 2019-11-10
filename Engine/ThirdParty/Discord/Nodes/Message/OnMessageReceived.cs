@@ -1,12 +1,13 @@
 using System;
+using Bridge.Data;
 using ThirdParty.Data.Discord;
 
 namespace Nodester.ThirdParty.Discord.Nodes.Message_Events
 {
     public class OnMessageReceived : MessageEventListenerNode
     {
-        
-        public OnMessageReceived(IDiscordService discordService) : base(discordService)
+        public OnMessageReceived(IDiscordService discordService, IGraphHubConnection graphHubConnection) : base(
+            discordService, graphHubConnection)
         {
         }
 
@@ -21,7 +22,7 @@ namespace Nodester.ThirdParty.Discord.Nodes.Message_Events
                 }
                 catch (Exception ex)
                 {
-                    Console.Error.WriteLine(ex);
+                    await SendErrorAsync(ex);
                 }
             };
         }

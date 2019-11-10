@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using Nodester.Common.Dto.ComponentDtos;
 using Nodester.Data.Dto;
-using Nodester.Data.Dto.ComponentDtos;
 using Nodester.Data.Dto.UserDtos;
 using Nodester.Data.Models;
 

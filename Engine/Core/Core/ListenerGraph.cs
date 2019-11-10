@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Nodester.Common.Data;
+using Nodester.Data;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Fields;
 using Nodester.Engine.Data.Nodes;
@@ -13,8 +14,9 @@ namespace Nodester.Graph.Core
     {
         public IEnumerable<IListenerNode> ListenerNodes { get; }
 
-        public ListenerGraph(Guid id, string name, Dictionary<Guid, INode> nodes, Dictionary<Guid, Constant> constants,
-            User user) : base(id, name, nodes, constants, user)
+        public ListenerGraph(Guid id, BridgeInfo bridge, string name, Dictionary<Guid, INode> nodes,
+            Dictionary<Guid, Constant> constants,
+            User user) : base(id, bridge, name, nodes, constants, user)
         {
             ListenerNodes = Nodes.Values.OfType<IListenerNode>();
         }

@@ -1,9 +1,8 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Nodester.Common.Dto;
 using Nodester.Data;
-using Nodester.Data.Dto.GraphDtos;
-using Nodester.Data.Dto.MacroDtos;
 
 namespace Bridge.Data
 {
@@ -22,6 +21,7 @@ namespace Bridge.Data
         Task StopAsync(CancellationToken cancelToken);
 
         Task UpdateBridgeAsync(CancellationToken cancelToken);
+        Task SendGraphErrorAsync(ExecutionErrorData errorData, CancellationToken cancelToken);
 
         Task OnGraphCompleteAsync(ExecutionErrorData? errorData = null);
 

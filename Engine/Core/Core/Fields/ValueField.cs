@@ -1,6 +1,6 @@
 using System;
 using Nodester.Engine.Data.Fields;
-using ValueType = Nodester.Engine.Data.ValueType;
+using ValueType = Nodester.Common.Data.ValueType;
 
 namespace Nodester.Graph.Core.Fields
 {

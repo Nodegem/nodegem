@@ -1,11 +1,13 @@
+using System;
+using Bridge.Data;
 using ThirdParty.Data.Discord;
 
 namespace Nodester.ThirdParty.Discord.Nodes.Message_Events
 {
     public class OnMessageDeleted : MessageEventListenerNode
     {
-        
-        public OnMessageDeleted(IDiscordService discordService) : base(discordService)
+        public OnMessageDeleted(IDiscordService discordService, IGraphHubConnection graphHubConnection) : base(
+            discordService, graphHubConnection)
         {
         }
 
@@ -13,8 +15,15 @@ namespace Nodester.ThirdParty.Discord.Nodes.Message_Events
         {
             DiscordService.Client.MessageDeleted += async (before, message) =>
             {
-                SetBaseValues(await before.GetOrDownloadAsync());
-                await Graph.RunFlowAsync(On);
+                try
+                {
+                    SetBaseValues(await before.GetOrDownloadAsync());
+                    await Graph.RunFlowAsync(On);
+                }
+                catch (Exception ex)
+                {
+                    await SendErrorAsync(ex);
+                }
             };
         }
     }

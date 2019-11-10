@@ -25,5 +25,7 @@ namespace Nodester.Engine.Data.Nodes
 
         INode PopulateWithData(IEnumerable<FieldData> fields);
 
+        INode PopulateIndefinites(IEnumerable<KeyValuePair<string, string>> indefiniteKeyValuePairs);
+
     }
 }

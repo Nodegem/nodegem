@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Nodester.Data.Dto.ComponentDtos
+namespace Nodester.Common.Dto.ComponentDtos
 {
     public class LinkDto
     {

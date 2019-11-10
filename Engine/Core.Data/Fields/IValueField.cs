@@ -1,4 +1,5 @@
 using System;
+using ValueType = Nodester.Common.Data.ValueType;
 
 namespace Nodester.Engine.Data.Fields
 {

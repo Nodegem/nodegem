@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Nodester.Common.Dto;
 using Nodester.Common.Extensions;
 using Nodester.Data.Dto.GraphDtos;
 using Nodester.Services.Data.Repositories;

@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Nodester.Data.Dto.ComponentDtos;
-using Nodester.Data.Models;
+using Nodester.Common.Data;
+using Nodester.Common.Dto;
+using Nodester.Common.Dto.ComponentDtos;
 
 namespace Nodester.Data.Dto.GraphDtos
 {

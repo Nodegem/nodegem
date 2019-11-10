@@ -8,7 +8,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Nodester.Bridge.Extensions;
 using Nodester.Common.Data;
-using Nodester.Data.Dto.ComponentDtos;
+using Nodester.Common.Dto;
+using Nodester.Common.Dto.ComponentDtos;
 using Nodester.Data.Dto.GraphDtos;
 using Nodester.Data.Models;
 using Nodester.Engine.Data;
@@ -68,17 +69,17 @@ namespace Nodester.Bridge.Services
                 var constantDictionary = graphConstantDictionary.Concat(user.Constants)
                     .ToDictionary(k => k.Key, v => v.Value.Adapt<Constant>());
 
-                var nodes = await graph.Nodes.ToNodeDictionaryAsync(provider.ServiceProvider, _macroService, user,
+                var nodes = await graph.Nodes.ToNodeDictionaryAsync(graph.Links, provider.ServiceProvider, _macroService, user,
                     constantDictionary);
 
                 EstablishLinks(nodes, graph.Links);
 
-                return new FlowGraph(graph.Id, graph.Name, nodes, constantDictionary, user);
+                return new FlowGraph(graph.Id, AppState.Instance.Info, graph.Name, nodes, constantDictionary, user);
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, $"Error building graph with ID: {graph.Id}.");
-                return null;
+                throw new GraphBuildException(ex.Message, null);
             }
         }
 
@@ -91,12 +92,12 @@ namespace Nodester.Bridge.Services
                 var constantDictionary = graphConstantDictionary.Concat(user.Constants)
                     .ToDictionary(k => k.Key, v => v.Value.Adapt<Constant>());
 
-                var nodes = await graph.Nodes.ToNodeDictionaryAsync(provider.ServiceProvider, _macroService, user,
+                var nodes = await graph.Nodes.ToNodeDictionaryAsync(graph.Links, provider.ServiceProvider, _macroService, user,
                     constantDictionary);
 
                 EstablishLinks(nodes, graph.Links);
 
-                return new ListenerGraph(graph.Id, graph.Name, nodes, constantDictionary, user);
+                return new ListenerGraph(graph.Id, AppState.Instance.Info, graph.Name, nodes, constantDictionary, user);
             }
             catch (Exception ex)
             {

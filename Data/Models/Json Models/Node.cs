@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Nodester.Common.Data;
 using Nodester.Engine.Data;
 
 namespace Nodester.Data.Models.Json_Models
@@ -15,12 +16,5 @@ namespace Nodester.Data.Models.Json_Models
         public Vector2 Position { get; set; }
         public List<FieldData> FieldData { get; set; }
         public bool Permanent { get; set; }
-    }
-
-    public struct Vector2
-    {
-        public static Vector2 Default = new Vector2 {X = 0, Y = 0};
-        public float X { get; set; }
-        public float Y { get; set; }
     }
 }

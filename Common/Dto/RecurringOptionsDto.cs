@@ -1,7 +1,7 @@
 using System;
-using Nodester.Data.Models.Json_Models;
+using Nodester.Common.Data;
 
-namespace Nodester.Data.Dto
+namespace Nodester.Common.Dto
 {
     public class RecurringOptionsDto
     {

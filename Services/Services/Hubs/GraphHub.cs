@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
+using Nodester.Common.Dto;
 using Nodester.Common.Extensions;
 using Nodester.Data;
 using Nodester.Data.Dto.GraphDtos;
@@ -165,6 +166,16 @@ namespace Nodester.Services.Hubs
                     await Clients.Client(connectionId)
                         .SendAsync("RemoteExecuteMacroAsync", macro, flowInputFieldKey);
                 }
+            }
+        }
+
+        public async Task OnGraphErrorAsync(ExecutionErrorData errorData)
+        {
+            var userId = Context.User.GetUserId();
+            if (await _cache.ContainsKeyAsync(userId))
+            {
+                var clientData = await _cache.GetAsync<ClientData>(userId);
+                await Clients.Clients(clientData.ClientConnectionIds).SendAsync("GraphErrorAsync", errorData);
             }
         }
 

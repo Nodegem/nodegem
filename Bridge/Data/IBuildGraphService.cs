@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Nodester.Common.Data;
+using Nodester.Common.Dto;
 using Nodester.Data.Dto.GraphDtos;
 using Nodester.Engine.Data;
 

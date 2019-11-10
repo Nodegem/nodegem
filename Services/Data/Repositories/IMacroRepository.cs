@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Nodester.Common.Dto;
 using Nodester.Data.Dto.MacroDtos;
 
 namespace Nodester.Services.Data.Repositories

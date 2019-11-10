@@ -1,24 +1,9 @@
 using System;
 using System.Runtime.Serialization;
+using Nodester.Common.Data;
 
 namespace Nodester.Data.Models.Json_Models
 {
-
-    public enum FrequencyOptions
-    {
-        [EnumMember(Value = "yearly")]
-        Yearly,
-        [EnumMember(Value = "monthly")]
-        Monthly,
-        [EnumMember(Value = "daily")]
-        Daily,
-        [EnumMember(Value = "hourly")]
-        Hourly,
-        [EnumMember(Value = "minutely")]
-        Minutely,
-        [EnumMember(Value = "secondly")]
-        Secondly
-    }
     
     public class RecurringOptions
     {

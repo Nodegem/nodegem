@@ -4,6 +4,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Runtime.InteropServices;
 using Nodester.Common.Data;
+using Nodester.Common.Dto;
 using Nodester.Common.Extensions;
 using Nodester.Common.Utilities;
 using Nodester.Data;

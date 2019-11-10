@@ -1,6 +1,6 @@
 using System.Runtime.Serialization;
 
-namespace Nodester.Engine.Data
+namespace Nodester.Common.Data
 {
     public enum ValueType
     {

@@ -55,7 +55,6 @@
         <e p="Bridge.Data.csproj" t="IncludeRecursive" />
         <e p="IBuildGraphService.cs" t="Include" />
         <e p="IBuildMacroService.cs" t="Include" />
-        <e p="IGraphHubConnection.cs" t="Include" />
         <e p="INodesterApiService.cs" t="Include" />
         <e p="INodesterGraphService.cs" t="Include" />
         <e p="INodesterLoginService.cs" t="Include" />
@@ -76,17 +75,48 @@
     </e>
     <e p="C:\Users\rszem\Documents\Projects\nodester\Common" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
+      <e p="BridgeInfo.cs" t="Include" />
       <e p="Data" t="Include">
         <e p="Constant.cs" t="Include" />
+        <e p="ExecutionErrorData.cs" t="Include" />
+        <e p="ExecutionType.cs" t="Include" />
+        <e p="FieldData.cs" t="Include" />
+        <e p="FrequencyOptions.cs" t="Include" />
         <e p="Interfaces" t="Include">
+          <e p="IGraphHubConnection.cs" t="Include" />
           <e p="ITerminalHubService.cs" t="Include" />
         </e>
         <e p="User.cs" t="Include" />
+        <e p="ValueType.cs" t="Include" />
+        <e p="Vector2.cs" t="Include" />
+      </e>
+      <e p="Dto" t="Include">
+        <e p="BaseFieldDto.cs" t="Include" />
+        <e p="ComponentDtos" t="Include">
+          <e p="ConstantDto.cs" t="Include" />
+          <e p="LinkDto.cs" t="Include" />
+          <e p="MacroLinkDto.cs" t="Include" />
+          <e p="NodeDto.cs" t="Include" />
+        </e>
+        <e p="FlowFieldDtos" t="Include">
+          <e p="FlowFieldDto.cs" t="Include" />
+          <e p="FlowInputDto.cs" t="Include" />
+          <e p="FlowOutputDto.cs" t="Include" />
+        </e>
+        <e p="GraphDto.cs" t="Include" />
+        <e p="MacroDto.cs" t="Include" />
+        <e p="RecurringOptionsDto.cs" t="Include" />
+        <e p="ValueFieldDtos" t="Include">
+          <e p="ValueFieldDto.cs" t="Include" />
+          <e p="ValueInputDto.cs" t="Include" />
+          <e p="ValueOutputDto.cs" t="Include" />
+        </e>
       </e>
       <e p="Extensions" t="Include">
         <e p="AttributeExtensions.cs" t="Include" />
         <e p="ClaimExtensions.cs" t="Include" />
         <e p="LinqExtensions.cs" t="Include" />
+        <e p="ObjectExtensions.cs" t="Include" />
         <e p="StringExtensions.cs" t="Include" />
       </e>
       <e p="Nodester.Common.csproj" t="IncludeRecursive" />
@@ -104,7 +134,6 @@
     </e>
     <e p="C:\Users\rszem\Documents\Projects\nodester\Data" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
-      <e p="BridgeInfo.cs" t="Include" />
       <e p="Configurations" t="Include">
         <e p="AccessTokenConfiguration.cs" t="Include" />
         <e p="GraphConfiguration.cs" t="Include" />
@@ -112,15 +141,10 @@
         <e p="UserConfiguration.cs" t="Include" />
       </e>
       <e p="Contexts" t="Include">
-        <e p="HangfireContext.cs" t="Include" />
+        <e p="KeysContext.cs" t="Include" />
         <e p="NodesterDBContext.cs" t="Include" />
       </e>
       <e p="Dto" t="Include">
-        <e p="ComponentDtos" t="Include">
-          <e p="ConstantDto.cs" t="Include" />
-          <e p="LinkDto.cs" t="Include" />
-          <e p="NodeDto.cs" t="Include" />
-        </e>
         <e p="EmailDtos" t="Include">
           <e p="ForgotPasswordEmailDto.cs" t="Include" />
           <e p="RegisterUserDto.cs" t="Include" />
@@ -129,26 +153,10 @@
         <e p="ForgotPasswordDto.cs" t="Include" />
         <e p="GraphDtos" t="Include">
           <e p="CreateGraphDto.cs" t="Include" />
-          <e p="GraphDto.cs" t="Include" />
-          <e p="RecurringOptionsDto.cs" t="Include" />
         </e>
         <e p="MacroDtos" t="Include">
           <e p="CreateMacroDto.cs" t="Include" />
-          <e p="FieldDtos" t="Include">
-            <e p="BaseFieldDto.cs" t="Include" />
-            <e p="FlowFieldDtos" t="Include">
-              <e p="FlowFieldDto.cs" t="Include" />
-              <e p="FlowInputDto.cs" t="Include" />
-              <e p="FlowOutputDto.cs" t="Include" />
-            </e>
-            <e p="ValueFieldDtos" t="Include">
-              <e p="ValueFieldDto.cs" t="Include" />
-              <e p="ValueInputDto.cs" t="Include" />
-              <e p="ValueOutputDto.cs" t="Include" />
-            </e>
-          </e>
-          <e p="MacroDto.cs" t="Include" />
-          <e p="MacroLinkDto.cs" t="Include" />
+          <e p="FieldDtos" t="Include" />
         </e>
         <e p="ResetPasswordDto.cs" t="Include" />
         <e p="TokenDto.cs" t="Include" />
@@ -159,7 +167,6 @@
           <e p="UserDto.cs" t="Include" />
         </e>
       </e>
-      <e p="ExecutionErrorData.cs" t="Include" />
       <e p="Extensions" t="Include">
         <e p="ConfigurationExtensions.cs" t="Include" />
         <e p="DbSetExtensions.cs" t="Include" />
@@ -273,6 +280,7 @@
           <e p="Delay.cs" t="Include" />
           <e p="For.cs" t="Include" />
           <e p="LoopNode.cs" t="Include" />
+          <e p="Sequence.cs" t="Include" />
           <e p="TryCatch.cs" t="Include" />
           <e p="While.cs" t="Include" />
         </e>
@@ -288,6 +296,7 @@
         <e p="HTTP" t="Include">
           <e p="Fetch.cs" t="Include" />
           <e p="HttpNode.cs" t="Include" />
+          <e p="JsonFetch.cs" t="Include" />
           <e p="Post.cs" t="Include" />
         </e>
         <e p="Logging" t="Include">
@@ -326,6 +335,7 @@
         <e p="ServiceExtensions.cs" t="Include" />
         <e p="Utils" t="Include">
           <e p="Concat.cs" t="Include" />
+          <e p="Map.cs" t="Include" />
           <e p="StringFormat.cs" t="Include" />
         </e>
       </e>
@@ -360,7 +370,6 @@
         <e p="GraphRunException.cs" t="Include" />
         <e p="StartNotFoundException.cs" t="Include" />
       </e>
-      <e p="FieldData.cs" t="Include" />
       <e p="Fields" t="Include">
         <e p="IField.cs" t="Include" />
         <e p="IFlowField.cs" t="Include" />
@@ -400,7 +409,6 @@
           </e>
         </e>
       </e>
-      <e p="ValueType.cs" t="Include" />
     </e>
     <e p="C:\Users\rszem\Documents\Projects\nodester\Engine\ThirdParty" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />

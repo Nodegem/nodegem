@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Nodester.Common.Dto;
 using Nodester.Common.Extensions;
 using Nodester.Data.Dto.MacroDtos;
 using Nodester.Services.Data.Repositories;

@@ -1,4 +1,4 @@
-namespace Nodester.Data.Dto.MacroDtos.FieldDtos.FlowFieldDtos
+namespace Nodester.Common.Dto.FlowFieldDtos
 {
     public abstract class FlowFieldDto : BaseFieldDto
     {

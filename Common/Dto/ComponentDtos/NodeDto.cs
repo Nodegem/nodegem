@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Nodester.Data.Models;
-using Nodester.Data.Models.Json_Models;
+using Nodester.Common.Data;
 using Nodester.Engine.Data;
 
-namespace Nodester.Data.Dto.ComponentDtos
+namespace Nodester.Common.Dto.ComponentDtos
 {
     public class NodeDto
     {

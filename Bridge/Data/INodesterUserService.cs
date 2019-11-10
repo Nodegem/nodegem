@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Nodester.Data.Dto.ComponentDtos;
+using Nodester.Common.Dto.ComponentDtos;
 
 namespace Bridge.Data
 {

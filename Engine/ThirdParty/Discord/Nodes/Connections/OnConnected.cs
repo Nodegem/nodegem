@@ -1,10 +1,12 @@
+using Bridge.Data;
 using ThirdParty.Data.Discord;
 
 namespace Nodester.ThirdParty.Discord.Nodes.Connections
 {
     public class OnConnected : DiscordEventListenerNode
     {
-        public OnConnected(IDiscordService discordService) : base(discordService)
+        public OnConnected(IDiscordService discordService, IGraphHubConnection graphHubConnection) : base(
+            discordService, graphHubConnection)
         {
         }
 

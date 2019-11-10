@@ -1,4 +1,5 @@
 using System;
+using ValueType = Nodester.Common.Data.ValueType;
 
 namespace Nodester.Engine.Data.Attributes
 {
@@ -6,6 +7,7 @@ namespace Nodester.Engine.Data.Attributes
     public class FieldAttributesAttribute : Attribute
     {
         public string Label { get; set; }
+        public bool IsEditable { get; set; } = true;
 
         private string _key;
 

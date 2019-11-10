@@ -1,3 +1,4 @@
+using Bridge.Data;
 using Nodester.Engine.Data.Fields;
 using ThirdParty.Data.Discord;
 
@@ -5,10 +6,10 @@ namespace Nodester.ThirdParty.Discord.Nodes.Connections
 {
     public class OnDisconnected : DiscordEventListenerNode
     {
-        
         public IValueOutputField Exception { get; set; }
-        
-        public OnDisconnected(IDiscordService discordService) : base(discordService)
+
+        public OnDisconnected(IDiscordService discordService, IGraphHubConnection graphHubConnection) : base(
+            discordService, graphHubConnection)
         {
         }
 

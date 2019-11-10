@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Bridge.Data;
 using Microsoft.Extensions.Logging;
 using Nodester.Bridge.Extensions;
+using Nodester.Common.Data;
+using Nodester.Common.Dto;
 using Nodester.Common.Extensions;
 using Nodester.Data;
 using Nodester.Data.Dto.GraphDtos;

@@ -66,7 +66,8 @@ namespace Nodester.WebApi
                 .PersistKeysToDbContext<KeysContext>();
             
             services.AddHealthChecks()
-                .AddNpgSql(Configuration.GetConnectionString("nodesterDb"), name: "NodesterDB");
+                .AddNpgSql(Configuration.GetConnectionString("nodesterDb"), name: "NodesterDB")
+                .AddNpgSql(Configuration.GetConnectionString("keysDb"), name: "KeysDb");
 
             services.AddIdentity<ApplicationUser, Role>()
                 .AddEntityFrameworkStores<NodesterDBContext>()

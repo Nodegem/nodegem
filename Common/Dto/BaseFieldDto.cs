@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Nodester.Data.Dto.MacroDtos.FieldDtos
+namespace Nodester.Common.Dto
 {
     public abstract class BaseFieldDto
     {

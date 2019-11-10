@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Bridge.Data;
 using Microsoft.Extensions.Options;
 using Nodester.Bridge.Extensions;
-using Nodester.Data.Dto.ComponentDtos;
+using Nodester.Common.Dto.ComponentDtos;
 
 namespace Nodester.Bridge.Services
 {

@@ -1,10 +1,12 @@
+using Bridge.Data;
 using ThirdParty.Data.Discord;
 
 namespace Nodester.ThirdParty.Discord.Nodes.Reaction_Events
 {
     public class OnReactionAdded : DiscordEventListenerNode
     {
-        public OnReactionAdded(IDiscordService discordService) : base(discordService)
+        public OnReactionAdded(IDiscordService discordService, IGraphHubConnection graphHubConnection) : base(
+            discordService, graphHubConnection)
         {
         }
 

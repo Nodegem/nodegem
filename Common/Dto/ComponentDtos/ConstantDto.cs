@@ -1,7 +1,7 @@
 using System;
-using ValueType = Nodester.Engine.Data.ValueType;
+using ValueType = Nodester.Common.Data.ValueType;
 
-namespace Nodester.Data.Dto.ComponentDtos
+namespace Nodester.Common.Dto.ComponentDtos
 {
     public class ConstantDto
     {

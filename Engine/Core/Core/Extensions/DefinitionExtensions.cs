@@ -1,7 +1,7 @@
 using Nodester.Engine.Data.Definitions;
 using Nodester.Engine.Data.Fields;
 using Nodester.Graph.Core.Fields.Graph;
-using ValueType = Nodester.Engine.Data.ValueType;
+using ValueType = Nodester.Common.Data.ValueType;
 
 namespace Nodester.Graph.Core.Extensions
 {
@@ -16,17 +16,19 @@ namespace Nodester.Graph.Core.Extensions
             };
         }
 
-        public static FlowOutputDefinition ToFlowOutputDefinition(this IFlowOutputField output, string label)
+        public static FlowOutputDefinition ToFlowOutputDefinition(this IFlowOutputField output, string label,
+            bool isIndefinite)
         {
             return new FlowOutputDefinition
             {
                 Label = label,
-                Key = output.Key
+                Key = output.Key,
+                Indefinite = isIndefinite
             };
         }
 
         public static ValueInputDefinition ToValueInputDefinition(this IValueInputField input, string label,
-            ValueType type, bool isIndefinite)
+            ValueType type, bool isIndefinite, bool isEditable)
         {
             return new ValueInputDefinition
             {
@@ -34,18 +36,20 @@ namespace Nodester.Graph.Core.Extensions
                 DefaultValue = input.DefaultValue,
                 Key = input.Key,
                 ValueType = type,
-                Indefinite = isIndefinite
+                Indefinite = isIndefinite,
+                IsEditable = isEditable
             };
         }
 
         public static ValueOutputDefinition ToValueOutputDefinition(this IValueOutputField output, string label,
-            ValueType type)
+            ValueType type, bool isIndefinite)
         {
             return new ValueOutputDefinition
             {
                 Label = label,
                 Key = output.Key,
-                ValueType = type
+                ValueType = type,
+                Indefinite = isIndefinite
             };
         }
     }

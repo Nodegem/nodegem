@@ -5,6 +5,7 @@ using Bridge.Data;
 using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Nodester.Common.Dto;
 using Nodester.Data;
 using Nodester.Data.Dto.GraphDtos;
 using Nodester.Data.Dto.MacroDtos;
@@ -18,14 +19,14 @@ namespace Nodester.Bridge.HubConnections
 
         private readonly ILogger<IGraphHubConnection> _logger;
 
-        public GraphHubConnection(IOptions<AppConfig> config, ILogger<GraphHubConnection> logger) : base("/graphHub", config)
+        public GraphHubConnection(IOptions<AppConfig> config, ILogger<GraphHubConnection> logger) : base("/graphHub",
+            config)
         {
             _logger = logger;
             Client.On<GraphDto>("RemoteExecuteGraphAsync", graph => { ExecuteGraphEvent?.Invoke(graph); });
 
             Client.On<MacroDto, string>("RemoteExecuteMacroAsync",
                 (macro, inputId) => { ExecuteMacroEvent?.Invoke(macro, inputId); });
-            
         }
 
         protected override Task OnReconnectingAsync(Exception ex)
@@ -43,6 +44,11 @@ namespace Nodester.Bridge.HubConnections
         public async Task UpdateBridgeAsync(CancellationToken cancelToken)
         {
             await Client.InvokeAsync("EstablishBridgeAsync", AppState.Instance.Info, cancelToken);
+        }
+
+        public async Task SendGraphErrorAsync(ExecutionErrorData errorData, CancellationToken cancelToken)
+        {
+            await Client.InvokeAsync("OnGraphErrorAsync", errorData, cancelToken);
         }
 
         public override async Task StartAsync(CancellationToken cancelToken)

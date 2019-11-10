@@ -1,5 +1,6 @@
 using System;
 using Nodester.Common.Data;
+using Nodester.Data;
 using Nodester.Engine.Data.Nodes;
 
 namespace Nodester.Engine.Data
@@ -10,6 +11,7 @@ namespace Nodester.Engine.Data
         string Name { get; }
 
         User User { get; }
+        BridgeInfo Bridge { get; }
         
         bool DebugMode { get; set; }
         bool IsRunningLocally { get; set; }

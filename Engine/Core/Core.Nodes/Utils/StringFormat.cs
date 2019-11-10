@@ -6,7 +6,7 @@ using Nodester.Common.Extensions;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
-using ValueType = Nodester.Engine.Data.ValueType;
+using ValueType = Nodester.Common.Data.ValueType;
 
 namespace Nodester.Graph.Core.Nodes.Utils
 {
