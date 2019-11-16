@@ -142,7 +142,8 @@ namespace Nodester.Graph.Core
                     x.ToFlowOutputDefinition(fieldLabels[x.Key].Label, fieldLabels[x.Key].Indefinite)).ToList(),
                 ValueInputs = ValueInputs
                     .Select(x => x.ToValueInputDefinition(fieldLabels[x.Key].Label, fieldLabels[x.Key].Type,
-                        fieldLabels[x.Key].Indefinite, fieldLabels[x.Key].IsEditable)).ToList(),
+                        fieldLabels[x.Key].Indefinite, fieldLabels[x.Key].IsEditable,
+                        fieldLabels[x.Key].AllowConnection)).ToList(),
                 ValueOutputs = ValueOutputs
                     .Select(x => x.ToValueOutputDefinition(fieldLabels[x.Key].Label, fieldLabels[x.Key].Type,
                         fieldLabels[x.Key].Indefinite)).ToList()
@@ -304,7 +305,8 @@ namespace Nodester.Graph.Core
                             Label = fieldAttributes.Label,
                             Type = fieldAttributes.Type ??
                                    (field is IValueField vField ? vField.ValueType : ValueType.Any),
-                            IsEditable = fieldAttributes.IsEditable
+                            IsEditable = fieldAttributes.IsEditable,
+                            AllowConnection = fieldAttributes.AllowConnection
                         });
                     }
 
@@ -317,7 +319,8 @@ namespace Nodester.Graph.Core
                             Indefinite = false,
                             Type = fieldAttributes.Type ??
                                    (field is IValueField valueField ? valueField.ValueType : ValueType.Any),
-                            IsEditable = fieldAttributes.IsEditable
+                            IsEditable = fieldAttributes.IsEditable,
+                            AllowConnection = fieldAttributes.AllowConnection
                         }
                     };
                 })
@@ -338,6 +341,7 @@ namespace Nodester.Graph.Core
             public bool Indefinite { get; set; }
             public ValueType Type { get; set; }
             public bool IsEditable { get; set; }
+            public bool AllowConnection { get; set; }
         }
     }
 }

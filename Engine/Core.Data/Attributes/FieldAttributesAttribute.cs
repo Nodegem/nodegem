@@ -8,6 +8,7 @@ namespace Nodester.Engine.Data.Attributes
     {
         public string Label { get; set; }
         public bool IsEditable { get; set; } = true;
+        public bool AllowConnection { get; set; } = true;
 
         private string _key;
 

@@ -16,7 +16,7 @@ namespace Nodester.Graph.Core.Nodes.Math
         [FieldAttributes(ValueType.Number)]
         public ValueInput B { get; private set; }
 
-        [FieldAttributes("A + B")] 
+        [FieldAttributes("A + B", ValueType.Number)] 
         public ValueOutput Sum { get; private set; }
 
         protected override void Define()

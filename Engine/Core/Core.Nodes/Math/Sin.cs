@@ -8,27 +8,29 @@ namespace Nodester.Graph.Core.Nodes.Math
 {
     [DefinedNode]
     [NodeNamespace("Core.Math")]
-    public class Multiply : Node
+    public class Sin : Node
     {
         [FieldAttributes(ValueType.Number)]
         public ValueInput A { get; private set; }
-        
+
         [FieldAttributes(ValueType.Number)]
         public ValueInput B { get; private set; }
 
-        [FieldAttributes("A * B", ValueType.Number)] 
-        public ValueOutput Product { get; private set; }
+        [FieldAttributes("A * sin(B)", ValueType.Number)] 
+        public ValueOutput Result { get; private set; }
 
         protected override void Define()
         {
             A = AddValueInput<double>(nameof(A));
             B = AddValueInput<double>(nameof(B));
-            Product = AddValueOutput(nameof(Product), GetProduct);
+            Result = AddValueOutput(nameof(Result), GetResult);
         }
 
-        private async Task<double> GetProduct(IFlow flow)
+        private async Task<double> GetResult(IFlow flow)
         {
-            return await flow.GetValueAsync<double>(A) * await flow.GetValueAsync<double>(B);
+            var a = await flow.GetValueAsync<double>(A);
+            var b = await flow.GetValueAsync<double>(B);
+            return a * System.Math.Sin(b);
         }
     }
 }

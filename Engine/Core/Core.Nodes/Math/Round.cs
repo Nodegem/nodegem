@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Nodester.Common.Data;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Graph.Core.Fields.Graph;
@@ -9,8 +10,13 @@ namespace Nodester.Graph.Core.Nodes.Math
     [NodeNamespace("Core.Math")]
     public class Round : Node
     {
+        [FieldAttributes(ValueType.Number)]
         public ValueInput Value { get; private set; }
+        
+        [FieldAttributes(ValueType.Number)]
         public ValueInput Digits { get; private set; }
+        
+        [FieldAttributes(ValueType.Number)]
         public ValueOutput Output { get; private set; }
 
         protected override void Define()

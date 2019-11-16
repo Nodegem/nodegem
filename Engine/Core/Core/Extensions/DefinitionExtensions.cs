@@ -28,7 +28,7 @@ namespace Nodester.Graph.Core.Extensions
         }
 
         public static ValueInputDefinition ToValueInputDefinition(this IValueInputField input, string label,
-            ValueType type, bool isIndefinite, bool isEditable)
+            ValueType type, bool isIndefinite, bool isEditable, bool allowConnection)
         {
             return new ValueInputDefinition
             {
@@ -37,7 +37,8 @@ namespace Nodester.Graph.Core.Extensions
                 Key = input.Key,
                 ValueType = type,
                 Indefinite = isIndefinite,
-                IsEditable = isEditable
+                IsEditable = isEditable,
+                AllowConnection = allowConnection
             };
         }
 

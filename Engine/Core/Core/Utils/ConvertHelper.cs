@@ -1,4 +1,6 @@
 using System;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Nodester.Graph.Core.Utils
 {
@@ -8,6 +10,11 @@ namespace Nodester.Graph.Core.Utils
         {
             if (!(value is IConvertible) && typeof(T) == typeof(string))
             {
+                if (value is JObject jObject)
+                {
+                    return (T) (object) jObject.ToString(Formatting.None);
+                }
+                
                 return (T) (object) value.ToString();
             }
             

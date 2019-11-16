@@ -8,7 +8,7 @@ using Nodester.Services.Data;
 
 namespace Nodester.Graph.Core.Nodes.HTTP
 {
-    [DefinedNode("JSONFetch")]
+    [DefinedNode("JSON Fetch")]
     [NodeNamespace("Core.HTTP")]
     public class JSONFetch : HttpNode
     {

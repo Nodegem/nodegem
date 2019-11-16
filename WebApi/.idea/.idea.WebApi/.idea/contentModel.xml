@@ -229,6 +229,17 @@
           <e p="JsonFetch.cs" t="Include" />
           <e p="Post.cs" t="Include" />
         </e>
+        <e p="Literals" t="Include">
+          <e p="Boolean.cs" t="Include" />
+          <e p="Date.cs" t="Include" />
+          <e p="DateTime.cs" t="Include" />
+          <e p="Number.cs" t="Include" />
+          <e p="PhoneNumber.cs" t="Include" />
+          <e p="Text.cs" t="Include" />
+          <e p="TextArea.cs" t="Include" />
+          <e p="Time.cs" t="Include" />
+          <e p="Url.cs" t="Include" />
+        </e>
         <e p="Logging" t="Include">
           <e p="BaseLog.cs" t="Include" />
           <e p="Log.cs" t="Include" />
@@ -248,10 +259,15 @@
         </e>
         <e p="Math" t="Include">
           <e p="Add.cs" t="Include" />
+          <e p="Cos.cs" t="Include" />
           <e p="Divide.cs" t="Include" />
+          <e p="Exponential.cs" t="Include" />
+          <e p="Logarithmic.cs" t="Include" />
           <e p="Multiply.cs" t="Include" />
           <e p="Round.cs" t="Include" />
+          <e p="Sin.cs" t="Include" />
           <e p="Subtract.cs" t="Include" />
+          <e p="Tan.cs" t="Include" />
         </e>
         <e p="Metadata" t="Include">
           <e p="Graph" t="Include">
@@ -267,6 +283,7 @@
           <e p="Concat.cs" t="Include" />
           <e p="Map.cs" t="Include" />
           <e p="StringFormat.cs" t="Include" />
+          <e p="ToJson.cs" t="Include" />
         </e>
       </e>
       <e p="Nodester.Engine.csproj" t="IncludeRecursive" />
@@ -344,11 +361,23 @@
       <e p="bin" t="ExcludeRecursive" />
       <e p="Discord" t="Include">
         <e p="DiscordService.cs" t="Include" />
+        <e p="Dtos" t="Include">
+          <e p="CategoryChannelDto.cs" t="Include" />
+          <e p="ChannelDto.cs" t="Include" />
+          <e p="GuildDto.cs" t="Include" />
+          <e p="MessageDto.cs" t="Include" />
+          <e p="TextChannelDto.cs" t="Include" />
+          <e p="UserDto.cs" t="Include" />
+        </e>
         <e p="Exceptions" t="Include">
           <e p="DiscordException.cs" t="Include" />
         </e>
         <e p="Nodes" t="Include">
-          <e p="Channel Events" t="Include" />
+          <e p="Channel" t="Include">
+            <e p="OnChannelCreated.cs" t="Include" />
+            <e p="OnChannelDestroyed.cs" t="Include" />
+            <e p="OnChannelUpdated.cs" t="Include" />
+          </e>
           <e p="Connections" t="Include">
             <e p="Disconnect.cs" t="Include" />
             <e p="GetConnectionState.cs" t="Include" />
@@ -360,13 +389,22 @@
           <e p="DiscordNode.cs" t="Include" />
           <e p="Guild" t="Include" />
           <e p="Message" t="Include">
+            <e p="BaseMessageNode.cs" t="Include" />
+            <e p="DeleteMessage.cs" t="Include" />
+            <e p="EditMessage.cs" t="Include" />
+            <e p="GetMessage.cs" t="Include" />
             <e p="MessageEventListenerNode.cs" t="Include" />
             <e p="OnMessageDeleted.cs" t="Include" />
             <e p="OnMessageReceived.cs" t="Include" />
             <e p="OnMessageUpdated.cs" t="Include" />
+            <e p="PinMessage.cs" t="Include" />
+            <e p="UnPinMessage.cs" t="Include" />
           </e>
           <e p="Reaction" t="Include">
             <e p="OnReactionAdded.cs" t="Include" />
+            <e p="OnReactionCleared.cs" t="Include" />
+            <e p="OnReactionRemoved.cs" t="Include" />
+            <e p="ReactionEventListenerNode.cs" t="Include" />
           </e>
           <e p="Role" t="Include" />
           <e p="StartBot.cs" t="Include" />

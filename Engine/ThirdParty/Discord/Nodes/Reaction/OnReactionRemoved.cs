@@ -1,21 +1,17 @@
 using System;
 using Bridge.Data;
-using Discord;
 using Discord.WebSocket;
-using Mapster;
 using Nodester.Engine.Data.Fields;
-using Nodester.ThirdParty.Discord.Dtos;
 using ThirdParty.Data.Discord;
 
 namespace Nodester.ThirdParty.Discord.Nodes.Reaction_Events
 {
-    public class OnReactionAdded : ReactionEventListenerNode
+    public class OnReactionRemoved : ReactionEventListenerNode
     {
         
         public IValueOutputField Reaction { get; set; }
         
-        public OnReactionAdded(IDiscordService discordService, IGraphHubConnection graphHubConnection) : base(
-            discordService, graphHubConnection)
+        public OnReactionRemoved(IDiscordService discordService, IGraphHubConnection graphHubConnection) : base(discordService, graphHubConnection)
         {
         }
 
@@ -27,7 +23,7 @@ namespace Nodester.ThirdParty.Discord.Nodes.Reaction_Events
 
         public override void SetupEventListeners()
         {
-            DiscordService.Client.ReactionAdded += async (cache, channel, reaction) =>
+            DiscordService.Client.ReactionRemoved += async (cache, channel, reaction) =>
             {
                 var message = await cache.GetOrDownloadAsync();
                 Reaction.SetValue(reaction);
