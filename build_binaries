@@ -13,6 +13,8 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     dotnet publish -c release -r linux-x64 /p:PublishSingleFile=true -o $CWD/binaries/linux -v q
     echo 'Building Linux Arm'
     dotnet publish -c release -r linux-arm /p:PublishSingleFile=true -o $CWD/binaries/linux-arm -v q 
+    echo 'Building Linux Arm 64 bit'
+    dotnet publish -c release -r linux-arm64 /p:PublishSingleFile=true -o $CWD/binaries/linux-arm64 -v q
 elif [[ "$OSTYPE" == "msys" ]]; then
     echo 'Building Windows'
     dotnet publish -c release -r win-x64 //p:PublishSingleFile=true -o $CWD/binaries/win64 -v q
@@ -22,6 +24,8 @@ elif [[ "$OSTYPE" == "msys" ]]; then
     dotnet publish -c release -r linux-x64 //p:PublishSingleFile=true -o $CWD/binaries/linux -v q
     echo 'Building Linux Arm'
     dotnet publish -c release -r linux-arm //p:PublishSingleFile=true -o $CWD/binaries/linux-arm -v q
+    echo 'Building Linux Arm 64 bit'
+    dotnet publish -c release -r linux-arm64 //p:PublishSingleFile=true -o $CWD/binaries/linux-arm64 -v q
 fi
 
 cd $CWD
