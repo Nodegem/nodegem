@@ -5,7 +5,7 @@ using ThirdParty.Data.Discord;
 
 namespace Nodester.ThirdParty.Discord.Nodes
 {
-    [DefinedNode]
+    [DefinedNode(IsListenerOnly = true)]
     [NodeNamespace("Third Party.Discord")]
     public abstract class DiscordEventListenerNode : EventListenerNode
     {

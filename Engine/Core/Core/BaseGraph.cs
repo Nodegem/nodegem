@@ -16,7 +16,6 @@ namespace Nodester.Graph.Core
         public BridgeInfo Bridge { get; }
         public string Name { get; }
         public User User { get; }
-        public bool DebugMode { get; set; }
         public bool IsRunningLocally { get; set; } = true;
         
         protected Dictionary<string, object> Variables { get; }

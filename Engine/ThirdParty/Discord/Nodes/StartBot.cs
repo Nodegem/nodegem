@@ -8,15 +8,13 @@ using ThirdParty.Data.Discord;
 
 namespace Nodester.ThirdParty.Discord.Nodes
 {
-    [DefinedNode("Start Discord Bot")]
+    [DefinedNode("Start Discord Bot", IsListenerOnly = true)]
     [NodeNamespace("Third Party.Discord")]
     public class StartBot : DiscordListenerNode
     {
-        
         public IFlowInputField In { get; set; }
-        
-        [FieldAttributes("Bot Token")]
-        public IValueInputField BotToken { get; set; }
+
+        [FieldAttributes("Bot Token")] public IValueInputField BotToken { get; set; }
 
         private readonly ITerminalHubService _terminalHub;
 
@@ -24,7 +22,7 @@ namespace Nodester.ThirdParty.Discord.Nodes
         {
             _terminalHub = terminalHub;
         }
-        
+
         protected override void Define()
         {
             In = AddFlowInput(nameof(In), StartConnection);

@@ -2,17 +2,17 @@ using Nodester.Common.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Literals
+namespace Nodester.Graph.Core.Nodes.Literal
 {
     [DefinedNode]
     [NodeNamespace("Core.Literal")]
-    public class PhoneNumber : Node
+    public class TextArea : Node
     {
         
-        [FieldAttributes(ValueType.PhoneNumber, AllowConnection = false)]
+        [FieldAttributes(ValueType.TextArea, AllowConnection = false)]
         public IValueInputField Value { get; set; }
         
-        [FieldAttributes(ValueType.PhoneNumber)]
+        [FieldAttributes(ValueType.TextArea)]
         public IValueOutputField Output { get; set; }
         
         protected override void Define()

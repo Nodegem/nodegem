@@ -299,7 +299,7 @@
           <e p="JsonFetch.cs" t="Include" />
           <e p="Post.cs" t="Include" />
         </e>
-        <e p="Literals" t="Include">
+        <e p="Literal" t="Include">
           <e p="Boolean.cs" t="Include" />
           <e p="Date.cs" t="Include" />
           <e p="DateTime.cs" t="Include" />
@@ -313,7 +313,6 @@
         <e p="Logging" t="Include">
           <e p="BaseLog.cs" t="Include" />
           <e p="Log.cs" t="Include" />
-          <e p="LogDebug.cs" t="Include" />
           <e p="LogError.cs" t="Include" />
           <e p="LogWarn.cs" t="Include" />
         </e>

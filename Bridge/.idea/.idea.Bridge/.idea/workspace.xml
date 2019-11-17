@@ -2,58 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbc70a65-0271-4a7a-995d-0bc022bc22ed" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/Boolean.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/Date.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/DateTime.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/Number.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/String.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/Time.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Cos.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Exponential.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Logarithmic.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Sin.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Tan.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/ToJSON.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Dtos/CategoryChannelDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Dtos/ChannelDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Dtos/GuildDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Dtos/MessageDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Dtos/TextChannelDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Dtos/UserDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Channel/OnChannelCreated.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Channel/OnChannelDestroyed.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Channel/OnChannelUpdated.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message/BaseMessageNode.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message/DeleteMessage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message/EditMessage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message/GetMessage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message/PinMessage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message/UnpinMessage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Reaction/OnReactionCleared.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Reaction/OnReactionRemoved.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Reaction/ReactionEventListenerNode.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Bridge/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bridge/HubConnections/TerminalHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/HubConnections/TerminalHubConnection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Common/Nodester.Common.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Nodester.Common.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Nodester.Data.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Nodester.Data.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/FieldAttributesAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/FieldAttributesAttribute.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueInputDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueInputDefinition.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/JSONFetch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/JSONFetch.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Add.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Add.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Divide.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Divide.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Multiply.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Multiply.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Round.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Round.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Subtract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Subtract.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Extensions/DefinitionExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Extensions/DefinitionExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bridge/Services/GraphBuildService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/Services/GraphBuildService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bridge/Services/MacroBuildService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bridge/Services/MacroBuildService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Common/Data/Interfaces/ITerminalHubService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Data/Interfaces/ITerminalHubService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Common/Dto/GraphDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Dto/GraphDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Common/Dto/MacroDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Dto/MacroDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Models/BaseGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Models/BaseGraph.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/DefinedNodeAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/DefinedNodeAttribute.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/NodeDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/NodeDefinition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/IGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/IGraph.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/Boolean.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literal/Boolean.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/Date.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literal/Date.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/DateTime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literal/DateTime.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/Number.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literal/Number.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/PhoneNumber.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literal/PhoneNumber.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/Text.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literal/Text.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/TextArea.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literal/TextArea.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/Time.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literal/Time.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/Url.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literal/Url.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogDebug.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/BaseGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/BaseGraph.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Utils/ConvertHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Utils/ConvertHelper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Reaction/OnReactionAdded.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Reaction/OnReactionAdded.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Nodester.Engine.ThirdParty.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Nodester.Engine.ThirdParty.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Services/Nodester.Services.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Nodester.Services.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Connections/Disconnect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Connections/Disconnect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Connections/GetConnectionState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Connections/GetConnectionState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/DiscordEventListenerNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/DiscordEventListenerNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/StartBot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/StartBot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Data/Repositories/IGraphRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Data/Repositories/IGraphRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/Hubs/TerminalHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Hubs/TerminalHub.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/NodeCache.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/NodeCache.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApi/Nodester.WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Nodester.WebApi.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebApi/Controllers/NodesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Controllers/NodesController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebApi/Migrations/NodesterDBContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Migrations/NodesterDBContextModelSnapshot.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -206,17 +190,20 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/02DE10A4-DA01-49DE-A57B-50C54BA4697F/e0/532adf50/BaseSocketClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Models/Json Models/Node.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Models/Json Models/RecurringOptions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/String.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/Number.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/DateTime.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/Time.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/Date.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/Boolean.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literal/TextArea.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literal/Number.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literal/DateTime.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literal/Time.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literal/Date.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literal/Boolean.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Exponential.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Logarithmic.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Sin.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Tan.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Cos.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literal/Text.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literal/Url.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literal/PhoneNumber.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Extensions/DbSetExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/Map.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Configurations/MacroConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
@@ -282,7 +269,6 @@
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/BaseLog.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogError.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/Log.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogDebug.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogWarn.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Metadata/User/GetEmail.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Metadata/User/GetUsername.cs" root0="FORCE_HIGHLIGHTING" />
@@ -319,23 +305,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/Fetch.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/Map.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/JSONFetch.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/ToJson.cs" />
-        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Dtos/UserMessage.cs" />
-        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Dtos/UserMessageDto.cs" />
-        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Dtos/UserDto.cs" />
-        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Dtos/MessageChannelDto.cs" />
-        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Dtos/GuildDto.cs" />
-        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Dtos/CategoryChannelDto.cs" />
-        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Dtos/ChannelDto.cs" />
-        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Dtos/MessageDto.cs" />
-        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Dtos/TextChannelDto.cs" />
-        <option value="$PROJECT_DIR$/Bridge/HubConnections/TerminalHubConnection.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core/Utils/ConvertHelper.cs" />
-        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Channel/OnChannelCreated.cs" />
-        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Channel/OnChannelDestroyed.cs" />
         <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Channel/OnChannelUpdated.cs" />
         <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/Message/GetMessage.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/ToJSON.cs" />
@@ -369,7 +338,24 @@
         <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/Time.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueInputDefinition.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core/Extensions/DefinitionExtensions.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/Text.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/TextArea.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/Url.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literals/PhoneNumber.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literal/PhoneNumber.cs" />
+        <option value="$PROJECT_DIR$/../Common/Data/Interfaces/ITerminalHubService.cs" />
+        <option value="$PROJECT_DIR$/Bridge/HubConnections/TerminalHubConnection.cs" />
+        <option value="$PROJECT_DIR$/../Common/Dto/GraphDto.cs" />
+        <option value="$PROJECT_DIR$/../Common/Dto/MacroDto.cs" />
+        <option value="$PROJECT_DIR$/../Data/Models/BaseGraph.cs" />
+        <option value="$PROJECT_DIR$/Bridge/Services/MacroBuildService.cs" />
+        <option value="$PROJECT_DIR$/Bridge/Services/GraphBuildService.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Core.Data/IGraph.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Core/Core/BaseGraph.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Core.Data/Attributes/DefinedNodeAttribute.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Core.Data/Definitions/NodeDefinition.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" />
+        <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/DiscordEventListenerNode.cs" />
       </list>
     </option>
   </component>
@@ -558,7 +544,7 @@
       <workItem from="1573345622825" duration="2382000" />
       <workItem from="1573348011670" duration="14729000" />
       <workItem from="1573764502706" duration="3538000" />
-      <workItem from="1573924493821" duration="13513000" />
+      <workItem from="1573924493821" duration="18966000" />
     </task>
     <servers />
   </component>

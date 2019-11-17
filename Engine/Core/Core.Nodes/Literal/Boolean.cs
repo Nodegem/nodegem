@@ -2,7 +2,7 @@ using Nodester.Common.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Literals
+namespace Nodester.Graph.Core.Nodes.Literal
 {
     [DefinedNode]
     [NodeNamespace("Core.Literal")]

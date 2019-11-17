@@ -39,7 +39,6 @@ namespace Nodester.Bridge.Services
             try
             {
                 var compiledGraph = await BuildGraphAsync(user, graph);
-                compiledGraph.DebugMode = graph.IsDebugModeEnabled;
                 compiledGraph.IsRunningLocally = isRunningLocally;
                 await compiledGraph.RunAsync();
             }

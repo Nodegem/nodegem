@@ -1,9 +1,11 @@
 using System.Threading.Tasks;
+using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
 using ThirdParty.Data.Discord;
 
 namespace Nodester.ThirdParty.Discord.Nodes.Connections
 {
+    [DefinedNode(IsListenerOnly = true)]
     public class GetConnectionState : DiscordNode
     {
         public IValueOutputField ConnectionState { get; set; }

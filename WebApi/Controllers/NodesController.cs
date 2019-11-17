@@ -31,7 +31,8 @@ namespace Nodester.WebApi.Controllers
         private readonly IMacroRepository _macroRepo;
         private readonly ILogger<NodesController> _logger;
 
-        public NodesController(IUserService userService, IGraphRepository graphRepo, IMacroRepository macroRepo, ILogger<NodesController> logger)
+        public NodesController(IUserService userService, IGraphRepository graphRepo, IMacroRepository macroRepo,
+            ILogger<NodesController> logger)
         {
             _userService = userService;
             _graphRepo = graphRepo;
@@ -51,7 +52,9 @@ namespace Nodester.WebApi.Controllers
                     ? await _graphRepo.GetConstantsAsync(graphId)
                     : new List<ConstantDto>();
 
-                var defaultNodeDefinitions = NodeCache.NodeDefinitions;
+                var isListener = type == GraphType.Graph && await _graphRepo.IsListenerGraphAsync(graphId);
+                var defaultNodeDefinitions =
+                    isListener ? NodeCache.AllNodeDefinitions : NodeCache.NonListenerNodeDefinitions;
 
                 var macroFieldDefinitions = new List<NodeDefinition>();
                 if (type == GraphType.Macro)

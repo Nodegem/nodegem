@@ -11,12 +11,15 @@ namespace Nodester.Services
 {
     public static class NodeCache
     {
-        private static List<NodeDefinition> _nodeDefinitions;
+        private static List<NodeDefinition> _allNodeDefinitions;
         private static Dictionary<Type, Type[]> _nodeTypeMapper;
         private static Dictionary<string, Type> _nodeCategoryTypeMapper;
 
         public static IReadOnlyDictionary<string, Type> NodeCategoryTypeMapper => _nodeCategoryTypeMapper;
-        public static IReadOnlyList<NodeDefinition> NodeDefinitions => _nodeDefinitions;
+        public static IReadOnlyList<NodeDefinition> AllNodeDefinitions => _allNodeDefinitions;
+
+        public static IReadOnlyList<NodeDefinition> NonListenerNodeDefinitions =>
+            _allNodeDefinitions.Where(x => !x.IsListenerOnly).ToList();
 
         public static void CacheNodeData(IServiceProvider provider)
         {
@@ -24,7 +27,7 @@ namespace Nodester.Services
             _nodeTypeMapper = allNodeTypes.ToDictionary(k => k, GetNodeTypeMap);
             _nodeCategoryTypeMapper = _nodeTypeMapper
                 .ToDictionary(k => CreateKey(k.Key), v => v.Key);
-            _nodeDefinitions = allNodeTypes.Select(x => GetDefinitionFromNode(x, provider)).ToList();
+            _allNodeDefinitions = allNodeTypes.Select(x => GetDefinitionFromNode(x, provider)).ToList();
         }
 
         private static string CreateKey(Type type)

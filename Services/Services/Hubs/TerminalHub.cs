@@ -27,11 +27,6 @@ namespace Nodester.Services.Hubs
             await Clients.Group(user.Id).SendAsync("ReceiveLogAsync", graphId, message, "log");
         }
 
-        public async Task DebugLogAsync(User user, string graphId, string message)
-        {
-            await Clients.Group(user.Id).SendAsync("ReceiveLogAsync", graphId, message, "debug");
-        }
-
         public async Task WarnLogAsync(User user, string graphId, string message)
         {
             await Clients.Group(user.Id).SendAsync("ReceiveLogAsync", graphId, message, "warn");

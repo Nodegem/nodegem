@@ -131,12 +131,13 @@ namespace Nodester.Graph.Core
         public virtual NodeDefinition GetDefinition()
         {
             var fieldLabels = GetFieldLabels();
-            return new NodeDefinition
+            var definition = new NodeDefinition
             {
                 FullName = $"{Namespace}.{Type.Name}",
                 Title = Title,
                 Description = Type.GetAttributeValue((DefinedNodeAttribute dn) => dn.Description),
                 IgnoreDisplay = Type.GetAttributeValue((DefinedNodeAttribute dn) => dn.IgnoreDisplay),
+                IsListenerOnly = Type.GetAttributeValue((DefinedNodeAttribute dn) => dn.IsListenerOnly),
                 FlowInputs = FlowInputs.Select(x => x.ToFlowInputDefinition(fieldLabels[x.Key].Label)).ToList(),
                 FlowOutputs = FlowOutputs.Select(x =>
                     x.ToFlowOutputDefinition(fieldLabels[x.Key].Label, fieldLabels[x.Key].Indefinite)).ToList(),
@@ -148,6 +149,8 @@ namespace Nodester.Graph.Core
                     .Select(x => x.ToValueOutputDefinition(fieldLabels[x.Key].Label, fieldLabels[x.Key].Type,
                         fieldLabels[x.Key].Indefinite)).ToList()
             };
+
+            return definition;
         }
 
         protected FlowInput AddFlowInput(string key, Func<IFlow, Task<IFlowOutputField>> action)

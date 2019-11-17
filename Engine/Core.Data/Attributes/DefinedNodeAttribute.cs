@@ -13,6 +13,7 @@ namespace Nodester.Engine.Data.Attributes
         /// </summary>
         public bool Ignore { get; set; }
         public bool IgnoreDisplay { get; set; }
+        public bool IsListenerOnly { get; set; }
 
         public DefinedNodeAttribute()
         {
