@@ -3,27 +3,33 @@ using System.Threading;
 using System.Threading.Tasks;
 using Bridge.Data;
 using Nodester.Data;
+using Nodester.Engine.Data;
+using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
+using Nodester.Engine.Data.Nodes;
 
 namespace Nodester.Graph.Core
 {
-    public abstract class EventListenerNode : ListenerNode
+    [DefinedNode(IsListenerOnly = true)]
+    public abstract class StreamNode : Node, IListenerNode
     {
-        public IFlowOutputField On { get; private set; }
+        public new IListenerGraph Graph => base.Graph as IListenerGraph;
+        
+        public IFlowOutputField Out { get; private set; }
         
         protected IGraphHubConnection GraphHubConnection { get; }
 
-        protected EventListenerNode(IGraphHubConnection graphHubConnection)
+        protected StreamNode(IGraphHubConnection graphHubConnection)
         {
             GraphHubConnection = graphHubConnection;
         }
 
         protected override void Define()
         {
-            On = AddFlowOutput(nameof(On));
+            Out = AddFlowOutput(nameof(Out));
         }
 
-        public abstract override void SetupEventListeners();
+        public abstract void SetupEventListeners();
 
         protected async Task SendErrorAsync(Exception ex)
         {

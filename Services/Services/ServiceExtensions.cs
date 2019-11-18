@@ -5,6 +5,7 @@ using Nodester.Services.Data;
 using Nodester.Services.Data.Repositories;
 using Nodester.Services.Repositories;
 using Nodester.ThirdParty.Discord;
+using Nodester.ThirdParty.Reddit;
 using Nodester.ThirdParty.SendGrid;
 using Nodester.ThirdParty.Twilio;
 
@@ -38,6 +39,7 @@ namespace Nodester.Services
             services.ApplyTwilioServices();
             services.ApplySendGridServices();
             services.ApplyDiscordServices();
+            services.ApplyRedditService();
         }
     }
 }

@@ -12,7 +12,9 @@
 
   <ItemGroup>
     <Folder Include="Discord\Nodes\Guild" />
+    <Folder Include="Discord\Nodes\Reaction" />
     <Folder Include="Discord\Nodes\Role" />
+    <Folder Include="Reddit\Nodes" />
     <Folder Include="SendGrid" />
     <Folder Include="Twilio" />
   </ItemGroup>
@@ -20,6 +22,7 @@
   <ItemGroup>
     <PackageReference Include="Discord.Net" Version="2.1.1" />
     <PackageReference Include="Mapster" Version="4.1.1" />
+    <PackageReference Include="Reddit" Version="1.2.0" />
     <PackageReference Include="Sendgrid" Version="9.12.0" />
     <PackageReference Include="Twilio" Version="5.35.1" />
   </ItemGroup>

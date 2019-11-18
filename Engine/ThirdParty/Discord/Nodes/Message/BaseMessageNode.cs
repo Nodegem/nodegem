@@ -3,7 +3,7 @@ using Nodester.Engine.Data;
 using Nodester.Engine.Data.Fields;
 using ThirdParty.Data.Discord;
 
-namespace Nodester.ThirdParty.Discord.Nodes.Message_Events
+namespace Nodester.ThirdParty.Discord.Nodes.Message
 {
     public abstract class BaseMessageNode : DiscordNode
     {

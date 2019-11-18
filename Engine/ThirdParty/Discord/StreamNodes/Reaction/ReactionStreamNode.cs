@@ -4,15 +4,15 @@ using Nodester.Engine.Data.Fields;
 using Nodester.ThirdParty.Discord.Dtos;
 using ThirdParty.Data.Discord;
 
-namespace Nodester.ThirdParty.Discord.Nodes.Reaction_Events
+namespace Nodester.ThirdParty.Discord.StreamNodes.Reaction
 {
-    public abstract class ReactionEventListenerNode : DiscordEventListenerNode
+    public abstract class ReactionStreamNode : DiscordStreamNode
     {
         
         public IValueOutputField Message { get; set; }
         public IValueOutputField Channel { get; set; }
         
-        public ReactionEventListenerNode(IDiscordService discordService, IGraphHubConnection graphHubConnection) : base(discordService, graphHubConnection)
+        public ReactionStreamNode(IDiscordService discordService, IGraphHubConnection graphHubConnection) : base(discordService, graphHubConnection)
         {
         }
 

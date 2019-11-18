@@ -2,9 +2,9 @@ using Bridge.Data;
 using Nodester.Engine.Data.Fields;
 using ThirdParty.Data.Discord;
 
-namespace Nodester.ThirdParty.Discord.Nodes.Connections
+namespace Nodester.ThirdParty.Discord.StreamNodes.Connections
 {
-    public class OnDisconnected : DiscordEventListenerNode
+    public class OnDisconnected : DiscordStreamNode
     {
         public IValueOutputField Exception { get; set; }
 
@@ -24,7 +24,7 @@ namespace Nodester.ThirdParty.Discord.Nodes.Connections
             DiscordService.Client.Disconnected += async ex =>
             {
                 Exception.SetValue(ex.Message);
-                await Graph.RunFlowAsync(On);
+                await Graph.RunFlowAsync(Out);
             };
         }
     }

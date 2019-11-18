@@ -1,15 +1,12 @@
 using System;
 using Bridge.Data;
-using Discord;
 using Discord.WebSocket;
-using Mapster;
 using Nodester.Engine.Data.Fields;
-using Nodester.ThirdParty.Discord.Dtos;
 using ThirdParty.Data.Discord;
 
-namespace Nodester.ThirdParty.Discord.Nodes.Reaction_Events
+namespace Nodester.ThirdParty.Discord.StreamNodes.Reaction
 {
-    public class OnReactionAdded : ReactionEventListenerNode
+    public class OnReactionAdded : ReactionStreamNode
     {
         
         public IValueOutputField Reaction { get; set; }
@@ -34,7 +31,7 @@ namespace Nodester.ThirdParty.Discord.Nodes.Reaction_Events
 
                 try
                 {
-                    await Graph.RunFlowAsync(On);
+                    await Graph.RunFlowAsync(Out);
                 }
                 catch (Exception ex)
                 {

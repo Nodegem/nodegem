@@ -3,9 +3,9 @@ using Bridge.Data;
 using Nodester.Engine.Data.Fields;
 using ThirdParty.Data.Discord;
 
-namespace Nodester.ThirdParty.Discord.Nodes.Message_Events
+namespace Nodester.ThirdParty.Discord.StreamNodes.Message
 {
-    public class OnMessageUpdated : MessageEventListenerNode
+    public class OnMessageUpdated : MessageStreamNode
     {
         public IValueOutputField OldMessage { get; set; }
 
@@ -29,7 +29,7 @@ namespace Nodester.ThirdParty.Discord.Nodes.Message_Events
                     var oldMessage = await before.GetOrDownloadAsync();
                     OldMessage.SetValue(oldMessage.Content);
                     SetBaseValues(after);
-                    await Graph.RunFlowAsync(On);
+                    await Graph.RunFlowAsync(Out);
                 }
                 catch (Exception ex)
                 {

@@ -1,9 +1,9 @@
 using Bridge.Data;
 using ThirdParty.Data.Discord;
 
-namespace Nodester.ThirdParty.Discord.Nodes.Connections
+namespace Nodester.ThirdParty.Discord.StreamNodes.Connections
 {
-    public class OnConnected : DiscordEventListenerNode
+    public class OnConnected : DiscordStreamNode
     {
         public OnConnected(IDiscordService discordService, IGraphHubConnection graphHubConnection) : base(
             discordService, graphHubConnection)
@@ -12,7 +12,7 @@ namespace Nodester.ThirdParty.Discord.Nodes.Connections
 
         public override void SetupEventListeners()
         {
-            DiscordService.Client.Connected += async () => { await Graph.RunFlowAsync(On); };
+            DiscordService.Client.Connected += async () => { await Graph.RunFlowAsync(Out); };
         }
     }
 }

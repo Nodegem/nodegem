@@ -4,9 +4,9 @@ using Discord.WebSocket;
 using Nodester.Engine.Data.Fields;
 using ThirdParty.Data.Discord;
 
-namespace Nodester.ThirdParty.Discord.Nodes.Message_Events
+namespace Nodester.ThirdParty.Discord.StreamNodes.Message
 {
-    public abstract class MessageEventListenerNode : DiscordEventListenerNode
+    public abstract class MessageStreamNode : DiscordStreamNode
     {
         public IValueOutputField ServerName { get; set; }
         public IValueOutputField Timestamp { get; set; }
@@ -14,7 +14,7 @@ namespace Nodester.ThirdParty.Discord.Nodes.Message_Events
         public IValueOutputField Username { get; set; }
         public IValueOutputField Message { get; set; }
 
-        protected MessageEventListenerNode(IDiscordService discordService, IGraphHubConnection graphHubConnection) :
+        protected MessageStreamNode(IDiscordService discordService, IGraphHubConnection graphHubConnection) :
             base(discordService, graphHubConnection)
         {
         }

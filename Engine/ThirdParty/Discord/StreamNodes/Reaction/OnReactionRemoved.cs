@@ -4,9 +4,9 @@ using Discord.WebSocket;
 using Nodester.Engine.Data.Fields;
 using ThirdParty.Data.Discord;
 
-namespace Nodester.ThirdParty.Discord.Nodes.Reaction_Events
+namespace Nodester.ThirdParty.Discord.StreamNodes.Reaction
 {
-    public class OnReactionRemoved : ReactionEventListenerNode
+    public class OnReactionRemoved : ReactionStreamNode
     {
         
         public IValueOutputField Reaction { get; set; }
@@ -30,7 +30,7 @@ namespace Nodester.ThirdParty.Discord.Nodes.Reaction_Events
 
                 try
                 {
-                    await Graph.RunFlowAsync(On);
+                    await Graph.RunFlowAsync(Out);
                 }
                 catch (Exception ex)
                 {

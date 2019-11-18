@@ -1,4 +1,4 @@
-namespace Nodester.ThirdParty.Discord.Nodes.Channel
+namespace Nodester.ThirdParty.Discord.StreamNodes.Channel
 {
     public class OnChannelCreated
     {

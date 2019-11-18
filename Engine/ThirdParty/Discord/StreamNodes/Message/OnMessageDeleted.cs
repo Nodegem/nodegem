@@ -2,9 +2,9 @@ using System;
 using Bridge.Data;
 using ThirdParty.Data.Discord;
 
-namespace Nodester.ThirdParty.Discord.Nodes.Message_Events
+namespace Nodester.ThirdParty.Discord.StreamNodes.Message
 {
-    public class OnMessageDeleted : MessageEventListenerNode
+    public class OnMessageDeleted : MessageStreamNode
     {
         public OnMessageDeleted(IDiscordService discordService, IGraphHubConnection graphHubConnection) : base(
             discordService, graphHubConnection)
@@ -18,7 +18,7 @@ namespace Nodester.ThirdParty.Discord.Nodes.Message_Events
                 try
                 {
                     SetBaseValues(await before.GetOrDownloadAsync());
-                    await Graph.RunFlowAsync(On);
+                    await Graph.RunFlowAsync(Out);
                 }
                 catch (Exception ex)
                 {

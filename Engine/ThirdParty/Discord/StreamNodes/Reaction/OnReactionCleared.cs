@@ -1,12 +1,10 @@
 using System;
 using Bridge.Data;
-using Discord.WebSocket;
-using Nodester.Engine.Data.Fields;
 using ThirdParty.Data.Discord;
 
-namespace Nodester.ThirdParty.Discord.Nodes.Reaction_Events
+namespace Nodester.ThirdParty.Discord.StreamNodes.Reaction
 {
-    public class OnReactionCleared : ReactionEventListenerNode
+    public class OnReactionCleared : ReactionStreamNode
     {
         
         public OnReactionCleared(IDiscordService discordService, IGraphHubConnection graphHubConnection) : base(discordService, graphHubConnection)
@@ -21,7 +19,7 @@ namespace Nodester.ThirdParty.Discord.Nodes.Reaction_Events
 
                 try
                 {
-                    await Graph.RunFlowAsync(On);
+                    await Graph.RunFlowAsync(Out);
                 }
                 catch (Exception ex)
                 {
