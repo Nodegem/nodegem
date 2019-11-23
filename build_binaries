@@ -1,7 +1,5 @@
 #!/bin/bash
 
-CWD="$(pwd)"
-
 cd Bridge/Bridge
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
@@ -27,5 +25,3 @@ elif [[ "$OSTYPE" == "msys" ]]; then
     echo 'Building Linux Arm 64 bit'
     dotnet publish -c release -r linux-arm64 //p:PublishSingleFile=true -o $CWD/binaries/linux-arm64 -v q
 fi
-
-cd $CWD
