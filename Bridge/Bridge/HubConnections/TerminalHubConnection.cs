@@ -23,21 +23,7 @@ namespace Nodester.Bridge.HubConnections
             _logger.LogInformation($"Logging: {message} User ID: {user.Id} Graph ID: {graphId}");
             if (sendToClient)
             {
-//                var truncatedMessage = message.TruncateAtWord(1024);
                 await Client.InvokeAsync("LogAsync", user, graphId, message);
-            }
-        }
-
-        public async Task DebugLogAsync(User user, string graphId, string message, bool isDebug, bool sendToClient)
-        {
-            if (isDebug)
-            {
-                _logger.LogDebug($"Logging: {message} User ID: {user.Id} Graph ID: {graphId}");
-                if (sendToClient)
-                {
-//                    var truncatedMessage = message.TruncateAtWord(1024);
-                    await Client.InvokeAsync("DebugLogAsync", user, graphId, message);
-                }
             }
         }
 
@@ -46,7 +32,6 @@ namespace Nodester.Bridge.HubConnections
             _logger.LogWarning($"Logging: {message} User ID: {user.Id} Graph ID: {graphId}");
             if (sendToClient)
             {
-//                var truncatedMessage = message.TruncateAtWord(1024);
                 await Client.InvokeAsync("WarnLogAsync", user, graphId, message);
             }
         }
@@ -56,7 +41,6 @@ namespace Nodester.Bridge.HubConnections
             _logger.LogError($"Logging: {message} User ID: {user.Id} Graph ID: {graphId}");
             if (sendToClient)
             {
-//                var truncatedMessage = message.TruncateAtWord(1024);
                 await Client.InvokeAsync("ErrorLogAsync", user, graphId, message);
             }
         }

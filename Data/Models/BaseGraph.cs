@@ -8,7 +8,6 @@ namespace Nodester.Data.Models
     public abstract class BaseGraph : ActiveEntity
     {
         public Guid UserId { get; set; }
-        public bool IsDebugModeEnabled { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public IEnumerable<Node> Nodes { get; set; }

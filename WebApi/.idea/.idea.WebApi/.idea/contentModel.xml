@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+    <e p="C:\Users\rszem\.Rider2019.2\config\consoles\db" t="IncludeRecursive" />
     <e p="C:\Users\rszem\.Rider2019.2\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\rszem\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_WebApi.850840532.00" t="ExcludeRecursive" />
     <e p="C:\Users\rszem\Documents\Projects\nodester\Common" t="IncludeRecursive">
@@ -154,7 +155,6 @@
       <e p="bin" t="ExcludeRecursive" />
       <e p="Core" t="Include">
         <e p="BaseGraph.cs" t="Include" />
-        <e p="EventListenerNode.cs" t="Include" />
         <e p="Extensions" t="Include">
           <e p="DefinitionExtensions.cs" t="Include" />
           <e p="LinqExtensions.cs" t="Include" />
@@ -191,13 +191,13 @@
           </e>
         </e>
         <e p="ListenerGraph.cs" t="Include" />
-        <e p="ListenerNode.cs" t="Include" />
         <e p="Macro" t="Include">
           <e p="MacroFlow.cs" t="Include" />
           <e p="MacroGraph.cs" t="Include" />
         </e>
         <e p="Node.cs" t="Include" />
         <e p="RegisterAssembly.cs" t="Include" />
+        <e p="StreamNode.cs" t="Include" />
         <e p="Utils" t="Include">
           <e p="ActivatorHelper.cs" t="Include" />
           <e p="ConvertHelper.cs" t="Include" />
@@ -226,13 +226,23 @@
         <e p="HTTP" t="Include">
           <e p="Fetch.cs" t="Include" />
           <e p="HttpNode.cs" t="Include" />
-          <e p="JsonFetch.cs" t="Include" />
+          <e p="JSONFetch.cs" t="Include" />
           <e p="Post.cs" t="Include" />
         </e>
-        <e p="Literals" t="Include">
+        <e p="Lists" t="Include">
+          <e p="Add.cs" t="Include" />
+          <e p="Combine.cs" t="Include" />
+          <e p="First.cs" t="Include" />
+          <e p="GetIndex.cs" t="Include" />
+          <e p="GetValue.cs" t="Include" />
+          <e p="last.cs" t="Include" />
+          <e p="Remove.cs" t="Include" />
+        </e>
+        <e p="Literal" t="Include">
           <e p="Boolean.cs" t="Include" />
           <e p="Date.cs" t="Include" />
           <e p="DateTime.cs" t="Include" />
+          <e p="List.cs" t="Include" />
           <e p="Number.cs" t="Include" />
           <e p="PhoneNumber.cs" t="Include" />
           <e p="Text.cs" t="Include" />
@@ -243,7 +253,6 @@
         <e p="Logging" t="Include">
           <e p="BaseLog.cs" t="Include" />
           <e p="Log.cs" t="Include" />
-          <e p="LogDebug.cs" t="Include" />
           <e p="LogError.cs" t="Include" />
           <e p="LogWarn.cs" t="Include" />
         </e>
@@ -279,11 +288,18 @@
           </e>
         </e>
         <e p="ServiceExtensions.cs" t="Include" />
+        <e p="SQL" t="Include">
+          <e p="NonQuery.cs" t="Include" />
+          <e p="Query.cs" t="Include" />
+          <e p="Select.cs" t="Include" />
+          <e p="SQLNode.cs" t="Include" />
+          <e p="SQLQuery.cs" t="Include" />
+        </e>
         <e p="Utils" t="Include">
           <e p="Concat.cs" t="Include" />
           <e p="Map.cs" t="Include" />
           <e p="StringFormat.cs" t="Include" />
-          <e p="ToJson.cs" t="Include" />
+          <e p="ToJSON.cs" t="Include" />
         </e>
       </e>
       <e p="Nodester.Engine.csproj" t="IncludeRecursive" />
@@ -373,19 +389,10 @@
           <e p="DiscordException.cs" t="Include" />
         </e>
         <e p="Nodes" t="Include">
-          <e p="Channel" t="Include">
-            <e p="OnChannelCreated.cs" t="Include" />
-            <e p="OnChannelDestroyed.cs" t="Include" />
-            <e p="OnChannelUpdated.cs" t="Include" />
-          </e>
           <e p="Connections" t="Include">
             <e p="Disconnect.cs" t="Include" />
             <e p="GetConnectionState.cs" t="Include" />
-            <e p="OnConnected.cs" t="Include" />
-            <e p="OnDisconnected.cs" t="Include" />
           </e>
-          <e p="DiscordEventListenerNode.cs" t="Include" />
-          <e p="DiscordListenerNode.cs" t="Include" />
           <e p="DiscordNode.cs" t="Include" />
           <e p="Guild" t="Include" />
           <e p="Message" t="Include">
@@ -393,26 +400,41 @@
             <e p="DeleteMessage.cs" t="Include" />
             <e p="EditMessage.cs" t="Include" />
             <e p="GetMessage.cs" t="Include" />
-            <e p="MessageEventListenerNode.cs" t="Include" />
-            <e p="OnMessageDeleted.cs" t="Include" />
-            <e p="OnMessageReceived.cs" t="Include" />
-            <e p="OnMessageUpdated.cs" t="Include" />
             <e p="PinMessage.cs" t="Include" />
-            <e p="UnPinMessage.cs" t="Include" />
+            <e p="UnpinMessage.cs" t="Include" />
           </e>
-          <e p="Reaction" t="Include">
-            <e p="OnReactionAdded.cs" t="Include" />
-            <e p="OnReactionCleared.cs" t="Include" />
-            <e p="OnReactionRemoved.cs" t="Include" />
-            <e p="ReactionEventListenerNode.cs" t="Include" />
-          </e>
+          <e p="Reaction" t="Include" />
           <e p="Role" t="Include" />
-          <e p="StartBot.cs" t="Include" />
           <e p="User" t="Include">
             <e p="GetUser.cs" t="Include" />
           </e>
         </e>
         <e p="ServiceExtensions.cs" t="Include" />
+        <e p="StreamNodes" t="Include">
+          <e p="Channel" t="Include">
+            <e p="OnChannelCreated.cs" t="Include" />
+            <e p="OnChannelDestroyed.cs" t="Include" />
+            <e p="OnChannelUpdated.cs" t="Include" />
+          </e>
+          <e p="Connections" t="Include">
+            <e p="OnConnected.cs" t="Include" />
+            <e p="OnDisconnected.cs" t="Include" />
+          </e>
+          <e p="DiscordStreamNode.cs" t="Include" />
+          <e p="Message" t="Include">
+            <e p="MessageStreamNode.cs" t="Include" />
+            <e p="OnMessageDeleted.cs" t="Include" />
+            <e p="OnMessageReceived.cs" t="Include" />
+            <e p="OnMessageUpdated.cs" t="Include" />
+          </e>
+          <e p="Reaction" t="Include">
+            <e p="OnReactionAdded.cs" t="Include" />
+            <e p="OnReactionCleared.cs" t="Include" />
+            <e p="OnReactionRemoved.cs" t="Include" />
+            <e p="ReactionStreamNode.cs" t="Include" />
+          </e>
+          <e p="StartBot.cs" t="Include" />
+        </e>
       </e>
       <e p="Nodester.Engine.ThirdParty.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
@@ -420,6 +442,18 @@
           <e p="netcoreapp3.0" t="Include">
             <e p="Nodester.Engine.ThirdParty.AssemblyInfo.cs" t="Include" />
           </e>
+        </e>
+      </e>
+      <e p="Reddit" t="Include">
+        <e p="Exceptions" t="Include">
+          <e p="RedditException.cs" t="Include" />
+        </e>
+        <e p="Nodes" t="Include" />
+        <e p="RedditService.cs" t="Include" />
+        <e p="ServiceExtensions.cs" t="Include" />
+        <e p="StreamNodes" t="Include">
+          <e p="RedditStreamNode.cs" t="Include" />
+          <e p="StartBot.cs" t="Include" />
         </e>
       </e>
       <e p="SendGrid" t="Include">
@@ -451,6 +485,9 @@
             <e p="Nodester.Engine.ThirdParty.Data.AssemblyInfo.cs" t="Include" />
           </e>
         </e>
+      </e>
+      <e p="Reddit" t="Include">
+        <e p="IRedditService.cs" t="Include" />
       </e>
       <e p="SendGrid" t="Include">
         <e p="ISendGridService.cs" t="Include" />
@@ -543,6 +580,8 @@
       <e p="Migrations" t="Include">
         <e p="20191109183513_Initial.cs" t="Include" />
         <e p="20191109183513_Initial.Designer.cs" t="Include" />
+        <e p="20191117041731_RemoveDebugMode.cs" t="Include" />
+        <e p="20191117041731_RemoveDebugMode.Designer.cs" t="Include" />
         <e p="Keys" t="Include">
           <e p="20191109184552_AddDataProtectionKeys.cs" t="Include" />
           <e p="20191109184552_AddDataProtectionKeys.Designer.cs" t="Include" />

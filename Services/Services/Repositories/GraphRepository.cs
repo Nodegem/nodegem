@@ -33,6 +33,12 @@ namespace Nodester.Services.Repositories
             return UnprotectGraph(await GetAsync(graphId));
         }
 
+        public async Task<bool> IsListenerGraphAsync(Guid graphId)
+        {
+            var graph = await GetGraphAsync(graphId);
+            return graph.Type == ExecutionType.Listener;
+        }
+
         public IEnumerable<GraphDto> GetGraphsAssignedToUser(Guid userId)
         {
             var graphs = GetAll(x => x.UserId == userId).OrderBy(x => x.CreatedOn);

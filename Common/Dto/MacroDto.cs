@@ -15,8 +15,6 @@ namespace Nodester.Common.Dto
         [Required] 
         public Guid UserId { get; set; }
         
-        public bool IsDebugModeEnabled { get; set; }
-
         public string Name { get; set; }
         public string Description { get; set; }
         public IEnumerable<NodeDto> Nodes { get; set; }

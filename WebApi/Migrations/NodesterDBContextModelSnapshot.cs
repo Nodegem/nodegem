@@ -252,9 +252,9 @@ namespace Nodester.WebApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c962c8ae-aaac-4a0b-aea4-1f13f06df12a"),
+                            Id = new Guid("00cbed10-b610-459c-bc1d-4e5fb487964c"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f9af2cc0-ee6b-4115-9526-ce931a34f2a7",
+                            ConcurrencyStamp = "84d9f4bc-e3ff-4a7a-a2c8-aae94cdfbe7d",
                             Constants = "[]",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@admin.com",
@@ -266,9 +266,9 @@ namespace Nodester.WebApi.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMINUSER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEEN3CwmfH0/+HE5jYg9F8Leq7ti8k3/ilsyLZFKPYkVhFTxd55ax49+cIll0UNLsg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOMOQTpOM2RnDuFwLYXmOx11MUxYxQPQTC4/QhQGE+v4YR9o1Mf8jVIEfDGHV/6ETQ==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "5d4472a5b2204f3a970a61c6a2c8f6c8",
+                            SecurityStamp = "35a409194991438ab2277141da3a53cf",
                             TwoFactorEnabled = false,
                             UserName = "AdminUser"
                         });
@@ -290,9 +290,6 @@ namespace Nodester.WebApi.Migrations
                         .HasColumnType("text");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("IsDebugModeEnabled")
                         .HasColumnType("boolean");
 
                     b.Property<DateTime>("LastUpdated")
@@ -342,9 +339,6 @@ namespace Nodester.WebApi.Migrations
                         .HasColumnType("text");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("IsDebugModeEnabled")
                         .HasColumnType("boolean");
 
                     b.Property<DateTime>("LastUpdated")

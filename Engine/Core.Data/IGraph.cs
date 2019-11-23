@@ -13,7 +13,6 @@ namespace Nodester.Engine.Data
         User User { get; }
         BridgeInfo Bridge { get; }
         
-        bool DebugMode { get; set; }
         bool IsRunningLocally { get; set; }
         
         INode GetNode(Guid nodeId);

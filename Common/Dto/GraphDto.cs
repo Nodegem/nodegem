@@ -11,7 +11,6 @@ namespace Nodester.Common.Dto
         [Required] public Guid Id { get; set; }
         [Required] public Guid UserId { get; set; }
 
-        public bool IsDebugModeEnabled { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public ExecutionType Type { get; set; }

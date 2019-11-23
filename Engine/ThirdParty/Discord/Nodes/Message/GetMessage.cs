@@ -5,7 +5,7 @@ using Nodester.Engine.Data.Fields;
 using Nodester.ThirdParty.Discord.Dtos;
 using ThirdParty.Data.Discord;
 
-namespace Nodester.ThirdParty.Discord.Nodes.Message_Events
+namespace Nodester.ThirdParty.Discord.Nodes.Message
 {
     public class GetMessage : DiscordNode
     {
