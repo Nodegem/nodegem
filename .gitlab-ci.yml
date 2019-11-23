@@ -29,8 +29,9 @@ migrate:
     - dotnet tool install --global dotnet-ef --version 3.0.0
     - export PATH="$PATH:/root/.dotnet/tools"
   script:
-    - cd WebApi/ && dotnet ef database update --context NodesterDbContext
-    - cd WebApi/ && dotnet ef database update --context KeysContext
+    - cd WebApi/
+    - dotnet ef database update --context NodesterDbContext
+    - dotnet ef database update --context KeysContext
   only:
     - develop
 
