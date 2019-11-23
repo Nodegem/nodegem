@@ -38,6 +38,8 @@ migrate:
 build_artifacts:
   stage: artifacts
   before_script:
+    - apt install python3.7
+    - apt install python-pip
     - pip install awscli
   script:
     - bash build_binaries
