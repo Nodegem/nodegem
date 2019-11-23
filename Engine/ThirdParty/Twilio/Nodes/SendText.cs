@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Nodester.Common.Data;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
@@ -22,6 +23,7 @@ namespace Nodester.ThirdParty.Twilio.Nodes
 
         [FieldAttributes("From Phone #")] public IValueInputField FromPhoneNumber { get; private set; }
 
+        [FieldAttributes(ValueType.TextArea)]     
         public IValueInputField Message { get; private set; }
 
         public SendText(ITwilioService twilioService) : base(twilioService)

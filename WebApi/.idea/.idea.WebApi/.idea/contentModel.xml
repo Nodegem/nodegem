@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+    <e p="C:\Users\rszem\.Rider2019.2\config\consoles\db" t="IncludeRecursive" />
     <e p="C:\Users\rszem\.Rider2019.2\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\rszem\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_WebApi.850840532.00" t="ExcludeRecursive" />
     <e p="C:\Users\rszem\Documents\Projects\nodester\Common" t="IncludeRecursive">
@@ -225,13 +226,23 @@
         <e p="HTTP" t="Include">
           <e p="Fetch.cs" t="Include" />
           <e p="HttpNode.cs" t="Include" />
-          <e p="JsonFetch.cs" t="Include" />
+          <e p="JSONFetch.cs" t="Include" />
           <e p="Post.cs" t="Include" />
+        </e>
+        <e p="Lists" t="Include">
+          <e p="Add.cs" t="Include" />
+          <e p="Combine.cs" t="Include" />
+          <e p="First.cs" t="Include" />
+          <e p="GetIndex.cs" t="Include" />
+          <e p="GetValue.cs" t="Include" />
+          <e p="last.cs" t="Include" />
+          <e p="Remove.cs" t="Include" />
         </e>
         <e p="Literal" t="Include">
           <e p="Boolean.cs" t="Include" />
           <e p="Date.cs" t="Include" />
           <e p="DateTime.cs" t="Include" />
+          <e p="List.cs" t="Include" />
           <e p="Number.cs" t="Include" />
           <e p="PhoneNumber.cs" t="Include" />
           <e p="Text.cs" t="Include" />
@@ -277,11 +288,18 @@
           </e>
         </e>
         <e p="ServiceExtensions.cs" t="Include" />
+        <e p="SQL" t="Include">
+          <e p="NonQuery.cs" t="Include" />
+          <e p="Query.cs" t="Include" />
+          <e p="Select.cs" t="Include" />
+          <e p="SQLNode.cs" t="Include" />
+          <e p="SQLQuery.cs" t="Include" />
+        </e>
         <e p="Utils" t="Include">
           <e p="Concat.cs" t="Include" />
           <e p="Map.cs" t="Include" />
           <e p="StringFormat.cs" t="Include" />
-          <e p="ToJson.cs" t="Include" />
+          <e p="ToJSON.cs" t="Include" />
         </e>
       </e>
       <e p="Nodester.Engine.csproj" t="IncludeRecursive" />
@@ -383,7 +401,7 @@
             <e p="EditMessage.cs" t="Include" />
             <e p="GetMessage.cs" t="Include" />
             <e p="PinMessage.cs" t="Include" />
-            <e p="UnPinMessage.cs" t="Include" />
+            <e p="UnpinMessage.cs" t="Include" />
           </e>
           <e p="Reaction" t="Include" />
           <e p="Role" t="Include" />

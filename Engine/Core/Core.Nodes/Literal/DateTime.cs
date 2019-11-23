@@ -15,9 +15,9 @@ namespace Nodester.Graph.Core.Nodes.Literal
         
         protected override void Define()
         {
-            Value = AddValueInput(nameof(Value), default(DateTime));
-            Output = AddValueOutput<DateTime>(nameof(Output),
-                async flow => await flow.GetValueAsync<DateTime>(Value));
+            Value = AddValueInput(nameof(Value), System.DateTime.UtcNow);
+            Output = AddValueOutput(nameof(Output),
+                async flow => await flow.GetValueAsync<System.DateTime>(Value));
         }
     }
 }

@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Nodester.Common.Data;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
@@ -23,10 +24,11 @@ namespace Nodester.ThirdParty.SendGrid.Nodes
 
         public IValueInputField Subject { get; private set; }
 
-        [FieldAttributes("Plain Text Content")]
+        [FieldAttributes("Plain Text Content", ValueType.TextArea)]
         public IValueInputField PlainTextContent { get; private set; }
 
-        [FieldAttributes("HTML Content")] public IValueInputField HtmlContent { get; private set; }
+        [FieldAttributes("HTML Content", ValueType.TextArea)]
+        public IValueInputField HtmlContent { get; private set; }
 
         public SendEmail(ISendGridService sendGridService) : base(sendGridService)
         {

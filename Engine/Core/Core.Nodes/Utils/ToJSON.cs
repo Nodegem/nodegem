@@ -24,8 +24,12 @@ namespace Nodester.Graph.Core.Nodes.Utils
         {
             Value = AddValueInput<object>(nameof(Value));
             JSON = AddValueOutput(nameof(JSON),
-                async flow => JObject.FromObject(await flow.GetValueAsync<object>(Value),
-                    JsonSerializer.Create(SerializerSettings)));
+                async flow =>
+                {
+                    var value = await flow.GetValueAsync<object>(Value);
+                    return JToken.FromObject(value,
+                        JsonSerializer.Create(SerializerSettings));
+                });
         }
     }
 }
