@@ -38,6 +38,9 @@ migrate:
 build_artifacts:
   stage: artifacts
   before_script:
+    - apt update
+    - apt install software-properties-common
+    - add-apt-repository ppa:deadsnakes/ppa
     - apt install python3.7
     - apt install python-pip
     - pip install awscli
