@@ -36,7 +36,6 @@ migrate:
     - develop
 
 build_artifacts:
-  image: "python:latest"
   stage: artifacts
   before_script:
     - pip install awscli
