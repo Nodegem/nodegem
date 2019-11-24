@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt install zip
+apt install -y zip
 
 CWD="$(pwd)"
 
@@ -30,7 +30,7 @@ elif [[ "$OSTYPE" == "msys" ]]; then
     dotnet publish -c release -r linux-arm64 //p:PublishSingleFile=true -o $CWD/binaries/linux-arm64 -v q
 fi
 
-mdkir -p $CWD/compressed
+mkdir -p $CWD/compressed
 cd $CWD/compressed
 
 zip -r nodegem-win64.zip $CWD/binaries/win64

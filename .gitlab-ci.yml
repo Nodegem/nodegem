@@ -6,34 +6,34 @@ variables:
   HEROKU_PROD_NAME: nodester-prod
 
 stages:
-  - build
-  - migrate
-  - deploy
+  # - build
+  # - migrate
+  # - deploy
   - artifacts
 
-build_project:
-  stage: build
-  script:
-    - cd WebApi/ && dotnet build WebApi.sln
-  only:
-    - develop
-    - master
+# build_project:
+#   stage: build
+#   script:
+#     - cd WebApi/ && dotnet build WebApi.sln
+#   only:
+#     - develop
+#     - master
 
-migrate:
-  stage: migrate
-  variables:
-    ASPNETCORE_ENVIRONMENT: Staging
-    ConnectionStrings__nodesterDb: $NODEGEM_DB
-    ConnectionStrings__keysDb: $NODEGEM_KEYS_DB
-  before_script:
-    - dotnet tool install --global dotnet-ef --version 3.0.0
-    - export PATH="$PATH:/root/.dotnet/tools"
-  script:
-    - cd WebApi/
-    - dotnet ef database update --context NodesterDbContext
-    - dotnet ef database update --context KeysContext
-  only:
-    - develop
+# migrate:
+#   stage: migrate
+#   variables:
+#     ASPNETCORE_ENVIRONMENT: Staging
+#     ConnectionStrings__nodesterDb: $NODEGEM_DB
+#     ConnectionStrings__keysDb: $NODEGEM_KEYS_DB
+#   before_script:
+#     - dotnet tool install --global dotnet-ef --version 3.0.0
+#     - export PATH="$PATH:/root/.dotnet/tools"
+#   script:
+#     - cd WebApi/
+#     - dotnet ef database update --context NodesterDbContext
+#     - dotnet ef database update --context KeysContext
+#   only:
+#     - develop
 
 build_artifacts:
   stage: artifacts
@@ -54,13 +54,12 @@ build_artifacts:
   only:
     - develop
     - tags
-
-deploy:
-  stage: deploy
-  script:
-    - apt-get update -yq
-    - apt-get install -y ruby-dev
-    - gem install dpl
-    - dpl --provider=heroku --app=$HEROKU_STAGE_NAME --api-key=$HEROKU_API_KEY
-  only:
-    - develop
+# deploy:
+#   stage: deploy
+#   script:
+#     - apt-get update -yq
+#     - apt-get install -y ruby-dev
+#     - gem install dpl
+#     - dpl --provider=heroku --app=$HEROKU_STAGE_NAME --api-key=$HEROKU_API_KEY
+#   only:
+#     - develop
