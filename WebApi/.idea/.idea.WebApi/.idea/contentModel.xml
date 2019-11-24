@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\rszem\.Rider2019.2\config\consoles\db" t="IncludeRecursive" />
     <e p="C:\Users\rszem\.Rider2019.2\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\rszem\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_WebApi.850840532.00" t="ExcludeRecursive" />
     <e p="C:\Users\rszem\Documents\Projects\nodester\Common" t="IncludeRecursive">
@@ -226,7 +225,10 @@
         <e p="HTTP" t="Include">
           <e p="Fetch.cs" t="Include" />
           <e p="HttpNode.cs" t="Include" />
-          <e p="JSONFetch.cs" t="Include" />
+          <e p="JSON" t="Include">
+            <e p="JSONFetch.cs" t="Include" />
+            <e p="JSONPost.cs" t="Include" />
+          </e>
           <e p="Post.cs" t="Include" />
         </e>
         <e p="Lists" t="Include">
@@ -250,7 +252,7 @@
           <e p="Time.cs" t="Include" />
           <e p="Url.cs" t="Include" />
         </e>
-        <e p="Logging" t="Include">
+        <e p="Log" t="Include">
           <e p="BaseLog.cs" t="Include" />
           <e p="Log.cs" t="Include" />
           <e p="LogError.cs" t="Include" />

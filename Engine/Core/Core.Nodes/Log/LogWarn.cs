@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Nodester.Common.Data.Interfaces;
 
-namespace Nodester.Graph.Core.Nodes.Logging
+namespace Nodester.Graph.Core.Nodes.Log
 {
     public class LogWarn : BaseLog
     {

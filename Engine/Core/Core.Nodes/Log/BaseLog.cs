@@ -1,11 +1,13 @@
 using System.Threading.Tasks;
-using Nodester.Common.Data;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Nodester.Common.Data.Interfaces;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
+using ValueType = Nodester.Common.Data.ValueType;
 
-namespace Nodester.Graph.Core.Nodes.Logging
+namespace Nodester.Graph.Core.Nodes.Log
 {
     [DefinedNode]
     [NodeNamespace("Core.Logging")]
@@ -32,7 +34,12 @@ namespace Nodester.Graph.Core.Nodes.Logging
 
         private async Task<IFlowOutputField> PerformLog(IFlow flow)
         {
-            await ExecuteLogAsync((await flow.GetValueAsync<string>(Message)), !Graph.IsRunningLocally);
+            var stringMessage = string.Empty;
+            var message = await flow.GetValueAsync<object>(Message);
+
+            stringMessage = !(message.GetType().IsPrimitive || message is JValue) ? JsonConvert.SerializeObject(message) : message.ToString();
+
+            await ExecuteLogAsync(stringMessage, !Graph.IsRunningLocally);
             return Out;
         }
 

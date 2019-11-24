@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -6,6 +7,7 @@ using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
 using Nodester.Services.Data;
+using ValueType = Nodester.Common.Data.ValueType;
 
 namespace Nodester.Graph.Core.Nodes.HTTP
 {
@@ -14,8 +16,12 @@ namespace Nodester.Graph.Core.Nodes.HTTP
     public class Post : HttpNode
     {
         
+        [FieldAttributes(ValueType.Url)]
         public IValueInputField Url { get; set; }
+        
+        [FieldAttributes(IsEditable = false)]
         public IValueInputField Body { get; set; }
+        
         public IValueOutputField Response { get; set; }
         
         public Post(INodeHttpClient client) : base(client)
@@ -33,9 +39,7 @@ namespace Nodester.Graph.Core.Nodes.HTTP
         {
             var url = await flow.GetValueAsync<string>(Url);
             var body = await flow.GetValueAsync<object>(Body);
-            
-            var httpContent = new StringContent(JsonConvert.SerializeObject(body, Settings));
-            var response = await Client.PostAsync(new Uri(url), httpContent);
+            var response = await Client.PostAsync(new Uri(url), new StreamContent(Stream.Null));
 
             return await response.Content.ReadAsStringAsync();
         }

@@ -1,5 +1,7 @@
 using System;
+using Nodester.Common.Utilities;
 using Nodester.Engine.Data.Fields;
+using Nodester.Graph.Core.Utils;
 using ValueType = Nodester.Common.Data.ValueType;
 
 namespace Nodester.Graph.Core.Fields
@@ -18,7 +20,8 @@ namespace Nodester.Graph.Core.Fields
 
         public void SetValue(object value)
         {
-            Value = value;
+            if (value == null) return;
+            Value = ConvertHelper.Cast(value, Type);
         }
 
         public virtual object GetValue()

@@ -1,20 +1,18 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
 using Newtonsoft.Json;
+using Nodester.Common.Data;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
-using SqlKata.Compilers;
-using SqlKata.Execution;
 
 namespace Nodester.Graph.Core.Nodes.SQL
 {
     public class Query : SQLQuery
     {
-        [FieldAttributes("Query")]
+        [FieldAttributes("Query", ValueType.TextArea)]
         public IValueInputField QueryString { get; set; }
         
         protected override void Define()

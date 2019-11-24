@@ -1,16 +1,14 @@
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
+using Dapper;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Nodester.Common.Extensions;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
-using SqlKata.Execution;
+using SqlKata.Compilers;
 using ValueType = Nodester.Common.Data.ValueType;
 
 namespace Nodester.Graph.Core.Nodes.SQL
@@ -26,12 +24,16 @@ namespace Nodester.Graph.Core.Nodes.SQL
         [FieldAttributes(ValueType.Number)]
         public IValueInputField Limit { get; set; }
         
+        [FieldAttributes(ValueType.TextArea)]
+        public IValueInputField Where { get; set; }
+        
         protected override void Define()
         {
             base.Define();
             Properties = InitializeValueInputList(nameof(Properties), "*");
             Table = AddValueInput(nameof(Table), default(string));
-            Limit = AddValueInput(nameof(Limit), default(int?));
+            Limit = AddValueInput(nameof(Limit), default(int));
+            Where = AddValueInput(nameof(Where), default(string));
         }
 
         protected override async Task<IList<object>> RetrieveResultsAsync(IFlow flow)
@@ -39,17 +41,24 @@ namespace Nodester.Graph.Core.Nodes.SQL
             var connectionString = await flow.GetValueAsync<string>(ConnectionString);
             var connection = new SqlConnection(connectionString);
             var properties = await Properties.SelectAsync(flow.GetValueAsync<string>);
-            var db = CreateQueryFactory(connection);
+            var compiler = new SqlServerCompiler();
             var table = await flow.GetValueAsync<string>(Table);
-            var limit = await flow.GetValueAsync<int?>(Limit);
-            var query = db.Query(table).Select(properties.ToArray());
-            if (limit != null)
+            var limit = await flow.GetValueAsync<int>(Limit) as int?;
+            var where = await flow.GetValueAsync<string>(Where);
+            var query = new SqlKata.Query(table).Select(properties.ToArray());
+            if (limit.HasValue)
             {
                 query.Limit(limit.Value);
             }
 
+            if (!string.IsNullOrEmpty(where))
+            {
+                query = query.WhereRaw(where);
+            }
+            var sql = compiler.Compile(query);
+            var dapperResults = await connection.QueryAsync(sql.Sql, sql.NamedBindings);
+            
             //I need to find a more efficient way to do this
-            var dapperResults = await query.GetAsync<dynamic>();
             var results = JsonConvert.DeserializeObject<IList<object>>(
                 JsonConvert.SerializeObject(dapperResults));
             return results;

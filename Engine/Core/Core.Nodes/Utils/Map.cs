@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 using Nodester.Common.Extensions;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
@@ -14,6 +15,7 @@ namespace Nodester.Graph.Core.Nodes.Utils
         
         [FieldAttributes(IsEditable = false)]
         public IValueInputField Object { get; set; }
+        
         [FieldAttributes(nameof(Keys))]
         public IEnumerable<IValueOutputField> Keys { get; set; }
         
@@ -26,16 +28,21 @@ namespace Nodester.Graph.Core.Nodes.Utils
         private async Task<object> GetValueFromObjectAsync(IFlow flow, string key)
         {
             var @object = await flow.GetValueAsync<object>(Object);
-            if (!(@object is IDictionary<string, object> dictionary))
+            JObject jObject;
+            if (!(@object is JObject))
             {
-                dictionary = @object.ToDictionary();
+                jObject = JObject.FromObject(@object);
+            }
+            else
+            {
+                jObject = @object as JObject;
             }
 
             var outputField = GetFieldByKey(key) as IValueOutputField;
             var objectKey = outputField.GetValue() as string;
-            if (dictionary.ContainsKey(objectKey))
+            if (jObject.ContainsKey(objectKey))
             {
-                return dictionary[objectKey];
+                return jObject[objectKey];
             }
 
             throw new KeyNotFoundException("Key does not exist");

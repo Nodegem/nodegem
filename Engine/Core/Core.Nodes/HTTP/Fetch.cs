@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Nodester.Common.Data;
 using Nodester.Engine.Data;
 using Nodester.Engine.Data.Attributes;
 using Nodester.Engine.Data.Fields;
@@ -10,6 +11,7 @@ namespace Nodester.Graph.Core.Nodes.HTTP
     [NodeNamespace("Core.HTTP")]
     public class Fetch : HttpNode
     {
+        [FieldAttributes(ValueType.Url)]
         public IValueInputField Url { get; private set; }
         public IValueOutputField Data { get; private set; }
 
@@ -25,7 +27,8 @@ namespace Nodester.Graph.Core.Nodes.HTTP
 
         private async Task<object> RetrieveData(IFlow flow)
         {
-            return Client.GetAsync(await flow.GetValueAsync<string>(Url)).Result.Content.ReadAsStringAsync().Result;
+            var url = await flow.GetValueAsync<string>(Url);
+            return await Client.GetAsync(url);
         }
     }
 }
