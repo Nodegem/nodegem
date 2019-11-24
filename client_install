@@ -1,0 +1,51 @@
+#!/bin/bash
+
+HOST=https://nodester-staging.herokuapp.com
+SERVICE_USER=nodegemserviceuser
+
+if ! [ -x "$(command -v dotnet)" ] || ! [ "$(dotnet --info | grep 3.0)" ]; then
+  echo 'Installing .NET Core 3.0...' >&2
+  wget 'https://dotnetwebsite.azurewebsites.net/download/dotnet-core/scripts/v1/dotnet-install.sh'
+  chmod +x dotnet-install.sh
+  source dotnet-install.sh --channel Current --install-dir /usr/share/dotnet --runtime dotnet
+
+  ln -sfn /usr/share/dotnet/dotnet /usr/bin/dotnet
+  
+  if ! [ -x "$(command -v dotnet)" ]; then
+	  echo 'Was unsuccessful in installing .NET Core 3.0'
+	  exit 1
+  fi
+
+  echo 'Successfully installed .NET Core!'
+else
+  echo '.NET Core >= 3.0 already installed'
+fi
+
+echo 'Downloading Nodegem service client...'
+
+if ! id -u $SERVICE_USER > /dev/null 2>&1; then
+	echo 'Adding a service user...' 
+	useradd -m -d /var/nodegembridge $SERVICE_USER
+	mkdir -p /var/nodegembridge
+	chown -R $SERVICE_USER:$SERVICE_USER /var/nodegembridge
+  echo "source encpass.sh" >> /var/nodegembridge/.bashrc
+fi
+
+# This allows the single file executable to start without running into permissions issues
+mkdir -p /var/tmp/.net
+chmod -R 777 /var/tmp/.net/
+read -p "Username: " nodegem_user
+read -sp "Password: " nodegem_pass
+echo 'Nodegem credentials...'
+sed -e "s/\${username}/${nodegem_user}/" -e "s/\${password}/${nodegem_pass}/" nodegem.service.template >> nodegem.service
+
+echo 'Setting up daemon...'
+
+cp -f nodegem.service /etc/systemd/system
+rm nodegem.service
+systemctl daemon-reload
+systemctl enable nodegem
+systemctl restart nodegem
+
+echo 'Installation complete!'
+

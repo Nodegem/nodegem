@@ -7,15 +7,15 @@ NODEGEM_DOWNLOAD_URL=$NODEGEM_HOST/$NODEGEM_DOWNLOAD_PATH/$NODEGEM_FILE
 NODEGEM_CLIENT_FOLDER_NAME=nodegem_client
 
 echo 'Downloading ' $NODEGEM_DOWNLOAD_URL
-curl $NODEGEM_DOWNLOAD_URL -o $NODEGEM_FILE/
+curl $NODEGEM_DOWNLOAD_URL -o $NODEGEM_FILE
 
 mkdir -p nodegem_client
-tar -zxf $NODEGEM_FILE -C $NODEGEM_CLIENT_FOLDER_NAME
+tar -zxf $NODEGEM_FILE -C $NODEGEM_CLIENT_FOLDER_NAME/
 
 systemctl stop nodegem
 
 cp -f $NODEGEM_CLIENT_FOLDER_NAME/* /var/nodegembridge/
-rm -rf $NODEGEM_CLIENT_FOLDER_NAME/
+rm -rf $NODEGEM_CLIENT_FOLDER_NAME/ $NODEGEM_FILE
 rm -rf /var/tmp/.net/Bridge
 
 chmod -R 777 /var/nodegembridge

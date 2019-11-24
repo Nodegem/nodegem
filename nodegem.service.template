@@ -1,0 +1,14 @@
+[Unit]
+Description=Nodegem
+
+[Service]
+Environment=DOTNET_ROOT=/usr/bin/dotnet
+WorkingDirectory=/var/nodegembridge
+Type=simple
+User=nodegemserviceuser
+Group=nodegemserviceuser
+ExecStart=/var/nodegembridge/Bridge -u ${username} -p ${password}
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
