@@ -33,10 +33,13 @@ fi
 mkdir -p $CWD/compressed
 cd $CWD/compressed
 
-zip -r nodegem-win64.zip $CWD/binaries/win64
-tar -cjf nodegem-osx.tar.gz $CWD/binaries/osx
-tar -cjf nodegem-linux64.tar.gz $CWD/binaries/linux
-tar -cjf nodegem-linux-arm32.tar.gz $CWD/binaries/linux-arm32
-tar -cjf nodegem-linux-arm64.tar.gz $CWD/binaries/linux-arm64
+cd $CWD/binaries/win64
+zip -r $CWD/compressed/nodegem-win64.zip .
+cd $CWD/compressed
+
+tar -cjf nodegem-osx.tar.gz -C $CWD/binaries/osx .
+tar -cjf nodegem-linux64.tar.gz -C $CWD/binaries/linux .
+tar -cjf nodegem-linux-arm32.tar.gz -C $CWD/binaries/linux-arm32 .
+tar -cjf nodegem-linux-arm64.tar.gz -C $CWD/binaries/linux-arm64 .
 
 cd $CWD
