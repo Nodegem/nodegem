@@ -30,6 +30,8 @@ elif [[ "$OSTYPE" == "msys" ]]; then
     dotnet publish -c release -r linux-arm64 //p:PublishSingleFile=true -o $CWD/binaries/linux-arm64 -v q
 fi
 
+tar 
+
 mkdir -p $CWD/compressed
 cd $CWD/compressed
 
@@ -37,9 +39,9 @@ cd $CWD/binaries/win64
 zip -r $CWD/compressed/nodegem-win64.zip .
 cd $CWD/compressed
 
-tar -cjf nodegem-osx.tar.gz -C $CWD/binaries/osx .
-tar -cjf nodegem-linux64.tar.gz -C $CWD/binaries/linux .
-tar -cjf nodegem-linux-arm32.tar.gz -C $CWD/binaries/linux-arm32 .
-tar -cjf nodegem-linux-arm64.tar.gz -C $CWD/binaries/linux-arm64 .
+tar -czvf nodegem-osx.tar.gz -C $CWD/binaries/osx .
+tar -czvf nodegem-linux64.tar.gz -C $CWD/binaries/linux .
+tar -czvf nodegem-linux-arm32.tar.gz -C $CWD/binaries/linux-arm32 .
+tar -czvf nodegem-linux-arm64.tar.gz -C $CWD/binaries/linux-arm64 .
 
 cd $CWD

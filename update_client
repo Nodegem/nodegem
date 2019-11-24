@@ -1,17 +1,23 @@
 #!/bin/bash
 
-NODEGEM_FILE=nodegme-${0}.tar.gz
+NODEGEM_HOST='https://cdn.nodegem.io'
+NODEGEM_DOWNLOAD_PATH=releases/latest
+NODEGEM_FILE=nodegem-$1.tar.gz
+NODEGEM_DOWNLOAD_URL=$NODEGEM_HOST/$NODEGEM_DOWNLOAD_PATH/$NODEGEM_FILE
+NODEGEM_CLIENT_FOLDER_NAME=nodegem_client
 
-curl https://cdn.nodegem.io/releases/latest/${NODEGEM_FILE} -o ${NODEGEM_FILE}
+echo 'Downloading ' $NODEGEM_DOWNLOAD_URL
+curl $NODEGEM_DOWNLOAD_URL -o $NODEGEM_FILE/
+
+mkdir -p nodegem_client
+tar -zxf $NODEGEM_FILE -C $NODEGEM_CLIENT_FOLDER_NAME
 
 systemctl stop nodegem
-tar -C nodegem-client -zxvf ${NODEGEM_FILE}
 
-rm -rf /var/nodegembridge
-cp -a nodegem-client/* /var/nodegembridge/
-rm -rf nodegem-client
-
+cp -f $NODEGEM_CLIENT_FOLDER_NAME/* /var/nodegembridge/
+rm -rf $NODEGEM_CLIENT_FOLDER_NAME/
 rm -rf /var/tmp/.net/Bridge
+
 chmod -R 777 /var/nodegembridge
 
 systemctl start nodegem
