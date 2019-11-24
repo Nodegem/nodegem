@@ -1,5 +1,7 @@
 #!/bin/bash
 
+apt install zip
+
 CWD="$(pwd)"
 
 cd Bridge/Bridge
@@ -12,7 +14,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     echo 'Building Linux'
     dotnet publish -c release -r linux-x64 /p:PublishSingleFile=true -o $CWD/binaries/linux -v q
     echo 'Building Linux Arm'
-    dotnet publish -c release -r linux-arm /p:PublishSingleFile=true -o $CWD/binaries/linux-arm -v q 
+    dotnet publish -c release -r linux-arm /p:PublishSingleFile=true -o $CWD/binaries/linux-arm32 -v q 
     echo 'Building Linux Arm 64 bit'
     dotnet publish -c release -r linux-arm64 /p:PublishSingleFile=true -o $CWD/binaries/linux-arm64 -v q
 elif [[ "$OSTYPE" == "msys" ]]; then
@@ -23,9 +25,18 @@ elif [[ "$OSTYPE" == "msys" ]]; then
     echo 'Building Linux'
     dotnet publish -c release -r linux-x64 //p:PublishSingleFile=true -o $CWD/binaries/linux -v q
     echo 'Building Linux Arm'
-    dotnet publish -c release -r linux-arm //p:PublishSingleFile=true -o $CWD/binaries/linux-arm -v q
+    dotnet publish -c release -r linux-arm //p:PublishSingleFile=true -o $CWD/binaries/linux-arm32 -v q
     echo 'Building Linux Arm 64 bit'
     dotnet publish -c release -r linux-arm64 //p:PublishSingleFile=true -o $CWD/binaries/linux-arm64 -v q
 fi
+
+mdkir -p $CWD/compressed
+cd $CWD/compressed
+
+zip -r nodegem-win64.zip $CWD/binaries/win64
+tar -czvf nodegem-osx.tar.gz $CWD/binaries/osx
+tar -czvf nodegem-linux64.tar.gz $CWD/binaries/linux
+tar -czvf nodegem-linux-arm32.tar.gz $CWD/binaries/linux-arm32
+tar -czvf nodegem-linux-arm64.tar.gz $CWD/binaries/linux-arm64
 
 cd $CWD

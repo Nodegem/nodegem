@@ -50,7 +50,7 @@ build_artifacts:
   artifacts:
     name: "${CI_PROJECT_NAME}-${CI_COMMIT_REF_NAME}"
     paths:
-      - binaries/
+      - compressed/
   only:
     - develop
     - tags

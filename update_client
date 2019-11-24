@@ -1,0 +1,17 @@
+#!/bin/bash
+
+NODEGEM_FILE=nodegme-${0}.tar.gz
+
+curl https://cdn.nodegem.io/releases/latest/${NODEGEM_FILE} -o ${NODEGEM_FILE}
+
+systemctl stop nodegem
+tar -C nodegem-client -zxvf ${NODEGEM_FILE}
+
+rm -rf /var/nodegembridge
+cp -a nodegem-client/* /var/nodegembridge/
+rm -rf nodegem-client
+
+rm -rf /var/tmp/.net/Bridge
+chmod -R 777 /var/nodegembridge
+
+systemctl start nodegem
