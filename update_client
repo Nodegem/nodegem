@@ -18,6 +18,6 @@ cp -f $NODEGEM_CLIENT_FOLDER_NAME/* /var/nodegembridge/
 rm -rf $NODEGEM_CLIENT_FOLDER_NAME/ $NODEGEM_FILE
 rm -rf /var/tmp/.net/Bridge
 
-chmod -R 777 /var/nodegembridge
+chown -R nodegemserviceuser:nodegemserviceuser /var/nodegembridge
 
 systemctl start nodegem

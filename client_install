@@ -28,14 +28,20 @@ if ! id -u $SERVICE_USER > /dev/null 2>&1; then
 	useradd -m -d /var/nodegembridge $SERVICE_USER
 	mkdir -p /var/nodegembridge
 	chown -R $SERVICE_USER:$SERVICE_USER /var/nodegembridge
-  echo "source encpass.sh" >> /var/nodegembridge/.bashrc
 fi
 
 # This allows the single file executable to start without running into permissions issues
 mkdir -p /var/tmp/.net
 chmod -R 777 /var/tmp/.net/
 read -p "Username: " nodegem_user
-read -sp "Password: " nodegem_pass
+while true; do
+    read -s -p "Password: " nodegem_password
+    echo
+    read -s -p "Password (again): " nodegem_password2
+    echo
+    [ "$password" = "$password2" ] && break
+    echo "Please try again"
+done
 echo 'Nodegem credentials...'
 sed -e "s/\${username}/${nodegem_user}/" -e "s/\${password}/${nodegem_pass}/" nodegem.service.template >> nodegem.service
 
