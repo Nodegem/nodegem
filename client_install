@@ -39,7 +39,7 @@ while true; do
     echo
     read -s -p "Password (again): " nodegem_password2
     echo
-    [ "$password" = "$password2" ] && break
+    [ "$nodegem_password" = "$nodegem_password2" ] && break
     echo "Please try again"
 done
 echo 'Nodegem credentials...'
