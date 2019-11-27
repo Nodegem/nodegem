@@ -9,6 +9,10 @@ namespace Nodegem.Engine.Data.Attributes
         public string Label { get; set; }
         public bool IsEditable { get; set; } = true;
         public bool AllowConnection { get; set; } = true;
+        public string Info { get; set; }
+        
+        public object[] ValueOptions { get; set; }
+        public Type EnumOptions { get; set; }
 
         private string _key;
 

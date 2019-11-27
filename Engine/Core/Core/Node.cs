@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Serialization;
 using System.Threading.Tasks;
 using Nodegem.Common.Data;
 using Nodegem.Common.Extensions;
@@ -82,8 +83,9 @@ namespace Nodegem.Engine.Core
 
         public INode PopulateIndefinites(IEnumerable<KeyValuePair<string, string>> indefiniteKeyValuePairs)
         {
-            if (!indefiniteKeyValuePairs.Any()) return this;
-            indefiniteKeyValuePairs.ForEach(i =>
+            var keyValuePairs = indefiniteKeyValuePairs.ToList();
+            if (!keyValuePairs.Any()) return this;
+            keyValuePairs.ForEach(i =>
             {
                 var (key, value) = i;
                 if (!FieldMap.ContainsKey(value) && IndefiniteFields.ContainsKey(key))
@@ -132,31 +134,34 @@ namespace Nodegem.Engine.Core
         public virtual NodeDefinition GetDefinition()
         {
             var fieldLabels = GetFieldLabels();
-            var nodeId = Type.GetAttributeValue((DefinedNodeAttribute dn) => dn.Id);
+            var nodeDefinitionId = Type.GetAttributeValue((DefinedNodeAttribute dn) => dn.Id);
 
-            if (string.IsNullOrEmpty(nodeId) || !Guid.TryParse(nodeId, out _))
+            if (string.IsNullOrEmpty(nodeDefinitionId) || !Guid.TryParse(nodeDefinitionId, out _))
             {
                 throw new Exception($"Invalid node ID. Node ID must be present and be a GUID.");
             }
-            
+
             var definition = new NodeDefinition
             {
-                Id = nodeId,
+                Id = nodeDefinitionId,
                 FullName = $"{Namespace}.{Type.Name}",
                 Title = Title,
                 Description = Type.GetAttributeValue((DefinedNodeAttribute dn) => dn.Description),
                 IgnoreDisplay = Type.GetAttributeValue((DefinedNodeAttribute dn) => dn.IgnoreDisplay),
                 IsListenerOnly = Type.GetAttributeValue((DefinedNodeAttribute dn) => dn.IsListenerOnly),
-                FlowInputs = FlowInputs.Select(x => x.ToFlowInputDefinition(fieldLabels[x.Key].Label)).ToList(),
+                FlowInputs = FlowInputs
+                    .Select(x => x.ToFlowInputDefinition(fieldLabels[x.Key].Label, fieldLabels[x.Key].Info)).ToList(),
                 FlowOutputs = FlowOutputs.Select(x =>
-                    x.ToFlowOutputDefinition(fieldLabels[x.Key].Label, fieldLabels[x.Key].Indefinite)).ToList(),
+                    x.ToFlowOutputDefinition(fieldLabels[x.Key].Label, fieldLabels[x.Key].Indefinite,
+                        fieldLabels[x.Key].Info)).ToList(),
                 ValueInputs = ValueInputs
                     .Select(x => x.ToValueInputDefinition(fieldLabels[x.Key].Label, fieldLabels[x.Key].Type,
                         fieldLabels[x.Key].Indefinite, fieldLabels[x.Key].IsEditable,
-                        fieldLabels[x.Key].AllowConnection)).ToList(),
+                        fieldLabels[x.Key].AllowConnection, fieldLabels[x.Key].Info, fieldLabels[x.Key].ValueOptions))
+                    .ToList(),
                 ValueOutputs = ValueOutputs
                     .Select(x => x.ToValueOutputDefinition(fieldLabels[x.Key].Label, fieldLabels[x.Key].Type,
-                        fieldLabels[x.Key].Indefinite)).ToList()
+                        fieldLabels[x.Key].Indefinite, fieldLabels[x.Key].Info)).ToList()
             };
 
             return definition;
@@ -309,36 +314,62 @@ namespace Nodegem.Engine.Core
 
                     if (indefinite)
                     {
-                        var fieldList = pi.GetValue<IEnumerable<IField>>(this);
-                        return fieldList.Select(f => new FieldInfo
+                        try
                         {
-                            Key = f.Key,
-                            Indefinite = true,
-                            Label = fieldAttributes.Label,
-                            Type = fieldAttributes.Type ??
-                                   (field is IValueField vField ? vField.ValueType : ValueType.Any),
-                            IsEditable = fieldAttributes.IsEditable,
-                            AllowConnection = fieldAttributes.AllowConnection
-                        });
+                            var fieldList = pi.GetValue<IEnumerable<IField>>(this);
+                            return fieldList.Select(f =>
+                                ConvertAttributeToFieldInfo(f.Key, fieldAttributes.Label, true, f, fieldAttributes));
+                        }
+                        catch (ArgumentNullException)
+                        {
+                            Console.Error.WriteLine(
+                                $"Could not find field {pi.Name} for node {Title}. Probably forgot to define it.");
+                            throw;
+                        }
                     }
 
                     return new List<FieldInfo>
                     {
-                        new FieldInfo
-                        {
-                            Key = key,
-                            Label = label ?? fieldAttributes.Label,
-                            Indefinite = false,
-                            Type = fieldAttributes.Type ??
-                                   (field is IValueField valueField ? valueField.ValueType : ValueType.Any),
-                            IsEditable = fieldAttributes.IsEditable,
-                            AllowConnection = fieldAttributes.AllowConnection
-                        }
+                        ConvertAttributeToFieldInfo(key, label ?? fieldAttributes.Label, false, field, fieldAttributes)
                     };
                 })
                 .ToDictionary(
                     x => x.Key,
                     v => v);
+        }
+
+        private static FieldInfo ConvertAttributeToFieldInfo(string key, string label, bool indefinite, IField field,
+            FieldAttributesAttribute fieldAttribute)
+        {
+            IEnumerable<object> valueOptions = fieldAttribute.ValueOptions;
+            if (fieldAttribute.EnumOptions != null)
+            {
+                var friendlyNames = Enum.GetValues(fieldAttribute.EnumOptions).Cast<object>().Select(x => x.GetType()
+                    .GetMember(x.ToString()).First().GetCustomAttribute<FriendlyNameAttribute>());
+                var friendlyNameAttributes = friendlyNames.ToList();
+                if (friendlyNameAttributes.Any() && friendlyNameAttributes.All(x => x != null))
+                {
+                    valueOptions = friendlyNameAttributes.Select(x => x.FriendlyName);
+                }
+                else
+                {
+                    throw new Exception($"Enum must provide {nameof(FriendlyNameAttribute)} for each value");
+
+                }
+            }
+
+            return new FieldInfo
+            {
+                Key = key,
+                Label = label ?? fieldAttribute.Label,
+                Indefinite = indefinite,
+                Info = fieldAttribute.Info,
+                Type = fieldAttribute.Type ??
+                       (field is IValueField valueField ? valueField.ValueType : ValueType.Any),
+                IsEditable = fieldAttribute.IsEditable,
+                AllowConnection = fieldAttribute.AllowConnection,
+                ValueOptions = valueOptions
+            };
         }
 
         public virtual ValueTask DisposeAsync()
@@ -351,9 +382,11 @@ namespace Nodegem.Engine.Core
             public string Key { get; set; }
             public string Label { get; set; }
             public bool Indefinite { get; set; }
+            public string Info { get; set; }
             public ValueType Type { get; set; }
             public bool IsEditable { get; set; }
             public bool AllowConnection { get; set; }
+            public IEnumerable<object>? ValueOptions { get; set; }
         }
     }
 }
