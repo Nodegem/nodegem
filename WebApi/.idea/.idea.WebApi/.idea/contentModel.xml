@@ -323,6 +323,7 @@
         <e p="NodeDefinition.cs" t="Include" />
         <e p="ValueFieldDefinition.cs" t="Include" />
         <e p="ValueInputDefinition.cs" t="Include" />
+        <e p="ValueOption.cs" t="Include" />
         <e p="ValueOutputDefinition.cs" t="Include" />
       </e>
       <e p="Exceptions" t="Include">

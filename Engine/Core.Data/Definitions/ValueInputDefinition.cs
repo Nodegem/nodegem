@@ -7,6 +7,6 @@ namespace Nodegem.Engine.Data.Definitions
         public object DefaultValue { get; set; }
         public bool IsEditable { get; set; }
         public bool AllowConnection { get; set; }
-        public IEnumerable<object>? ValueOptions { get; set; }
+        public IEnumerable<ValueOption> ValueOptions { get; set; }
     }
 }

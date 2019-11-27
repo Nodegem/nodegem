@@ -31,7 +31,7 @@ namespace Nodegem.Engine.Core.Extensions
 
         public static ValueInputDefinition ToValueInputDefinition(this IValueInputField input, string label,
             ValueType type, bool isIndefinite, bool isEditable, bool allowConnection, string info,
-            IEnumerable<object> valueOptions)
+            IEnumerable<ValueOption> valueOptions)
         {
             return new ValueInputDefinition
             {

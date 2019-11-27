@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueOption.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Test.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ClientService/.idea/.idea.ClientService/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/.idea/.idea.ClientService/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Test.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Test.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/FriendlyNameAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/FriendlyNameAttribute.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueInputDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueInputDefinition.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Extensions/DefinitionExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Extensions/DefinitionExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
@@ -144,9 +147,9 @@
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThanOrEqualTo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThan.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThanOrEqualTo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Test.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThan.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Attributes/FriendlyNameAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueOption.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/If.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/Concat.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" root0="FORCE_HIGHLIGHTING" />
@@ -223,7 +226,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Controllers/MacroController.cs" />
         <option value="$PROJECT_DIR$/../Common/Dto/ComponentDtos/ConstantDto.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core/EventListenerNode.cs" />
         <option value="$PROJECT_DIR$/../Common/Extensions/ObjectExtensions.cs" />
@@ -272,8 +274,9 @@
         <option value="$PROJECT_DIR$/Controllers/NodesController.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core.Data/Attributes/FriendlyNameAttribute.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core/Extensions/DefinitionExtensions.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Test.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueOption.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" />
       </list>
     </option>
   </component>
@@ -452,7 +455,7 @@
       <workItem from="1574621948855" duration="3090000" />
       <workItem from="1574881128830" duration="206000" />
       <workItem from="1574881416665" duration="560000" />
-      <workItem from="1574881998359" duration="5387000" />
+      <workItem from="1574881998359" duration="6901000" />
     </task>
     <servers />
   </component>

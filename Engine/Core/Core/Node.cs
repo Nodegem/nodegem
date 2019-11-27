@@ -340,15 +340,24 @@ namespace Nodegem.Engine.Core
         private static FieldInfo ConvertAttributeToFieldInfo(string key, string label, bool indefinite, IField field,
             FieldAttributesAttribute fieldAttribute)
         {
-            IEnumerable<object> valueOptions = fieldAttribute.ValueOptions;
+            var valueOptions =
+                fieldAttribute.ValueOptions?.Select(x => new ValueOption {Label = x.ToString(), Value = x});
             if (fieldAttribute.EnumOptions != null)
             {
-                var friendlyNames = Enum.GetValues(fieldAttribute.EnumOptions).Cast<object>().Select(x => x.GetType()
-                    .GetMember(x.ToString()).First().GetCustomAttribute<FriendlyNameAttribute>());
-                var friendlyNameAttributes = friendlyNames.ToList();
-                if (friendlyNameAttributes.Any() && friendlyNameAttributes.All(x => x != null))
+                var friendlyNames = Enum.GetValues(fieldAttribute.EnumOptions).Cast<object>().Select(x => new
                 {
-                    valueOptions = friendlyNameAttributes.Select(x => x.FriendlyName);
+                    FriendlyName = x.GetType()
+                        .GetMember(x.ToString()).First().GetCustomAttribute<FriendlyNameAttribute>(),
+                    EnumValue = x
+                });
+                var friendlyNameAttributes = friendlyNames.ToList();
+                if (friendlyNameAttributes.Any() && friendlyNameAttributes.All(x => x.FriendlyName != null))
+                {
+                    valueOptions = friendlyNameAttributes.Select(x => new ValueOption
+                    {
+                        Label = x.FriendlyName.FriendlyName,
+                        Value = x.FriendlyName.Value ?? (int) x.EnumValue
+                    });
                 }
                 else
                 {
@@ -384,7 +393,7 @@ namespace Nodegem.Engine.Core
             public ValueType Type { get; set; }
             public bool IsEditable { get; set; }
             public bool AllowConnection { get; set; }
-            public IEnumerable<object> ValueOptions { get; set; }
+            public IEnumerable<ValueOption> ValueOptions { get; set; }
         }
     }
 }
