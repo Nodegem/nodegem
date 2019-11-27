@@ -1,6 +1,6 @@
 using System;
 
-namespace Nodester.Common.Data
+namespace Nodegem.Common.Data
 {
     public class Constant
     {

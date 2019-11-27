@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Nodester.Graph.Core
+namespace Nodegem.Engine.Core
 {
     /// <summary>
     /// This exists purely because c# does something weird where it won't

@@ -1,6 +1,6 @@
-using Nodester.Engine.Data.Links;
+using Nodegem.Engine.Data.Links;
 
-namespace Nodester.Engine.Data.Fields
+namespace Nodegem.Engine.Data.Fields
 {
     public interface IFlowOutputField : IFlowField
     {

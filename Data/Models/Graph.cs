@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using System.Runtime.Serialization;
-using Nodester.Common.Data;
-using Nodester.Data.Models.Json_Models;
-using Constant = Nodester.Data.Models.Json_Models.Graph_Constants.Constant;
+using Nodegem.Common.Data;
+using Nodegem.Data.Models.Json_Models;
+using Constant = Nodegem.Data.Models.Json_Models.Graph_Constants.Constant;
 
-namespace Nodester.Data.Models
+namespace Nodegem.Data.Models
 {
 
     public class Graph : BaseGraph

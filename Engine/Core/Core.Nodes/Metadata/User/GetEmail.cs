@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Graph.Core.Fields.Graph;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Data.Attributes;
 
-namespace Nodester.Graph.Core.Nodes.Metadata.User
+namespace Nodegem.Engine.Core.Nodes.Metadata.User
 {
-    [DefinedNode("Get Email")]
+    [DefinedNode("348ECD85-5593-448E-B167-3C74F2C9FA3A", Title = "Get Email")]
     [NodeNamespace("Core.Metadata.User")]
     public class GetEmail : Node
     {

@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using NLog.Extensions.Logging;
 using NLog.Web;
 
-namespace Nodester.WebApi
+namespace Nodegem.WebApi
 {
     public class Program
     {

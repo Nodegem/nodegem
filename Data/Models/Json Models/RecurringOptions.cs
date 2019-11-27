@@ -1,8 +1,7 @@
 using System;
-using System.Runtime.Serialization;
-using Nodester.Common.Data;
+using Nodegem.Common.Data;
 
-namespace Nodester.Data.Models.Json_Models
+namespace Nodegem.Data.Models.Json_Models
 {
     
     public class RecurringOptions

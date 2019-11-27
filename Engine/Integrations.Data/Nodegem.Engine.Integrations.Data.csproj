@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>Nodegem.Engine.Integrations.Data</RootNamespace>
+    <AssemblyName>Nodegem.Engine.Integrations.Data</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Discord.Net" Version="2.1.1" />
+    <PackageReference Include="Reddit" Version="1.2.0" />
+  </ItemGroup>
+
+</Project>

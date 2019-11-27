@@ -1,4 +1,4 @@
-namespace Nodester.Data
+namespace Nodegem.Common.Data
 {
     public struct ExecutionErrorData
     {

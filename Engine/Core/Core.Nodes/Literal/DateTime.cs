@@ -1,10 +1,10 @@
-using Nodester.Common.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Literal
+namespace Nodegem.Engine.Core.Nodes.Literal
 {
-    [DefinedNode]
+    [DefinedNode("C8EEC48E-86EB-48A4-A405-E53D0DBC04CD")]
     [NodeNamespace("Core.Literal")]
     public class DateTime : Node
     {

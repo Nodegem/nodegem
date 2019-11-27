@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Nodester.Common.Data;
-using Nodester.Data;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Fields;
-using Nodester.Engine.Data.Nodes;
+using Nodegem.Common;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Fields;
+using Nodegem.Engine.Data.Nodes;
 
-namespace Nodester.Graph.Core
+namespace Nodegem.Engine.Core
 {
     public class ListenerGraph : FlowGraph, IListenerGraph
     {

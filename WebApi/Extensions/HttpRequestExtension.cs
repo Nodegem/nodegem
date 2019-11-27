@@ -2,7 +2,7 @@ using System;
 using System.Text;
 using Microsoft.AspNetCore.Http;
 
-namespace Nodester.WebApi.Extensions
+namespace Nodegem.WebApi.Extensions
 {
     public static class HttpRequestExtension
     {

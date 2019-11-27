@@ -1,4 +1,4 @@
-namespace Nodester.Data.Settings
+namespace Nodegem.Data.Settings
 {
     public class AppSettings
     {

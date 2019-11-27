@@ -1,7 +1,7 @@
 using System;
-using ValueType = Nodester.Common.Data.ValueType;
+using ValueType = Nodegem.Common.Data.ValueType;
 
-namespace Nodester.Engine.Data.Attributes
+namespace Nodegem.Engine.Data.Attributes
 {
     [AttributeUsage(AttributeTargets.Property)]
     public class FieldAttributesAttribute : Attribute

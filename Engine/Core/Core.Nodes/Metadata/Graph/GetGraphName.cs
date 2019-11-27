@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Graph.Core.Fields.Graph;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Data.Attributes;
 
-namespace Nodester.Graph.Core.Nodes.Metadata.Graph
+namespace Nodegem.Engine.Core.Nodes.Metadata.Graph
 {
-    [DefinedNode("Get Graph Name")]
+    [DefinedNode("C62D5A76-1D18-4D5A-87F8-DD4ED3FEEC70", Title = "Get Graph Name")]
     [NodeNamespace("Core.Metadata.Graph")]
     public class GetGraphName : Node
     {

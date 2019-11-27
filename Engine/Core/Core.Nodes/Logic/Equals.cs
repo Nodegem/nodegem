@@ -1,11 +1,11 @@
 using System.Threading.Tasks;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Graph.Core.Fields.Graph;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
 
-namespace Nodester.Graph.Core.Nodes.Logic
+namespace Nodegem.Engine.Core.Nodes.Logic
 {
-    [DefinedNode]
+    [DefinedNode("48B781C0-7697-4D14-903E-9B1227CC5CC0")]
     [NodeNamespace("Core.Logic")]
     public class Equals : Node
     {

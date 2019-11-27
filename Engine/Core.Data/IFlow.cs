@@ -1,8 +1,8 @@
 using System;
 using System.Threading.Tasks;
-using Nodester.Engine.Data.Fields;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Engine.Data
+namespace Nodegem.Engine.Data
 {
     public interface IFlow
     {

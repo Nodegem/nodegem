@@ -1,9 +1,9 @@
 using System;
 using System.Threading.Tasks;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Fields;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Fields.Graph
+namespace Nodegem.Engine.Core.Fields.Graph
 {
     public class FlowInput : FlowField, IFlowInputField
     {

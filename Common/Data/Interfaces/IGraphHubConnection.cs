@@ -1,10 +1,9 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Nodester.Common.Dto;
-using Nodester.Data;
+using Nodegem.Common.Dto;
 
-namespace Bridge.Data
+namespace Nodegem.Common.Data.Interfaces
 {
 
     public delegate Task OnRemoteExecuteGraph(GraphDto graph);

@@ -1,13 +1,13 @@
 using System.Threading.Tasks;
-using Nodester.Common.Data;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
-using Nodester.Graph.Core.Fields.Graph;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Control
+namespace Nodegem.Engine.Core.Nodes.Control
 {
-    [DefinedNode]
+    [DefinedNode("B37DDCBE-1E4D-4CAC-BDBE-6565CB4F43DE")]
     [NodeNamespace("Core.Control")]
     public class While : LoopNode
     {

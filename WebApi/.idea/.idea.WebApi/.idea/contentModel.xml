@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+    <e p="C:\Users\rszem\.Rider2019.2\config\consoles\db" t="IncludeRecursive" />
     <e p="C:\Users\rszem\.Rider2019.2\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\rszem\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_WebApi.850840532.00" t="ExcludeRecursive" />
     <e p="C:\Users\rszem\Documents\Projects\nodester\Common" t="IncludeRecursive">
@@ -49,11 +50,11 @@
         <e p="ObjectExtensions.cs" t="Include" />
         <e p="StringExtensions.cs" t="Include" />
       </e>
-      <e p="Nodester.Common.csproj" t="IncludeRecursive" />
+      <e p="Nodegem.Common.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netstandard2.0" t="Include">
-            <e p="Nodester.Common.AssemblyInfo.cs" t="Include" />
+            <e p="Nodegem.Common.AssemblyInfo.cs" t="Include" />
           </e>
         </e>
       </e>
@@ -136,11 +137,11 @@
         <e p="Role.cs" t="Include" />
       </e>
       <e p="NamespaceNodeDefinition.cs" t="Include" />
-      <e p="Nodester.Data.csproj" t="IncludeRecursive" />
+      <e p="Nodegem.Data.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp3.0" t="Include">
-            <e p="Nodester.Data.AssemblyInfo.cs" t="Include" />
+            <e p="Nodegem.Data.AssemblyInfo.cs" t="Include" />
           </e>
         </e>
       </e>
@@ -290,13 +291,6 @@
           </e>
         </e>
         <e p="ServiceExtensions.cs" t="Include" />
-        <e p="SQL" t="Include">
-          <e p="NonQuery.cs" t="Include" />
-          <e p="Query.cs" t="Include" />
-          <e p="Select.cs" t="Include" />
-          <e p="SQLNode.cs" t="Include" />
-          <e p="SQLQuery.cs" t="Include" />
-        </e>
         <e p="Utils" t="Include">
           <e p="Concat.cs" t="Include" />
           <e p="Map.cs" t="Include" />
@@ -304,11 +298,11 @@
           <e p="ToJSON.cs" t="Include" />
         </e>
       </e>
-      <e p="Nodester.Engine.csproj" t="IncludeRecursive" />
+      <e p="Nodegem.Engine.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp3.0" t="Include">
-            <e p="Nodester.Engine.AssemblyInfo.cs" t="Include" />
+            <e p="Nodegem.Engine.AssemblyInfo.cs" t="Include" />
           </e>
         </e>
       </e>
@@ -362,21 +356,38 @@
         <e p="IMacroValueLink.cs" t="Include" />
         <e p="IValueLink.cs" t="Include" />
       </e>
+      <e p="Nodegem.Engine.Data.csproj" t="IncludeRecursive" />
       <e p="Nodes" t="Include">
         <e p="IListenerNode.cs" t="Include" />
         <e p="INode.cs" t="Include" />
       </e>
-      <e p="Nodester.Engine.Data.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp3.0" t="Include">
-            <e p="Nodester.Engine.Data.AssemblyInfo.cs" t="Include" />
+            <e p="Nodegem.Engine.Data.AssemblyInfo.cs" t="Include" />
           </e>
         </e>
       </e>
     </e>
-    <e p="C:\Users\rszem\Documents\Projects\nodester\Engine\ThirdParty" t="IncludeRecursive">
+    <e p="C:\Users\rszem\Documents\Projects\nodester\Engine\Integrations" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
+      <e p="Database" t="Include">
+        <e p="DatabaseCompilerNode.cs" t="Include" />
+        <e p="DatabaseNode.cs" t="Include" />
+        <e p="DatabaseQueryNode.cs" t="Include" />
+        <e p="MSSQL" t="Include">
+          <e p="Query.cs" t="Include" />
+          <e p="Select.cs" t="Include" />
+        </e>
+        <e p="MySql" t="Include">
+          <e p="Query.cs" t="Include" />
+          <e p="Select.cs" t="Include" />
+        </e>
+        <e p="Postgres" t="Include">
+          <e p="Query.cs" t="Include" />
+          <e p="Select.cs" t="Include" />
+        </e>
+      </e>
       <e p="Discord" t="Include">
         <e p="DiscordService.cs" t="Include" />
         <e p="Dtos" t="Include">
@@ -438,11 +449,11 @@
           <e p="StartBot.cs" t="Include" />
         </e>
       </e>
-      <e p="Nodester.Engine.ThirdParty.csproj" t="IncludeRecursive" />
+      <e p="Nodegem.Engine.Integrations.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp3.0" t="Include">
-            <e p="Nodester.Engine.ThirdParty.AssemblyInfo.cs" t="Include" />
+            <e p="Nodegem.Engine.Integrations.AssemblyInfo.cs" t="Include" />
           </e>
         </e>
       </e>
@@ -475,16 +486,16 @@
         <e p="TwilioService.cs" t="Include" />
       </e>
     </e>
-    <e p="C:\Users\rszem\Documents\Projects\nodester\Engine\ThirdParty.Data" t="IncludeRecursive">
+    <e p="C:\Users\rszem\Documents\Projects\nodester\Engine\Integrations.Data" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="Discord" t="Include">
         <e p="IDiscordService.cs" t="Include" />
       </e>
-      <e p="Nodester.Engine.ThirdParty.Data.csproj" t="IncludeRecursive" />
+      <e p="Nodegem.Engine.Integrations.Data.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp3.0" t="Include">
-            <e p="Nodester.Engine.ThirdParty.Data.AssemblyInfo.cs" t="Include" />
+            <e p="Nodegem.Engine.Integrations.Data.AssemblyInfo.cs" t="Include" />
           </e>
         </e>
       </e>
@@ -504,11 +515,11 @@
       <e p="ISendEmails.cs" t="Include" />
       <e p="ITokenService.cs" t="Include" />
       <e p="IUserService.cs" t="Include" />
-      <e p="Nodester.Services.Data.csproj" t="IncludeRecursive" />
+      <e p="Nodegem.Services.Data.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp3.0" t="Include">
-            <e p="Nodester.Services.Data.AssemblyInfo.cs" t="Include" />
+            <e p="Nodegem.Services.Data.AssemblyInfo.cs" t="Include" />
           </e>
         </e>
       </e>
@@ -536,12 +547,12 @@
         <e p="TerminalHub.cs" t="Include" />
       </e>
       <e p="NodeCache.cs" t="Include" />
+      <e p="Nodegem.Services.csproj" t="IncludeRecursive" />
       <e p="NodeHttpClient.cs" t="Include" />
-      <e p="Nodester.Services.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp3.0" t="Include">
-            <e p="Nodester.Services.AssemblyInfo.cs" t="Include" />
+            <e p="Nodegem.Services.AssemblyInfo.cs" t="Include" />
           </e>
         </e>
       </e>
@@ -592,11 +603,11 @@
         <e p="NodesterDBContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="nlog.config" t="Include" />
-      <e p="Nodester.WebApi.csproj" t="IncludeRecursive" />
+      <e p="Nodegem.WebApi.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp3.0" t="Include">
-            <e p="Nodester.WebApi.AssemblyInfo.cs" t="Include" />
+            <e p="Nodegem.WebApi.AssemblyInfo.cs" t="Include" />
           </e>
         </e>
       </e>

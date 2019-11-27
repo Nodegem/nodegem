@@ -1,7 +1,7 @@
-using Nodester.Engine.Data.Fields;
-using Nodester.Engine.Data.Links;
+using Nodegem.Engine.Data.Fields;
+using Nodegem.Engine.Data.Links;
 
-namespace Nodester.Graph.Core.Links.Macro
+namespace Nodegem.Engine.Core.Links.Macro
 {
     public class MacroValueLink : BaseLink<IMacroValueOutputField, IValueOutputField>, IMacroValueLink
     {

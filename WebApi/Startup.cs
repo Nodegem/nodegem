@@ -2,7 +2,6 @@ using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Threading.Tasks;
-using Digiop.Shared.Extensions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -17,14 +16,14 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json.Converters;
-using Nodester.Data.Contexts;
-using Nodester.Data.Models;
-using Nodester.Data.Settings;
-using Nodester.Services;
-using Nodester.Services.Hubs;
-using Nodester.WebApi.Settings;
+using Nodegem.Data.Contexts;
+using Nodegem.Data.Models;
+using Nodegem.Data.Settings;
+using Nodegem.Services;
+using Nodegem.Services.Hubs;
+using Nodegem.WebApi.Extensions;
 
-namespace Nodester.WebApi
+namespace Nodegem.WebApi
 {
     public class Startup
     {
@@ -51,14 +50,14 @@ namespace Nodester.WebApi
                 .AddDbContext<NodesterDBContext>(options =>
                 {
                     options.UseNpgsql(Configuration.GetConnectionString("nodesterDb"),
-                        b => b.MigrationsAssembly("Nodester.WebApi"));
+                        b => b.MigrationsAssembly("Nodegem.WebApi"));
                 });
             
             services.AddEntityFrameworkNpgsql()
                 .AddDbContext<KeysContext>(options =>
                 {
                     options.UseNpgsql(Configuration.GetConnectionString("keysDb"),
-                        b => b.MigrationsAssembly("Nodester.WebApi"));
+                        b => b.MigrationsAssembly("Nodegem.WebApi"));
                 });
             
             services.AddDataProtection()

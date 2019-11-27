@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Nodester.Common.Extensions;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Definitions;
-using Nodester.Engine.Data.Nodes;
+using Nodegem.Common.Extensions;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Definitions;
+using Nodegem.Engine.Data.Nodes;
 
-namespace Nodester.Services
+namespace Nodegem.Services
 {
     public static class NodeCache
     {
@@ -28,13 +28,21 @@ namespace Nodester.Services
             _nodeCategoryTypeMapper = _nodeTypeMapper
                 .ToDictionary(k => CreateKey(k.Key), v => v.Key);
             _allNodeDefinitions = allNodeTypes.Select(x => GetDefinitionFromNode(x, provider)).ToList();
+
+            //Check for unique node ids
+            try
+            {
+                var _ = _allNodeDefinitions.ToDictionary(k => k.Id, v => v);
+            }
+            catch (ArgumentException ex)
+            {
+                throw new Exception($"Multiple nodes with same id's detected. Message: {ex.Message}");
+            }
         }
 
         private static string CreateKey(Type type)
         {
-            var @namespace = type.GetAttributeValue((NodeNamespaceAttribute nc) => nc.Namespace);
-            var name = type.Name;
-            return $"{@namespace}.{name}";
+            return type.GetAttributeValue((DefinedNodeAttribute nc) => nc.Id);
         }
 
         private static IEnumerable<Type> RetrieveAllNodeTypes()

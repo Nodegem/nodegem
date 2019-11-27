@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
-using Nodester.Engine.Data.Definitions;
-using Nodester.Engine.Data.Fields;
-using Nodester.Engine.Data.Links;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Data.Definitions;
+using Nodegem.Engine.Data.Fields;
+using Nodegem.Engine.Data.Links;
 
-namespace Nodester.Engine.Data.Nodes
+namespace Nodegem.Engine.Data.Nodes
 {
     public interface INode : IAsyncDisposable
     {

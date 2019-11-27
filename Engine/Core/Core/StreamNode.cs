@@ -1,16 +1,16 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Bridge.Data;
-using Nodester.Data;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
-using Nodester.Engine.Data.Nodes;
+using Nodegem.Common.Data;
+using Nodegem.Common.Data.Interfaces;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
+using Nodegem.Engine.Data.Nodes;
 
-namespace Nodester.Graph.Core
+namespace Nodegem.Engine.Core
 {
-    [DefinedNode(IsListenerOnly = true)]
+    [DefinedNode(true)]
     public abstract class StreamNode : Node, IListenerNode
     {
         public new IListenerGraph Graph => base.Graph as IListenerGraph;

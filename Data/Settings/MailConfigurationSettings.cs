@@ -1,4 +1,4 @@
-namespace Nodester.WebApi.Settings
+namespace Nodegem.Data.Settings
 {
     public class MailConfigurationSettings
     {

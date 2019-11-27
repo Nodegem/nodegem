@@ -1,9 +1,9 @@
 using System;
-using Nodester.Common.Data;
-using Nodester.Data;
-using Nodester.Engine.Data.Nodes;
+using Nodegem.Common;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Data.Nodes;
 
-namespace Nodester.Engine.Data
+namespace Nodegem.Engine.Data
 {
     public interface IGraph
     {

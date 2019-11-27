@@ -1,12 +1,12 @@
 using System.Threading.Tasks;
-using Nodester.Common.Data;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Math
+namespace Nodegem.Engine.Core.Nodes.Math
 {
-    [DefinedNode]
+    [DefinedNode("B26345F9-992B-412E-A47E-F627F47B092E")]
     [NodeNamespace("Core.Math")]
     public class Logarithmic : Node
     {

@@ -1,6 +1,4 @@
-using Nodester.Common.Data;
-
-namespace Nodester.Engine.Data
+namespace Nodegem.Common.Data
 {
     public class FieldData
     {

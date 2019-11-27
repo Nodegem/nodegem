@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Nodester.Common.Data;
-using Nodester.Engine.Data;
+using Nodegem.Common.Data;
 
-namespace Nodester.Common.Dto.ComponentDtos
+namespace Nodegem.Common.Dto.ComponentDtos
 {
     public class NodeDto
     {
         [Required] public Guid Id { get; set; }
 
+        public Guid DefinitionId { get; set; }
         public Guid? MacroId { get; set; }
         public Guid? MacroFieldId { get; set; }
         public string FullName { get; set; }

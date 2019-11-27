@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace Nodester.Common.Extensions
+namespace Nodegem.Common.Extensions
 {
     public static class AttributeExtensions
     {

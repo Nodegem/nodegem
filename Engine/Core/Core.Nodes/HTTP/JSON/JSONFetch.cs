@@ -1,14 +1,14 @@
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Nodester.Common.Data;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
-using Nodester.Services.Data;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
+using Nodegem.Services.Data;
 
-namespace Nodester.Graph.Core.Nodes.HTTP
+namespace Nodegem.Engine.Core.Nodes.HTTP.JSON
 {
-    [DefinedNode("JSON Fetch")]
+    [DefinedNode("27A8D1B7-7EFD-46CE-8900-151069E28056", Title = "JSON Fetch")]
     [NodeNamespace("Core.HTTP.JSON")]
     public class JSONFetch : HttpNode
     {

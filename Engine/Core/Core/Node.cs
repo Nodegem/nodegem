@@ -4,19 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using Nodester.Common.Extensions;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Definitions;
-using Nodester.Engine.Data.Fields;
-using Nodester.Engine.Data.Links;
-using Nodester.Engine.Data.Nodes;
-using Nodester.Graph.Core.Extensions;
-using Nodester.Graph.Core.Fields.Graph;
-using Nodester.Graph.Core.Utils;
-using ValueType = Nodester.Common.Data.ValueType;
+using Nodegem.Common.Data;
+using Nodegem.Common.Extensions;
+using Nodegem.Engine.Core.Extensions;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Core.Utils;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Definitions;
+using Nodegem.Engine.Data.Fields;
+using Nodegem.Engine.Data.Links;
+using Nodegem.Engine.Data.Nodes;
+using ValueType = Nodegem.Common.Data.ValueType;
 
-namespace Nodester.Graph.Core
+namespace Nodegem.Engine.Core
 {
     public abstract class Node : INode
     {
@@ -131,8 +132,16 @@ namespace Nodester.Graph.Core
         public virtual NodeDefinition GetDefinition()
         {
             var fieldLabels = GetFieldLabels();
+            var nodeId = Type.GetAttributeValue((DefinedNodeAttribute dn) => dn.Id);
+
+            if (string.IsNullOrEmpty(nodeId) || !Guid.TryParse(nodeId, out _))
+            {
+                throw new Exception($"Invalid node ID. Node ID must be present and be a GUID.");
+            }
+            
             var definition = new NodeDefinition
             {
+                Id = nodeId,
                 FullName = $"{Namespace}.{Type.Name}",
                 Title = Title,
                 Description = Type.GetAttributeValue((DefinedNodeAttribute dn) => dn.Description),

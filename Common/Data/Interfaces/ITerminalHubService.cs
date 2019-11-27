@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Nodester.Common.Data.Interfaces
+namespace Nodegem.Common.Data.Interfaces
 {
     public interface ITerminalHubService
     {

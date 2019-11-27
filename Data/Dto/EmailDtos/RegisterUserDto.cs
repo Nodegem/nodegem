@@ -1,6 +1,6 @@
 using System.Web;
 
-namespace Nodester.Data.Dto.EmailDtos
+namespace Nodegem.Data.Dto.EmailDtos
 {
     public class RegisterUserDto
     {

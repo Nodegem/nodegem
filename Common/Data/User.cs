@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Nodester.Common.Data
+namespace Nodegem.Common.Data
 {
     public class User
     {

@@ -1,6 +1,6 @@
-using Nodester.Engine.Data.Fields;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Engine.Data.Links
+namespace Nodegem.Engine.Data.Links
 {
     public interface IMacroFlowLink : ILink<IMacroFlowInputField, IFlowInputField>
     {

@@ -1,7 +1,7 @@
-using Nodester.Engine.Data.Fields;
-using Nodester.Engine.Data.Links;
+using Nodegem.Engine.Data.Fields;
+using Nodegem.Engine.Data.Links;
 
-namespace Nodester.Graph.Core.Links.Graph
+namespace Nodegem.Engine.Core.Links.Graph
 {
     public class FlowLink : BaseLink<IFlowOutputField, IFlowInputField>, IFlowLink
     {

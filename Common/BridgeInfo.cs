@@ -1,6 +1,6 @@
 using System;
 
-namespace Nodester.Data
+namespace Nodegem.Common
 {
     public struct BridgeInfo
     {

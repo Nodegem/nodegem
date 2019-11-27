@@ -1,16 +1,15 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Nodester.Common.Extensions;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
-using ValueType = Nodester.Common.Data.ValueType;
+using Nodegem.Common.Extensions;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
+using ValueType = Nodegem.Common.Data.ValueType;
 
-namespace Nodester.Graph.Core.Nodes.Utils
+namespace Nodegem.Engine.Core.Nodes.Utils
 {
-    [DefinedNode("String Format")]
+    [DefinedNode("EA345E62-371E-427D-9F49-F49ED16D0166", Title = "String Format")]
     [NodeNamespace("Core.Utils")]
     public class StringFormat : Node
     {

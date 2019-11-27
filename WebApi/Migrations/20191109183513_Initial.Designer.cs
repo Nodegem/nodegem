@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Nodester.Data.Contexts;
+using Nodegem.Data.Contexts;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Nodester.WebApi.Migrations

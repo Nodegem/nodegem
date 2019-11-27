@@ -3,15 +3,15 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
-using Nodester.Services.Data;
-using ValueType = Nodester.Common.Data.ValueType;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
+using Nodegem.Services.Data;
+using ValueType = Nodegem.Common.Data.ValueType;
 
-namespace Nodester.Graph.Core.Nodes.HTTP
+namespace Nodegem.Engine.Core.Nodes.HTTP.JSON
 {
-    [DefinedNode("JSON Post")]
+    [DefinedNode("B450BEE7-80A4-412B-85C9-A9771BEB8E9F", Title = "JSON Post")]
     [NodeNamespace("Core.HTTP.JSON")]
     public class JSONPost : HttpNode
     {

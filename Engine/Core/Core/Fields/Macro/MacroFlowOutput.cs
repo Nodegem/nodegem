@@ -1,10 +1,10 @@
 using System;
 using System.Threading.Tasks;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Fields;
-using Nodester.Graph.Core.Fields.Graph;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Fields.Macro
+namespace Nodegem.Engine.Core.Fields.Macro
 {
     public class MacroFlowOutput : FlowInput, IMacroFlowOutputField
     {

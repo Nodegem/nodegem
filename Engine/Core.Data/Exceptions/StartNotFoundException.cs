@@ -1,4 +1,4 @@
-namespace Nodester.Engine.Data.Exceptions
+namespace Nodegem.Engine.Data.Exceptions
 {
     public class StartNotFoundException : GraphException
     {

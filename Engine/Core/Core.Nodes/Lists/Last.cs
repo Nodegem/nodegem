@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Lists
+namespace Nodegem.Engine.Core.Nodes.Lists
 {
-    [DefinedNode]
+    [DefinedNode("D9ED3635-B2FA-4DC2-8AE0-0B48E52A6C4F")]
     [NodeNamespace("Core.Lists")]
     public class Last : Node
     {

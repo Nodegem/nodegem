@@ -1,7 +1,6 @@
-using Nodester.Common.Data;
-using Nodester.Engine.Data;
+using Nodegem.Common.Data;
 
-namespace Nodester.Data.Models.Json_Models.Fields.ValueFields
+namespace Nodegem.Data.Models.Json_Models.Fields.ValueFields
 {
     public abstract class ValueField : BaseField
     {

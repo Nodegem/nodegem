@@ -1,11 +1,11 @@
 using System.Threading.Tasks;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Utils
+namespace Nodegem.Engine.Core.Nodes.Utils
 {
-    [DefinedNode]
+    [DefinedNode("33ABFC2F-BC96-4D36-99D5-86B27B3F5E55")]
     [NodeNamespace("Core.Utils")]
     public class Concat : Node
     {

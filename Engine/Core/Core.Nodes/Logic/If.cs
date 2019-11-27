@@ -1,12 +1,12 @@
 using System.Threading.Tasks;
-using Nodester.Common.Data;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Logic
+namespace Nodegem.Engine.Core.Nodes.Logic
 {
-    [DefinedNode]
+    [DefinedNode("92F804B7-9C8C-4184-817F-266C316673E3")]
     [NodeNamespace("Core.Logic")]
     public class If : Node
     {

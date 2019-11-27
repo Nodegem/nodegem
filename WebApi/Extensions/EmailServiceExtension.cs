@@ -3,10 +3,11 @@ using FluentEmail.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
-using Nodester.WebApi.Services;
-using Nodester.WebApi.Settings;
+using Nodegem.Data.Settings;
+using Nodegem.Services.Data;
+using Nodegem.WebApi.Services;
 
-namespace Digiop.Shared.Extensions
+namespace Nodegem.WebApi.Extensions
 {
     public static class EmailServiceBuilderExtensions
     {

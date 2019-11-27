@@ -1,14 +1,13 @@
 using System.Threading.Tasks;
-using Nodester.Common.Data;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
-using Nodester.Services.Data;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
+using Nodegem.Services.Data;
 
-namespace Nodester.Graph.Core.Nodes.HTTP
+namespace Nodegem.Engine.Core.Nodes.HTTP
 {
-    [DefinedNode]
-    [NodeNamespace("Core.HTTP")]
+    [DefinedNode("96D8911B-A102-4955-8A72-362217D1C365")]
     public class Fetch : HttpNode
     {
         [FieldAttributes(ValueType.Url)]

@@ -1,16 +1,16 @@
 using System;
 using System.Threading.Tasks;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Graph.Core.Fields.Graph;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
 
-namespace Nodester.Graph.Core.Nodes.Graph
+namespace Nodegem.Engine.Core.Nodes.Graph
 {
-    [DefinedNode("Get Constant", Ignore = true)]
+    [DefinedNode(ConstantDefinitionId, Title = "Get Constant", Ignore = true)]
     [NodeNamespace("Core.Graph")]
     public class GetConstant : Node
     {
-
+        public const string ConstantDefinitionId = "7AEAB6DE-98FB-4617-B81C-C179D6438BC1";
         public const string ValueKey = nameof(Value);
         
         private Guid Key { get; }

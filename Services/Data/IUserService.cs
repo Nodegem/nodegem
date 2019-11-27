@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
-using Nodester.Common.Dto.ComponentDtos;
-using Nodester.Data.Dto;
-using Nodester.Data.Dto.UserDtos;
-using Nodester.Data.Models;
+using Nodegem.Common.Dto.ComponentDtos;
+using Nodegem.Data.Dto;
+using Nodegem.Data.Dto.UserDtos;
+using Nodegem.Data.Models;
 
-namespace Nodester.Services.Data
+namespace Nodegem.Services.Data
 {
     public interface IUserService
     {

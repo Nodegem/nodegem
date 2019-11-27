@@ -1,14 +1,13 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
-using Nodester.Common.Extensions;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Utils
+namespace Nodegem.Engine.Core.Nodes.Utils
 {
-    [DefinedNode]
+    [DefinedNode("409A429A-9FFE-42B6-81F7-3198AFDB5DEA")]
     [NodeNamespace("Core.Utils")]
     public class Map : Node
     {

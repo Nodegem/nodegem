@@ -1,13 +1,12 @@
 using System.Threading.Tasks;
-using Nodester.Common.Data;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
-using Nodester.Graph.Core.Fields.Graph;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Logic
+namespace Nodegem.Engine.Core.Nodes.Logic
 {
-    [DefinedNode("Greater Than Or Equal To")]
+    [DefinedNode("1CED7167-9206-4D57-9B68-1DBBEF607D24", Title = "Greater Than Or Equal To")]
     [NodeNamespace("Core.Logic")]
     public class GreaterThanOrEqualTo : Node
     {

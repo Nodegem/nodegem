@@ -5,8 +5,8 @@
     <content url="file://$MODULE_DIR$/../../../Data" />
     <content url="file://$MODULE_DIR$/../../../Engine/Core" />
     <content url="file://$MODULE_DIR$/../../../Engine/Core.Data" />
-    <content url="file://$MODULE_DIR$/../../../Engine/ThirdParty" />
-    <content url="file://$MODULE_DIR$/../../../Engine/ThirdParty.Data" />
+    <content url="file://$MODULE_DIR$/../../../Engine/Integrations" />
+    <content url="file://$MODULE_DIR$/../../../Engine/Integrations.Data" />
     <content url="file://$MODULE_DIR$/../../../Services/Data" />
     <content url="file://$MODULE_DIR$/../../../Services/Services" />
     <content url="file://$MODULE_DIR$/../.." />

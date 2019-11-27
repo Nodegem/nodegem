@@ -1,4 +1,4 @@
-namespace Nodester.Common.Dto.ValueFieldDtos
+namespace Nodegem.Common.Dto.ValueFieldDtos
 {
     public class ValueOutputDto : ValueFieldDto
     {

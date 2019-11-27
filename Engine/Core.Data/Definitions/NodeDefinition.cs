@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
 
-namespace Nodester.Engine.Data.Definitions
+namespace Nodegem.Engine.Data.Definitions
 {
     public class NodeDefinition
     {
+        public string Id { get; set; }
         public string FullName { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

@@ -1,10 +1,9 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Nodester.Common.Extensions
+namespace Nodegem.Common.Extensions
 {
     public static class LinqExtensions
     {

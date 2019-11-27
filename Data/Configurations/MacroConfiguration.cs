@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Nodester.Data.Extensions;
-using Nodester.Data.Models;
+using Nodegem.Data.Extensions;
+using Nodegem.Data.Models;
 
-namespace Nodester.Data.Configurations
+namespace Nodegem.Data.Configurations
 {
     public class MacroConfiguration : IEntityTypeConfiguration<Macro>
     {

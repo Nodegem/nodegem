@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.DataProtection.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Nodester.Data.Contexts
+namespace Nodegem.Data.Contexts
 {
     public class KeysContext : DbContext, IDataProtectionKeyContext
     {

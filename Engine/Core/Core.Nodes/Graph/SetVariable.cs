@@ -1,12 +1,12 @@
 using System.Threading.Tasks;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
-using Nodester.Graph.Core.Fields.Graph;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Graph
+namespace Nodegem.Engine.Core.Nodes.Graph
 {
-    [DefinedNode("Set Variable")]
+    [DefinedNode("3DBF95B1-D792-4A11-8AC4-8A0105AFD03F", Title = "Set Variable")]
     [NodeNamespace("Core.Graph")]
     public class SetVariable : Node
     {

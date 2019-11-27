@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="RIDER_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$/../.." />
+    <content url="file://$MODULE_DIR$/../../../Common" />
+    <content url="file://$MODULE_DIR$/../../../Data" />
+    <content url="file://$MODULE_DIR$/../../../Engine/Core" />
+    <content url="file://$MODULE_DIR$/../../../Engine/Core.Data" />
+    <content url="file://$MODULE_DIR$/../../../Engine/Integrations" />
+    <content url="file://$MODULE_DIR$/../../../Engine/Integrations.Data" />
+    <content url="file://$MODULE_DIR$/../../../Services/Data" />
+    <content url="file://$MODULE_DIR$/../../../Services/Services" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

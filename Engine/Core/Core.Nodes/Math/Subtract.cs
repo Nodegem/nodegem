@@ -1,12 +1,12 @@
 using System.Threading.Tasks;
-using Nodester.Common.Data;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Graph.Core.Fields.Graph;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
 
-namespace Nodester.Graph.Core.Nodes.Math
+namespace Nodegem.Engine.Core.Nodes.Math
 {
-    [DefinedNode]
+    [DefinedNode("FC0537AF-A230-46A4-8A72-05F70823D27F")]
     [NodeNamespace("Core.Math")]
     public class Subtract : Node
     {

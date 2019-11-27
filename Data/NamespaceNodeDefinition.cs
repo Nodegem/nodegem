@@ -1,7 +1,7 @@
-using Nodester.Common.Utilities;
-using Nodester.Engine.Data.Definitions;
+using Nodegem.Common.Utilities;
+using Nodegem.Engine.Data.Definitions;
 
-namespace Nodester.Data
+namespace Nodegem.Data
 {
     public class NamespaceNodeDefinition : HierarchicalNode<NodeDefinition, NamespaceNodeDefinition>
     {

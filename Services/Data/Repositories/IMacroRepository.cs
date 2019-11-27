@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Nodester.Common.Dto;
-using Nodester.Data.Dto.MacroDtos;
+using Nodegem.Common.Dto;
+using Nodegem.Data.Dto.MacroDtos;
 
-namespace Nodester.Services.Data.Repositories
+namespace Nodegem.Services.Data.Repositories
 {
     public interface IMacroRepository
     {

@@ -1,7 +1,7 @@
 using System;
-using Nodester.Common.Data;
+using Nodegem.Common.Data;
 
-namespace Nodester.Common.Dto
+namespace Nodegem.Common.Dto
 {
     public class RecurringOptionsDto
     {

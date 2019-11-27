@@ -1,21 +1,22 @@
 using Microsoft.Extensions.DependencyInjection;
-using Nodester.Graph.Core;
-using Nodester.Graph.Core.Nodes;
-using Nodester.Services.Data;
-using Nodester.Services.Data.Repositories;
-using Nodester.Services.Repositories;
-using Nodester.ThirdParty.Discord;
-using Nodester.ThirdParty.Reddit;
-using Nodester.ThirdParty.SendGrid;
-using Nodester.ThirdParty.Twilio;
+using Nodegem.Data.Models;
+using Nodegem.Engine.Core;
+using Nodegem.Engine.Core.Nodes;
+using Nodegem.Engine.Integrations.Discord;
+using Nodegem.Engine.Integrations.Reddit;
+using Nodegem.Engine.Integrations.SendGrid;
+using Nodegem.Engine.Integrations.Twilio;
+using Nodegem.Services.Data;
+using Nodegem.Services.Data.Repositories;
+using Nodegem.Services.Repositories;
 
-namespace Nodester.Services
+namespace Nodegem.Services
 {
     public static class ServiceExtensions
     {
         public static void AddServices(this IServiceCollection services)
         {
-            services.AddTransient<IRepository<Nodester.Data.Models.Graph>, Repository<Nodester.Data.Models.Graph>>();
+            services.AddTransient<IRepository<Graph>, Repository<Graph>>();
             services.AddTransient<IMacroRepository, MacroRepository>();
             services.AddTransient<IGraphRepository, GraphRepository>();
             services.AddTransient<ITokenRepository, TokenRepository>();

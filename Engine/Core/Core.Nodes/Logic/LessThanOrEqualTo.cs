@@ -1,12 +1,12 @@
 using System.Threading.Tasks;
-using Nodester.Common.Data;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Logic
+namespace Nodegem.Engine.Core.Nodes.Logic
 {
-    [DefinedNode("Less Than Or Equal To")]
+    [DefinedNode("ED0BADC8-72C4-4A8C-91C0-485DF5F5540A", Title = "Less Than Or Equal To")]
     [NodeNamespace("Core.Logic")]
     public class LessThanOrEqualTo : Node
     {

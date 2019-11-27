@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Nodester.Common.Extensions;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
+using Nodegem.Common.Extensions;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Lists
+namespace Nodegem.Engine.Core.Nodes.Lists
 {
-    [DefinedNode]
+    [DefinedNode("28DC17D1-69C4-45BD-AC81-8D32C23BE8C3")]
     [NodeNamespace("Core.Lists")]
     public class GetIndex : Node
     {

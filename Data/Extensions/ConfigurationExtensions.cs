@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Newtonsoft.Json;
 
-namespace Nodester.Data.Extensions
+namespace Nodegem.Data.Extensions
 {
     public static class ConfigurationExtensions
     {

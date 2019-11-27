@@ -1,10 +1,10 @@
-using Nodester.Common.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Literal
+namespace Nodegem.Engine.Core.Nodes.Literal
 {
-    [DefinedNode]
+    [DefinedNode("13129C93-450D-491E-8404-C23C2D4072EA")]
     [NodeNamespace("Core.Literal")]
     public class TextArea : Node
     {

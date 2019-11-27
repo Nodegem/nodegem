@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Nodester.Common.Dto.ComponentDtos;
-using Nodester.Common.Dto.FlowFieldDtos;
-using Nodester.Common.Dto.ValueFieldDtos;
-using Nodester.Data.Dto.MacroDtos;
+using Nodegem.Common.Dto.ComponentDtos;
+using Nodegem.Common.Dto.FlowFieldDtos;
+using Nodegem.Common.Dto.ValueFieldDtos;
 
-namespace Nodester.Common.Dto
+namespace Nodegem.Common.Dto
 {
     public class MacroDto
     {

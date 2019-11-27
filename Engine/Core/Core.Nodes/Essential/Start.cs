@@ -1,9 +1,9 @@
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Essential
+namespace Nodegem.Engine.Core.Nodes.Essential
 {
-    [DefinedNode(IgnoreDisplay = true)]
+    [DefinedNode("5E135A6F-9B6A-4CE1-BF84-584275AB4410", IgnoreDisplay = true)]
     [NodeNamespace("Core.Essential")]
     public class Start : Node
     {

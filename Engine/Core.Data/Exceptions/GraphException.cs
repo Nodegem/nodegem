@@ -1,6 +1,6 @@
 using System;
 
-namespace Nodester.Engine.Data.Exceptions
+namespace Nodegem.Engine.Data.Exceptions
 {
     public class GraphException : Exception
     {

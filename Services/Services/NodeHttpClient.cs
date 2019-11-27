@@ -1,7 +1,7 @@
 using System.Net.Http;
-using Nodester.Services.Data;
+using Nodegem.Services.Data;
 
-namespace Nodester.Services
+namespace Nodegem.Services
 {
     public class NodeHttpClient : INodeHttpClient
     {

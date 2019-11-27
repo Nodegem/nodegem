@@ -1,12 +1,12 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Utils
+namespace Nodegem.Engine.Core.Nodes.Utils
 {
-    [DefinedNode("To JSON")]
+    [DefinedNode("02EC5BD2-CE4F-482B-9F7B-72BF53C9BF80", Title = "To JSON")]
     [NodeNamespace("Core.Utils")]
     public class ToJSON : Node
     {

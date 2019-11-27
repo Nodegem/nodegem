@@ -1,9 +1,8 @@
-using Nodester.Engine.Data.Definitions;
-using Nodester.Engine.Data.Fields;
-using Nodester.Graph.Core.Fields.Graph;
-using ValueType = Nodester.Common.Data.ValueType;
+using Nodegem.Engine.Data.Definitions;
+using Nodegem.Engine.Data.Fields;
+using ValueType = Nodegem.Common.Data.ValueType;
 
-namespace Nodester.Graph.Core.Extensions
+namespace Nodegem.Engine.Core.Extensions
 {
     public static class DefinitionExtensions
     {

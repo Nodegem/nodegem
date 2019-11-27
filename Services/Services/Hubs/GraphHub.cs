@@ -1,19 +1,18 @@
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
-using Nodester.Common.Dto;
-using Nodester.Common.Extensions;
-using Nodester.Data;
-using Nodester.Data.Dto.GraphDtos;
-using Nodester.Data.Dto.MacroDtos;
-using Nodester.WebApi.Extensions;
+using Nodegem.Common;
+using Nodegem.Common.Data;
+using Nodegem.Common.Dto;
+using Nodegem.Common.Extensions;
+using Nodegem.Services.Extensions;
 using Task = System.Threading.Tasks.Task;
 
-namespace Nodester.Services.Hubs
+namespace Nodegem.Services.Hubs
 {
     [Authorize]
     public class GraphHub : Hub

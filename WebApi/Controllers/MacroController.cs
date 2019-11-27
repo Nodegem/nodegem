@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Nodester.Common.Dto;
-using Nodester.Common.Extensions;
-using Nodester.Data.Dto.MacroDtos;
-using Nodester.Services.Data.Repositories;
+using Nodegem.Common.Dto;
+using Nodegem.Common.Extensions;
+using Nodegem.Data.Dto.MacroDtos;
+using Nodegem.Services.Data.Repositories;
 
-namespace Nodester.WebApi.Controllers
+namespace Nodegem.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

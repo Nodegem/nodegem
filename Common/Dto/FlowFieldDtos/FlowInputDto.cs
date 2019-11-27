@@ -1,4 +1,4 @@
-namespace Nodester.Common.Dto.FlowFieldDtos
+namespace Nodegem.Common.Dto.FlowFieldDtos
 {
     public class FlowInputDto : FlowFieldDto
     {

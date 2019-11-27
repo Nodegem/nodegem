@@ -1,7 +1,7 @@
 using System;
-using ValueType = Nodester.Common.Data.ValueType;
+using ValueType = Nodegem.Common.Data.ValueType;
 
-namespace Nodester.Data.Models.Json_Models.Graph_Constants
+namespace Nodegem.Data.Models.Json_Models.Graph_Constants
 {
     public class Constant
     {

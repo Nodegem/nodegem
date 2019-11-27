@@ -1,9 +1,11 @@
 using System.Threading.Tasks;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Fields;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Control
+namespace Nodegem.Engine.Core.Nodes.Control
 {
+    [NodeNamespace("Core.Control")]
     public abstract class LoopNode : Node
     {
         public IFlowInputField In { get; private set; }

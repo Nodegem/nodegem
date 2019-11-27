@@ -2,17 +2,15 @@ using System;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
-using Nodester.Services.Data;
-using ValueType = Nodester.Common.Data.ValueType;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
+using Nodegem.Services.Data;
+using ValueType = Nodegem.Common.Data.ValueType;
 
-namespace Nodester.Graph.Core.Nodes.HTTP
+namespace Nodegem.Engine.Core.Nodes.HTTP
 {
-    [DefinedNode]
-    [NodeNamespace("Core.HTTP")]
+    [DefinedNode("06181B68-443E-4837-BF14-8033D8F6E4A8")]
     public class Post : HttpNode
     {
         

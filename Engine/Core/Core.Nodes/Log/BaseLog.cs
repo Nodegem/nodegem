@@ -1,15 +1,14 @@
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Nodester.Common.Data.Interfaces;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
-using ValueType = Nodester.Common.Data.ValueType;
+using Nodegem.Common.Data.Interfaces;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
+using ValueType = Nodegem.Common.Data.ValueType;
 
-namespace Nodester.Graph.Core.Nodes.Log
+namespace Nodegem.Engine.Core.Nodes.Log
 {
-    [DefinedNode]
     [NodeNamespace("Core.Logging")]
     public abstract class BaseLog : Node
     {

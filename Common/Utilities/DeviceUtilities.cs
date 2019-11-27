@@ -1,7 +1,7 @@
 using System.Linq;
 using System.Net.NetworkInformation;
 
-namespace Nodester.Common.Utilities {
+namespace Nodegem.Common.Utilities {
     public class DeviceUtilities {
         public static string GetMacAddress()
         {

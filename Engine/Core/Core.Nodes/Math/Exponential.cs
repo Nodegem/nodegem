@@ -1,12 +1,12 @@
 using System.Threading.Tasks;
-using Nodester.Common.Data;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Math
+namespace Nodegem.Engine.Core.Nodes.Math
 {
-    [DefinedNode]
+    [DefinedNode("DAEF96DA-78E1-4166-A6B7-220EE470A777")]
     [NodeNamespace("Core.Math")]
     public class Exponential : Node
     {

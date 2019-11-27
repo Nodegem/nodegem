@@ -1,11 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Nodester.Data.Models;
+using Nodegem.Data.Models;
 
-namespace Nodester.Services.Data.Repositories
+namespace Nodegem.Services.Data.Repositories
 {
     public interface IRepository<TEntity> where TEntity : IEntity
     {

@@ -1,12 +1,12 @@
 using System.Threading.Tasks;
-using Nodester.Common.Data;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Graph.Core.Fields.Graph;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
 
-namespace Nodester.Graph.Core.Nodes.Math
+namespace Nodegem.Engine.Core.Nodes.Math
 {
-    [DefinedNode]
+    [DefinedNode("B882CAC4-0831-4DF2-BFB4-A33352317F40")]
     [NodeNamespace("Core.Math")]
     public class Divide : Node
     {

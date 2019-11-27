@@ -1,6 +1,6 @@
 using System.Runtime.Serialization;
 
-namespace Nodester.Engine.Data
+namespace Nodegem.Engine.Data
 {
     public enum GraphType
     {

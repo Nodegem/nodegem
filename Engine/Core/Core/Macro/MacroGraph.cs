@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Nodester.Common.Data;
-using Nodester.Common.Extensions;
-using Nodester.Data;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Fields;
-using Nodester.Engine.Data.Nodes;
-using Nodester.Graph.Core.Fields.Macro;
+using Nodegem.Common;
+using Nodegem.Common.Data;
+using Nodegem.Common.Extensions;
+using Nodegem.Engine.Core.Fields.Macro;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Fields;
+using Nodegem.Engine.Data.Nodes;
 
-namespace Nodester.Graph.Core.Macro
+namespace Nodegem.Engine.Core.Macro
 {
     public class MacroGraph : BaseGraph, IMacroGraph
     {

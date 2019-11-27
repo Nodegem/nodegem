@@ -1,7 +1,7 @@
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace Nodester.Graph.Core.Utils
+namespace Nodegem.Engine.Core.Utils
 {
     public class EnumerableHelper
     {

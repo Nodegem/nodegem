@@ -1,8 +1,10 @@
 using System.Threading.Tasks;
-using Nodester.Common.Data.Interfaces;
+using Nodegem.Common.Data.Interfaces;
+using Nodegem.Engine.Data.Attributes;
 
-namespace Nodester.Graph.Core.Nodes.Log
+namespace Nodegem.Engine.Core.Nodes.Log
 {
+    [DefinedNode("F00FC4B5-9D95-429D-9FFD-D3B0C91AD1D8")]
     public class LogWarn : BaseLog
     {
         public LogWarn(ITerminalHubService logService) : base(logService)

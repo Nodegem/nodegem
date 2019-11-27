@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace Nodester.Common.Extensions
+namespace Nodegem.Common.Extensions
 {
     public static class ObjectExtensions
     {

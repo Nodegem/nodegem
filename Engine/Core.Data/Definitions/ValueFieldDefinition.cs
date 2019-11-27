@@ -1,6 +1,6 @@
-using Nodester.Common.Data;
+using Nodegem.Common.Data;
 
-namespace Nodester.Engine.Data.Definitions
+namespace Nodegem.Engine.Data.Definitions
 {
     public class ValueFieldDefinition : FieldDefinition
     {

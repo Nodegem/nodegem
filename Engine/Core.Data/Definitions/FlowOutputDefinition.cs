@@ -1,4 +1,4 @@
-namespace Nodester.Engine.Data.Definitions
+namespace Nodegem.Engine.Data.Definitions
 {
     public class FlowOutputDefinition : FieldDefinition
     {

@@ -1,12 +1,11 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Nodester.Common.Dto;
-using Nodester.Common.Dto.ComponentDtos;
-using Nodester.Data.Dto.GraphDtos;
+using Nodegem.Common.Dto;
+using Nodegem.Common.Dto.ComponentDtos;
+using Nodegem.Data.Dto.GraphDtos;
 
-namespace Nodester.Services.Data.Repositories
+namespace Nodegem.Services.Data.Repositories
 {
     public interface IGraphRepository
     {

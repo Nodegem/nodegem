@@ -1,6 +1,6 @@
-using Nodester.Engine.Data.Fields;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Fields
+namespace Nodegem.Engine.Core.Fields
 {
     public abstract class BaseField : IField
     {

@@ -1,28 +1,27 @@
-using Microsoft.AspNetCore.Identity;
-using Nodester.Data.Dto.UserDtos;
-using Nodester.Data.Models;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Mapster;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Http;
-using Nodester.Services.Data;
-using Nodester.Services.Exceptions;
-using Nodester.Services.Exceptions.Login;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using Nodester.Common.Data;
-using Nodester.Common.Dto.ComponentDtos;
-using Nodester.Common.Extensions;
-using Nodester.Data.Dto;
-using Nodester.Data.Dto.EmailDtos;
-using Nodester.Data.Settings;
-using Nodester.WebApi.Services;
+using Nodegem.Common.Data;
+using Nodegem.Common.Dto.ComponentDtos;
+using Nodegem.Common.Extensions;
+using Nodegem.Data.Dto;
+using Nodegem.Data.Dto.EmailDtos;
+using Nodegem.Data.Dto.UserDtos;
+using Nodegem.Data.Models;
+using Nodegem.Data.Settings;
+using Nodegem.Services.Data;
+using Nodegem.Services.Exceptions;
+using Nodegem.Services.Exceptions.Login;
 
-namespace Nodester.Services
+namespace Nodegem.Services
 {
     public class UserService : IUserService
     {
@@ -319,7 +318,7 @@ namespace Nodester.Services
             var userEntity = user.Adapt<ApplicationUser>();
             userEntity.Constants = userEntity.Constants.Select(x =>
             {
-                var constant = x.Adapt<Nodester.Data.Models.Json_Models.Graph_Constants.Constant>();
+                var constant = x.Adapt<Nodegem.Data.Models.Json_Models.Graph_Constants.Constant>();
                 constant.Value = constant.IsSecret
                     ? _dataProtector.Protect(constant.Value.ToString())
                     : constant.Value;

@@ -1,4 +1,4 @@
-namespace Nodester.Common.Data
+namespace Nodegem.Common.Data
 {
     public struct Vector2
     {

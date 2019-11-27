@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Lists
+namespace Nodegem.Engine.Core.Nodes.Lists
 {
-    [DefinedNode]
+    [DefinedNode("CA3C2568-8239-42D9-8B17-F8EB628C5ABE")]
     [NodeNamespace("Core.Lists")]
     public class First : Node
     {

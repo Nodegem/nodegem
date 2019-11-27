@@ -6,16 +6,16 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Nodester.Common.Dto.ComponentDtos;
-using Nodester.Common.Extensions;
-using Nodester.Data.Dto;
-using Nodester.Data.Dto.UserDtos;
-using Nodester.Services.Data;
-using Nodester.Services.Exceptions;
-using Nodester.Services.Exceptions.Login;
-using Nodester.WebApi.Extensions;
+using Nodegem.Common.Dto.ComponentDtos;
+using Nodegem.Common.Extensions;
+using Nodegem.Data.Dto;
+using Nodegem.Data.Dto.UserDtos;
+using Nodegem.Services.Data;
+using Nodegem.Services.Exceptions;
+using Nodegem.Services.Exceptions.Login;
+using Nodegem.WebApi.Extensions;
 
-namespace Nodester.WebApi.Controllers
+namespace Nodegem.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

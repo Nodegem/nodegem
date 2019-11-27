@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
 
-namespace Nodester.WebApi.Extensions
+namespace Nodegem.Services.Extensions
 {
     public static class DistributedCacheExtension
     {

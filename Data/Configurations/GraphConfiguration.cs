@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Nodester.Data.Extensions;
+using Nodegem.Data.Extensions;
 
-namespace Nodester.Data.Configurations
+namespace Nodegem.Data.Configurations
 {
     public class GraphConfiguration : IEntityTypeConfiguration<Models.Graph>
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace Nodester.Graph.Core.Extensions
+namespace Nodegem.Engine.Core.Extensions
 {
     public static class PropertyInfoExtensions
     {

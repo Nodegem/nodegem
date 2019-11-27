@@ -1,4 +1,4 @@
-namespace Nodester.Engine.Data.Nodes
+namespace Nodegem.Engine.Data.Nodes
 {
     public interface IListenerNode : INode
     {

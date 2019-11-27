@@ -1,7 +1,6 @@
-using System;
-using Nodester.Data.Models;
+using Nodegem.Data.Models;
 
-namespace Nodester.Services.Data.Repositories
+namespace Nodegem.Services.Data.Repositories
 {
     public interface ITokenRepository
     {

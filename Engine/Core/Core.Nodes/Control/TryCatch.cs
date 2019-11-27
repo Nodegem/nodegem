@@ -1,13 +1,13 @@
 using System;
 using System.Threading.Tasks;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
-using Nodester.Graph.Core.Fields.Graph;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Control
+namespace Nodegem.Engine.Core.Nodes.Control
 {
-    [DefinedNode("Try / Catch")]
+    [DefinedNode("CCF5971F-C627-4522-9BAB-2D83039B49D7", Title = "Try / Catch")]
     [NodeNamespace("Core.Control")]
     public class TryCatch : Node
     {

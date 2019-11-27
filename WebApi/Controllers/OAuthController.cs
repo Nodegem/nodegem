@@ -4,11 +4,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Nodester.Data.Dto.UserDtos;
-using Nodester.Data.Models;
-using Nodester.Services.Data;
+using Nodegem.Data.Dto.UserDtos;
+using Nodegem.Data.Models;
+using Nodegem.Services.Data;
 
-namespace Nodester.WebApi.Controllers
+namespace Nodegem.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -1,7 +1,7 @@
 using System;
-using ValueType = Nodester.Common.Data.ValueType;
+using ValueType = Nodegem.Common.Data.ValueType;
 
-namespace Nodester.Engine.Data.Fields
+namespace Nodegem.Engine.Data.Fields
 {
     public interface IValueField : IField
     {

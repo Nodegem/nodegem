@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 using FluentEmail.Core;
 using FluentEmail.Core.Models;
 using Microsoft.Extensions.Logging;
+using Nodegem.Services.Data;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using SendGridAttachment = SendGrid.Helpers.Mail.Attachment;
 
-namespace Nodester.WebApi.Services
+namespace Nodegem.WebApi.Services
 {
     public class EmailSenderService : ISendEmails
     {

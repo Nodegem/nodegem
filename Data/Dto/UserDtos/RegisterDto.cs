@@ -1,7 +1,6 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Nodester.Data.Dto.UserDtos
+namespace Nodegem.Data.Dto.UserDtos
 {
     public class RegisterDto
     {

@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Nodester.Data.Models.Json_Models;
+using Nodegem.Data.Models.Json_Models;
 
-namespace Nodester.Data.Models
+namespace Nodegem.Data.Models
 {
     
     public abstract class BaseGraph : ActiveEntity

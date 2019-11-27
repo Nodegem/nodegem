@@ -1,10 +1,9 @@
 using System;
-using Nodester.Common.Utilities;
-using Nodester.Engine.Data.Fields;
-using Nodester.Graph.Core.Utils;
-using ValueType = Nodester.Common.Data.ValueType;
+using Nodegem.Engine.Core.Utils;
+using Nodegem.Engine.Data.Fields;
+using ValueType = Nodegem.Common.Data.ValueType;
 
-namespace Nodester.Graph.Core.Fields
+namespace Nodegem.Engine.Core.Fields
 {
     public class ValueField : BaseField, IValueField
     {

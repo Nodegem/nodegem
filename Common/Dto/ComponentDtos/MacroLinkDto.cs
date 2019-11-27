@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Nodester.Data.Dto.MacroDtos
+namespace Nodegem.Common.Dto.ComponentDtos
 {
     /// <summary>
     ///  This DTO exists purely because macros can have links from their I/O which aren't explicitly nodes

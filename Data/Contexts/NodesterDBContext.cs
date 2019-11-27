@@ -1,11 +1,10 @@
 using System;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Nodester.Data.Configurations;
-using Nodester.Data.Models;
-using Nodester.Data.Models.Json_Models;
+using Nodegem.Data.Configurations;
+using Nodegem.Data.Models;
 
-namespace Nodester.Data.Contexts
+namespace Nodegem.Data.Contexts
 {
     public class NodesterDBContext : IdentityDbContext<ApplicationUser, Role, Guid>
     {

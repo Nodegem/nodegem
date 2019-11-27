@@ -5,9 +5,9 @@ using System.Linq;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-using Nodester.Common.Data;
+using Nodegem.Common.Data;
 
-namespace Nodester.Common.Extensions
+namespace Nodegem.Common.Extensions
 {
     public static class ClaimExtensions
     {

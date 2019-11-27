@@ -8,11 +8,11 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using Nodester.Common.Extensions;
-using Nodester.Data.Settings;
-using Nodester.Services.Data;
+using Nodegem.Common.Extensions;
+using Nodegem.Data.Settings;
+using Nodegem.Services.Data;
 
-namespace Nodester.Services
+namespace Nodegem.Services
 {
     public class TokenService : ITokenService
     {

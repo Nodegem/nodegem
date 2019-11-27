@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Control
+namespace Nodegem.Engine.Core.Nodes.Control
 {
-    [DefinedNode]
+    [DefinedNode("82D1C69A-C6A1-4D5D-AEF6-1D8B66730750")]
     [NodeNamespace("Core.Control")]
     public class Sequence : Node
     {

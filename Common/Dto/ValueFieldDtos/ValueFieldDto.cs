@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
-using Nodester.Common.Data;
+using Nodegem.Common.Data;
 
-namespace Nodester.Common.Dto.ValueFieldDtos
+namespace Nodegem.Common.Dto.ValueFieldDtos
 {
     public abstract class ValueFieldDto : BaseFieldDto
     {

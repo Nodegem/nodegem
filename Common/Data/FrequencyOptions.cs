@@ -1,6 +1,6 @@
 using System.Runtime.Serialization;
 
-namespace Nodester.Common.Data
+namespace Nodegem.Common.Data
 {
     public enum FrequencyOptions
     {

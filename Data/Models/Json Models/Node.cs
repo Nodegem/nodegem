@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Nodester.Common.Data;
-using Nodester.Engine.Data;
+using Nodegem.Common.Data;
 
-namespace Nodester.Data.Models.Json_Models
+namespace Nodegem.Data.Models.Json_Models
 {
     public class Node
     {

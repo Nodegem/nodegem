@@ -1,18 +1,23 @@
 using System.Threading.Tasks;
-using Nodester.Common.Extensions;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
+using Nodegem.Common.Extensions;
+using Nodegem.Engine.Core.Macro;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Essential
+namespace Nodegem.Engine.Core.Nodes.Essential
 {
-    [DefinedNode("Macro", Ignore = true)]
+    [DefinedNode(MacroDefinitionId, Ignore = true)]
     [NodeNamespace("Core.Essential")]
     public class Macro : Node
     {
-        private readonly Nodester.Graph.Core.Macro.MacroGraph _macroGraph;
 
-        public Macro(Nodester.Graph.Core.Macro.MacroGraph macroGraph) : base(false)
+        public const string MacroDefinitionId = "968747E3-88FC-4DFE-8A59-E2D6B3D9D3B8"; 
+        public const string MacroFieldDefinitionId = "E63125AB-397A-4D7B-BE90-711978DE05A2";
+        
+        private readonly MacroGraph _macroGraph;
+
+        public Macro(MacroGraph macroGraph) : base(false)
         {
             _macroGraph = macroGraph;
             Initialize();

@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
-using Nodester.Engine.Data.Links;
+using Nodegem.Engine.Data.Links;
 
-namespace Nodester.Engine.Data
+namespace Nodegem.Engine.Data
 {
     public interface IFlowGraph : IGraph
     {

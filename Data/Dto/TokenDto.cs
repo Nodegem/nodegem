@@ -1,6 +1,6 @@
 using System;
 
-namespace Nodester.Data.Dto
+namespace Nodegem.Data.Dto
 {
     public class TokenDto
     {

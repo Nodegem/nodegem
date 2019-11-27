@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Mapster;
-using Nodester.Common.Dto;
-using Nodester.Data.Contexts;
-using Nodester.Data.Dto.MacroDtos;
-using Nodester.Data.Models;
-using Nodester.Services.Data.Repositories;
+using Nodegem.Common.Dto;
+using Nodegem.Data.Contexts;
+using Nodegem.Data.Dto.MacroDtos;
+using Nodegem.Data.Models;
+using Nodegem.Services.Data.Repositories;
 
-namespace Nodester.Services.Repositories
+namespace Nodegem.Services.Repositories
 {
     public class MacroRepository : Repository<Macro>, IMacroRepository
     {

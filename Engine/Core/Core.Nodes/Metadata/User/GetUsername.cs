@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Graph.Core.Fields.Graph;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Data.Attributes;
 
-namespace Nodester.Graph.Core.Nodes.Metadata.User
+namespace Nodegem.Engine.Core.Nodes.Metadata.User
 {
-    [DefinedNode("Get Username")]
+    [DefinedNode("A5E0088E-3A6F-49AC-98B7-819DA390B21E", Title = "Get Username")]
     [NodeNamespace("Core.Metadata.User")]
     public class GetUsername : Node
     {

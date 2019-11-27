@@ -1,9 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Nodester.Graph.Core.Extensions
+namespace Nodegem.Engine.Core.Extensions
 {
     public static class LinqExtensions
     {

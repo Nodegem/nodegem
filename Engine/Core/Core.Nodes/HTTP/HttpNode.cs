@@ -1,10 +1,12 @@
 using System.Net.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using Nodester.Services.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Services.Data;
 
-namespace Nodester.Graph.Core.Nodes.HTTP
+namespace Nodegem.Engine.Core.Nodes.HTTP
 {
+    [NodeNamespace("Core.HTTP")]
     public abstract class HttpNode : Node
     {
         protected readonly JsonSerializerSettings Settings = new JsonSerializerSettings

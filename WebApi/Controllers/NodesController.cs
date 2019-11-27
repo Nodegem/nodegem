@@ -5,21 +5,22 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Nodester.Common.Dto;
-using Nodester.Common.Dto.ComponentDtos;
-using Nodester.Common.Dto.FlowFieldDtos;
-using Nodester.Common.Dto.ValueFieldDtos;
-using Nodester.Common.Extensions;
-using Nodester.Data;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Definitions;
-using Nodester.Graph.Core.Nodes.Graph;
-using Nodester.Graph.Core.Utils;
-using Nodester.Services;
-using Nodester.Services.Data;
-using Nodester.Services.Data.Repositories;
+using Nodegem.Common.Dto;
+using Nodegem.Common.Dto.ComponentDtos;
+using Nodegem.Common.Dto.FlowFieldDtos;
+using Nodegem.Common.Dto.ValueFieldDtos;
+using Nodegem.Common.Extensions;
+using Nodegem.Data;
+using Nodegem.Engine.Core.Nodes.Graph;
+using Nodegem.Engine.Core.Utils;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Definitions;
+using Nodegem.Services;
+using Nodegem.Services.Data;
+using Nodegem.Services.Data.Repositories;
+using Macro = Nodegem.Engine.Core.Nodes.Essential.Macro;
 
-namespace Nodester.WebApi.Controllers
+namespace Nodegem.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -101,6 +102,7 @@ namespace Nodester.WebApi.Controllers
                 var titlePrefix = f is ValueOutputDto || f is FlowOutputDto ? "Set" : "Get";
                 var definition = new NodeDefinition
                 {
+                    Id = Macro.MacroFieldDefinitionId,
                     Title = $"{titlePrefix} {f.Label}",
                     FullName = $"Macros.Fields.{type}.{f.Label}",
                     MacroFieldId = f.Key,
@@ -159,6 +161,7 @@ namespace Nodester.WebApi.Controllers
         {
             return constants.Select(c => new NodeDefinition
             {
+                Id = GetConstant.ConstantDefinitionId,
                 Title = $"Get {c.Label}",
                 FullName = $"Constants.{path}.{c.Label}",
                 ValueOutputs = new List<ValueOutputDefinition>
@@ -177,6 +180,7 @@ namespace Nodester.WebApi.Controllers
         {
             return macros.Select(m => new NodeDefinition
             {
+                Id = Macro.MacroDefinitionId, 
                 Title = m.Name,
                 Description = m.Description,
                 FullName = $"Macros.Custom.{m.Name}",

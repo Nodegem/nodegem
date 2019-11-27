@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using FluentEmail.Core;
 using FluentEmail.Core.Models;
 
-namespace Nodester.WebApi.Services
+namespace Nodegem.Services.Data
 {
     public interface ISendEmails
     {

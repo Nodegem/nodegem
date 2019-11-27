@@ -1,6 +1,6 @@
 using System;
 
-namespace Nodester.Graph.Core.Utils
+namespace Nodegem.Engine.Core.Utils
 {
     public class ConvertHelper
     {

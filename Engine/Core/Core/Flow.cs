@@ -2,12 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Fields;
-using Nodester.Graph.Core.Fields.Graph;
-using Nodester.Graph.Core.Utils;
+using Nodegem.Engine.Core.Utils;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core
+namespace Nodegem.Engine.Core
 {
     public class Flow : IFlow
     {

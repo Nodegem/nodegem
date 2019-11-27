@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
-using Nodester.Common.Dto.ComponentDtos;
+using Nodegem.Common.Dto.ComponentDtos;
 
-namespace Nodester.Data.Dto.UserDtos
+namespace Nodegem.Data.Dto.UserDtos
 {
     public class UserDto
     {

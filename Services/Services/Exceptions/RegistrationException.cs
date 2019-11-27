@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
 
-namespace Nodester.Services.Exceptions
+namespace Nodegem.Services.Exceptions
 {
     public class RegistrationException : Exception
     {

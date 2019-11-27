@@ -1,6 +1,6 @@
-using Nodester.Engine.Data.Fields;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Engine.Data.Links
+namespace Nodegem.Engine.Data.Links
 {
     public interface ILink<out TSource, out TDest> where TSource : IField where TDest : IField
     {

@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Nodester.Common.Data;
-using Nodester.Common.Dto;
-using Nodester.Common.Dto.ComponentDtos;
+using Nodegem.Common.Data;
+using Nodegem.Common.Dto;
+using Nodegem.Common.Dto.ComponentDtos;
 
-namespace Nodester.Data.Dto.GraphDtos
+namespace Nodegem.Data.Dto.GraphDtos
 {
     public class CreateGraphDto
     {

@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Lists
+namespace Nodegem.Engine.Core.Nodes.Lists
 {
-    [DefinedNode]
+    [DefinedNode("72852DAA-FCF7-4533-A36D-6E11095E87E6")]
     [NodeNamespace("Core.Lists")]
     public class GetValue : Node
     {

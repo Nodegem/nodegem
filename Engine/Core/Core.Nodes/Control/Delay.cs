@@ -1,13 +1,13 @@
 using System;
 using System.Threading.Tasks;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Attributes;
-using Nodester.Engine.Data.Fields;
-using ValueType = Nodester.Common.Data.ValueType;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
+using ValueType = Nodegem.Common.Data.ValueType;
 
-namespace Nodester.Graph.Core.Nodes.Control
+namespace Nodegem.Engine.Core.Nodes.Control
 {
-    [DefinedNode]
+    [DefinedNode("167A1E87-899C-4301-8406-1E70BCBE9EA9")]
     [NodeNamespace("Core.Control")]
     public class Delay : Node
     {

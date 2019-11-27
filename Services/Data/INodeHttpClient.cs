@@ -1,6 +1,6 @@
 using System.Net.Http;
 
-namespace Nodester.Services.Data
+namespace Nodegem.Services.Data
 {
     public interface INodeHttpClient
     {

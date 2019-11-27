@@ -5,20 +5,21 @@ using System.Threading.Tasks;
 using Mapster;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.Options;
-using Nodester.Common.Data;
-using Nodester.Common.Dto;
-using Nodester.Common.Dto.ComponentDtos;
-using Nodester.Data.Contexts;
-using Nodester.Data.Dto.GraphDtos;
-using Nodester.Data.Models.Json_Models;
-using Nodester.Data.Settings;
-using Nodester.Services.Data.Repositories;
-using Constant = Nodester.Data.Models.Json_Models.Graph_Constants.Constant;
-using Start = Nodester.Graph.Core.Nodes.Essential.Start;
+using Nodegem.Common.Data;
+using Nodegem.Common.Dto;
+using Nodegem.Common.Dto.ComponentDtos;
+using Nodegem.Data.Contexts;
+using Nodegem.Data.Dto.GraphDtos;
+using Nodegem.Data.Models;
+using Nodegem.Data.Models.Json_Models;
+using Nodegem.Data.Settings;
+using Nodegem.Services.Data.Repositories;
+using Constant = Nodegem.Data.Models.Json_Models.Graph_Constants.Constant;
+using Start = Nodegem.Engine.Core.Nodes.Essential.Start;
 
-namespace Nodester.Services.Repositories
+namespace Nodegem.Services.Repositories
 {
-    public class GraphRepository : Repository<Nodester.Data.Models.Graph>, IGraphRepository
+    public class GraphRepository : Repository<Graph>, IGraphRepository
     {
         private readonly IDataProtector _protector;
 
@@ -83,9 +84,9 @@ namespace Nodester.Services.Repositories
             Delete(graphId);
         }
         
-        private Nodester.Data.Models.Graph ProtectGraph(GraphDto graph)
+        private Graph ProtectGraph(GraphDto graph)
         {
-            var graphEntity = graph.Adapt<Nodester.Data.Models.Graph>();
+            var graphEntity = graph.Adapt<Graph>();
             graphEntity.Constants = graphEntity.Constants.Select(x =>
             {
                 var constant = x.Adapt<Constant>();
@@ -95,7 +96,7 @@ namespace Nodester.Services.Repositories
             return graphEntity;
         }
 
-        private GraphDto UnprotectGraph(Nodester.Data.Models.Graph graph)
+        private GraphDto UnprotectGraph(Graph graph)
         {
             var graphDto = graph.Adapt<GraphDto>();
             graphDto.Constants = graphDto.Constants.Select(x =>

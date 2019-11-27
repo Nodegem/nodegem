@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Nodester.Engine.Data.Fields
+namespace Nodegem.Engine.Data.Fields
 {
     public interface IValueOutputField : IValueField
     {

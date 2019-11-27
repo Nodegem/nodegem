@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
-using Nodester.Common.Data;
-using Nodester.Data;
-using Nodester.Engine.Data;
-using Nodester.Engine.Data.Nodes;
+using Nodegem.Common;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Nodes;
 
-namespace Nodester.Graph.Core
+namespace Nodegem.Engine.Core
 {
 
     public abstract class BaseGraph : IGraph
