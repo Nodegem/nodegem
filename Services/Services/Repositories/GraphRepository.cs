@@ -60,7 +60,8 @@ namespace Nodegem.Services.Repositories
             {
                 new Node
                 {
-                    Id = Guid.NewGuid(), Position = Vector2.Default, FullName = Start.StartFullName, Permanent = true,
+                    Id = Guid.NewGuid(), Position = Vector2.Default, DefinitionId = Start.StartDefinitionId,
+                    Permanent = true,
                 }
             };
             Create(newGraph);
@@ -78,12 +79,12 @@ namespace Nodegem.Services.Repositories
             Update(graph.Id, graphEntity);
             return UnprotectGraph(graphEntity);
         }
-        
+
         public void DeleteGraph(Guid graphId)
         {
             Delete(graphId);
         }
-        
+
         private Graph ProtectGraph(GraphDto graph)
         {
             var graphEntity = graph.Adapt<Graph>();

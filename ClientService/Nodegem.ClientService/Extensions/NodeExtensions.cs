@@ -47,27 +47,31 @@ namespace Nodegem.ClientService.Extensions
                 }
                 else
                 {
-                    node = NodeCache.BuildNodeFromTypeMap(NodeCache.NodeCategoryTypeMapper[nodeDto.FullName], provider);
+                    node = NodeCache.BuildNodeFromTypeMap(NodeCache.NodeCategoryTypeMapper[nodeDto.DefinitionId],
+                        provider);
                     var indefiniteFields = GetIndefiniteFieldKeyValuePairs(links);
                     if (nodeDto.FieldData.Any())
                     {
                         indefiniteFields = indefiniteFields.Concat(nodeDto.FieldData.Select(x =>
                             new KeyValuePair<string, string>(x.Key.Split('|')[0], x.Key))).Distinct();
                     }
+
                     node.PopulateIndefinites(indefiniteFields);
                     node.PopulateWithData(nodeDto.FieldData);
                 }
             }
             catch (KeyNotFoundException)
             {
-                var lowerName = nodeDto.FullName.ToLower();
-                if (lowerName.StartsWith("constants."))
+                if (NodeCache.IsConstant(nodeDto.DefinitionId) && nodeDto.ConstantId.HasValue)
                 {
-                    var splitValues = lowerName.Split(".");
-                    var nodeName = splitValues.Last();
-                    var key = constants
-                        .FirstOrDefault(c => nodeName == c.Value.Label.ToLower()).Key;
-                    node = new GetConstant(key);
+                    if (constants.ContainsKey(nodeDto.ConstantId.Value))
+                    {
+                        node = new GetConstant(nodeDto.ConstantId.Value);
+                    } 
+                    else
+                    {
+                        throw new Exception($"Could not find constant with ID: {nodeDto.ConstantId}");
+                    }
                 }
                 else
                 {

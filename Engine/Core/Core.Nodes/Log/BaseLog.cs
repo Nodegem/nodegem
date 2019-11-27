@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -33,11 +34,20 @@ namespace Nodegem.Engine.Core.Nodes.Log
 
         private async Task<IFlowOutputField> PerformLog(IFlow flow)
         {
-            var stringMessage = string.Empty;
+            string stringMessage;
             var message = await flow.GetValueAsync<object>(Message);
 
-            stringMessage = !(message.GetType().IsPrimitive || message is JValue) ? JsonConvert.SerializeObject(message) : message.ToString();
-
+            if (message == null)
+            {
+                stringMessage = "";
+            }
+            else
+            {
+                stringMessage = !(message.GetType().IsPrimitive || message is string || message is JValue)
+                    ? JsonConvert.SerializeObject(message)
+                    : message.ToString();
+            }
+            
             await ExecuteLogAsync(stringMessage, !Graph.IsRunningLocally);
             return Out;
         }

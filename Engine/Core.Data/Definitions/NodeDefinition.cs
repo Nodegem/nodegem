@@ -17,5 +17,6 @@ namespace Nodegem.Engine.Data.Definitions
         public List<ValueOutputDefinition> ValueOutputs { get; set; }
         public Guid? MacroId { get; set; }
         public Guid? MacroFieldId { get; set; }
+        public Guid? ConstantId { get; set; }
     }
 }

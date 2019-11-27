@@ -4,7 +4,7 @@ using Nodegem.Engine.Integrations.Data.Discord;
 
 namespace Nodegem.Engine.Integrations.Discord.Nodes
 {
-    [NodeNamespace("Third Party.Discord")]
+    [NodeNamespace("Integrations.Discord")]
     public abstract class DiscordNode : Node
     {
         

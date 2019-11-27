@@ -48,7 +48,7 @@ namespace Nodegem.Engine.Core
             
             if (Constants.TryGetValue(key, out var value))
             {
-                return (T) value.Value;
+                return (T) (value.Value ?? default(T));
             }
 
             return default;

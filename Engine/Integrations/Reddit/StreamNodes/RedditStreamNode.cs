@@ -5,7 +5,7 @@ using Nodegem.Engine.Integrations.Data.Reddit;
 
 namespace Nodegem.Engine.Integrations.Reddit.StreamNodes
 {
-    [NodeNamespace("Third Party.Reddit")]
+    [NodeNamespace("Integrations.Reddit")]
     public abstract class RedditStreamNode : StreamNode
     {
         public IRedditService RedditService { get; set; }

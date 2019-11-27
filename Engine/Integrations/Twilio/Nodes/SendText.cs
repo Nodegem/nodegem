@@ -8,7 +8,7 @@ using Nodegem.Engine.Integrations.Data.Twilio;
 namespace Nodegem.Engine.Integrations.Twilio.Nodes
 {
     [DefinedNode("C146334B-C5F0-4DD6-91C1-682D59D326E3")]
-    [NodeNamespace("Third Party.Twilio")]
+    [NodeNamespace("Integrations.Twilio")]
     public class SendText : TwilioNode
     {
         public IFlowInputField In { get; private set; }

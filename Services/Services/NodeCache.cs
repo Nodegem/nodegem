@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Nodegem.Common.Extensions;
+using Nodegem.Engine.Core.Nodes.Graph;
 using Nodegem.Engine.Data.Attributes;
 using Nodegem.Engine.Data.Definitions;
 using Nodegem.Engine.Data.Nodes;
@@ -67,6 +68,11 @@ namespace Nodegem.Services
             return (INode) Activator.CreateInstance(nodeType,
                 @params
                     .Select(serviceProvider.GetService).ToArray());
+        }
+
+        public static bool IsConstant(string definitionId)
+        {
+            return definitionId == GetConstant.ConstantDefinitionId;
         }
 
         private static NodeDefinition GetDefinitionFromNode(Type nodeType, IServiceProvider provider)

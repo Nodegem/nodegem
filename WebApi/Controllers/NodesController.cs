@@ -164,6 +164,7 @@ namespace Nodegem.WebApi.Controllers
                 Id = GetConstant.ConstantDefinitionId,
                 Title = $"Get {c.Label}",
                 FullName = $"Constants.{path}.{c.Label}",
+                ConstantId = c.Key,
                 ValueOutputs = new List<ValueOutputDefinition>
                 {
                     new ValueOutputDefinition

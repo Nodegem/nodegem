@@ -8,7 +8,7 @@ using Nodegem.Engine.Integrations.Data.SendGrid;
 namespace Nodegem.Engine.Integrations.SendGrid.Nodes
 {
     [DefinedNode("73CC09D3-3BC9-4E5A-A3A7-D8190AC64FE7")]
-    [NodeNamespace("Third Party.SendGrid")]
+    [NodeNamespace("Integrations.SendGrid")]
     public class SendEmail : SendGridNode
     {
         public IFlowInputField In { get; private set; }
