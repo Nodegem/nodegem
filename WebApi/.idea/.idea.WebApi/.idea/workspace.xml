@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Test.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ClientService/.idea/.idea.ClientService/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/.idea/.idea.ClientService/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/FieldAttributesAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/FieldAttributesAttribute.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/FieldDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/FieldDefinition.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueInputDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueInputDefinition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Test.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Test.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Extensions/DefinitionExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Extensions/DefinitionExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
@@ -149,6 +146,7 @@
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThanOrEqualTo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Test.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThan.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Attributes/FriendlyNameAttribute.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/If.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/Concat.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" root0="FORCE_HIGHLIGHTING" />
@@ -225,7 +223,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Controllers/GraphController.cs" />
         <option value="$PROJECT_DIR$/Controllers/MacroController.cs" />
         <option value="$PROJECT_DIR$/../Common/Dto/ComponentDtos/ConstantDto.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core/EventListenerNode.cs" />
@@ -273,6 +270,7 @@
         <option value="$PROJECT_DIR$/../Data/Models/Json Models/Node.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core.Data/Definitions/NodeDefinition.cs" />
         <option value="$PROJECT_DIR$/Controllers/NodesController.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Core.Data/Attributes/FriendlyNameAttribute.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core/Extensions/DefinitionExtensions.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Test.cs" />
@@ -303,6 +301,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
@@ -453,7 +452,7 @@
       <workItem from="1574621948855" duration="3090000" />
       <workItem from="1574881128830" duration="206000" />
       <workItem from="1574881416665" duration="560000" />
-      <workItem from="1574881998359" duration="4475000" />
+      <workItem from="1574881998359" duration="5387000" />
     </task>
     <servers />
   </component>

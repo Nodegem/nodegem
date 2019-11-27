@@ -312,6 +312,7 @@
       <e p="Attributes" t="Include">
         <e p="DefinedNodeAttribute.cs" t="Include" />
         <e p="FieldAttributesAttribute.cs" t="Include" />
+        <e p="FriendlyNameAttribute.cs" t="Include" />
         <e p="NodeNamespaceAttribute.cs" t="Include" />
       </e>
       <e p="bin" t="ExcludeRecursive" />

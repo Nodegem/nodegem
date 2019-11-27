@@ -138,7 +138,7 @@ namespace Nodegem.Engine.Core
 
             if (string.IsNullOrEmpty(nodeDefinitionId) || !Guid.TryParse(nodeDefinitionId, out _))
             {
-                throw new Exception($"Invalid node ID. Node ID must be present and be a GUID.");
+                throw new Exception("Invalid node ID. Node ID must be present and be a GUID.");
             }
 
             var definition = new NodeDefinition
@@ -322,9 +322,8 @@ namespace Nodegem.Engine.Core
                         }
                         catch (ArgumentNullException)
                         {
-                            Console.Error.WriteLine(
+                            throw new Exception(
                                 $"Could not find field {pi.Name} for node {Title}. Probably forgot to define it.");
-                            throw;
                         }
                     }
 
@@ -354,7 +353,6 @@ namespace Nodegem.Engine.Core
                 else
                 {
                     throw new Exception($"Enum must provide {nameof(FriendlyNameAttribute)} for each value");
-
                 }
             }
 
@@ -386,7 +384,7 @@ namespace Nodegem.Engine.Core
             public ValueType Type { get; set; }
             public bool IsEditable { get; set; }
             public bool AllowConnection { get; set; }
-            public IEnumerable<object>? ValueOptions { get; set; }
+            public IEnumerable<object> ValueOptions { get; set; }
         }
     }
 }
