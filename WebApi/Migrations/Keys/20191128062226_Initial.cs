@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Nodester.WebApi.Migrations.Keys
+namespace Nodegem.WebApi.Migrations.Keys
 {
-    public partial class AddDataProtectionKeys : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -8,9 +8,9 @@ using Nodegem.Data.Dto;
 
 namespace Nodegem.ClientService.Services
 {
-    public class NodesterLoginService : NodesterBaseService, INodesterLoginService
+    public class NodegemLoginService : NodegemBaseService, INodegemLoginService
     {
-        public NodesterLoginService(HttpClient client) : base(client)
+        public NodegemLoginService(HttpClient client) : base(client)
         {
         }
 

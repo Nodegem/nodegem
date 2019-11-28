@@ -2,15 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueOption.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Test.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService.Data/INodegemApiService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Exceptions/NodegemAuthorizationException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Services/NodegemApiService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ClientService/.idea/.idea.ClientService/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/.idea/.idea.ClientService/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/FriendlyNameAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/FriendlyNameAttribute.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueInputDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueInputDefinition.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Extensions/DefinitionExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Extensions/DefinitionExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService.Data/INodesterApiService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService.Data/INodesterGraphService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService.Data/INodegemGraphService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService.Data/INodesterLoginService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService.Data/INodegemLoginService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService.Data/INodesterUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService.Data/INodegemUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/BackgroundServices/EngineService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/BackgroundServices/EngineService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Exceptions/NodesterAuthorizationException.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Services/MacroBuildService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Services/MacroBuildService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Services/NodesterApiService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Services/NodesterAuthorizedBaseService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Services/NodegemAuthorizedBaseService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Services/NodesterBaseService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Services/NodegemBaseService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Services/NodesterGraphService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Services/NodegemGraphService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Services/NodesterLoginService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Services/NodegemLoginService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Services/NodesterUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Services/NodegemUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/appsettings.Production.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/appsettings.Production.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/appsettings.Staging.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/appsettings.Staging.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Contexts/NodesterDBContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Contexts/NodegemContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/Repositories/MacroRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Repositories/MacroRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/Repositories/Repository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Repositories/Repository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/Repositories/TokenRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Repositories/TokenRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20191109183513_Initial.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20191109183513_Initial.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20191117041731_RemoveDebugMode.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20191117041731_RemoveDebugMode.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/NodesterDBContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi.sln.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi.sln.DotSettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appsettings.Staging.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.Staging.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -95,7 +124,7 @@
     <setting file="file://$PROJECT_DIR$/../Common/Extensions/ObjectExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/Nodes/User/GetUser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Services/TokenService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Contexts/NodesterDBContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Contexts/NodegemContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/StringFormat.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Settings/TokenSettings.cs" root0="FORCE_HIGHLIGHTING" />
@@ -208,7 +237,6 @@
     <setting file="file://$PROJECT_DIR$/../Engine/Integrations/SendGrid/Nodes/SendEmail.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Models/AccessToken.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Models/BaseGraph.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Migrations/20191109183513_Initial.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Lists/GetIndex.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Models/Graph.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Data/ITokenService.cs" root0="FORCE_HIGHLIGHTING" />
@@ -226,17 +254,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../Common/Dto/ComponentDtos/ConstantDto.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core/EventListenerNode.cs" />
-        <option value="$PROJECT_DIR$/../Common/Extensions/ObjectExtensions.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core.Data/Attributes/FieldAttributesAttribute.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueFieldDefinition.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/Map.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueInputDefinition.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core.Data/Definitions/FieldDefinition.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/Sequence.cs" />
         <option value="$PROJECT_DIR$/../Common/Data/FieldData.cs" />
-        <option value="$PROJECT_DIR$/appsettings.Staging.json" />
         <option value="$PROJECT_DIR$/../Services/Services/Hubs/TerminalHub.cs" />
         <option value="$PROJECT_DIR$/../Services/Data/Repositories/IGraphRepository.cs" />
         <option value="$PROJECT_DIR$/../Engine/ThirdParty/Discord/Nodes/StartBot.cs" />
@@ -264,7 +285,6 @@
         <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literal/List.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/StringFormat.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" />
-        <option value="$PROJECT_DIR$/Startup.cs" />
         <option value="$PROJECT_DIR$/Nodegem.WebApi.csproj" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Start.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" />
@@ -277,6 +297,14 @@
         <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Test.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueOption.cs" />
         <option value="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" />
+        <option value="$PROJECT_DIR$/Migrations/NodesterDBContextModelSnapshot.cs" />
+        <option value="$PROJECT_DIR$/Migrations/20191109183513_Initial.cs" />
+        <option value="$PROJECT_DIR$/Migrations/20191117041731_RemoveDebugMode.cs" />
+        <option value="$PROJECT_DIR$/appsettings.json" />
+        <option value="$PROJECT_DIR$/Startup.cs" />
+        <option value="$PROJECT_DIR$/WebApi.sln.DotSettings" />
+        <option value="$PROJECT_DIR$/appsettings.Staging.json" />
+        <option value="$PROJECT_DIR$/appsettings.Development.json" />
       </list>
     </option>
   </component>
@@ -455,7 +483,7 @@
       <workItem from="1574621948855" duration="3090000" />
       <workItem from="1574881128830" duration="206000" />
       <workItem from="1574881416665" duration="560000" />
-      <workItem from="1574881998359" duration="6901000" />
+      <workItem from="1574881998359" duration="10740000" />
     </task>
     <servers />
   </component>

@@ -23,7 +23,7 @@ namespace Nodegem.Services.Repositories
     {
         private readonly IDataProtector _protector;
 
-        public GraphRepository(NodesterDBContext context, IDataProtectionProvider protectionProvider,
+        public GraphRepository(NodegemContext context, IDataProtectionProvider protectionProvider,
             IOptions<AppSettings> appSettings) : base(context)
         {
             _protector = protectionProvider.CreateProtector(appSettings.Value.SecretKey);

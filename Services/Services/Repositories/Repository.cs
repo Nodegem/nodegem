@@ -13,11 +13,11 @@ namespace Nodegem.Services.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
     {
-        protected readonly NodesterDBContext Context;
+        protected readonly NodegemContext Context;
 
         protected DbSet<TEntity> DbSet => Context.Set<TEntity>();
 
-        public Repository(NodesterDBContext context)
+        public Repository(NodegemContext context)
         {
             Context = context;
         }

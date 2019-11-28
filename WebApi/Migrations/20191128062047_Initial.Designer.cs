@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Nodegem.Data.Contexts;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Nodester.WebApi.Migrations
+namespace Nodegem.WebApi.Migrations
 {
-    [DbContext(typeof(NodesterDBContext))]
-    [Migration("20191109183513_Initial")]
+    [DbContext(typeof(NodegemContext))]
+    [Migration("20191128062047_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -122,7 +122,7 @@ namespace Nodester.WebApi.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Nodester.Data.Models.AccessToken", b =>
+            modelBuilder.Entity("Nodegem.Data.Models.AccessToken", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -156,7 +156,7 @@ namespace Nodester.WebApi.Migrations
                     b.ToTable("AccessTokens");
                 });
 
-            modelBuilder.Entity("Nodester.Data.Models.ApplicationUser", b =>
+            modelBuilder.Entity("Nodegem.Data.Models.ApplicationUser", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -254,9 +254,9 @@ namespace Nodester.WebApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c962c8ae-aaac-4a0b-aea4-1f13f06df12a"),
+                            Id = new Guid("7baf3ea1-607e-46c7-b707-5437ccdea2fb"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f9af2cc0-ee6b-4115-9526-ce931a34f2a7",
+                            ConcurrencyStamp = "3b4fef80-dfd2-4a64-b973-1263e796fd69",
                             Constants = "[]",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@admin.com",
@@ -268,15 +268,15 @@ namespace Nodester.WebApi.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMINUSER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEEN3CwmfH0/+HE5jYg9F8Leq7ti8k3/ilsyLZFKPYkVhFTxd55ax49+cIll0UNLsg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHba2+Fq/Kzwuk0+dmN2XiD0oKPqeqESdTsYOYdO54ZsUF+EcprfkrMOyT3LWQAIAg==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "5d4472a5b2204f3a970a61c6a2c8f6c8",
+                            SecurityStamp = "a9d796b92e6f4c46a5ed9e317cbe8e5d",
                             TwoFactorEnabled = false,
                             UserName = "AdminUser"
                         });
                 });
 
-            modelBuilder.Entity("Nodester.Data.Models.Graph", b =>
+            modelBuilder.Entity("Nodegem.Data.Models.Graph", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -292,9 +292,6 @@ namespace Nodester.WebApi.Migrations
                         .HasColumnType("text");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("IsDebugModeEnabled")
                         .HasColumnType("boolean");
 
                     b.Property<DateTime>("LastUpdated")
@@ -325,7 +322,7 @@ namespace Nodester.WebApi.Migrations
                     b.ToTable("Graphs");
                 });
 
-            modelBuilder.Entity("Nodester.Data.Models.Macro", b =>
+            modelBuilder.Entity("Nodegem.Data.Models.Macro", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -344,9 +341,6 @@ namespace Nodester.WebApi.Migrations
                         .HasColumnType("text");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("IsDebugModeEnabled")
                         .HasColumnType("boolean");
 
                     b.Property<DateTime>("LastUpdated")
@@ -377,7 +371,7 @@ namespace Nodester.WebApi.Migrations
                     b.ToTable("Macros");
                 });
 
-            modelBuilder.Entity("Nodester.Data.Models.Role", b =>
+            modelBuilder.Entity("Nodegem.Data.Models.Role", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -406,7 +400,7 @@ namespace Nodester.WebApi.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
-                    b.HasOne("Nodester.Data.Models.Role", null)
+                    b.HasOne("Nodegem.Data.Models.Role", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -415,7 +409,7 @@ namespace Nodester.WebApi.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
                 {
-                    b.HasOne("Nodester.Data.Models.ApplicationUser", null)
+                    b.HasOne("Nodegem.Data.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -424,7 +418,7 @@ namespace Nodester.WebApi.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
                 {
-                    b.HasOne("Nodester.Data.Models.ApplicationUser", null)
+                    b.HasOne("Nodegem.Data.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -433,13 +427,13 @@ namespace Nodester.WebApi.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
                 {
-                    b.HasOne("Nodester.Data.Models.Role", null)
+                    b.HasOne("Nodegem.Data.Models.Role", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Nodester.Data.Models.ApplicationUser", null)
+                    b.HasOne("Nodegem.Data.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -448,34 +442,34 @@ namespace Nodester.WebApi.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
                 {
-                    b.HasOne("Nodester.Data.Models.ApplicationUser", null)
+                    b.HasOne("Nodegem.Data.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Nodester.Data.Models.AccessToken", b =>
+            modelBuilder.Entity("Nodegem.Data.Models.AccessToken", b =>
                 {
-                    b.HasOne("Nodester.Data.Models.ApplicationUser", "User")
+                    b.HasOne("Nodegem.Data.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Nodester.Data.Models.Graph", b =>
+            modelBuilder.Entity("Nodegem.Data.Models.Graph", b =>
                 {
-                    b.HasOne("Nodester.Data.Models.ApplicationUser", "User")
+                    b.HasOne("Nodegem.Data.Models.ApplicationUser", "User")
                         .WithMany("Graphs")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Nodester.Data.Models.Macro", b =>
+            modelBuilder.Entity("Nodegem.Data.Models.Macro", b =>
                 {
-                    b.HasOne("Nodester.Data.Models.ApplicationUser", "User")
+                    b.HasOne("Nodegem.Data.Models.ApplicationUser", "User")
                         .WithMany("Macros")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -22,7 +22,7 @@ namespace Nodegem.ClientService.BackgroundServices
         private readonly AppConfig _appConfig;
         private readonly ILogger<EngineService> _logger;
         private readonly IGraphHubConnection _graphConnection;
-        private readonly INodesterApiService _apiService;
+        private readonly INodegemApiService _apiService;
         private readonly IBuildGraphService _buildGraphService;
         private readonly IBuildMacroService _buildMacroService;
         private readonly ITerminalHubConnection _terminalHubConnection;
@@ -34,7 +34,7 @@ namespace Nodegem.ClientService.BackgroundServices
             ILogger<EngineService> logger,
             IOptions<AppConfig> appConfig,
             IGraphHubConnection connection,
-            INodesterApiService apiService,
+            INodegemApiService apiService,
             IServiceProvider provider,
             IBuildGraphService buildGraphService,
             IBuildMacroService buildMacroService,

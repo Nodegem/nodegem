@@ -7,9 +7,9 @@ using Nodegem.Common.Dto.ComponentDtos;
 
 namespace Nodegem.ClientService.Services
 {
-    public class NodesterUserService : NodesterAuthorizedBaseService, INodesterUserService
+    public class NodegemUserService : NodegemAuthorizedBaseService, INodegemUserService
     {
-        public NodesterUserService(HttpClient client) : base(client)
+        public NodegemUserService(HttpClient client) : base(client)
         {
         }
 

@@ -13,7 +13,7 @@ namespace Nodegem.Services.Repositories
 {
     public class MacroRepository : Repository<Macro>, IMacroRepository
     {
-        public MacroRepository(NodesterDBContext context) : base(context)
+        public MacroRepository(NodegemContext context) : base(context)
         {
         }
 

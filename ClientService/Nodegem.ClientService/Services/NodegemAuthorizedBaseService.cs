@@ -4,7 +4,7 @@ using Nodegem.ClientService.Exceptions;
 
 namespace Nodegem.ClientService.Services
 {
-    public abstract class NodesterAuthorizedBaseService
+    public abstract class NodegemAuthorizedBaseService
     {
         private readonly HttpClient _client;
 
@@ -14,7 +14,7 @@ namespace Nodegem.ClientService.Services
             {
                 if (!AppState.Instance.IsLoggedIn)
                 {
-                    throw new NodesterAuthorizationException();
+                    throw new NodegemAuthorizationException();
                 }
 
                 _client.DefaultRequestHeaders.Clear();
@@ -25,7 +25,7 @@ namespace Nodegem.ClientService.Services
             }
         }
 
-        protected NodesterAuthorizedBaseService(HttpClient client)
+        protected NodegemAuthorizedBaseService(HttpClient client)
         {
             _client = client;
         }

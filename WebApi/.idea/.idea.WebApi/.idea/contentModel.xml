@@ -73,7 +73,7 @@
       </e>
       <e p="Contexts" t="Include">
         <e p="KeysContext.cs" t="Include" />
-        <e p="NodesterDBContext.cs" t="Include" />
+        <e p="NodegemContext.cs" t="Include" />
       </e>
       <e p="Dto" t="Include">
         <e p="EmailDtos" t="Include">
@@ -217,7 +217,6 @@
         <e p="Essential" t="Include">
           <e p="Macro.cs" t="Include" />
           <e p="Start.cs" t="Include" />
-          <e p="Test.cs" t="Include" />
         </e>
         <e p="Graph" t="Include">
           <e p="GetConstant.cs" t="Include" />
@@ -594,16 +593,14 @@
         <e p="Engine" t="Include" />
       </e>
       <e p="Migrations" t="Include">
-        <e p="20191109183513_Initial.cs" t="Include" />
-        <e p="20191109183513_Initial.Designer.cs" t="Include" />
-        <e p="20191117041731_RemoveDebugMode.cs" t="Include" />
-        <e p="20191117041731_RemoveDebugMode.Designer.cs" t="Include" />
+        <e p="20191128062047_Initial.cs" t="Include" />
+        <e p="20191128062047_Initial.Designer.cs" t="Include" />
         <e p="Keys" t="Include">
           <e p="20191109184552_AddDataProtectionKeys.cs" t="Include" />
           <e p="20191109184552_AddDataProtectionKeys.Designer.cs" t="Include" />
           <e p="KeysContextModelSnapshot.cs" t="Include" />
         </e>
-        <e p="NodesterDBContextModelSnapshot.cs" t="Include" />
+        <e p="NodegemContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="nlog.config" t="Include" />
       <e p="Nodegem.WebApi.csproj" t="IncludeRecursive" />

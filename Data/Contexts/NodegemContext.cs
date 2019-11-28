@@ -6,13 +6,13 @@ using Nodegem.Data.Models;
 
 namespace Nodegem.Data.Contexts
 {
-    public class NodesterDBContext : IdentityDbContext<ApplicationUser, Role, Guid>
+    public class NodegemContext : IdentityDbContext<ApplicationUser, Role, Guid>
     {
         public DbSet<AccessToken> AccessTokens { get; set; }
         public DbSet<Models.Graph> Graphs { get; set; }
         public DbSet<Macro> Macros { get; set; }
 
-        public NodesterDBContext(DbContextOptions<NodesterDBContext> options) : base(options)
+        public NodegemContext(DbContextOptions<NodegemContext> options) : base(options)
         {
         }
 

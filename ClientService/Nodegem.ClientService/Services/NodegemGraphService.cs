@@ -8,10 +8,10 @@ using Nodegem.Common.Dto;
 
 namespace Nodegem.ClientService.Services
 {
-    public class NodesterGraphService : NodesterAuthorizedBaseService, INodesterGraphService
+    public class NodegemGraphService : NodegemAuthorizedBaseService, INodegemGraphService
     {
         
-        public NodesterGraphService(HttpClient client) : base(client)
+        public NodegemGraphService(HttpClient client) : base(client)
         {
         }
 

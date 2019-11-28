@@ -66,7 +66,7 @@ namespace Nodegem.ClientService
                     var baseUrl = hostingContext.Configuration.GetSection("AppConfig").GetValue<string>("Host");
                     services.Configure<AppConfig>(hostingContext.Configuration.GetSection("AppConfig"));
 
-                    services.AddHttpClient<INodesterApiService, NodesterApiService>
+                    services.AddHttpClient<INodegemApiService, NodegemApiService>
                         (client =>
                         {
                             client.BaseAddress = new Uri($"{baseUrl}/api/");

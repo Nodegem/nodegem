@@ -5,7 +5,7 @@ using Nodegem.Common.Dto;
 
 namespace Nodegem.ClientService.Data
 {
-    public interface INodesterGraphService
+    public interface INodegemGraphService
     {
         Task<IEnumerable<GraphDto>> GetGraphsAsync();
         Task<MacroDto> GetMacroByIdAsync(Guid macroId);

@@ -47,9 +47,9 @@ namespace Nodegem.WebApi
             services.AddDistributedMemoryCache();
 
             services.AddEntityFrameworkNpgsql()
-                .AddDbContext<NodesterDBContext>(options =>
+                .AddDbContext<NodegemContext>(options =>
                 {
-                    options.UseNpgsql(Configuration.GetConnectionString("nodesterDb"),
+                    options.UseNpgsql(Configuration.GetConnectionString("nodegemDb"),
                         b => b.MigrationsAssembly("Nodegem.WebApi"));
                 });
             
@@ -65,14 +65,14 @@ namespace Nodegem.WebApi
                 .PersistKeysToDbContext<KeysContext>();
             
             services.AddHealthChecks()
-                .AddNpgSql(Configuration.GetConnectionString("nodesterDb"), name: "NodesterDB")
+                .AddNpgSql(Configuration.GetConnectionString("nodegemDb"), name: "NodegemDb")
                 .AddNpgSql(Configuration.GetConnectionString("keysDb"), name: "KeysDb");
 
             services.AddIdentity<ApplicationUser, Role>()
-                .AddEntityFrameworkStores<NodesterDBContext>()
+                .AddEntityFrameworkStores<NodegemContext>()
                 .AddDefaultTokenProviders()
-                .AddUserStore<UserStore<ApplicationUser, Role, NodesterDBContext, Guid>>()
-                .AddRoleStore<RoleStore<Role, NodesterDBContext, Guid>>();
+                .AddUserStore<UserStore<ApplicationUser, Role, NodegemContext, Guid>>()
+                .AddRoleStore<RoleStore<Role, NodegemContext, Guid>>();
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -184,14 +184,14 @@ namespace Nodegem.WebApi
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
-            NodesterDBContext nodesterContext, IServiceProvider provider)
+            NodegemContext nodegemContext, IServiceProvider provider)
         {
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             if (env.IsDevelopment() || env.IsStaging())
             {
                 app.UseDeveloperExceptionPage();
-                nodesterContext.Database.Migrate();
+                nodegemContext.Database.Migrate();
             }
 
             if (env.IsStaging() || env.IsProduction())
@@ -220,7 +220,7 @@ namespace Nodegem.WebApi
 
             NodeCache.CacheNodeData(provider);
 
-            nodesterContext.Database.EnsureCreated();
+            nodegemContext.Database.EnsureCreated();
         }
     }
 }

@@ -24,11 +24,11 @@ namespace Nodegem.ClientService.Services
     {
         private readonly ILogger<MacroBuildService> _logger;
         private readonly IServiceProvider _provider;
-        private readonly INodesterApiService _apiService;
+        private readonly INodegemApiService _apiService;
 
         public MacroBuildService(
             IServiceProvider serviceProvider,
-            INodesterApiService apiService,
+            INodegemApiService apiService,
             ILogger<MacroBuildService> logger)
         {
             _provider = serviceProvider;

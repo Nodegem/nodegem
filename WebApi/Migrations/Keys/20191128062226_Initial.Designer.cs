@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Nodegem.Data.Contexts;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Nodester.WebApi.Migrations.Keys
+namespace Nodegem.WebApi.Migrations.Keys
 {
     [DbContext(typeof(KeysContext))]
-    [Migration("20191109184552_AddDataProtectionKeys")]
-    partial class AddDataProtectionKeys
+    [Migration("20191128062226_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

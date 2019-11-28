@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Nodester.WebApi.Migrations
+namespace Nodegem.WebApi.Migrations
 {
     public partial class Initial : Migration
     {
@@ -196,7 +196,6 @@ namespace Nodester.WebApi.Migrations
                     LastUpdated = table.Column<DateTime>(nullable: false),
                     IsActive = table.Column<bool>(nullable: false),
                     UserId = table.Column<Guid>(nullable: false),
-                    IsDebugModeEnabled = table.Column<bool>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Nodes = table.Column<string>(nullable: true),
@@ -225,7 +224,6 @@ namespace Nodester.WebApi.Migrations
                     LastUpdated = table.Column<DateTime>(nullable: false),
                     IsActive = table.Column<bool>(nullable: false),
                     UserId = table.Column<Guid>(nullable: false),
-                    IsDebugModeEnabled = table.Column<bool>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Nodes = table.Column<string>(nullable: true),
@@ -249,7 +247,7 @@ namespace Nodester.WebApi.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "AvatarUrl", "ConcurrencyStamp", "Constants", "CreatedOn", "Email", "EmailConfirmed", "FirstName", "IsActive", "IsLocked", "LastLoggedIn", "LastName", "LastUpdated", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { new Guid("c962c8ae-aaac-4a0b-aea4-1f13f06df12a"), 0, null, "f9af2cc0-ee6b-4115-9526-ce931a34f2a7", "[]", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@admin.com", true, null, true, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), false, null, "ADMIN@ADMIN.COM", "ADMINUSER", "AQAAAAEAACcQAAAAEEEN3CwmfH0/+HE5jYg9F8Leq7ti8k3/ilsyLZFKPYkVhFTxd55ax49+cIll0UNLsg==", null, true, "5d4472a5b2204f3a970a61c6a2c8f6c8", false, "AdminUser" });
+                values: new object[] { new Guid("7baf3ea1-607e-46c7-b707-5437ccdea2fb"), 0, null, "3b4fef80-dfd2-4a64-b973-1263e796fd69", "[]", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@admin.com", true, null, true, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), false, null, "ADMIN@ADMIN.COM", "ADMINUSER", "AQAAAAEAACcQAAAAEHba2+Fq/Kzwuk0+dmN2XiD0oKPqeqESdTsYOYdO54ZsUF+EcprfkrMOyT3LWQAIAg==", null, true, "a9d796b92e6f4c46a5ed9e317cbe8e5d", false, "AdminUser" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

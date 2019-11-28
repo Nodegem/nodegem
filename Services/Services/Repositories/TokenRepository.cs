@@ -7,7 +7,7 @@ namespace Nodegem.Services.Repositories
 {
     public class TokenRepository : Repository<AccessToken>, ITokenRepository
     {
-        public TokenRepository(NodesterDBContext context) : base(context)
+        public TokenRepository(NodegemContext context) : base(context)
         {
         }
 

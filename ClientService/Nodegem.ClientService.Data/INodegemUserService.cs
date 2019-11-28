@@ -4,7 +4,7 @@ using Nodegem.Common.Dto.ComponentDtos;
 
 namespace Nodegem.ClientService.Data
 {
-    public interface INodesterUserService
+    public interface INodegemUserService
     {
         Task<IEnumerable<ConstantDto>> GetUserConstantsAsync();
     }
