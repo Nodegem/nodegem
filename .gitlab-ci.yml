@@ -1,8 +1,7 @@
 image: mcr.microsoft.com/dotnet/core/sdk:3.0
 
 variables:
-  PROJECT_NAME: WebApi
-  HEROKU_STAGE_NAME: nodester-staging
+  HEROKU_STAGE_NAME: nodegem-heroku-api
   HEROKU_PROD_NAME: nodester-prod
 
 stages:
