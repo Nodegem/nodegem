@@ -30,7 +30,7 @@ migrate:
     - export PATH="$PATH:/root/.dotnet/tools"
   script:
     - cd WebApi/
-    - dotnet ef database update --context NodesterDbContext
+    - dotnet ef database update --context NodegemContext
     - dotnet ef database update --context KeysContext
   only:
     - develop
