@@ -15,16 +15,19 @@ namespace Nodegem.Engine.Integrations.Twilio.Nodes
 
         public IFlowOutputField Out { get; private set; }
 
-        [FieldAttributes("Account SID")] public IValueInputField AccountSid { get; private set; }
+        [FieldAttributes("Account SID", ValueType.Text)]
+        public IValueInputField AccountSid { get; private set; }
 
-        [FieldAttributes("Auth Token")] public IValueInputField AuthToken { get; private set; }
+        [FieldAttributes("Auth Token", ValueType.Text)]
+        public IValueInputField AuthToken { get; private set; }
 
-        [FieldAttributes("To Phone #")] public IValueInputField ToPhoneNumber { get; private set; }
+        [FieldAttributes("To Phone #", ValueType.PhoneNumber)]
+        public IValueInputField ToPhoneNumber { get; private set; }
 
-        [FieldAttributes("From Phone #")] public IValueInputField FromPhoneNumber { get; private set; }
+        [FieldAttributes("From Phone #", ValueType.PhoneNumber)]
+        public IValueInputField FromPhoneNumber { get; private set; }
 
-        [FieldAttributes(ValueType.TextArea)]     
-        public IValueInputField Message { get; private set; }
+        [FieldAttributes(ValueType.TextArea)] public IValueInputField Message { get; private set; }
 
         public SendText(ITwilioService twilioService) : base(twilioService)
         {

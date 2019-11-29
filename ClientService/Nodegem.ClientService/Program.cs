@@ -18,9 +18,14 @@ namespace Nodegem.ClientService
 {
     class Options
     {
-        [Option('e', "environment")] public string Environment { get; set; }
+        [Option('e', "endpoint", Default = AppConstants.NodegemEndpoint)]
+        public string Endpoint { get; set; }
+
         [Option('u', "username")] public string Username { get; set; }
         [Option('p', "password")] public string Password { get; set; }
+
+        [Option("pingTime", Default = AppConstants.PingTime)]
+        public int PingTime { get; set; }
     }
 
     public class Program
@@ -42,11 +47,6 @@ namespace Nodegem.ClientService
         {
             var host = Host.CreateDefaultBuilder(args);
 
-            if (!string.IsNullOrEmpty(option.Environment))
-            {
-                host.UseEnvironment(option.Environment);
-            }
-
             return host
                 .UseWindowsService()
                 .UseSystemd()
@@ -63,13 +63,16 @@ namespace Nodegem.ClientService
                     AppState.Instance.Password = option.Password;
 
                     services.AddOptions();
-                    var baseUrl = hostingContext.Configuration.GetSection("AppConfig").GetValue<string>("Host");
-                    services.Configure<AppConfig>(hostingContext.Configuration.GetSection("AppConfig"));
+                    services.Configure<AppConfig>(options =>
+                    {
+                        options.Host = option.Endpoint;
+                        options.PingTime = option.PingTime;
+                    });
 
                     services.AddHttpClient<INodegemApiService, NodegemApiService>
                         (client =>
                         {
-                            client.BaseAddress = new Uri($"{baseUrl}/api/");
+                            client.BaseAddress = new Uri($"{option.Endpoint}/api/");
                             client.DefaultRequestHeaders.Accept.Add(
                                 new MediaTypeWithQualityHeaderValue("application/json"));
                         })

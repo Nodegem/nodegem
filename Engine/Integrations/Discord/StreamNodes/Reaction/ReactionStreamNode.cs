@@ -3,7 +3,7 @@ using Nodegem.Common.Data.Interfaces;
 using Nodegem.Engine.Data.Attributes;
 using Nodegem.Engine.Data.Fields;
 using Nodegem.Engine.Integrations.Data.Discord;
-using Nodegem.Engine.Integrations.Discord.Dtos;
+using Nodegem.Engine.Integrations.Data.Discord.Dtos;
 
 namespace Nodegem.Engine.Integrations.Discord.StreamNodes.Reaction
 {

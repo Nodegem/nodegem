@@ -3,6 +3,7 @@ using Nodegem.Data.Models;
 using Nodegem.Engine.Core;
 using Nodegem.Engine.Core.Nodes;
 using Nodegem.Engine.Integrations.Discord;
+using Nodegem.Engine.Integrations.Mailgun;
 using Nodegem.Engine.Integrations.Reddit;
 using Nodegem.Engine.Integrations.SendGrid;
 using Nodegem.Engine.Integrations.Twilio;
@@ -29,18 +30,20 @@ namespace Nodegem.Services
 
         public static void AddServicesForBridge(this IServiceCollection services)
         {
-            services.AddHttpClient<INodeHttpClient, NodeHttpClient>();
             services.RegisterCommonServices();
         }
 
         private static void RegisterCommonServices(this IServiceCollection services)
         {
+            services.AddHttpClient<INodeHttpClient, NodeHttpClient>();
+            services.AddHttpClient();
             services.RegisterMySelf();
             services.ApplyNodeServices();
             services.ApplyTwilioServices();
             services.ApplySendGridServices();
             services.ApplyDiscordServices();
             services.ApplyRedditService();
+            services.ApplyMailgunServices();
         }
     }
 }

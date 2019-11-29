@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Nodegem.Engine.Integrations.Discord.Dtos
+namespace Nodegem.Engine.Integrations.Data.Discord.Dtos
 {
     public class GuildDto
     {

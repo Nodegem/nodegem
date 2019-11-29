@@ -72,7 +72,7 @@ namespace Nodegem.Services
 
         public static bool IsConstant(string definitionId)
         {
-            return definitionId == GetConstant.ConstantDefinitionId;
+            return definitionId.StartsWith(GetConstant.ConstantDefinitionId);
         }
 
         private static NodeDefinition GetDefinitionFromNode(Type nodeType, IServiceProvider provider)

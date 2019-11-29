@@ -1,4 +1,4 @@
-namespace Nodegem.Engine.Integrations.Discord.Dtos
+namespace Nodegem.Engine.Integrations.Data.Discord.Dtos
 {
     public class ChannelDto
     {

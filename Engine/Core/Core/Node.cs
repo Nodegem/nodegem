@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.Serialization;
 using System.Threading.Tasks;
 using Nodegem.Common.Data;
 using Nodegem.Common.Extensions;
@@ -133,7 +132,7 @@ namespace Nodegem.Engine.Core
 
         public virtual NodeDefinition GetDefinition()
         {
-            var fieldLabels = GetFieldLabels();
+            var fieldLabels = GetFieldInfo();
             var nodeDefinitionId = Type.GetAttributeValue((DefinedNodeAttribute dn) => dn.Id);
 
             if (string.IsNullOrEmpty(nodeDefinitionId) || !Guid.TryParse(nodeDefinitionId, out _))
@@ -277,7 +276,7 @@ namespace Nodegem.Engine.Core
             FieldMap = allFields.ToDictionary(k => k.Key, v => v);
         }
 
-        private IDictionary<string, FieldInfo> GetFieldLabels()
+        private IDictionary<string, FieldInfo> GetFieldInfo()
         {
             return Type.GetProperties()
                 .Where(p =>
@@ -318,7 +317,7 @@ namespace Nodegem.Engine.Core
                         {
                             var fieldList = pi.GetValue<IEnumerable<IField>>(this);
                             return fieldList.Select(f =>
-                                ConvertAttributeToFieldInfo(f.Key, fieldAttributes.Label, true, f, fieldAttributes));
+                                ConvertAttributeToFieldInfo(f.Key,true, f, fieldAttributes));
                         }
                         catch (ArgumentNullException)
                         {
@@ -329,7 +328,7 @@ namespace Nodegem.Engine.Core
 
                     return new List<FieldInfo>
                     {
-                        ConvertAttributeToFieldInfo(key, label ?? fieldAttributes.Label, false, field, fieldAttributes)
+                        ConvertAttributeToFieldInfo(key,false, field, fieldAttributes)
                     };
                 })
                 .ToDictionary(
@@ -337,7 +336,7 @@ namespace Nodegem.Engine.Core
                     v => v);
         }
 
-        private static FieldInfo ConvertAttributeToFieldInfo(string key, string label, bool indefinite, IField field,
+        private static FieldInfo ConvertAttributeToFieldInfo(string key, bool indefinite, IField field,
             FieldAttributesAttribute fieldAttribute)
         {
             var valueOptions =
@@ -368,7 +367,7 @@ namespace Nodegem.Engine.Core
             return new FieldInfo
             {
                 Key = key,
-                Label = label ?? fieldAttribute.Label,
+                Label = fieldAttribute.Label,
                 Indefinite = indefinite,
                 Info = fieldAttribute.Info,
                 Type = fieldAttribute.Type ??

@@ -161,7 +161,7 @@ namespace Nodegem.WebApi.Controllers
         {
             return constants.Select(c => new NodeDefinition
             {
-                Id = GetConstant.ConstantDefinitionId,
+                Id = $"{GetConstant.ConstantDefinitionId}|{c.Key}",
                 Title = $"Get {c.Label}",
                 FullName = $"Constants.{path}.{c.Label}",
                 ConstantId = c.Key,

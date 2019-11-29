@@ -11,10 +11,7 @@
       </e>
       <e p="Nodegem.ClientService" t="IncludeRecursive">
         <e p="AppConfig.cs" t="Include" />
-        <e p="appsettings.Development.json" t="Include" />
-        <e p="appsettings.json" t="Include" />
-        <e p="appsettings.Production.json" t="Include" />
-        <e p="appsettings.Staging.json" t="Include" />
+        <e p="AppConstants.cs" t="Include" />
         <e p="AppState.cs" t="Include" />
         <e p="BackgroundServices" t="Include">
           <e p="EngineService.cs" t="Include" />
@@ -462,17 +459,6 @@
       </e>
       <e p="Discord" t="Include">
         <e p="DiscordService.cs" t="Include" />
-        <e p="Dtos" t="Include">
-          <e p="CategoryChannelDto.cs" t="Include" />
-          <e p="ChannelDto.cs" t="Include" />
-          <e p="GuildDto.cs" t="Include" />
-          <e p="MessageDto.cs" t="Include" />
-          <e p="TextChannelDto.cs" t="Include" />
-          <e p="UserDto.cs" t="Include" />
-        </e>
-        <e p="Exceptions" t="Include">
-          <e p="DiscordException.cs" t="Include" />
-        </e>
         <e p="Nodes" t="Include">
           <e p="Connections" t="Include">
             <e p="Disconnect.cs" t="Include" />
@@ -521,6 +507,13 @@
           <e p="StartBot.cs" t="Include" />
         </e>
       </e>
+      <e p="Mailgun" t="Include">
+        <e p="MailgunService.cs" t="Include" />
+        <e p="Nodes" t="Include">
+          <e p="SendEmail.cs" t="Include" />
+        </e>
+        <e p="ServiceExtensions.cs" t="Include" />
+      </e>
       <e p="Nodegem.Engine.Integrations.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
@@ -561,7 +554,21 @@
     <e p="C:\Users\rszem\Documents\Projects\nodester\Engine\Integrations.Data" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="Discord" t="Include">
+        <e p="Dtos" t="Include">
+          <e p="CategoryChannelDto.cs" t="Include" />
+          <e p="ChannelDto.cs" t="Include" />
+          <e p="GuildDto.cs" t="Include" />
+          <e p="MessageDto.cs" t="Include" />
+          <e p="TextChannelDto.cs" t="Include" />
+          <e p="UserDto.cs" t="Include" />
+        </e>
+        <e p="Exceptions" t="Include">
+          <e p="DiscordException.cs" t="Include" />
+        </e>
         <e p="IDiscordService.cs" t="Include" />
+      </e>
+      <e p="Mailgun" t="Include">
+        <e p="IMailgunService.cs" t="Include" />
       </e>
       <e p="Nodegem.Engine.Integrations.Data.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">

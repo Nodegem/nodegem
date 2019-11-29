@@ -4,7 +4,7 @@ using Nodegem.Engine.Data;
 using Nodegem.Engine.Data.Attributes;
 using Nodegem.Engine.Data.Fields;
 using Nodegem.Engine.Integrations.Data.Discord;
-using Nodegem.Engine.Integrations.Discord.Exceptions;
+using Nodegem.Engine.Integrations.Data.Discord.Exceptions;
 
 namespace Nodegem.Engine.Integrations.Discord.Nodes.User
 {
