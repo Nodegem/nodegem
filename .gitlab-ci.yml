@@ -23,7 +23,7 @@ migrate:
   stage: migrate
   variables:
     ASPNETCORE_ENVIRONMENT: Staging
-    ConnectionStrings__nodesterDb: $NODEGEM_DB
+    ConnectionStrings__nodegemDb: $NODEGEM_DB
     ConnectionStrings__keysDb: $NODEGEM_KEYS_DB
   before_script:
     - dotnet tool install --global dotnet-ef --version 3.0.0
