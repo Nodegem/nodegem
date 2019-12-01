@@ -17,13 +17,13 @@ case "$unameArch" in
     amd64)     NODEGEM_ARCH="64";;
     x86_64)    NODEGEM_ARCH="64";;
     aarch64)   NODEGEM_ARCH="64";;
-    armv71)    NODEGEM_ARCH="32";;
+    armv7l)    NODEGEM_ARCH="32";;
     * )        echo "Your Architecture '$unameArch' -> ITS NOT SUPPORTED.";;
 esac
 
 if [ "$NODEGEM_KERNEL" ==  "win" ]; then
     NODEGEM_FILE=nodegem-$NODEGEM_KERNEL$NODEGEM_ARCH.zip
-elif [ "$unameArch" == "aarch64" || "$unameArch" == "armv71" ]; then
+elif [[ "$unameArch" == "aarch64" || "$unameArch" == "armv7l" ]]; then
     NODEGEM_FILE=nodegem-$NODEGEM_KERNEL-arm$NODEGEM_ARCH.tar.gz
 else
     NODEGEM_FILE=nodegem-$NODEGEM_KERNEL$NODEGEM_ARCH.tar.gz
