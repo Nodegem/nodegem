@@ -15,6 +15,7 @@ namespace Nodegem.Data.Configurations
             builder.Property(x => x.FlowOutputs).StoreAsJson();
             builder.Property(x => x.ValueInputs).StoreAsJson();
             builder.Property(x => x.ValueOutputs).StoreAsJson();
+            builder.Property(e => e.Metadata).StoreAsJson();
             builder.HasOne(e => e.User).WithMany(e => e.Macros);
         }
     }

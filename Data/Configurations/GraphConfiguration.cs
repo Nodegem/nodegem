@@ -12,6 +12,7 @@ namespace Nodegem.Data.Configurations
             builder.Property(e => e.Links).StoreAsJson();
             builder.Property(e => e.Constants).StoreAsJson();
             builder.Property(e => e.RecurringOptions).StoreAsJson();
+            builder.Property(e => e.Metadata).StoreAsJson();
             builder.HasOne(e => e.User).WithMany(e => e.Graphs);
         }
     }

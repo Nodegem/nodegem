@@ -21,5 +21,6 @@ namespace Nodegem.Common.Dto
         public bool IsActive { get; set; }
         public DateTime CreatedOn { get; set; }
         public DateTime LastUpdated { get; set; }
+        public Dictionary<string, object> Metadata { get; set; }
     }
 }

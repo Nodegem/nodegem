@@ -17,7 +17,4 @@
     <ProjectReference Include="..\Common\Nodegem.Common.csproj" />
     <ProjectReference Include="..\Engine\Core.Data\Nodegem.Engine.Data.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Dto\MacroDtos\FieldDtos" />
-  </ItemGroup>
 </Project>

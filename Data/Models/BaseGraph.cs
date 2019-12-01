@@ -12,5 +12,6 @@ namespace Nodegem.Data.Models
         public string Description { get; set; }
         public IEnumerable<Node> Nodes { get; set; }
         public ApplicationUser User { get; set; }
+        public Dictionary<string, object> Metadata { get; set; }
     }
 }

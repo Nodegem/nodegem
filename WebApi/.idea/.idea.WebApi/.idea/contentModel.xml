@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\rszem\.Rider2019.2\config\consoles\db" t="IncludeRecursive" />
     <e p="C:\Users\rszem\.Rider2019.2\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\rszem\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_WebApi.850840532.00" t="ExcludeRecursive" />
     <e p="C:\Users\rszem\Documents\Projects\nodester\Common" t="IncludeRecursive">
@@ -87,7 +86,6 @@
         </e>
         <e p="MacroDtos" t="Include">
           <e p="CreateMacroDto.cs" t="Include" />
-          <e p="FieldDtos" t="Include" />
         </e>
         <e p="ResetPasswordDto.cs" t="Include" />
         <e p="TokenDto.cs" t="Include" />
@@ -605,6 +603,8 @@
       <e p="Migrations" t="Include">
         <e p="20191128062047_Initial.cs" t="Include" />
         <e p="20191128062047_Initial.Designer.cs" t="Include" />
+        <e p="20191201191904_GraphMetadata.cs" t="Include" />
+        <e p="20191201191904_GraphMetadata.Designer.cs" t="Include" />
         <e p="Keys" t="Include">
           <e p="20191128062226_Initial.cs" t="Include" />
           <e p="20191128062226_Initial.Designer.cs" t="Include" />

@@ -22,5 +22,6 @@ namespace Nodegem.Common.Dto
         public IEnumerable<FlowOutputDto> FlowOutputs { get; set; }
         public IEnumerable<ValueInputDto> ValueInputs { get; set; }
         public IEnumerable<ValueOutputDto> ValueOutputs { get; set; }
+        public Dictionary<string, object> Metadata { get; set; }
     }
 }
