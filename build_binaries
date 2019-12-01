@@ -39,7 +39,7 @@ cd $CWD/binaries/win64
 zip -r $CWD/compressed/nodegem-win64.zip .
 cd $CWD/compressed
 
-tar -czf nodegem-osx.tar.gz -C $CWD/binaries/osx .
+tar -czf nodegem-osx64.tar.gz -C $CWD/binaries/osx .
 tar -czf nodegem-linux64.tar.gz -C $CWD/binaries/linux .
 tar -czf nodegem-linux-arm32.tar.gz -C $CWD/binaries/linux-arm32 .
 tar -czf nodegem-linux-arm64.tar.gz -C $CWD/binaries/linux-arm64 .

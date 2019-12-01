@@ -1,6 +1,8 @@
 #!/bin/bash
 
-HOST=https://nodester-staging.herokuapp.com
+NODEGEM_HOST='https://cdn.nodegem.io'
+NODEGEM_DOWNLOAD_PATH=releases/latest
+NODEGEM_CLIENT_FOLDER_NAME=nodegem_client
 SERVICE_USER=nodegemserviceuser
 
 if ! [ -x "$(command -v dotnet)" ] || ! [ "$(dotnet --info | grep 3.0)" ]; then
@@ -22,13 +24,44 @@ else
 fi
 
 echo 'Downloading Nodegem service client...'
+unameOut=$(uname -s)
+case "$unameOut" in
+    Linux*)      NODEGEM_KERNEL="linux";;
+    Darwin*)     NODEGEM_KERNEL="osx";;
+    MINGW*)      NODEGEM_KERNEL="win";;
+    * )          echo "Your Operating System -> ITS NOT SUPPORTED";;
+esac
+
+unameArch=$(uname -m)
+case "$unameArch" in
+    amd64)     NODEGEM_ARCH="64";;
+    x86_64)    NODEGEM_ARCH="64";;
+    aarch64)   NODEGEM_ARCH="64";;
+    armv71)    NODEGEM_ARCH="32";;
+    * )        echo "Your Architecture '$unameArch' -> ITS NOT SUPPORTED.";;
+esac
+
+if [ "$NODEGEM_KERNEL" ==  "win" ]; then
+    NODEGEM_FILE=nodegem-$NODEGEM_KERNEL$NODEGEM_ARCH.zip
+elif [ "$unameArch" == "aarch64" || "$unameArch" == "armv71" ]; then
+    NODEGEM_FILE=nodegem-$NODEGEM_KERNEL-arm$NODEGEM_ARCH.tar.gz
+else
+    NODEGEM_FILE=nodegem-$NODEGEM_KERNEL$NODEGEM_ARCH.tar.gz
+fi
+
+NODEGEM_DOWNLOAD_URL=$NODEGEM_HOST/$NODEGEM_DOWNLOAD_PATH/$NODEGEM_FILE
+
+echo 'Downloading ' $NODEGEM_DOWNLOAD_URL
+curl $NODEGEM_DOWNLOAD_URL -o $NODEGEM_FILE
 
 if ! id -u $SERVICE_USER > /dev/null 2>&1; then
 	echo 'Adding a service user...' 
-	useradd -m -d /var/nodegembridge $SERVICE_USER
-	mkdir -p /var/nodegembridge
-	chown -R $SERVICE_USER:$SERVICE_USER /var/nodegembridge
+	useradd -m -d /var/nodegem $SERVICE_USER
+	mkdir -p /var/nodegem
 fi
+
+tar -zxf $NODEGEM_FILE -C /var/nodegem/
+chown -R $SERVICE_USER:$SERVICE_USER /var/nodegem
 
 # This allows the single file executable to start without running into permissions issues
 mkdir -p /var/tmp/.net
@@ -49,6 +82,7 @@ echo 'Setting up daemon...'
 
 cp -f nodegem.service /etc/systemd/system
 rm nodegem.service
+rm $NODEGEM_FILE
 systemctl daemon-reload
 systemctl enable nodegem
 systemctl restart nodegem

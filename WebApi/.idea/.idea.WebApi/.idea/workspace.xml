@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../ClientService/.idea/.idea.ClientService/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/.idea/.idea.ClientService/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Common/Dto/GraphDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Dto/GraphDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Common/Dto/MacroDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Dto/MacroDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Configurations/GraphConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Configurations/GraphConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Configurations/MacroConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Configurations/MacroConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Models/BaseGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Models/BaseGraph.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Nodegem.Data.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Nodegem.Data.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/NodegemContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/NodegemContextModelSnapshot.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -277,11 +268,11 @@
         <option value="$PROJECT_DIR$/../Engine/Integrations/Mailgun/MailgunService.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" />
         <option value="$PROJECT_DIR$/appsettings.Staging.json" />
-        <option value="$PROJECT_DIR$/../Data/Models/BaseGraph.cs" />
         <option value="$PROJECT_DIR$/../Data/Configurations/GraphConfiguration.cs" />
         <option value="$PROJECT_DIR$/../Data/Configurations/MacroConfiguration.cs" />
-        <option value="$PROJECT_DIR$/../Common/Dto/GraphDto.cs" />
         <option value="$PROJECT_DIR$/../Common/Dto/MacroDto.cs" />
+        <option value="$PROJECT_DIR$/../Common/Dto/GraphDto.cs" />
+        <option value="$PROJECT_DIR$/../Data/Models/BaseGraph.cs" />
       </list>
     </option>
   </component>
@@ -462,7 +453,7 @@
       <workItem from="1574881998359" duration="10965000" />
       <workItem from="1574960240177" duration="8205000" />
       <workItem from="1575155327067" duration="445000" />
-      <workItem from="1575227163457" duration="2574000" />
+      <workItem from="1575227163457" duration="4214000" />
     </task>
     <servers />
   </component>
