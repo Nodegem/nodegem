@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.EventLog;
 using Nodegem.ClientService.BackgroundServices;
 using Nodegem.ClientService.Data;
 using Nodegem.ClientService.HubConnections;
@@ -52,9 +53,18 @@ namespace Nodegem.ClientService
                 .UseSystemd()
                 .ConfigureLogging((hostingContext, logging) =>
                 {
+                    logging.ClearProviders();
+                    logging.AddFilter<EventLogLoggerProvider>(level => level >= LogLevel.Information);
+                    logging.AddConsole();
+                    logging.AddDebug();
+                    logging.AddEventSourceLogger();
                     if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                     {
-                        logging.AddEventLog();
+                        logging.AddEventLog(settings =>
+                        {
+                            settings.SourceName = "NodegemSource";
+                            settings.LogName = "Nodegem";
+                        });
                     }
                 })
                 .ConfigureServices((hostingContext, services) =>
