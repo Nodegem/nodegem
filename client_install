@@ -28,7 +28,6 @@ unameOut=$(uname -s)
 case "$unameOut" in
     Linux*)      NODEGEM_KERNEL="linux";;
     Darwin*)     NODEGEM_KERNEL="osx";;
-    MINGW*)      NODEGEM_KERNEL="win";;
     * )          echo "Your Operating System -> ITS NOT SUPPORTED";;
 esac
 
@@ -41,9 +40,7 @@ case "$unameArch" in
     * )        echo "Your Architecture '$unameArch' -> ITS NOT SUPPORTED.";;
 esac
 
-if [ "$NODEGEM_KERNEL" ==  "win" ]; then
-    NODEGEM_FILE=nodegem-$NODEGEM_KERNEL$NODEGEM_ARCH.zip
-elif [[ "$unameArch" == "aarch64" || "$unameArch" == "armv7l" ]]; then
+if [[ "$unameArch" == "aarch64" || "$unameArch" == "armv7l" ]]; then
     NODEGEM_FILE=nodegem-$NODEGEM_KERNEL-arm$NODEGEM_ARCH.tar.gz
 else
     NODEGEM_FILE=nodegem-$NODEGEM_KERNEL$NODEGEM_ARCH.tar.gz
@@ -75,8 +72,11 @@ while true; do
     [ "$nodegem_password" = "$nodegem_password2" ] && break
     echo "Please try again"
 done
+
 echo 'Nodegem credentials...'
+curl $NODEGEM_HOST/install/linux/nodegem.service.template -o nodegem.service.template
 sed -e "s/\${username}/${nodegem_user}/" -e "s/\${password}/${nodegem_password}/" nodegem.service.template >> nodegem.service
+rm nodegem.service.template
 
 echo 'Setting up daemon...'
 

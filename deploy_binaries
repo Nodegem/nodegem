@@ -1,8 +1,6 @@
 #!/bin/bash
 
 aws --endpoint=${S3_ENDPOINT} s3 sync compressed s3://${BUCKET_NAME}/releases/latest --acl public-read
-aws --endpoint=${S3_ENDPOINT} s3 cp update_client s3://${BUCKET_NAME}/install/update_client --acl public-read
-aws --endpoint=${S3_ENDPOINT} s3 cp client_install s3://${BUCKET_NAME}/install/client_install --acl public-read
 
 if [[ ! -z "${CI_COMMIT_TAG}" ]]; then
     aws --endpoint=${S3_ENDPOINT} s3 sync compressed s3://${BUCKET_NAME}/releases/${CI_COMMIT_TAG} --acl public-read

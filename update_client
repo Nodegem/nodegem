@@ -8,7 +8,6 @@ unameOut=$(uname -s)
 case "$unameOut" in
     Linux*)      NODEGEM_KERNEL="linux";;
     Darwin*)     NODEGEM_KERNEL="osx";;
-    MINGW*)      NODEGEM_KERNEL="win";;
     * )          echo "Your Operating System -> ITS NOT SUPPORTED";;
 esac
 
@@ -21,9 +20,7 @@ case "$unameArch" in
     * )        echo "Your Architecture '$unameArch' -> ITS NOT SUPPORTED.";;
 esac
 
-if [ "$NODEGEM_KERNEL" ==  "win" ]; then
-    NODEGEM_FILE=nodegem-$NODEGEM_KERNEL$NODEGEM_ARCH.zip
-elif [[ "$unameArch" == "aarch64" || "$unameArch" == "armv7l" ]]; then
+if [[ "$unameArch" == "aarch64" || "$unameArch" == "armv7l" ]]; then
     NODEGEM_FILE=nodegem-$NODEGEM_KERNEL-arm$NODEGEM_ARCH.tar.gz
 else
     NODEGEM_FILE=nodegem-$NODEGEM_KERNEL$NODEGEM_ARCH.tar.gz
@@ -33,11 +30,6 @@ NODEGEM_DOWNLOAD_URL=$NODEGEM_HOST/$NODEGEM_DOWNLOAD_PATH/$NODEGEM_FILE
 
 echo 'Downloading ' $NODEGEM_DOWNLOAD_URL
 curl $NODEGEM_DOWNLOAD_URL -o $NODEGEM_FILE
-
-if [ "$NODEGEM_KERNEL" ==  "win" ]; then
-    echo "Complete the installation by unzipping the file"
-    exit 1
-fi
 
 mkdir -p $NODEGEM_CLIENT_FOLDER_NAME
 tar -zxf $NODEGEM_FILE -C $NODEGEM_CLIENT_FOLDER_NAME/

@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/NodeDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/NodeDefinition.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Core/Core/StreamNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Core/Core/StreamNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Connections/OnConnected.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Connections/OnConnected.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Connections/OnDisconnected.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Connections/OnDisconnected.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/OnMessageDeleted.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/OnMessageDeleted.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/OnMessageReceived.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/OnMessageReceived.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/OnMessageUpdated.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/OnMessageUpdated.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/OnReactionAdded.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/OnReactionAdded.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/OnReactionCleared.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/OnReactionCleared.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/OnReactionRemoved.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/OnReactionRemoved.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/ReactionStreamNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/ReactionStreamNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/StartBot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/StartBot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Integrations/Reddit/StreamNodes/StartBot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Integrations/Reddit/StreamNodes/StartBot.cs" afterDir="false" />
-    </list>
+    <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
