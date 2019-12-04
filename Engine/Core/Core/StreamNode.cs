@@ -10,7 +10,6 @@ using Nodegem.Engine.Data.Nodes;
 
 namespace Nodegem.Engine.Core
 {
-    [DefinedNode(true)]
     public abstract class StreamNode : Node, IListenerNode
     {
         public new IListenerGraph Graph => base.Graph as IListenerGraph;

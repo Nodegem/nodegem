@@ -5,7 +5,7 @@ using Nodegem.Engine.Integrations.Data.Discord;
 
 namespace Nodegem.Engine.Integrations.Discord.StreamNodes.Message
 {
-    [DefinedNode("28355967-FD38-47E8-A0B6-6F19FB494CCB")]
+    [DefinedNode("28355967-FD38-47E8-A0B6-6F19FB494CCB", IsListenerOnly = true)]
     public class OnMessageDeleted : MessageStreamNode
     {
         public OnMessageDeleted(IDiscordService discordService, IGraphHubConnection graphHubConnection) : base(

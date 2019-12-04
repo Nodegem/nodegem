@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Nodegem.Engine.Data.Definitions
 {
@@ -10,6 +11,8 @@ namespace Nodegem.Engine.Data.Definitions
         public string Title { get; set; }
         public string Description { get; set; }
         public bool IgnoreDisplay { get; set; }
+        
+        [JsonIgnore]
         public bool IsListenerOnly { get; set; }
         public List<FlowInputDefinition> FlowInputs { get; set; }
         public List<FlowOutputDefinition> FlowOutputs { get; set; }

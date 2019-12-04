@@ -5,7 +5,7 @@ using Nodegem.Engine.Integrations.Data.Discord;
 
 namespace Nodegem.Engine.Integrations.Discord.StreamNodes.Connections
 {
-    [DefinedNode("2AFD944B-FCEC-4F17-B96F-D4498F8A87FA")]
+    [DefinedNode("2AFD944B-FCEC-4F17-B96F-D4498F8A87FA", IsListenerOnly = true)]
     public class OnDisconnected : DiscordStreamNode
     {
         public IValueOutputField Exception { get; set; }

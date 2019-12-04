@@ -7,7 +7,7 @@ using Nodegem.Engine.Integrations.Data.Discord;
 
 namespace Nodegem.Engine.Integrations.Discord.StreamNodes.Reaction
 {
-    [DefinedNode("74CB19C0-5A2F-4540-984E-889B73B68B9B")]
+    [DefinedNode("74CB19C0-5A2F-4540-984E-889B73B68B9B", IsListenerOnly = true)]
     public class OnReactionRemoved : ReactionStreamNode
     {
         

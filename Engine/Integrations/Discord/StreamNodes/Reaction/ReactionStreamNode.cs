@@ -7,7 +7,6 @@ using Nodegem.Engine.Integrations.Data.Discord.Dtos;
 
 namespace Nodegem.Engine.Integrations.Discord.StreamNodes.Reaction
 {
-    [DefinedNode("F6328E1D-0B87-423F-B074-F383BB7DBA62")]
     public abstract class ReactionStreamNode : DiscordStreamNode
     {
         

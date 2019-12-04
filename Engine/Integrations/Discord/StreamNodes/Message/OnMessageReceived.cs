@@ -5,7 +5,7 @@ using Nodegem.Engine.Integrations.Data.Discord;
 
 namespace Nodegem.Engine.Integrations.Discord.StreamNodes.Message
 {
-    [DefinedNode("4EBA4459-CE0D-48A6-B975-BE4541553121")]
+    [DefinedNode("4EBA4459-CE0D-48A6-B975-BE4541553121", IsListenerOnly = true)]
     public class OnMessageReceived : MessageStreamNode
     {
         public OnMessageReceived(IDiscordService discordService, IGraphHubConnection graphHubConnection) : base(

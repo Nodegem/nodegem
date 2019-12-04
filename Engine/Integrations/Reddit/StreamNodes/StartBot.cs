@@ -7,7 +7,7 @@ using Nodegem.Engine.Integrations.Data.Reddit;
 
 namespace Nodegem.Engine.Integrations.Reddit.StreamNodes
 {
-    [DefinedNode("7DE6D8DA-9C6F-424B-89B9-882D549B0083")]
+    [DefinedNode("7DE6D8DA-9C6F-424B-89B9-882D549B0083", IsListenerOnly = true)]
     public class StartBot : RedditStreamNode
     {
         

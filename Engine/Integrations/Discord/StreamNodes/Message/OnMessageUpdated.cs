@@ -6,7 +6,7 @@ using Nodegem.Engine.Integrations.Data.Discord;
 
 namespace Nodegem.Engine.Integrations.Discord.StreamNodes.Message
 {
-    [DefinedNode("EF3E7E04-7604-4492-815B-E42B91843D2D")]
+    [DefinedNode("EF3E7E04-7604-4492-815B-E42B91843D2D", IsListenerOnly = true)]
     public class OnMessageUpdated : MessageStreamNode
     {
         public IValueOutputField OldMessage { get; set; }

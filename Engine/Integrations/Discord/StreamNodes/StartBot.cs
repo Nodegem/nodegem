@@ -8,7 +8,7 @@ using Nodegem.Engine.Integrations.Data.Discord;
 
 namespace Nodegem.Engine.Integrations.Discord.StreamNodes
 {
-    [DefinedNode("78AD22F8-9D51-4219-99B1-1C8C18E9CF13")]
+    [DefinedNode("78AD22F8-9D51-4219-99B1-1C8C18E9CF13", IsListenerOnly = true)]
     public class StartBot : DiscordStreamNode
     {
         public IFlowInputField In { get; set; }
