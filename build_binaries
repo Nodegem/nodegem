@@ -43,7 +43,7 @@ cd $CWD/compressed/client_service
 echo "Compressing client service files..."
 
 cd $CWD/binaries/client_service/win64
-zip -r $CWD/compressed/nodegem-win64.zip .
+zip -r $CWD/compressed/client_service/nodegem-win64.zip .
 cd $CWD/compressed/client_service
 
 tar -czf nodegem-osx64.tar.gz -C $CWD/binaries/client_service/osx .
