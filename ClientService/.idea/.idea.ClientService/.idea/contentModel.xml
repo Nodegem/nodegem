@@ -153,7 +153,6 @@
         </e>
         <e p="MacroDtos" t="Include">
           <e p="CreateMacroDto.cs" t="Include" />
-          <e p="FieldDtos" t="Include" />
         </e>
         <e p="ResetPasswordDto.cs" t="Include" />
         <e p="TokenDto.cs" t="Include" />

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-aws --endpoint=${S3_ENDPOINT} s3 sync compressed s3://${BUCKET_NAME}/releases/latest --acl public-read
+aws --endpoint=${S3_ENDPOINT} s3 sync compressed/client_service s3://${BUCKET_NAME}/releases/latest/client_service --acl public-read
 
 if [[ ! -z "${CI_COMMIT_TAG}" ]]; then
-    aws --endpoint=${S3_ENDPOINT} s3 sync compressed s3://${BUCKET_NAME}/releases/${CI_COMMIT_TAG} --acl public-read
+    aws --endpoint=${S3_ENDPOINT} s3 sync compressed/client_service s3://${BUCKET_NAME}/releases/${CI_COMMIT_TAG}/client_service --acl public-read
 fi

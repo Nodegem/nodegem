@@ -1,7 +1,7 @@
 #!/bin/bash
 
 NODEGEM_HOST='https://cdn.nodegem.io'
-NODEGEM_DOWNLOAD_PATH=releases/latest
+NODEGEM_DOWNLOAD_PATH=releases/latest/client_service
 NODEGEM_CLIENT_FOLDER_NAME=nodegem_client
 
 unameOut=$(uname -s)
