@@ -6,10 +6,12 @@ namespace Nodegem.Services
     public class NodeHttpClient : INodeHttpClient
     {
         public HttpClient Client { get; }
+        public IHttpClientFactory ClientFactory { get; }
         
-        public NodeHttpClient(HttpClient client)
+        public NodeHttpClient(HttpClient client, IHttpClientFactory factory)
         {
             Client = client;
+            ClientFactory = factory;
         }
     }
 }

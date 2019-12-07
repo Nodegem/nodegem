@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+    <e p="C:\Users\rszem\.Rider2019.2\config\consoles\db" t="IncludeRecursive" />
     <e p="C:\Users\rszem\.Rider2019.2\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\rszem\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_WebApi.850840532.00" t="ExcludeRecursive" />
     <e p="C:\Users\rszem\Documents\Projects\nodester\Common" t="IncludeRecursive">
@@ -370,6 +371,10 @@
       </e>
     </e>
     <e p="C:\Users\rszem\Documents\Projects\nodester\Engine\Integrations" t="IncludeRecursive">
+      <e p="ApplicationInsights" t="Include">
+        <e p="AppInsightNode.cs" t="Include" />
+        <e p="Query.cs" t="Include" />
+      </e>
       <e p="bin" t="ExcludeRecursive" />
       <e p="Database" t="Include">
         <e p="DatabaseCompilerNode.cs" t="Include" />
@@ -403,6 +408,7 @@
             <e p="EditMessage.cs" t="Include" />
             <e p="GetMessage.cs" t="Include" />
             <e p="PinMessage.cs" t="Include" />
+            <e p="SendMessage.cs" t="Include" />
             <e p="UnpinMessage.cs" t="Include" />
           </e>
           <e p="Reaction" t="Include" />
