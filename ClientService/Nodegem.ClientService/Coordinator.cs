@@ -26,10 +26,10 @@ namespace Nodegem.ClientService
         private IDictionary<Guid, RecurringGraphState> GraphStates { get; set; }
         private IDictionary<Guid, IListenerGraph> ListenerGraphSandbox { get; }
 
-        private readonly ILogger _logger;
+        private readonly ILogger<Coordinator> _logger;
 
         public Coordinator(IGraphHubConnection graphConnection, IBuildGraphService buildGraphService,
-            IBuildMacroService buildMacroService, ILogger logger)
+            IBuildMacroService buildMacroService, ILogger<Coordinator> logger)
         {
             _buildGraphService = buildGraphService;
             _buildMacroService = buildMacroService;
@@ -40,6 +40,16 @@ namespace Nodegem.ClientService
 
             graphConnection.ExecuteGraphEvent += OnRemoteExecuteGraphAsync;
             graphConnection.ExecuteMacroEvent += OnRemoteExecuteMacroAsync;
+            graphConnection.DisposeListenersEvent += async () =>
+            {
+                foreach (var listenerGraph in ListenerGraphSandbox.Values)
+                {
+                    await listenerGraph.DisposeAsync();
+                }
+                
+                _logger.LogInformation("Clearing sandboxed listener graphs...");
+                ListenerGraphSandbox.Clear();
+            };
         }
 
         public async Task InitializeAsync()

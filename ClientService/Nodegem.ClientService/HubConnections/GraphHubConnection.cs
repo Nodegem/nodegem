@@ -12,6 +12,7 @@ namespace Nodegem.ClientService.HubConnections
 {
     public class GraphHubConnection : BaseHubConnection, IGraphHubConnection
     {
+        public event OnDisposeListeners DisposeListenersEvent;
         public event OnRemoteExecuteGraph ExecuteGraphEvent;
         public event OnRemoteExecuteMacro ExecuteMacroEvent;
 
@@ -21,8 +22,9 @@ namespace Nodegem.ClientService.HubConnections
             config)
         {
             _logger = logger;
-            Client.On<GraphDto>("RemoteExecuteGraphAsync", graph => { ExecuteGraphEvent?.Invoke(graph); });
 
+            Client.On("DisposeListenersAsync", () => DisposeListenersEvent?.Invoke());
+            Client.On<GraphDto>("RemoteExecuteGraphAsync", graph => { ExecuteGraphEvent?.Invoke(graph); });
             Client.On<MacroDto, string>("RemoteExecuteMacroAsync",
                 (macro, inputId) => { ExecuteMacroEvent?.Invoke(macro, inputId); });
         }

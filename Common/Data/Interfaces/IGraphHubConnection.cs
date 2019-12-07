@@ -8,10 +8,12 @@ namespace Nodegem.Common.Data.Interfaces
 
     public delegate Task OnRemoteExecuteGraph(GraphDto graph);
     public delegate Task OnRemoteExecuteMacro(MacroDto graph, string startingFlowFieldId);
+    public delegate Task OnDisposeListeners();
     
     public interface IGraphHubConnection : IDisposable
     {
 
+        event OnDisposeListeners DisposeListenersEvent;
         event OnRemoteExecuteGraph ExecuteGraphEvent;
         event OnRemoteExecuteMacro ExecuteMacroEvent;
         

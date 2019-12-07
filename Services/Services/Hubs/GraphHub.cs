@@ -49,7 +49,7 @@ namespace Nodegem.Services.Hubs
             if (await _cache.ContainsKeyAsync(userId))
             {
                 var clientData = await _cache.GetAsync<ClientData>(userId);
-                clientData.ClientConnectionIds.AddOrUpdate(Context.ConnectionId);
+                clientData.WebClientConnectionIds.AddOrUpdate(Context.ConnectionId);
                 await UpdateClientDataAsync(clientData);
             }
             else
@@ -57,7 +57,7 @@ namespace Nodegem.Services.Hubs
                 await UpdateClientDataAsync(new ClientData
                 {
                     Bridges = new List<BridgeInfo>(),
-                    ClientConnectionIds = new List<string> {Context.ConnectionId}
+                    WebClientConnectionIds = new List<string> {Context.ConnectionId}
                 });
             }
         }
@@ -68,7 +68,14 @@ namespace Nodegem.Services.Hubs
             if (await _cache.ContainsKeyAsync(userId))
             {
                 var clientData = await _cache.GetAsync<ClientData>(userId);
-                clientData.ClientConnectionIds.RemoveAll(x => x == Context.ConnectionId);
+                clientData.WebClientConnectionIds.RemoveAll(x => x == Context.ConnectionId);
+
+                if (!clientData.WebClientConnectionIds.Any())
+                {
+                    await Clients.Clients(clientData.Bridges.Select(x => x.ConnectionId).ToList())
+                        .SendAsync("DisposeListenersAsync");
+                }
+
                 await UpdateClientDataAsync(clientData);
             }
         }
@@ -77,7 +84,6 @@ namespace Nodegem.Services.Hubs
         {
             var userId = Context.User.GetUserId();
             info.ConnectionId = Context.ConnectionId;
-            _logger.LogInformation($"Establishing bridge. Device: {info.DeviceName} ({info.OperatingSystem})");
 
             if (await _cache.ContainsKeyAsync(userId))
             {
@@ -90,16 +96,17 @@ namespace Nodegem.Services.Hubs
                     return;
                 }
 
+                _logger.LogInformation($"Establishing bridge. Device: {info.DeviceName} ({info.OperatingSystem})");
                 clientData.Bridges.AddOrUpdate(info, x => x.DeviceIdentifier == info.DeviceIdentifier);
                 await UpdateClientDataAsync(clientData);
-                await Clients.Clients(clientData.ClientConnectionIds).SendAsync("BridgeEstablishedAsync", info);
+                await Clients.Clients(clientData.WebClientConnectionIds).SendAsync("BridgeEstablishedAsync", info);
             }
             else
             {
                 await UpdateClientDataAsync(new ClientData
                 {
                     Bridges = new List<BridgeInfo> {info},
-                    ClientConnectionIds = new List<string>()
+                    WebClientConnectionIds = new List<string>()
                 });
             }
         }
@@ -116,7 +123,7 @@ namespace Nodegem.Services.Hubs
                 {
                     clientData.Bridges.RemoveAll(x => x.ConnectionId == connectionId);
                     await UpdateClientDataAsync(clientData);
-                    await Clients.Clients(clientData.ClientConnectionIds).SendAsync("LostBridgeAsync", connectionId);
+                    await Clients.Clients(clientData.WebClientConnectionIds).SendAsync("LostBridgeAsync", connectionId);
                 }
             }
         }
@@ -174,7 +181,7 @@ namespace Nodegem.Services.Hubs
             if (await _cache.ContainsKeyAsync(userId))
             {
                 var clientData = await _cache.GetAsync<ClientData>(userId);
-                await Clients.Clients(clientData.ClientConnectionIds).SendAsync("GraphErrorAsync", errorData);
+                await Clients.Clients(clientData.WebClientConnectionIds).SendAsync("GraphErrorAsync", errorData);
             }
         }
 
@@ -184,7 +191,7 @@ namespace Nodegem.Services.Hubs
             if (await _cache.ContainsKeyAsync(userId))
             {
                 var clientData = await _cache.GetAsync<ClientData>(userId);
-                await Clients.Clients(clientData.ClientConnectionIds).SendAsync("GraphCompletedAsync", errorData);
+                await Clients.Clients(clientData.WebClientConnectionIds).SendAsync("GraphCompletedAsync", errorData);
             }
         }
 
@@ -196,12 +203,7 @@ namespace Nodegem.Services.Hubs
         private class ClientData
         {
             public List<BridgeInfo> Bridges { get; set; }
-            public List<string> ClientConnectionIds { get; set; }
-
-            public bool ContainsBridge(BridgeInfo info)
-            {
-                return Bridges.Any(x => x.DeviceIdentifier == info.DeviceIdentifier);
-            }
+            public List<string> WebClientConnectionIds { get; set; }
 
             public bool ContainsConnectionId(string connectionId)
             {

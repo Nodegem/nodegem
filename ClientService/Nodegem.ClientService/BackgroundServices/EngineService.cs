@@ -26,6 +26,7 @@ namespace Nodegem.ClientService.BackgroundServices
         private readonly IBuildGraphService _buildGraphService;
         private readonly IBuildMacroService _buildMacroService;
         private readonly ITerminalHubConnection _terminalHubConnection;
+        private readonly ILoggerFactory _loggerFactory;
 
         private Coordinator _coordinator;
         private Timer _timer;
@@ -38,7 +39,8 @@ namespace Nodegem.ClientService.BackgroundServices
             IServiceProvider provider,
             IBuildGraphService buildGraphService,
             IBuildMacroService buildMacroService,
-            ITerminalHubConnection terminalHubConnection)
+            ITerminalHubConnection terminalHubConnection,
+            ILoggerFactory loggerFactory)
         {
             _logger = logger;
             _appConfig = appConfig.Value;
@@ -47,6 +49,7 @@ namespace Nodegem.ClientService.BackgroundServices
             _buildGraphService = buildGraphService;
             _terminalHubConnection = terminalHubConnection;
             _buildMacroService = buildMacroService;
+            _loggerFactory = loggerFactory;
 
             Initialize(provider);
         }
@@ -90,7 +93,7 @@ namespace Nodegem.ClientService.BackgroundServices
                 var graphs = await _apiService.GraphService.GetGraphsAsync();
                 AppState.Instance.GraphLookUp = graphs.ToDictionary(k => k.Id, v => v);
 
-                _coordinator = new Coordinator(_graphConnection, _buildGraphService, _buildMacroService, _logger);
+                _coordinator = new Coordinator(_graphConnection, _buildGraphService, _buildMacroService, _loggerFactory.CreateLogger<Coordinator>());
                 await _coordinator.InitializeAsync();
 
                 _timer = new Timer(_appConfig.PingTime)
