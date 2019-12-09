@@ -89,7 +89,6 @@ namespace Nodegem.ClientService
                         .AddTransientHttpErrorPolicy(x => x.WaitAndRetryAsync(Retries));
 
                     services.AddSingleton<IGraphHubConnection, GraphHubConnection>();
-
                     services.AddSingleton<ITerminalHubConnection, TerminalHubConnection>();
                     services.AddSingleton<ITerminalHubService>(
                         provider => provider.GetService<ITerminalHubConnection>());

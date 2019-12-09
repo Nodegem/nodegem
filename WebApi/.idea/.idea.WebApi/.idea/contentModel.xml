@@ -7,6 +7,7 @@
       <e p="bin" t="ExcludeRecursive" />
       <e p="BridgeInfo.cs" t="Include" />
       <e p="Data" t="Include">
+        <e p="ClientData.cs" t="Include" />
         <e p="Constant.cs" t="Include" />
         <e p="ExecutionErrorData.cs" t="Include" />
         <e p="ExecutionType.cs" t="Include" />
@@ -16,6 +17,7 @@
           <e p="IGraphHubConnection.cs" t="Include" />
           <e p="ITerminalHubService.cs" t="Include" />
         </e>
+        <e p="TokenDto.cs" t="Include" />
         <e p="User.cs" t="Include" />
         <e p="ValueType.cs" t="Include" />
         <e p="Vector2.cs" t="Include" />
@@ -88,7 +90,6 @@
           <e p="CreateMacroDto.cs" t="Include" />
         </e>
         <e p="ResetPasswordDto.cs" t="Include" />
-        <e p="TokenDto.cs" t="Include" />
         <e p="UserDtos" t="Include">
           <e p="RegisterDto.cs" t="Include" />
           <e p="TokenUserDto.cs" t="Include" />

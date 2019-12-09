@@ -17,9 +17,8 @@ namespace Nodegem.Services.Hubs
     [Authorize]
     public class GraphHub : Hub
     {
-        private const int ExpirationTimeInMinutes = 60;
-        private static TimeSpan DefaultExpiration;
-
+        public const int ExpirationTimeInMinutes = 60;
+        public static TimeSpan DefaultExpiration;
 
         private readonly IDistributedCache _cache;
         private readonly ILogger<GraphHub> _logger;
@@ -72,7 +71,7 @@ namespace Nodegem.Services.Hubs
 
                 if (!clientData.WebClientConnectionIds.Any())
                 {
-                    await Clients.Clients(clientData.Bridges.Select(x => x.ConnectionId).ToList())
+                    await Clients.Clients(clientData.Bridges.Select(x => x.GraphHubConnectionId).ToList())
                         .SendAsync("DisposeListenersAsync");
                 }
 
@@ -83,7 +82,7 @@ namespace Nodegem.Services.Hubs
         public async Task EstablishBridgeAsync(BridgeInfo info)
         {
             var userId = Context.User.GetUserId();
-            info.ConnectionId = Context.ConnectionId;
+            info.GraphHubConnectionId = Context.ConnectionId;
 
             if (await _cache.ContainsKeyAsync(userId))
             {
@@ -91,7 +90,7 @@ namespace Nodegem.Services.Hubs
 
                 // Just a ping
                 if (clientData.Bridges.Any(x =>
-                    x.DeviceIdentifier == info.DeviceIdentifier && x.ConnectionId == info.ConnectionId))
+                    x.DeviceIdentifier == info.DeviceIdentifier && x.GraphHubConnectionId == info.GraphHubConnectionId))
                 {
                     return;
                 }
@@ -121,7 +120,7 @@ namespace Nodegem.Services.Hubs
                 var clientData = await _cache.GetAsync<ClientData>(userId);
                 if (clientData.ContainsConnectionId(connectionId))
                 {
-                    clientData.Bridges.RemoveAll(x => x.ConnectionId == connectionId);
+                    clientData.Bridges.RemoveAll(x => x.GraphHubConnectionId == connectionId);
                     await UpdateClientDataAsync(clientData);
                     await Clients.Clients(clientData.WebClientConnectionIds).SendAsync("LostBridgeAsync", connectionId);
                 }
@@ -200,15 +199,6 @@ namespace Nodegem.Services.Hubs
             await _cache.SetAsync(Context.User.GetUserId(), clientData, DefaultExpiration);
         }
 
-        private class ClientData
-        {
-            public List<BridgeInfo> Bridges { get; set; }
-            public List<string> WebClientConnectionIds { get; set; }
 
-            public bool ContainsConnectionId(string connectionId)
-            {
-                return Bridges.Any(x => x.ConnectionId == connectionId);
-            }
-        }
     }
 }

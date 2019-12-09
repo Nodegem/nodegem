@@ -15,6 +15,7 @@ namespace Nodegem.ClientService.HubConnections
         public event OnDisposeListeners DisposeListenersEvent;
         public event OnRemoteExecuteGraph ExecuteGraphEvent;
         public event OnRemoteExecuteMacro ExecuteMacroEvent;
+        public event OnUserUpdated UserUpdatedEvent;
 
         private readonly ILogger<IGraphHubConnection> _logger;
 
@@ -27,6 +28,7 @@ namespace Nodegem.ClientService.HubConnections
             Client.On<GraphDto>("RemoteExecuteGraphAsync", graph => { ExecuteGraphEvent?.Invoke(graph); });
             Client.On<MacroDto, string>("RemoteExecuteMacroAsync",
                 (macro, inputId) => { ExecuteMacroEvent?.Invoke(macro, inputId); });
+            Client.On<TokenDto>("UpdatedUserAsync", token => UserUpdatedEvent?.Invoke(token));
         }
 
         protected override Task OnReconnectingAsync(Exception ex)

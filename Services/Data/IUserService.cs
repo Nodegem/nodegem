@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.JsonPatch;
+using Nodegem.Common.Data;
 using Nodegem.Common.Dto.ComponentDtos;
 using Nodegem.Data.Dto;
 using Nodegem.Data.Dto.UserDtos;

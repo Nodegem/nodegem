@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Nodegem.Common.Data;
 using Nodegem.Common.Dto.ComponentDtos;
 using Nodegem.Common.Extensions;
 using Nodegem.Data.Dto;

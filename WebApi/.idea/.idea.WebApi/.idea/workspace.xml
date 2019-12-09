@@ -2,7 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Common/Data/ClientData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/.idea/.idea.ClientService/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/.idea/.idea.ClientService/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService.Data/INodegemLoginService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService.Data/INodegemLoginService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/BackgroundServices/EngineService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/BackgroundServices/EngineService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/HubConnections/GraphHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/HubConnections/GraphHubConnection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Services/NodegemLoginService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Services/NodegemLoginService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Common/BridgeInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/BridgeInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Common/Data/Interfaces/IGraphHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Data/Interfaces/IGraphHubConnection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Dto/TokenDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Data/TokenDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Dto/UserDtos/TokenUserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/UserDtos/TokenUserDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Data/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Data/IUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/AccountController.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -111,6 +127,7 @@
     <setting file="file://$PROJECT_DIR$/../Common/Dto/ValueFieldDtos/ValueInputDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Common/Dto/ValueFieldDtos/ValueOutputDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/02DE10A4-DA01-49DE-A57B-50C54BA4697F/4b/53d71075/DiscordSocketClient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Data/ClientData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/GraphType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/IMacroGraph.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/Nodes/Message/SendMessage.cs" root0="FORCE_HIGHLIGHTING" />
@@ -247,15 +264,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../Engine/Core.Data/Attributes/FriendlyNameAttribute.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core/Extensions/DefinitionExtensions.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Test.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueOption.cs" />
         <option value="$PROJECT_DIR$/Migrations/NodesterDBContextModelSnapshot.cs" />
         <option value="$PROJECT_DIR$/Migrations/20191109183513_Initial.cs" />
         <option value="$PROJECT_DIR$/Migrations/20191117041731_RemoveDebugMode.cs" />
         <option value="$PROJECT_DIR$/appsettings.json" />
-        <option value="$PROJECT_DIR$/Startup.cs" />
         <option value="$PROJECT_DIR$/WebApi.sln.DotSettings" />
         <option value="$PROJECT_DIR$/appsettings.Development.json" />
         <option value="$PROJECT_DIR$/Migrations/Keys/20191109184552_AddDataProtectionKeys.cs" />
@@ -265,7 +277,6 @@
         <option value="$PROJECT_DIR$/../Engine/Integrations.Data/IMailgunService.cs" />
         <option value="$PROJECT_DIR$/../Engine/Integrations.Data/Mailgun/IMailgunService.cs" />
         <option value="$PROJECT_DIR$/../Engine/Integrations/Mailgun/Nodes/SendEmail.cs" />
-        <option value="$PROJECT_DIR$/Controllers/NodesController.cs" />
         <option value="$PROJECT_DIR$/../Engine/Integrations/Mailgun/MailgunService.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" />
         <option value="$PROJECT_DIR$/appsettings.Staging.json" />
@@ -293,11 +304,17 @@
         <option value="$PROJECT_DIR$/../Services/Data/ITokenService.cs" />
         <option value="$PROJECT_DIR$/../Data/Dto/UserDtos/UserDto.cs" />
         <option value="$PROJECT_DIR$/../Common/Extensions/ClaimExtensions.cs" />
-        <option value="$PROJECT_DIR$/Controllers/AccountController.cs" />
         <option value="$PROJECT_DIR$/../Services/Data/IUserService.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/UserService.cs" />
         <option value="$PROJECT_DIR$/Controllers/OAuthController.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/TokenService.cs" />
+        <option value="$PROJECT_DIR$/Controllers/NodesController.cs" />
+        <option value="$PROJECT_DIR$/../Common/Data/ClientData.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/Hubs/UserHub.cs" />
+        <option value="$PROJECT_DIR$/Startup.cs" />
+        <option value="$PROJECT_DIR$/Controllers/AccountController.cs" />
+        <option value="$PROJECT_DIR$/../Common/BridgeInfo.cs" />
       </list>
     </option>
   </component>
@@ -480,7 +497,7 @@
       <workItem from="1575155327067" duration="445000" />
       <workItem from="1575227163457" duration="4214000" />
       <workItem from="1575776910057" duration="3991000" />
-      <workItem from="1575838187307" duration="9116000" />
+      <workItem from="1575838187307" duration="14085000" />
     </task>
     <servers />
   </component>

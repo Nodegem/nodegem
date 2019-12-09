@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Nodegem.ClientService.Data;
 using Nodegem.ClientService.Extensions;
+using Nodegem.Common.Data;
 using Nodegem.Data.Dto;
 
 namespace Nodegem.ClientService.Services

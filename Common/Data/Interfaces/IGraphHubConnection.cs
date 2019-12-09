@@ -9,6 +9,7 @@ namespace Nodegem.Common.Data.Interfaces
     public delegate Task OnRemoteExecuteGraph(GraphDto graph);
     public delegate Task OnRemoteExecuteMacro(MacroDto graph, string startingFlowFieldId);
     public delegate Task OnDisposeListeners();
+    public delegate void OnUserUpdated(TokenDto token);
     
     public interface IGraphHubConnection : IDisposable
     {
@@ -16,6 +17,7 @@ namespace Nodegem.Common.Data.Interfaces
         event OnDisposeListeners DisposeListenersEvent;
         event OnRemoteExecuteGraph ExecuteGraphEvent;
         event OnRemoteExecuteMacro ExecuteMacroEvent;
+        event OnUserUpdated UserUpdatedEvent;
         
         Task StartAsync(CancellationToken cancelToken);
 

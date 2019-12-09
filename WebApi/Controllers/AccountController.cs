@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using Mapster;
@@ -7,7 +8,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
+using Nodegem.Common.Data;
 using Nodegem.Common.Dto.ComponentDtos;
 using Nodegem.Common.Extensions;
 using Nodegem.Data.Dto;
@@ -16,6 +20,8 @@ using Nodegem.Data.Models;
 using Nodegem.Services.Data;
 using Nodegem.Services.Exceptions;
 using Nodegem.Services.Exceptions.Login;
+using Nodegem.Services.Extensions;
+using Nodegem.Services.Hubs;
 using Nodegem.WebApi.Extensions;
 
 namespace Nodegem.WebApi.Controllers
@@ -27,11 +33,16 @@ namespace Nodegem.WebApi.Controllers
     {
         private readonly IUserService _userService;
         private readonly ILogger<AccountController> _logger;
+        private readonly IHubContext<GraphHub> _graphHubContext;
+        private readonly IDistributedCache _distributedCache;
 
-        public AccountController(IUserService userService, ILogger<AccountController> logger)
+        public AccountController(IUserService userService, ILogger<AccountController> logger,
+            IHubContext<GraphHub> graphHubContext, IDistributedCache distributedCache)
         {
             _userService = userService;
             _logger = logger;
+            _graphHubContext = graphHubContext;
+            _distributedCache = distributedCache;
         }
 
         [AllowAnonymous]
@@ -258,6 +269,15 @@ namespace Nodegem.WebApi.Controllers
             try
             {
                 var updatedTokenDto = await _userService.PatchUserAsync(id, userPatchDto);
+
+                if (await _distributedCache.ContainsKeyAsync(User.GetUserId()))
+                {
+                    var clientData = await _distributedCache.GetAsync<ClientData>(User.GetUserId());
+                    await _graphHubContext.Clients
+                        .Clients(clientData.Bridges.Select(x => x.GraphHubConnectionId).ToList())
+                        .SendAsync("UpdatedUserAsync", updatedTokenDto);
+                }
+
                 return Ok(updatedTokenDto);
             }
             catch (Exception ex)

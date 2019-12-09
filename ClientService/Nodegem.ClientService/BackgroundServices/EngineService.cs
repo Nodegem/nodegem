@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Nodegem.ClientService.Data;
 using Nodegem.Common.Data.Interfaces;
+using Nodegem.Data.Dto;
 using Nodegem.Services;
 using Timer = System.Timers.Timer;
 
@@ -17,11 +18,9 @@ namespace Nodegem.ClientService.BackgroundServices
 {
     public class EngineService : BackgroundService
     {
-        private const int PingTimeInMinutes = 3;
-
         private readonly AppConfig _appConfig;
         private readonly ILogger<EngineService> _logger;
-        private readonly IGraphHubConnection _graphConnection;
+        private readonly IGraphHubConnection _graphGraphHubConnection;
         private readonly INodegemApiService _apiService;
         private readonly IBuildGraphService _buildGraphService;
         private readonly IBuildMacroService _buildMacroService;
@@ -34,7 +33,7 @@ namespace Nodegem.ClientService.BackgroundServices
         public EngineService(
             ILogger<EngineService> logger,
             IOptions<AppConfig> appConfig,
-            IGraphHubConnection connection,
+            IGraphHubConnection graphHubConnection,
             INodegemApiService apiService,
             IServiceProvider provider,
             IBuildGraphService buildGraphService,
@@ -45,7 +44,7 @@ namespace Nodegem.ClientService.BackgroundServices
             _logger = logger;
             _appConfig = appConfig.Value;
             _apiService = apiService;
-            _graphConnection = connection;
+            _graphGraphHubConnection = graphHubConnection;
             _buildGraphService = buildGraphService;
             _terminalHubConnection = terminalHubConnection;
             _buildMacroService = buildMacroService;
@@ -89,11 +88,17 @@ namespace Nodegem.ClientService.BackgroundServices
                 await ConnectToServices(cancellationToken);
                 _logger.LogInformation("Connected!!");
 
+                _graphGraphHubConnection.UserUpdatedEvent += token =>
+                {
+                    AppState.Instance.Token = new JwtSecurityTokenHandler().ReadJwtToken(token.AccessToken);
+                };
+
                 _logger.LogInformation("Retrieving Graphs...");
                 var graphs = await _apiService.GraphService.GetGraphsAsync();
                 AppState.Instance.GraphLookUp = graphs.ToDictionary(k => k.Id, v => v);
 
-                _coordinator = new Coordinator(_graphConnection, _buildGraphService, _buildMacroService, _loggerFactory.CreateLogger<Coordinator>());
+                _coordinator = new Coordinator(_graphGraphHubConnection, _buildGraphService, _buildMacroService,
+                    _loggerFactory.CreateLogger<Coordinator>());
                 await _coordinator.InitializeAsync();
 
                 _timer = new Timer(_appConfig.PingTime)
@@ -105,7 +110,7 @@ namespace Nodegem.ClientService.BackgroundServices
                 {
                     try
                     {
-                        await _graphConnection.UpdateBridgeAsync(CancellationToken.None);
+                        await _graphGraphHubConnection.UpdateBridgeAsync(CancellationToken.None);
                     }
                     catch (Exception ex)
                     {
@@ -148,7 +153,7 @@ namespace Nodegem.ClientService.BackgroundServices
         public override async Task StopAsync(CancellationToken cancellationToken)
         {
             _logger.LogInformation("Stopping...");
-            await _graphConnection.StopAsync(cancellationToken);
+            await _graphGraphHubConnection.StopAsync(cancellationToken);
             await _terminalHubConnection.StopAsync(cancellationToken);
             _timer.Stop();
             await base.StopAsync(cancellationToken);
@@ -157,7 +162,7 @@ namespace Nodegem.ClientService.BackgroundServices
         public override void Dispose()
         {
             _logger.LogInformation("Disposing Service...");
-            _graphConnection?.Dispose();
+            _graphGraphHubConnection?.Dispose();
             _terminalHubConnection?.Dispose();
             _coordinator?.Dispose();
             _timer?.Dispose();
@@ -176,7 +181,7 @@ namespace Nodegem.ClientService.BackgroundServices
         {
             await RetrieveToken();
 
-            await _graphConnection.StartAsync(cancellationToken);
+            await _graphGraphHubConnection.StartAsync(cancellationToken);
             await _terminalHubConnection.StartAsync(cancellationToken);
         }
     }
