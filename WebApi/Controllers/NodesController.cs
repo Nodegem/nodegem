@@ -102,7 +102,7 @@ namespace Nodegem.WebApi.Controllers
                 var titlePrefix = f is ValueOutputDto || f is FlowOutputDto ? "Set" : "Get";
                 var definition = new NodeDefinition
                 {
-                    Id = Macro.MacroFieldDefinitionId,
+                    Id = $"{Macro.MacroFieldDefinitionId}|{f.Key}",
                     Title = $"{titlePrefix} {f.Label}",
                     FullName = $"Macros.Fields.{type}.{f.Label}",
                     MacroFieldId = f.Key,

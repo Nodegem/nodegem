@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../ClientService/.idea/.idea.ClientService/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/.idea/.idea.ClientService/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Common/Extensions/ClaimExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Extensions/ClaimExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Dto/UserDtos/RegisterDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/UserDtos/RegisterDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Dto/UserDtos/UserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/UserDtos/UserDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Models/ApplicationUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Models/ApplicationUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Engine/Integrations/Discord/Nodes/Message/SendMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Engine/Integrations/Discord/Nodes/Message/SendMessage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Data/ITokenService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Data/ITokenService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Data/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Data/IUserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Data/Nodegem.Services.Data.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Data/Nodegem.Services.Data.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Services/Nodegem.Services.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Nodegem.Services.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Services/TokenService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/TokenService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/AccountController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/OAuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/OAuthController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/NodegemContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/NodegemContextModelSnapshot.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -496,7 +480,7 @@
       <workItem from="1575155327067" duration="445000" />
       <workItem from="1575227163457" duration="4214000" />
       <workItem from="1575776910057" duration="3991000" />
-      <workItem from="1575838187307" duration="7281000" />
+      <workItem from="1575838187307" duration="9116000" />
     </task>
     <servers />
   </component>
