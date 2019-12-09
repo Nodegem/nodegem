@@ -26,8 +26,6 @@ namespace Nodegem.Data.Models
 
         public DateTime LastLoggedIn { get; set; }
 
-        public bool IsLocked { get; set; }
-
         public bool IsActive { get; set; } = true;
 
         public DateTime CreatedOn { get; set; }

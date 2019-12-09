@@ -14,6 +14,7 @@ namespace Nodegem.Common.Extensions
 
         public const string ConstantClaimId = "constantData";
         public const string AvatarClaimId = "avatarUrl";
+        public const string ProvidersClaimId = "providers";
         
         public static Guid GetUserId(this ClaimsPrincipal principal)
         {

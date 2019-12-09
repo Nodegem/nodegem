@@ -2,14 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web;
+using Mapster;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Nodegem.Common.Dto.ComponentDtos;
 using Nodegem.Common.Extensions;
 using Nodegem.Data.Dto;
 using Nodegem.Data.Dto.UserDtos;
+using Nodegem.Data.Models;
 using Nodegem.Services.Data;
 using Nodegem.Services.Exceptions;
 using Nodegem.Services.Exceptions.Login;
@@ -94,8 +97,8 @@ namespace Nodegem.WebApi.Controllers
         {
             try
             {
-                var user = await _userService.GetUser(HttpContext.User.GetUserId());
-                return Ok(_userService.GetToken(user));
+                var user = await _userService.GetUserAsync(HttpContext.User.GetUserId());
+                return Ok(await _userService.GetTokenAsync(user.Adapt<ApplicationUser>()));
             }
             catch (Exception ex)
             {
@@ -246,6 +249,22 @@ namespace Nodegem.WebApi.Controllers
             {
                 {"Success", success}
             });
+        }
+
+        [HttpPatch("update/{id}")]
+        public async Task<ActionResult<TokenDto>> PatchAsync(Guid id,
+            [FromBody] JsonPatchDocument<UserDto> userPatchDto)
+        {
+            try
+            {
+                var updatedTokenDto = await _userService.PatchUserAsync(id, userPatchDto);
+                return Ok(updatedTokenDto);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unable to patch user");
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost("update")]

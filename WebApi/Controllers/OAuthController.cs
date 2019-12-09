@@ -1,6 +1,7 @@
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Mapster;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -27,13 +28,43 @@ namespace Nodegem.WebApi.Controllers
         }
 
         [HttpGet("external-login")]
-        public ActionResult LoginGoogleAsync(string provider, string returnUrl)
+        public ActionResult ExternalLoginAsync(string provider, string returnUrl)
         {
             // Request a redirect to the external login provider.
             var redirectUrl = Url.Action(nameof(ExternalLoginCallback), "OAuth", new {returnUrl});
             var properties = _signinManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
 
             return Challenge(properties, provider);
+        }
+
+        [HttpGet("link-external-account/{id:guid}")]
+        public ActionResult LinkExternalLoginAsync(Guid id, string provider, string returnUrl)
+        {
+            var redirectUrl = Url.Action(nameof(LinkExternalCallback), "OAuth", new {userId = id, returnUrl});
+            var properties = _signinManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
+
+            return Challenge(properties, provider);
+        }
+
+        [HttpGet("link-external-callback")]
+        public async Task<ActionResult> LinkExternalCallback(string userId = null, string returnUrl = null,
+            string remoteError = null)
+        {
+            var info = await _signinManager.GetExternalLoginInfoAsync();
+
+            try
+            {
+                await _userService.LinkLoginInfo(Guid.Parse(userId), info);
+                return Redirect(
+                    $"{returnUrl}?success={true.ToString().ToLower()}&provider={info.LoginProvider}");
+            }
+            catch (Exception ex)
+            {
+                var message = ex.Message;
+                _logger.LogError(ex, "Unable to link account");
+                return Redirect(
+                    $"{returnUrl}?success={false.ToString().ToLower()}&message={message}&provider={info.LoginProvider}");
+            }
         }
 
         [HttpGet("external-login-callback")]
@@ -48,8 +79,8 @@ namespace Nodegem.WebApi.Controllers
                 isPersistent: false, bypassTwoFactor: true);
             if (result.Succeeded)
             {
-                var user = await _userService.GetUserByEmailAsync(email);
-                var token = _userService.GetToken(user);
+                var user = await _userService.GetByLoginInfoAsync(info);
+                var token = await _userService.GetTokenAsync(user.Adapt<ApplicationUser>());
                 success = true;
                 return Redirect($"{returnUrl}?token={token.AccessToken}&success={success.ToString().ToLower()}");
             }

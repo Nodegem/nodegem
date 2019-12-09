@@ -29,14 +29,14 @@ namespace Nodegem.Engine.Integrations.Discord.Nodes.Message
 
         protected override void Define()
         {
-            In = AddFlowInput(nameof(In), AddMessageAsync);
+            In = AddFlowInput(nameof(In), SendMessageAsync);
             Out = AddFlowOutput(nameof(Out));
             BotToken = AddValueInput<string>(nameof(BotToken));
-            ChannelId = AddValueInput<ulong>(nameof(ChannelId));
+            ChannelId = AddValueInput<string>(nameof(ChannelId));
             Message = AddValueInput<string>(nameof(Message));
         }
 
-        private async Task<IFlowOutputField> AddMessageAsync(IFlow flow)
+        private async Task<IFlowOutputField> SendMessageAsync(IFlow flow)
         {
             var channelId = await flow.GetValueAsync<ulong>(ChannelId);
             var message = await flow.GetValueAsync<string>(Message);

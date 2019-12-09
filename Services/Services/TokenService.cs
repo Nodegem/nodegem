@@ -4,11 +4,14 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using Mapster;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using Nodegem.Common.Extensions;
+using Nodegem.Data.Dto.UserDtos;
 using Nodegem.Data.Settings;
 using Nodegem.Services.Data;
 
@@ -19,7 +22,11 @@ namespace Nodegem.Services
         private static readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings
         {
             NullValueHandling = NullValueHandling.Ignore,
-            ContractResolver = new CamelCasePropertyNamesContractResolver()
+            ContractResolver = new CamelCasePropertyNamesContractResolver(),
+            Converters = new List<JsonConverter>
+            {
+                new StringEnumConverter()
+            }
         };
 
         private readonly TokenSettings _tokenSettings;
@@ -65,19 +72,21 @@ namespace Nodegem.Services
             }
         }
 
-        public (string token, DateTime expires) GenerateJwtToken(string email, string username, string avatarUrl,
-            Guid userId,
-            IEnumerable<Common.Data.Constant> constants)
+        public (string token, DateTime expires) GenerateJwtToken(UserDto user)
         {
             var claims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.Sub, email),
+                new Claim(JwtRegisteredClaimNames.Sub, user.Email),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(JwtRegisteredClaimNames.NameId, userId.ToString()),
-                new Claim(JwtRegisteredClaimNames.UniqueName, username),
-                new Claim(ClaimExtensions.AvatarClaimId, avatarUrl ?? ""),
+                new Claim(JwtRegisteredClaimNames.NameId, user.Id.ToString()),
+                new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName),
+                new Claim(JwtRegisteredClaimNames.GivenName, user.FirstName),
+                new Claim(JwtRegisteredClaimNames.FamilyName, user.LastName),
+                new Claim(ClaimExtensions.AvatarClaimId, user.AvatarUrl ?? ""),
+                new Claim(ClaimExtensions.ProvidersClaimId, JsonConvert.SerializeObject(user.Providers,
+                    SerializerSettings)),
                 new Claim(ClaimExtensions.ConstantClaimId,
-                    JsonConvert.SerializeObject(constants ?? Enumerable.Empty<Common.Data.Constant>(),
+                    JsonConvert.SerializeObject(user.Constants.Select(x => x.Adapt<Common.Data.Constant>()),
                         SerializerSettings))
             };
 

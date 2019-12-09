@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="FluentEmail.Core" Version="2.7.0" />
+    <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="3.0.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="3.0.0" />
   </ItemGroup>
 

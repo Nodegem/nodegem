@@ -7,9 +7,9 @@ using Mapster;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using Nodegem.Common.Data;
 using Nodegem.Common.Dto.ComponentDtos;
 using Nodegem.Common.Extensions;
 using Nodegem.Data.Dto;
@@ -63,6 +63,29 @@ namespace Nodegem.Services
             return foundUser == null ? null : UnprotectUser(foundUser);
         }
 
+        public async Task<UserDto> GetByLoginInfoAsync(UserLoginInfo info)
+        {
+            var user = await _userManager.FindByLoginAsync(info.LoginProvider, info.ProviderKey);
+            return user.Adapt<UserDto>();
+        }
+
+        public async Task LinkLoginInfo(Guid userId, UserLoginInfo info)
+        {
+            var login = await _userManager.FindByLoginAsync(info.LoginProvider, info.ProviderKey);
+            if (login != null && login.Id == userId)
+            {
+                throw new Exception("Your account is already associated to this login provider");
+            }
+            
+            if(login != null)
+            {
+                throw new Exception("An account is already associated to this login provider");
+            }
+            
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+            await _userManager.AddLoginAsync(user, info);
+        }
+
         public async Task<TokenDto> RegisterAsync(RegisterDto dto, UserLoginInfo info = null)
         {
             var registerUser = dto.Adapt<ApplicationUser>();
@@ -98,7 +121,7 @@ namespace Nodegem.Services
 
             await _signInManager.SignInAsync(user, false);
             await UpdateLastLoggedIn(user);
-            return GetToken(user);
+            return await GetTokenAsync(user);
         }
 
         public async Task<bool> ConfirmEmailAsync(Guid userId, string token)
@@ -126,10 +149,10 @@ namespace Nodegem.Services
             if (!result.Succeeded) throw new InvalidLoginCredentialException();
 
             await UpdateLastLoggedIn(user);
-            return GetToken(user);
+            return await GetTokenAsync(user);
         }
 
-        public async Task<UserDto> GetUser(Guid userId)
+        public async Task<UserDto> GetUserAsync(Guid userId)
         {
             return (await _userManager.Users.SingleOrDefaultAsync(x => x.Id == userId)).Adapt<UserDto>();
         }
@@ -144,19 +167,21 @@ namespace Nodegem.Services
 
         public TokenDto RefreshToken(string token)
         {
-            var (isValid, user) = _tokenService.IsValidToken(token);
-            if (!isValid) throw new UnauthorizedAccessException();
+//            var (isValid, user) = _tokenService.IsValidToken(token);
+//            if (!isValid) throw new UnauthorizedAccessException();
+//
+//            var (newToken, expires) = _tokenService.GenerateJwtToken(user.GetEmail(), user.GetUsername(),
+//                user.GetAvatarUrl(),
+//                user.GetUserId(),
+//                user.GetConstants());
+//            return new TokenDto
+//            {
+//                AccessToken = newToken,
+//                ExpiresUtc = expires,
+//                IssuedUtc = DateTime.UtcNow
+//            };
 
-            var (newToken, expires) = _tokenService.GenerateJwtToken(user.GetEmail(), user.GetUsername(),
-                user.GetAvatarUrl(),
-                user.GetUserId(),
-                user.GetConstants());
-            return new TokenDto
-            {
-                AccessToken = newToken,
-                ExpiresUtc = expires,
-                IssuedUtc = DateTime.UtcNow
-            };
+            return new TokenDto();
         }
 
         public async Task<bool> UpdateUserAsync(UserDto user)
@@ -165,6 +190,15 @@ namespace Nodegem.Services
             if (appUser == null) return false;
             var result = await _userManager.UpdateAsync(user.Adapt<ApplicationUser>());
             return result.Succeeded;
+        }
+
+        public async Task<TokenDto> PatchUserAsync(Guid userId, JsonPatchDocument<UserDto> patchDocument)
+        {
+            var appUserDocument = patchDocument.Adapt<JsonPatchDocument<ApplicationUser>>();
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+            appUserDocument.ApplyTo(user);
+            await _userManager.UpdateAsync(user);
+            return await GetTokenAsync(user);
         }
 
         public void LockUser(UserDto dto)
@@ -252,17 +286,13 @@ namespace Nodegem.Services
             await _userManager.UpdateAsync(user);
         }
 
-        public TokenDto GetToken(UserDto user)
-        {
-            return GetToken(user.Adapt<ApplicationUser>());
-        }
-
-        public TokenDto GetToken(ApplicationUser user)
+        public async Task<TokenDto> GetTokenAsync(ApplicationUser user)
         {
             var userDto = UnprotectUser(user);
+            var providers = await _userManager.GetLoginsAsync(user);
+            userDto.Providers = providers.Select(x => x.ProviderDisplayName).ToList();
             var (accessToken, expires) =
-                _tokenService.GenerateJwtToken(userDto.Email, userDto.UserName, userDto.AvatarUrl, userDto.Id,
-                    userDto.Constants?.Select(x => x.Adapt<Constant>()));
+                _tokenService.GenerateJwtToken(userDto);
             return new TokenDto
             {
                 AccessToken = accessToken,
@@ -283,7 +313,7 @@ namespace Nodegem.Services
             var password = new StringBuilder();
             var random = new Random();
 
-            var length = random.Next(options.RequiredLength, options.RequiredLength + 16);
+            var length = random.Next(options.RequiredLength + 8, options.RequiredLength + 24);
 
             while (password.Length < length)
             {
