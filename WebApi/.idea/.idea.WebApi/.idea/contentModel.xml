@@ -25,7 +25,6 @@
       <e p="Dto" t="Include">
         <e p="BaseFieldDto.cs" t="Include" />
         <e p="ComponentDtos" t="Include">
-          <e p="ConstantDto.cs" t="Include" />
           <e p="LinkDto.cs" t="Include" />
           <e p="MacroLinkDto.cs" t="Include" />
           <e p="NodeDto.cs" t="Include" />
@@ -124,9 +123,6 @@
               <e p="ValueInput.cs" t="Include" />
               <e p="ValueOutput.cs" t="Include" />
             </e>
-          </e>
-          <e p="Graph Constants" t="Include">
-            <e p="Constant.cs" t="Include" />
           </e>
           <e p="Link.cs" t="Include" />
           <e p="MacroLink.cs" t="Include" />

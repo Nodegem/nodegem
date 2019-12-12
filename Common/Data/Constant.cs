@@ -8,5 +8,6 @@ namespace Nodegem.Common.Data
         public string Label { get; set; }
         public ValueType Type { get; set; }
         public object Value { get; set; }
+        public bool IsSecret { get; set; }
     }
 }

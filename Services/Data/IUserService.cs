@@ -4,10 +4,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.JsonPatch;
 using Nodegem.Common.Data;
-using Nodegem.Common.Dto.ComponentDtos;
 using Nodegem.Data.Dto;
 using Nodegem.Data.Dto.UserDtos;
-using Nodegem.Data.Models;
 
 namespace Nodegem.Services.Data
 {
@@ -21,7 +19,7 @@ namespace Nodegem.Services.Data
         Task<bool> ConfirmEmailAsync(Guid userId, string token);
         Task<TokenDto> LoginAsync(string username, string password);
         Task<UserDto> GetUserAsync(Guid userId);
-        Task<IEnumerable<ConstantDto>> GetConstantsAsync(Guid userId);
+        Task<IEnumerable<Constant>> GetConstantsAsync(Guid userId);
         TokenDto RefreshToken(string token);
         Task<bool> UpdateUserAsync(UserDto user);
         Task<TokenDto> PatchUserAsync(Guid userId, JsonPatchDocument<UserDto> patchDocument);
@@ -31,7 +29,7 @@ namespace Nodegem.Services.Data
         void Logout(Guid userId);
         void LockUser(UserDto dto);
         Task DeleteUserAsync(Guid userId);
-        Task<TokenDto> GetTokenAsync(ApplicationUser user);
+        Task<TokenDto> GetTokenAsync(UserDto user);
         string GeneratePassword();
     }
 }

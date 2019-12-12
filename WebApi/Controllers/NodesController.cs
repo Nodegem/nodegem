@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Nodegem.Common.Data;
 using Nodegem.Common.Dto;
 using Nodegem.Common.Dto.ComponentDtos;
 using Nodegem.Common.Dto.FlowFieldDtos;
@@ -51,7 +52,7 @@ namespace Nodegem.WebApi.Controllers
                 var userConstants = (await _userService.GetConstantsAsync(userId)).ToList();
                 var graphConstants = type == GraphType.Graph
                     ? await _graphRepo.GetConstantsAsync(graphId)
-                    : new List<ConstantDto>();
+                    : new List<Constant>();
 
                 var isListener = type == GraphType.Graph && await _graphRepo.IsListenerGraphAsync(graphId);
                 var defaultNodeDefinitions =
@@ -156,7 +157,7 @@ namespace Nodegem.WebApi.Controllers
             });
         }
 
-        private static IEnumerable<NodeDefinition> ConvertConstantsToNodeDefinitions(IEnumerable<ConstantDto> constants,
+        private static IEnumerable<NodeDefinition> ConvertConstantsToNodeDefinitions(IEnumerable<Constant> constants,
             string path)
         {
             return constants.Select(c => new NodeDefinition

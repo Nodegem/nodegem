@@ -80,7 +80,7 @@ namespace Nodegem.WebApi.Controllers
             if (result.Succeeded)
             {
                 var user = await _userService.GetByLoginInfoAsync(info);
-                var token = await _userService.GetTokenAsync(user.Adapt<ApplicationUser>());
+                var token = await _userService.GetTokenAsync(user);
                 success = true;
                 return Redirect($"{returnUrl}?token={token.AccessToken}&success={success.ToString().ToLower()}");
             }

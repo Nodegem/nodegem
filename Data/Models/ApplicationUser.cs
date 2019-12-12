@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
-using Nodegem.Data.Models.Json_Models.Graph_Constants;
+using Nodegem.Common.Data;
 
 namespace Nodegem.Data.Models
 {

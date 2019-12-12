@@ -12,7 +12,6 @@ using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Nodegem.Common.Data;
-using Nodegem.Common.Dto.ComponentDtos;
 using Nodegem.Common.Extensions;
 using Nodegem.Data.Dto;
 using Nodegem.Data.Dto.EmailDtos;
@@ -62,12 +61,14 @@ namespace Nodegem.Services
         public async Task<UserDto> GetUserByEmailAsync(string email)
         {
             var foundUser = await _userManager.FindByEmailAsync(email);
-            return foundUser == null ? null : UnprotectUser(foundUser);
+            foundUser.Constants = UnProtectConstants(foundUser.Constants);
+            return foundUser == null ? null : foundUser.Adapt<UserDto>();
         }
 
         public async Task<UserDto> GetByLoginInfoAsync(UserLoginInfo info)
         {
             var user = await _userManager.FindByLoginAsync(info.LoginProvider, info.ProviderKey);
+            user.Constants = UnProtectConstants(user.Constants);
             return user.Adapt<UserDto>();
         }
 
@@ -100,7 +101,7 @@ namespace Nodegem.Services
             var result = await _userManager.CreateAsync(registerUser, dto.Password);
             if (!result.Succeeded) throw new RegistrationException(result);
 
-            var user = FindUser(dto.UserName, dto.Email);
+            var user = await FindUserAsync(dto.UserName, dto.Email);
             if (info != null)
             {
                 await _userManager.AddLoginAsync(user, info);
@@ -123,7 +124,7 @@ namespace Nodegem.Services
 
             await _signInManager.SignInAsync(user, false);
             await UpdateLastLoggedIn(user);
-            return await GetTokenAsync(user);
+            return await GetTokenAsync(user.Adapt<UserDto>());
         }
 
         public async Task<bool> ConfirmEmailAsync(Guid userId, string token)
@@ -140,7 +141,7 @@ namespace Nodegem.Services
 
         public async Task<TokenDto> LoginAsync(string username, string password)
         {
-            var user = FindUser(username);
+            var user = await FindUserAsync(username);
 
             if (user == null)
             {
@@ -151,7 +152,7 @@ namespace Nodegem.Services
             if (!result.Succeeded) throw new InvalidLoginCredentialException();
 
             await UpdateLastLoggedIn(user);
-            return await GetTokenAsync(user);
+            return await GetTokenAsync(user.Adapt<UserDto>());
         }
 
         public async Task<UserDto> GetUserAsync(Guid userId)
@@ -159,30 +160,16 @@ namespace Nodegem.Services
             return (await _userManager.Users.SingleOrDefaultAsync(x => x.Id == userId)).Adapt<UserDto>();
         }
 
-        public async Task<IEnumerable<ConstantDto>> GetConstantsAsync(Guid userId)
+        public async Task<IEnumerable<Constant>> GetConstantsAsync(Guid userId)
         {
             var user = await _userManager.FindByIdAsync(userId.ToString());
             return user?.Constants == null
-                ? new List<ConstantDto>()
-                : user.Constants.Select(c => c.Adapt<ConstantDto>());
+                ? new List<Constant>()
+                : user.Constants.Select(c => c.Adapt<Constant>());
         }
 
         public TokenDto RefreshToken(string token)
         {
-//            var (isValid, user) = _tokenService.IsValidToken(token);
-//            if (!isValid) throw new UnauthorizedAccessException();
-//
-//            var (newToken, expires) = _tokenService.GenerateJwtToken(user.GetEmail(), user.GetUsername(),
-//                user.GetAvatarUrl(),
-//                user.GetUserId(),
-//                user.GetConstants());
-//            return new TokenDto
-//            {
-//                AccessToken = newToken,
-//                ExpiresUtc = expires,
-//                IssuedUtc = DateTime.UtcNow
-//            };
-
             return new TokenDto();
         }
 
@@ -199,8 +186,11 @@ namespace Nodegem.Services
             var appUserDocument = patchDocument.Adapt<JsonPatchDocument<ApplicationUser>>();
             var user = await _userManager.FindByIdAsync(userId.ToString());
             appUserDocument.ApplyTo(user);
+
+            user.Constants = ProtectConstants(user.Constants);
             await _userManager.UpdateAsync(user);
-            return await GetTokenAsync(user);
+            
+            return await GetTokenAsync(user.Adapt<UserDto>());
         }
 
         public void LockUser(UserDto dto)
@@ -296,16 +286,18 @@ namespace Nodegem.Services
             }
         }
 
-        private ApplicationUser FindUser(string userNameOrEmail)
+        private async Task<ApplicationUser> FindUserAsync(string userNameOrEmail)
         {
-            return FindUser(userNameOrEmail, userNameOrEmail);
+            var user = await FindUserAsync(userNameOrEmail, userNameOrEmail);
+            user.Constants = UnProtectConstants(user.Constants);
+            return user;
         }
 
-        private ApplicationUser FindUser(string userName, string email)
+        private async Task<ApplicationUser> FindUserAsync(string userName, string email)
         {
             userName = userName.ToLower();
             email = email.ToLower();
-            return _userManager.Users.SingleOrDefault(x =>
+            return await _userManager.Users.SingleOrDefaultAsync(x =>
                 x.NormalizedUserName == userName.ToUpper() || x.NormalizedEmail == email.ToUpper());
         }
 
@@ -315,13 +307,15 @@ namespace Nodegem.Services
             await _userManager.UpdateAsync(user);
         }
 
-        public async Task<TokenDto> GetTokenAsync(ApplicationUser user)
+        public async Task<TokenDto> GetTokenAsync(UserDto user)
         {
-            var userDto = UnprotectUser(user);
-            var providers = await _userManager.GetLoginsAsync(user);
-            userDto.Providers = providers.Select(x => x.ProviderDisplayName).ToList();
+            // Wish this method took a fuckin ID instead of the whole object
+            var providers = await _userManager.GetLoginsAsync(user.Adapt<ApplicationUser>());
+            
+            user.Providers = providers.Select(x => x.ProviderDisplayName).ToList();
+            user.Constants = UnProtectConstants(user.Constants);
             var (accessToken, expires) =
-                _tokenService.GenerateJwtToken(userDto);
+                _tokenService.GenerateJwtToken(user);
             return new TokenDto
             {
                 AccessToken = accessToken,
@@ -372,32 +366,26 @@ namespace Nodegem.Services
             return password.ToString();
         }
 
-        private ApplicationUser ProtectUser(UserDto user)
+        private IEnumerable<Constant> ProtectConstants(IEnumerable<Constant> constants)
         {
-            var userEntity = user.Adapt<ApplicationUser>();
-            userEntity.Constants = userEntity.Constants.Select(x =>
+            return constants.Select(constant =>
             {
-                var constant = x.Adapt<Nodegem.Data.Models.Json_Models.Graph_Constants.Constant>();
                 constant.Value = constant.IsSecret
                     ? _dataProtector.Protect(constant.Value.ToString())
                     : constant.Value;
                 return constant;
-            });
-            return userEntity;
+            }).ToList();
         }
-
-        private UserDto UnprotectUser(ApplicationUser user)
+        
+        private IEnumerable<Constant> UnProtectConstants(IEnumerable<Constant> constants)
         {
-            var userDto = user.Adapt<UserDto>();
-            userDto.Constants = userDto.Constants.Select(x =>
+            return constants.Select(constant =>
             {
-                var constant = x.Adapt<ConstantDto>();
                 constant.Value = constant.IsSecret
                     ? _dataProtector.Unprotect(constant.Value.ToString())
                     : constant.Value;
                 return constant;
-            });
-            return userDto;
+            }).ToList();
         }
     }
 }

@@ -19,6 +19,6 @@ namespace Nodegem.Data.Dto.GraphDtos
         
         public RecurringOptionsDto RecurringOptions { get; set; }
         
-        public IEnumerable<ConstantDto> Constants { get; set; }
+        public IEnumerable<Constant> Constants { get; set; }
     }
 }

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Nodegem.Common.Data;
 using Nodegem.Data.Models.Json_Models;
-using Constant = Nodegem.Data.Models.Json_Models.Graph_Constants.Constant;
 
 namespace Nodegem.Data.Models
 {

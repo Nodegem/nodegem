@@ -2,14 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/ResetPasswordWithTokenDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Dto/EmailDtos/ForgotPasswordEmailDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/EmailDtos/ForgotPasswordEmailDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Dto/ResetPasswordDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/ResetPasswordDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Common/Data/Constant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Data/Constant.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Common/Dto/ComponentDtos/ConstantDto.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Common/Dto/GraphDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Dto/GraphDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Dto/GraphDtos/CreateGraphDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/GraphDtos/CreateGraphDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Dto/UserDtos/UserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/UserDtos/UserDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Models/ApplicationUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Models/ApplicationUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Models/Graph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Models/Graph.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Models/Json Models/Graph Constants/Constant.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Services/Data/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Data/IUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Data/Repositories/IGraphRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Data/Repositories/IGraphRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Services/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/UserService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/AccountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/NodesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/NodesController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/OAuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/OAuthController.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +84,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/../Common/Dto/ComponentDtos/ConstantDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Graph/GetConstant.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/StreamNode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Lists/GetIndex.cs" root0="FORCE_HIGHLIGHTING" />
@@ -151,6 +159,7 @@
     <setting file="file://$PROJECT_DIR$/../Data/Dto/ForgotPasswordDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/NodeDefinition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Dto/UserDtos/RegisterDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/081372C7-3509-4D45-BD06-A6A9BC610C6B/31/a1bcafa6/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Dto/UserDtos/TokenUserDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Reddit/StreamNodes/StartBot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Dto/UserDtos/UserDto.cs" root0="FORCE_HIGHLIGHTING" />
@@ -161,6 +170,7 @@
     <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Twilio/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Dto/EmailDtos/ResetPasswordEmailDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Twilio/Nodes/SendText.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6F7983DF-5846-436F-8E9C-B779867785C7/6a/3062a7a6/ValueConverter`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Dto/EmailDtos/RegisterUserDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Twilio/Nodes/TwilioNode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Node.cs" root0="FORCE_HIGHLIGHTING" />
@@ -196,7 +206,6 @@
     <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Database/DatabaseNode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Database/MSSQL/Query.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Models/Json Models/Fields/ValueFields/ValueField.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Models/Json Models/Graph Constants/Constant.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Contexts/KeysContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Contexts/NodegemContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Settings/TokenSettings.cs" root0="FORCE_HIGHLIGHTING" />
@@ -256,14 +265,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/appsettings.json" />
-        <option value="$PROJECT_DIR$/WebApi.sln.DotSettings" />
-        <option value="$PROJECT_DIR$/appsettings.Development.json" />
-        <option value="$PROJECT_DIR$/Migrations/Keys/20191109184552_AddDataProtectionKeys.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Integrations/Twilio/Nodes/SendText.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Integrations.Data/Discord/Exceptions/DiscordException.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Integrations.Data/IMailgunService.cs" />
         <option value="$PROJECT_DIR$/../Engine/Integrations.Data/Mailgun/IMailgunService.cs" />
         <option value="$PROJECT_DIR$/../Engine/Integrations/Mailgun/Nodes/SendEmail.cs" />
         <option value="$PROJECT_DIR$/../Engine/Integrations/Mailgun/MailgunService.cs" />
@@ -272,7 +273,6 @@
         <option value="$PROJECT_DIR$/../Data/Configurations/GraphConfiguration.cs" />
         <option value="$PROJECT_DIR$/../Data/Configurations/MacroConfiguration.cs" />
         <option value="$PROJECT_DIR$/../Common/Dto/MacroDto.cs" />
-        <option value="$PROJECT_DIR$/../Common/Dto/GraphDto.cs" />
         <option value="$PROJECT_DIR$/../Data/Models/BaseGraph.cs" />
         <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Connections/OnConnected.cs" />
         <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Connections/OnDisconnected.cs" />
@@ -289,24 +289,33 @@
         <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/Nodes/Message/AddMessage.cs" />
         <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/Nodes/Message/SendMessage.cs" />
         <option value="$PROJECT_DIR$/../Data/Dto/UserDtos/RegisterDto.cs" />
-        <option value="$PROJECT_DIR$/../Data/Models/ApplicationUser.cs" />
         <option value="$PROJECT_DIR$/../Services/Data/ITokenService.cs" />
-        <option value="$PROJECT_DIR$/../Data/Dto/UserDtos/UserDto.cs" />
         <option value="$PROJECT_DIR$/../Common/Extensions/ClaimExtensions.cs" />
-        <option value="$PROJECT_DIR$/Controllers/OAuthController.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/TokenService.cs" />
-        <option value="$PROJECT_DIR$/Controllers/NodesController.cs" />
         <option value="$PROJECT_DIR$/../Common/Data/ClientData.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/Hubs/UserHub.cs" />
         <option value="$PROJECT_DIR$/Startup.cs" />
         <option value="$PROJECT_DIR$/../Common/BridgeInfo.cs" />
         <option value="$PROJECT_DIR$/../Data/Dto/ResetPasswordDto.cs" />
-        <option value="$PROJECT_DIR$/../Services/Data/IUserService.cs" />
         <option value="$PROJECT_DIR$/../Data/Dto/ResetPasswordWithTokenDto.cs" />
         <option value="$PROJECT_DIR$/../Data/Dto/EmailDtos/ForgotPasswordEmailDto.cs" />
+        <option value="$PROJECT_DIR$/../Common/Data/Interfaces/IConstant.cs" />
+        <option value="$PROJECT_DIR$/Controllers/OAuthController.cs" />
+        <option value="$PROJECT_DIR$/../Data/Models/Json Models/Graph Constants/Constant.cs" />
+        <option value="$PROJECT_DIR$/../Common/Data/Constant.cs" />
+        <option value="$PROJECT_DIR$/../Common/Dto/ComponentDtos/ConstantDto.cs" />
+        <option value="$PROJECT_DIR$/../Data/Dto/UserDtos/UserDto.cs" />
+        <option value="$PROJECT_DIR$/../Data/Models/ApplicationUser.cs" />
+        <option value="$PROJECT_DIR$/../Data/Models/Graph.cs" />
+        <option value="$PROJECT_DIR$/Controllers/NodesController.cs" />
+        <option value="$PROJECT_DIR$/../Services/Data/Repositories/IGraphRepository.cs" />
+        <option value="$PROJECT_DIR$/../Services/Data/IUserService.cs" />
         <option value="$PROJECT_DIR$/Controllers/AccountController.cs" />
+        <option value="$PROJECT_DIR$/../Common/Dto/GraphDto.cs" />
+        <option value="$PROJECT_DIR$/../Data/Dto/GraphDtos/CreateGraphDto.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/UserService.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" />
       </list>
     </option>
   </component>
@@ -490,7 +499,7 @@
       <workItem from="1575227163457" duration="4214000" />
       <workItem from="1575776910057" duration="3991000" />
       <workItem from="1575838187307" duration="14085000" />
-      <workItem from="1576106317524" duration="5129000" />
+      <workItem from="1576106317524" duration="11136000" />
     </task>
     <servers />
   </component>
@@ -548,29 +557,68 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/../Services/Services/UserService.cs</url>
-          <line>262</line>
-          <properties documentPath="$PROJECT_DIR$/../Services/Services/UserService.cs" initialLine="263">
+          <line>384</line>
+          <properties documentPath="$PROJECT_DIR$/../Services/Services/UserService.cs" initialLine="383">
             <startOffsets>
-              <option value="9781" />
+              <option value="14139" />
             </startOffsets>
             <endOffsets>
-              <option value="9978" />
+              <option value="14277" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="7" />
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/../Services/Services/UserService.cs</url>
-          <line>237</line>
-          <properties documentPath="$PROJECT_DIR$/../Services/Services/UserService.cs" initialLine="237">
+          <url>file://$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs</url>
+          <line>121</line>
+          <properties documentPath="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" initialLine="121">
             <startOffsets>
-              <option value="8930" />
+              <option value="4197" />
             </startOffsets>
             <endOffsets>
-              <option value="8951" />
+              <option value="4270" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="11" />
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs</url>
+          <line>105</line>
+          <properties documentPath="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" initialLine="105">
+            <startOffsets>
+              <option value="3533" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3941" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs</url>
+          <line>107</line>
+          <properties documentPath="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" initialLine="107">
+            <startOffsets>
+              <option value="3599" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3622" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs</url>
+          <line>89</line>
+          <properties documentPath="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" initialLine="89">
+            <startOffsets>
+              <option value="2999" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3051" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

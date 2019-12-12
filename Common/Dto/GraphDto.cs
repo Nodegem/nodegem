@@ -17,7 +17,7 @@ namespace Nodegem.Common.Dto
         public RecurringOptionsDto RecurringOptions { get; set; }
         public IEnumerable<NodeDto> Nodes { get; set; }
         public IEnumerable<LinkDto> Links { get; set; }
-        public IEnumerable<ConstantDto> Constants { get; set; }
+        public IEnumerable<Constant> Constants { get; set; }
         public bool IsActive { get; set; }
         public DateTime CreatedOn { get; set; }
         public DateTime LastUpdated { get; set; }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
-using Mapster;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.JsonPatch;
@@ -12,11 +11,9 @@ using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
 using Nodegem.Common.Data;
-using Nodegem.Common.Dto.ComponentDtos;
 using Nodegem.Common.Extensions;
 using Nodegem.Data.Dto;
 using Nodegem.Data.Dto.UserDtos;
-using Nodegem.Data.Models;
 using Nodegem.Services.Data;
 using Nodegem.Services.Exceptions;
 using Nodegem.Services.Exceptions.Login;
@@ -109,7 +106,7 @@ namespace Nodegem.WebApi.Controllers
             try
             {
                 var user = await _userService.GetUserAsync(HttpContext.User.GetUserId());
-                return Ok(await _userService.GetTokenAsync(user.Adapt<ApplicationUser>()));
+                return Ok(await _userService.GetTokenAsync(user));
             }
             catch (Exception ex)
             {
@@ -119,7 +116,7 @@ namespace Nodegem.WebApi.Controllers
         }
 
         [HttpGet("constants")]
-        public async Task<ActionResult<IEnumerable<ConstantDto>>> GetUserConstantsAsync()
+        public async Task<ActionResult<IEnumerable<Constant>>> GetUserConstantsAsync()
         {
             var userId = User.GetUserId();
             try

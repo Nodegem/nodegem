@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Nodegem.Common.Data;
+using Nodegem.Common.Data.Interfaces;
 using Nodegem.Common.Dto.ComponentDtos;
 
 namespace Nodegem.Data.Dto.UserDtos
@@ -16,7 +18,7 @@ namespace Nodegem.Data.Dto.UserDtos
         public string AvatarUrl { get; set; }
         public DateTime CreatedOn { get; set; }
         public DateTime LastUpdated { get; set; }
-        public IEnumerable<ConstantDto> Constants { get; set; }
+        public IEnumerable<Constant> Constants { get; set; } = new List<Constant>();
 
         public List<string> Providers = new List<string>();
         
