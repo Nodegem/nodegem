@@ -26,6 +26,7 @@ namespace Nodegem.Services.Data
         Task<bool> UpdateUserAsync(UserDto user);
         Task<TokenDto> PatchUserAsync(Guid userId, JsonPatchDocument<UserDto> patchDocument);
         Task<bool> ResetPasswordAsync(ResetPasswordDto resetPasswordDto);
+        Task<bool> ResetPasswordWithTokenAsync(ResetPasswordWithTokenDto resetPasswordTokenDto);
         Task ForgotPassword(ForgotPasswordDto forgotPasswordDto);
         void Logout(Guid userId);
         void LockUser(UserDto dto);

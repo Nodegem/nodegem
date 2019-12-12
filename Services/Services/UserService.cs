@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using Mapster;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Http;
@@ -77,12 +78,12 @@ namespace Nodegem.Services
             {
                 throw new Exception("Your account is already associated to this login provider");
             }
-            
-            if(login != null)
+
+            if (login != null)
             {
                 throw new Exception("An account is already associated to this login provider");
             }
-            
+
             var user = await _userManager.FindByIdAsync(userId.ToString());
             await _userManager.AddLoginAsync(user, info);
         }
@@ -229,7 +230,7 @@ namespace Nodegem.Services
 
         public async Task<bool> ResetPasswordAsync(ResetPasswordDto resetPasswordDto)
         {
-            var user = await _userManager.FindByEmailAsync(_context.User.GetEmail());
+            var user = await _userManager.FindByIdAsync(_context.User.GetUserId().ToString());
             if (user != null)
             {
                 var result = await _userManager.ChangePasswordAsync(user, resetPasswordDto.CurrentPassword,
@@ -240,11 +241,38 @@ namespace Nodegem.Services
                         "Nodegem - Reset Password",
                         user.Email,
                         "ResetPassword",
-                        new ForgotPasswordEmailDto
+                        new ResetPasswordEmailDto()
                         {
                             Email = user.Email,
-                            Username = user.UserName,
-                            Host = _appSettings.Host
+                            Username = user.UserName
+                        });
+                    return true;
+                }
+
+                return false;
+            }
+
+            return false;
+        }
+
+        public async Task<bool> ResetPasswordWithTokenAsync(ResetPasswordWithTokenDto resetPasswordWithTokenDto)
+        {
+            var user = await _userManager.FindByIdAsync(resetPasswordWithTokenDto.UserId.ToString());
+            if (user != null)
+            {
+                var result = await _userManager.ResetPasswordAsync(user,
+                    HttpUtility.UrlDecode(resetPasswordWithTokenDto.ResetToken),
+                    resetPasswordWithTokenDto.NewPassword);
+                if (result.Succeeded)
+                {
+                    await _emailService.SendEmailAsync(
+                        "Nodegem - Reset Password",
+                        user.Email,
+                        "ResetPassword",
+                        new ResetPasswordEmailDto
+                        {
+                            Email = user.Email,
+                            Username = user.UserName
                         });
                     return true;
                 }

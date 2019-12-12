@@ -2,19 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Common/Data/ClientData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ClientService/.idea/.idea.ClientService/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/.idea/.idea.ClientService/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService.Data/INodegemLoginService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService.Data/INodegemLoginService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/BackgroundServices/EngineService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/BackgroundServices/EngineService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/HubConnections/GraphHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/HubConnections/GraphHubConnection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Services/NodegemLoginService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Services/NodegemLoginService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Common/BridgeInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/BridgeInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Common/Data/Interfaces/IGraphHubConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Data/Interfaces/IGraphHubConnection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Dto/TokenDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Common/Data/TokenDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data/Dto/UserDtos/TokenUserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/UserDtos/TokenUserDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Dto/ResetPasswordWithTokenDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Dto/EmailDtos/ForgotPasswordEmailDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/EmailDtos/ForgotPasswordEmailDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Dto/ResetPasswordDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Dto/ResetPasswordDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Services/Data/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Data/IUserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Services/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Services/Services/UserService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
@@ -218,6 +209,7 @@
     <setting file="file://$PROJECT_DIR$/../Data/Configurations/UserConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Configurations/GraphConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Integrations.Data/Discord/IDiscordService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/ResetPasswordWithTokenDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Integrations.Data/Discord/Exceptions/DiscordException.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Integrations.Data/Mailgun/IMailgunService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Data/ISendEmails.cs" root0="FORCE_HIGHLIGHTING" />
@@ -264,9 +256,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Migrations/NodesterDBContextModelSnapshot.cs" />
-        <option value="$PROJECT_DIR$/Migrations/20191109183513_Initial.cs" />
-        <option value="$PROJECT_DIR$/Migrations/20191117041731_RemoveDebugMode.cs" />
         <option value="$PROJECT_DIR$/appsettings.json" />
         <option value="$PROJECT_DIR$/WebApi.sln.DotSettings" />
         <option value="$PROJECT_DIR$/appsettings.Development.json" />
@@ -304,8 +293,6 @@
         <option value="$PROJECT_DIR$/../Services/Data/ITokenService.cs" />
         <option value="$PROJECT_DIR$/../Data/Dto/UserDtos/UserDto.cs" />
         <option value="$PROJECT_DIR$/../Common/Extensions/ClaimExtensions.cs" />
-        <option value="$PROJECT_DIR$/../Services/Data/IUserService.cs" />
-        <option value="$PROJECT_DIR$/../Services/Services/UserService.cs" />
         <option value="$PROJECT_DIR$/Controllers/OAuthController.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/TokenService.cs" />
         <option value="$PROJECT_DIR$/Controllers/NodesController.cs" />
@@ -313,8 +300,13 @@
         <option value="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" />
         <option value="$PROJECT_DIR$/../Services/Services/Hubs/UserHub.cs" />
         <option value="$PROJECT_DIR$/Startup.cs" />
-        <option value="$PROJECT_DIR$/Controllers/AccountController.cs" />
         <option value="$PROJECT_DIR$/../Common/BridgeInfo.cs" />
+        <option value="$PROJECT_DIR$/../Data/Dto/ResetPasswordDto.cs" />
+        <option value="$PROJECT_DIR$/../Services/Data/IUserService.cs" />
+        <option value="$PROJECT_DIR$/../Data/Dto/ResetPasswordWithTokenDto.cs" />
+        <option value="$PROJECT_DIR$/../Data/Dto/EmailDtos/ForgotPasswordEmailDto.cs" />
+        <option value="$PROJECT_DIR$/Controllers/AccountController.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/UserService.cs" />
       </list>
     </option>
   </component>
@@ -498,6 +490,7 @@
       <workItem from="1575227163457" duration="4214000" />
       <workItem from="1575776910057" duration="3991000" />
       <workItem from="1575838187307" duration="14085000" />
+      <workItem from="1576106317524" duration="5129000" />
     </task>
     <servers />
   </component>
@@ -552,6 +545,32 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/../Services/Services/UserService.cs</url>
+          <line>262</line>
+          <properties documentPath="$PROJECT_DIR$/../Services/Services/UserService.cs" initialLine="263">
+            <startOffsets>
+              <option value="9781" />
+            </startOffsets>
+            <endOffsets>
+              <option value="9978" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/../Services/Services/UserService.cs</url>
+          <line>237</line>
+          <properties documentPath="$PROJECT_DIR$/../Services/Services/UserService.cs" initialLine="237">
+            <startOffsets>
+              <option value="8930" />
+            </startOffsets>
+            <endOffsets>
+              <option value="8951" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

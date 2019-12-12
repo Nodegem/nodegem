@@ -180,6 +180,11 @@ namespace Nodegem.WebApi.Controllers
         {
             try
             {
+                if (resetPasswordDto.NewPassword != resetPasswordDto.ConfirmNewPassword)
+                {
+                    throw new Exception("Passwords were not the same.");
+                }
+
                 var result = await _userService.ResetPasswordAsync(resetPasswordDto);
                 if (result)
                 {
@@ -191,7 +196,33 @@ namespace Nodegem.WebApi.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Unable to reset password");
-                return BadRequest("Unable to reset password");
+                return BadRequest(ex.Message);
+            }
+        }
+        
+        [AllowAnonymous]
+        [HttpPost("reset-password-with-token")]
+        public async Task<ActionResult> ResetPasswordWithTokenAsync(ResetPasswordWithTokenDto resetPasswordTokenDto)
+        {
+            try
+            {
+                if (resetPasswordTokenDto.NewPassword != resetPasswordTokenDto.ConfirmNewPassword)
+                {
+                    throw new Exception("Passwords were not the same.");
+                }
+                
+                var result = await _userService.ResetPasswordWithTokenAsync(resetPasswordTokenDto);
+                if (result)
+                {
+                    return Ok();
+                }
+
+                return BadRequest("Invalid password");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unable to reset password");
+                return BadRequest(ex.Message);
             }
         }
 
@@ -207,7 +238,7 @@ namespace Nodegem.WebApi.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Something went wrong");
-                return BadRequest("Something went wrong");
+                return BadRequest(ex.Message);
             }
         }
 

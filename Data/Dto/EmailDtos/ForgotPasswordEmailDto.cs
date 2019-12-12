@@ -1,3 +1,5 @@
+using System.Web;
+
 namespace Nodegem.Data.Dto.EmailDtos
 {
     public class ForgotPasswordEmailDto
@@ -8,6 +10,6 @@ namespace Nodegem.Data.Dto.EmailDtos
         public string ResetPasswordToken { get; set; }
         public string Host { get; set; }
 
-        public string Url => $"{Host}/reset-forgot-password/{UserId}/{ResetPasswordToken}";
+        public string Url => $"{Host}/reset-password/{UserId}/{HttpUtility.UrlEncode(ResetPasswordToken)}";
     }
 }

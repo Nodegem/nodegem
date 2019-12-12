@@ -90,6 +90,7 @@
           <e p="CreateMacroDto.cs" t="Include" />
         </e>
         <e p="ResetPasswordDto.cs" t="Include" />
+        <e p="ResetPasswordWithTokenDto.cs" t="Include" />
         <e p="UserDtos" t="Include">
           <e p="RegisterDto.cs" t="Include" />
           <e p="TokenUserDto.cs" t="Include" />
