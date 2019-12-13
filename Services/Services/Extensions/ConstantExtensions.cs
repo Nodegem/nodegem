@@ -22,7 +22,7 @@ namespace Nodegem.Services.Extensions
                 constant.Value = protector.Protect(x.Value.ToString());
                 constant.IsEncrypted = true;
                 return constant;
-            });
+            }).ToList();
         }
 
         public static IEnumerable<Constant> DecryptConstants(this IEnumerable<Constant> constants,
@@ -39,7 +39,7 @@ namespace Nodegem.Services.Extensions
                 constant.Value = protector.Unprotect(x.Value.ToString());
                 constant.IsEncrypted = false;
                 return constant;
-            });
+            }).ToList();
         }
     }
 }
