@@ -553,7 +553,10 @@
         <e p="RegistrationException.cs" t="Include" />
       </e>
       <e p="Extensions" t="Include">
+        <e p="ConstantExtensions.cs" t="Include" />
         <e p="DistributedCacheExtension.cs" t="Include" />
+        <e p="GraphExtensions.cs" t="Include" />
+        <e p="UserExtensions.cs" t="Include" />
       </e>
       <e p="Hubs" t="Include">
         <e p="GraphHub.cs" t="Include" />
