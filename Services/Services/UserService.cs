@@ -183,7 +183,9 @@ namespace Nodegem.Services
         public async Task<TokenDto> PatchUserAsync(Guid userId, JsonPatchDocument<UserDto> patchDocument)
         {
             var appUserDocument = patchDocument.Adapt<JsonPatchDocument<ApplicationUser>>();
-            var user = await _userManager.FindByIdAsync(userId.ToString());
+            var user = (await _userManager.FindByIdAsync(userId.ToString()))
+                .DecryptUser(_dataProtector);
+            
             appUserDocument.ApplyTo(user);
 
             user = user.EncryptUser(_dataProtector);
