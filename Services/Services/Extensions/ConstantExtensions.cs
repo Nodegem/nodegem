@@ -11,34 +11,32 @@ namespace Nodegem.Services.Extensions
         public static IEnumerable<Constant> EncryptConstants(this IEnumerable<Constant> constants,
             IDataProtector protector)
         {
-            return constants.Select(x =>
+            return constants.Select(x => x.Adapt<Constant>()).ToList().Select(x =>
             {
                 if (!x.IsSecret || x.IsEncrypted)
                 {
                     return x;
                 }
 
-                var constant = x.Adapt<Constant>();
-                constant.Value = protector.Protect(x.Value.ToString());
-                constant.IsEncrypted = true;
-                return constant;
+                x.Value = protector.Protect(x.Value.ToString());
+                x.IsEncrypted = true;
+                return x;
             }).ToList();
         }
 
         public static IEnumerable<Constant> DecryptConstants(this IEnumerable<Constant> constants,
             IDataProtector protector)
         {
-            return constants.Select(x =>
+            return constants.Select(x => x.Adapt<Constant>()).ToList().Select(x =>
             {
                 if (!x.IsSecret || !x.IsEncrypted)
                 {
                     return x;
                 }
 
-                var constant = x.Adapt<Constant>();
-                constant.Value = protector.Unprotect(x.Value.ToString());
-                constant.IsEncrypted = false;
-                return constant;
+                x.Value = protector.Unprotect(x.Value.ToString());
+                x.IsEncrypted = false;
+                return x;
             }).ToList();
         }
     }
