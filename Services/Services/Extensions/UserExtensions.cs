@@ -6,7 +6,7 @@ namespace Nodegem.Services.Extensions
 {
     public static class UserExtensions
     {
-        public static UserDto EncryptedUser(this UserDto user, IDataProtector protector)
+        public static UserDto EncryptUser(this UserDto user, IDataProtector protector)
         {
             user.Constants = user.Constants.EncryptConstants(protector);
             return user;
@@ -18,7 +18,7 @@ namespace Nodegem.Services.Extensions
             return user;
         }
         
-        public static ApplicationUser EncryptedUser(this ApplicationUser user, IDataProtector protector)
+        public static ApplicationUser EncryptUser(this ApplicationUser user, IDataProtector protector)
         {
             user.Constants = user.Constants.EncryptConstants(protector);
             return user;

@@ -186,7 +186,7 @@ namespace Nodegem.Services
             var user = await _userManager.FindByIdAsync(userId.ToString());
             appUserDocument.ApplyTo(user);
 
-            user = user.EncryptedUser(_dataProtector);
+            user = user.EncryptUser(_dataProtector);
             await _userManager.UpdateAsync(user);
             
             return await GetTokenAsync(user.Adapt<UserDto>());

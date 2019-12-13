@@ -54,7 +54,7 @@ namespace Nodegem.Services.Repositories
 
         public GraphDto CreateGraph(CreateGraphDto graph)
         {
-            var newGraph = graph.Adapt<Graph>().EncryptedGraph(_protector);
+            var newGraph = graph.Adapt<Graph>().EncryptGraph(_protector);
             newGraph.IsActive = true;
             newGraph.Nodes = new List<Node>
             {
@@ -77,7 +77,7 @@ namespace Nodegem.Services.Repositories
                 graph.RecurringOptions = null;
             }
 
-            var graphEntity = graph.EncryptedGraph(_protector).Adapt<Graph>();
+            var graphEntity = graph.EncryptGraph(_protector).Adapt<Graph>();
             Update(graph.Id, graphEntity);
 
             return graphEntity.DecryptGraph(_protector).Adapt<GraphDto>();

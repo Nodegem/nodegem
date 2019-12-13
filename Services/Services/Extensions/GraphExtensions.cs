@@ -7,7 +7,7 @@ namespace Nodegem.Services.Extensions
     public static class GraphExtensions
     {
 
-        public static GraphDto EncryptedGraph(this GraphDto graph, IDataProtector protector)
+        public static GraphDto EncryptGraph(this GraphDto graph, IDataProtector protector)
         {
             graph.Constants = graph.Constants.EncryptConstants(protector);
             return graph;
@@ -19,7 +19,7 @@ namespace Nodegem.Services.Extensions
             return graph;
         }
         
-        public static Graph EncryptedGraph(this Graph graph, IDataProtector protector)
+        public static Graph EncryptGraph(this Graph graph, IDataProtector protector)
         {
             graph.Constants = graph.Constants.EncryptConstants(protector);
             return graph;
