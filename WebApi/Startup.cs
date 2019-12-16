@@ -1,38 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
-using NLog.Extensions.Logging;
-using NLog.Web;
-using Nodester.Data.Contexts;
-using Nodester.Data.Models;
-using Nodester.Data.Settings;
-using Nodester.Hubs;
-using Nodester.Services;
-using Swashbuckle.AspNetCore.Swagger;
-using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
+using Newtonsoft.Json.Converters;
+using Nodegem.Data.Contexts;
+using Nodegem.Data.Models;
+using Nodegem.Data.Settings;
+using Nodegem.Services;
+using Nodegem.Services.Hubs;
+using Nodegem.WebApi.Extensions;
 
-namespace Nodester.WebApi
+namespace Nodegem.WebApi
 {
     public class Startup
     {
-        public IConfiguration Configuration { get; }
-        private IHostingEnvironment Environment { get; }
+        private IConfiguration Configuration { get; }
+        private IWebHostEnvironment Environment { get; }
 
-        public Startup(IConfiguration configuration, IHostingEnvironment env)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
             Environment = env;
@@ -42,21 +40,39 @@ namespace Nodester.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<TokenSettings>(Configuration.GetSection("TokenSettings"));
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
-            services.AddMemoryCache();
+            services.AddAntiforgery();
+            services.AddHttpContextAccessor();
+            services.AddDistributedMemoryCache();
 
             services.AddEntityFrameworkNpgsql()
-                .AddDbContext<NodesterDBContext>(options =>
+                .AddDbContext<NodegemContext>(options =>
                 {
-                    options.UseNpgsql(Configuration.GetConnectionString("nodesterDb"),
-                        b => b.MigrationsAssembly("Nodester.WebApi"));
+                    options.UseNpgsql(Configuration.GetConnectionString("nodegemDb"),
+                        b => b.MigrationsAssembly("Nodegem.WebApi"));
                 });
+            
+            services.AddEntityFrameworkNpgsql()
+                .AddDbContext<KeysContext>(options =>
+                {
+                    options.UseNpgsql(Configuration.GetConnectionString("keysDb"),
+                        b => b.MigrationsAssembly("Nodegem.WebApi"));
+                });
+            
+            services.AddDataProtection()
+                .SetApplicationName(Configuration["AppSettings:AppName"])
+                .PersistKeysToDbContext<KeysContext>();
+            
+            services.AddHealthChecks()
+                .AddNpgSql(Configuration.GetConnectionString("nodegemDb"), name: "NodegemDb")
+                .AddNpgSql(Configuration.GetConnectionString("keysDb"), name: "KeysDb");
 
             services.AddIdentity<ApplicationUser, Role>()
-                .AddEntityFrameworkStores<NodesterDBContext>()
+                .AddEntityFrameworkStores<NodegemContext>()
                 .AddDefaultTokenProviders()
-                .AddUserStore<UserStore<ApplicationUser, Role, NodesterDBContext, Guid>>()
-                .AddRoleStore<RoleStore<Role, NodesterDBContext, Guid>>();
+                .AddUserStore<UserStore<ApplicationUser, Role, NodegemContext, Guid>>()
+                .AddRoleStore<RoleStore<Role, NodegemContext, Guid>>();
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -74,6 +90,7 @@ namespace Nodester.WebApi
 
             services.AddAuthentication(options =>
                 {
+                    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
                     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 })
@@ -83,8 +100,6 @@ namespace Nodester.WebApi
                     options.SaveToken = true;
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
-                        RequireExpirationTime = true,
-                        ValidateLifetime = true,
                         ValidateIssuer = true,
                         ValidAudience = Configuration.GetValue<string>("TokenSettings:Audience"),
                         ValidIssuer = Configuration.GetValue<string>("TokenSettings:Issuer"),
@@ -106,91 +121,106 @@ namespace Nodester.WebApi
                             return Task.CompletedTask;
                         }
                     };
-                });
-
-            services.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-                .AddJsonOptions(options =>
+                })
+                .AddGoogle(options =>
                 {
-                    options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                    options.SaveTokens = true;
+                    options.ClientId = Configuration["Authentication:Google:ClientId"];
+                    options.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+                    options.ClaimActions.MapJsonKey("urn:google:picture", "picture", "url");
+                })
+                .AddGitHub(options =>
+                {
+                    options.ClientId = Configuration["Authentication:GitHub:ClientId"];
+                    options.ClientSecret = Configuration["Authentication:GitHub:ClientSecret"];
                 });
 
-            services.AddServices(Configuration);
+            var mailConfig = Configuration.GetSection("MailConfiguration").Get<MailConfigurationSettings>();
+            services.AddEmailService(mailConfig, "EmailTemplates", false);
+            services.AddServices();
 
-            services.AddCors();
+            services.AddResponseCompression(options =>
+            {
+                options.Providers.Add<BrotliCompressionProvider>();
+                options.Providers.Add<GzipCompressionProvider>();
+                options.EnableForHttps = true;
+            });
+
+            services.AddResponseCaching(options => { options.UseCaseSensitivePaths = true; });
+
+            var domains = Configuration.GetSection("CorsSettings:AllowedHosts").Get<string>()
+                .Replace(" ", "")
+                .Split(',');
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AppCors", builder =>
+                {
+                    builder
+                        .SetIsOriginAllowedToAllowWildcardSubdomains()
+                        .WithOrigins(domains)
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowCredentials()
+                        .SetPreflightMaxAge(TimeSpan.FromMinutes(60));
+                });
+            });
+
             services.AddSignalR(options =>
-            {
-                options.EnableDetailedErrors = Environment.IsDevelopment() || Environment.IsStaging();
-            });
-
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new Info {Title = "Nodester API", Version = "v1"});
-
-                var security = new Dictionary<string, IEnumerable<string>>
                 {
-                    {"Bearer", new string[] { }},
-                };
+                    options.EnableDetailedErrors = Environment.IsDevelopment() || Environment.IsStaging();
+                    options.KeepAliveInterval = TimeSpan.FromSeconds(25);
+                })
+                .AddNewtonsoftJsonProtocol();
 
-                c.AddSecurityDefinition("Bearer", new ApiKeyScheme
+            services.AddRouting();
+
+            services.AddControllers()
+                .AddNewtonsoftJson(options =>
                 {
-                    Description =
-                        "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
-                    Name = "Authorization",
-                    In = "Header",
-                    Type = "Token"
+                    options.SerializerSettings.Converters.Add(new StringEnumConverter());
                 });
-                c.AddSecurityRequirement(security);
-            });
-
-            services.AddLogging(logging =>
-            {
-                logging.AddConsole();
-                logging.AddNLog();
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env,
-            NodesterDBContext nodesterContext, IServiceProvider provider)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
+            NodegemContext nodegemContext, IServiceProvider provider)
         {
-            
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
-            
+
             if (env.IsDevelopment() || env.IsStaging())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
+                nodegemContext.Database.Migrate();
             }
 
             if (env.IsStaging() || env.IsProduction())
             {
                 app.UseHttpsRedirection();
-                app.UseHsts();                
+                app.UseHsts();
             }
 
-            var domains = Configuration.GetSection("CorsSettings:AllowedHosts").Get<string>().Split(',');
-            app.UseCors(
-                builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins(domains).AllowCredentials());                
+            app.UseRouting();
 
-            env.ConfigureNLog("nlog.config");
+            app.UseCors("AppCors");
+
             app.UseAuthentication();
+            app.UseAuthorization();
 
-            app.UseWebSockets();
-            app.UseSignalR(routes =>
+            app.UseResponseCompression();
+            app.UseResponseCaching();
+
+            app.UseEndpoints(routes =>
             {
+                routes.MapControllers();
                 routes.MapHub<GraphHub>("/graphHub");
                 routes.MapHub<TerminalHub>("/terminalHub");
+                routes.MapHealthChecks("/health").RequireAuthorization();
             });
 
-            app.UseSwagger();
-            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Nodester API V1"); });
+            NodeCache.CacheNodeData(provider);
 
-            app.UseMvc();
-
-            NodeCache.CacheNodeData(provider, Configuration.GetValue<string>("ProjectName"));
-
-            nodesterContext.Database.EnsureCreated();
+            nodegemContext.Database.EnsureCreated();
         }
     }
 }

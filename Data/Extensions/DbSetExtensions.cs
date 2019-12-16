@@ -3,7 +3,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 
-namespace Nodester.Data.Extensions
+namespace Nodegem.Data.Extensions
 {
     public static class DbSetExtensions
     {

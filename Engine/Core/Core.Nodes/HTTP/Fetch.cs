@@ -1,42 +1,33 @@
-using System.Net.Http;
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Attributes;
-using Nodester.Graph.Core.Fields.Graph;
+using System.Threading.Tasks;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
+using Nodegem.Services.Data;
 
-namespace Nodester.Graph.Core.Nodes.HTTP
+namespace Nodegem.Engine.Core.Nodes.HTTP
 {
-    [DefinedNode]
-    [NodeNamespace("Core.HTTP")]
-    public class Fetch : Node
+    [DefinedNode("96D8911B-A102-4955-8A72-362217D1C365")]
+    public class Fetch : HttpNode
     {
-        public FlowInput In { get; private set; }
-        public FlowOutput Out { get; private set; }
+        [FieldAttributes(ValueType.Url)]
+        public IValueInputField Url { get; private set; }
+        public IValueOutputField Data { get; private set; }
 
-        public ValueInput Url { get; private set; }
-        public ValueOutput Data { get; private set; }
+        public Fetch(INodeHttpClient client) : base(client)
+        {
+        }
 
         protected override void Define()
         {
-            In = AddFlowInput(nameof(In), FetchData);
-            Out = AddFlowOutput(nameof(Out));
-
             Url = AddValueInput<string>(nameof(Url));
-            Data = AddValueOutput<object>(nameof(Data), RetrieveData);
+            Data = AddValueOutput(nameof(Data), RetrieveData);
         }
 
-        private FlowOutput FetchData(IFlow flow)
+        private async Task<object> RetrieveData(IFlow flow)
         {
-            CachedValue.SetValue(RetrieveData(flow));
-            return Out;
-        }
-
-        private object RetrieveData(IFlow flow)
-        {
-            // TODO: Should probably use httpclientfactory
-            using (var client = new HttpClient())
-            {
-                return client.GetAsync(flow.GetValue<string>(Url)).Result.Content.ReadAsStringAsync().Result;
-            }
+            var url = await flow.GetValueAsync<string>(Url);
+            return await Client.GetAsync(url);
         }
     }
 }

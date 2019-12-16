@@ -1,4 +1,4 @@
-namespace Nodester.Data.Models
+namespace Nodegem.Data.Models
 {
     public class ActiveEntity : BaseEntity, IActiveEntity
     {

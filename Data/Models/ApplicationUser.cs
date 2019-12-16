@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
-using Nodester.Data.Models.Json_Models;
-using Nodester.Data.Models.Json_Models.Graph_Constants;
+using Nodegem.Common.Data;
 
-namespace Nodester.Data.Models
+namespace Nodegem.Data.Models
 {
     public class ApplicationUser : IdentityUser<Guid>, IEntity, IActiveEntity
     {
@@ -18,14 +17,14 @@ namespace Nodester.Data.Models
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        
+        public string AvatarUrl { get; set; }
 
-        public IEnumerable<Constant> Constants { get; set; }
+        public IEnumerable<Constant> Constants { get; set; } = new List<Constant>();
 
         [NotMapped] public string FullName => $"{FirstName} {LastName}";
 
         public DateTime LastLoggedIn { get; set; }
-
-        public bool IsLocked { get; set; }
 
         public bool IsActive { get; set; } = true;
 

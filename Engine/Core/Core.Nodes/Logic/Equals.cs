@@ -1,10 +1,11 @@
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Attributes;
-using Nodester.Graph.Core.Fields.Graph;
+using System.Threading.Tasks;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
 
-namespace Nodester.Graph.Core.Nodes.Logic
+namespace Nodegem.Engine.Core.Nodes.Logic
 {
-    [DefinedNode]
+    [DefinedNode("48B781C0-7697-4D14-903E-9B1227CC5CC0")]
     [NodeNamespace("Core.Logic")]
     public class Equals : Node
     {
@@ -20,9 +21,9 @@ namespace Nodester.Graph.Core.Nodes.Logic
             Result = AddValueOutput<bool>(nameof(Result), Compare);
         }
 
-        private bool Compare(IFlow flow)
+        private async Task<bool> Compare(IFlow flow)
         {
-            return flow.GetValue<object>(A).Equals(flow.GetValue<object>(B));
+            return (await flow.GetValueAsync<object>(A)).Equals(await flow.GetValueAsync<object>(B));
         }
     }
 }

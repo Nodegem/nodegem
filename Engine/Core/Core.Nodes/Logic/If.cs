@@ -1,20 +1,22 @@
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Attributes;
-using Nodester.Graph.Core.Fields.Graph;
+using System.Threading.Tasks;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Logic
+namespace Nodegem.Engine.Core.Nodes.Logic
 {
-    [DefinedNode]
+    [DefinedNode("92F804B7-9C8C-4184-817F-266C316673E3")]
     [NodeNamespace("Core.Logic")]
     public class If : Node
     {
-        public FlowInput In { get; private set; }
+        public IFlowInputField In { get; private set; }
 
-        [FieldAttributes(Type = ValueType.Boolean)]
-        public ValueInput Condition { get; private set; }
+        [FieldAttributes(ValueType.Boolean)]
+        public IValueInputField Condition { get; private set; }
 
-        public FlowOutput True { get; private set; }
-        public FlowOutput False { get; private set; }
+        public IFlowOutputField True { get; private set; }
+        public IFlowOutputField False { get; private set; }
 
         protected override void Define()
         {
@@ -24,9 +26,9 @@ namespace Nodester.Graph.Core.Nodes.Logic
             False = AddFlowOutput(nameof(False));
         }
 
-        private FlowOutput CheckCondition(IFlow flow)
+        private async Task<IFlowOutputField> CheckCondition(IFlow flow)
         {
-            return flow.GetValue<bool>(Condition) ? True : False;
+            return await flow.GetValueAsync<bool>(Condition) ? True : False;
         }
     }
 }

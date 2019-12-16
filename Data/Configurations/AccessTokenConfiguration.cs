@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Nodester.Data.Models;
+using Nodegem.Data.Models;
 
-namespace Nodester.Data.Configurations
+namespace Nodegem.Data.Configurations
 {
     public class AccessTokenConfiguration : IEntityTypeConfiguration<AccessToken>
     {

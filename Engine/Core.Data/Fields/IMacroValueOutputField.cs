@@ -1,6 +1,6 @@
-using Nodester.Graph.Core.Data.Links;
+using Nodegem.Engine.Data.Links;
 
-namespace Nodester.Graph.Core.Data.Fields
+namespace Nodegem.Engine.Data.Fields
 {
     public interface IMacroValueOutputField : IValueField
     {

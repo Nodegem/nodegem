@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using Nodester.Data.Models.Json_Models;
-using Nodester.Data.Models.Json_Models.Fields.FlowFields;
-using Nodester.Data.Models.Json_Models.Fields.ValueFields;
+using Nodegem.Data.Models.Json_Models;
+using Nodegem.Data.Models.Json_Models.Fields.FlowFields;
+using Nodegem.Data.Models.Json_Models.Fields.ValueFields;
 
-namespace Nodester.Data.Models
+namespace Nodegem.Data.Models
 {
     public class Macro : BaseGraph
     {

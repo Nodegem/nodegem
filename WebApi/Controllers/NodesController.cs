@@ -4,22 +4,24 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Nodester.Common.Extensions;
-using Nodester.Data;
-using Nodester.Data.Dto.ComponentDtos;
-using Nodester.Data.Dto.MacroDtos;
-using Nodester.Data.Dto.MacroDtos.FieldDtos;
-using Nodester.Data.Dto.MacroDtos.FieldDtos.FlowFieldDtos;
-using Nodester.Data.Dto.MacroDtos.FieldDtos.ValueFieldDtos;
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Definitions;
-using Nodester.Graph.Core.Nodes.Graph;
-using Nodester.Graph.Core.Utils;
-using Nodester.Services;
-using Nodester.Services.Data;
-using Nodester.Services.Data.Repositories;
+using Microsoft.Extensions.Logging;
+using Nodegem.Common.Data;
+using Nodegem.Common.Dto;
+using Nodegem.Common.Dto.ComponentDtos;
+using Nodegem.Common.Dto.FlowFieldDtos;
+using Nodegem.Common.Dto.ValueFieldDtos;
+using Nodegem.Common.Extensions;
+using Nodegem.Data;
+using Nodegem.Engine.Core.Nodes.Graph;
+using Nodegem.Engine.Core.Utils;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Definitions;
+using Nodegem.Services;
+using Nodegem.Services.Data;
+using Nodegem.Services.Data.Repositories;
+using Macro = Nodegem.Engine.Core.Nodes.Essential.Macro;
 
-namespace Nodester.WebApi.Controllers
+namespace Nodegem.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -29,53 +31,68 @@ namespace Nodester.WebApi.Controllers
         private readonly IUserService _userService;
         private readonly IGraphRepository _graphRepo;
         private readonly IMacroRepository _macroRepo;
+        private readonly ILogger<NodesController> _logger;
 
-        public NodesController(IUserService userService, IGraphRepository graphRepo, IMacroRepository macroRepo)
+        public NodesController(IUserService userService, IGraphRepository graphRepo, IMacroRepository macroRepo,
+            ILogger<NodesController> logger)
         {
             _userService = userService;
             _graphRepo = graphRepo;
             _macroRepo = macroRepo;
+            _logger = logger;
         }
 
         [HttpGet("definitions/{type}/{graphId}")]
         public async Task<ActionResult<NamespaceNodeDefinition>> GetNodeDefinitions(GraphType type, Guid graphId)
         {
-            var userId = User.GetUserId();
-            var macros = _macroRepo.GetAllMacros(userId).ToList();
-            var userConstants = (await _userService.GetConstantsAsync(userId)).ToList();
-            var graphConstants = type == GraphType.Graph
-                ? await _graphRepo.GetConstantsAsync(graphId)
-                : new List<ConstantDto>();
-
-            var defaultNodeDefinitions = NodeCache.NodeDefinitions;
-
-            var macroFieldDefinitions = new List<NodeDefinition>();
-            if (type == GraphType.Macro)
+            try
             {
-                defaultNodeDefinitions = defaultNodeDefinitions.Where(x => !x.FullName.ToLower().Contains("essential"))
-                    .ToList();
-                var macro = macros.First(x => x.Id == graphId);
-                var macroFields = EnumerableHelper
-                    .Concat<BaseFieldDto>(macro.FlowInputs, macro.FlowOutputs, macro.ValueInputs, macro.ValueOutputs)
-                    .ToList();
-                macroFieldDefinitions = ConvertMacroFieldsToNodeDefinitions(macroFields).ToList();
+                var userId = User.GetUserId();
+                var macros = _macroRepo.GetMacrosAssignedToUser(userId).ToList();
+                var userConstants = (await _userService.GetConstantsAsync(userId)).ToList();
+                var graphConstants = type == GraphType.Graph
+                    ? await _graphRepo.GetConstantsAsync(graphId)
+                    : new List<Constant>();
+
+                var isListener = type == GraphType.Graph && await _graphRepo.IsListenerGraphAsync(graphId);
+                var defaultNodeDefinitions =
+                    isListener ? NodeCache.AllNodeDefinitions : NodeCache.NonListenerNodeDefinitions;
+
+                var macroFieldDefinitions = new List<NodeDefinition>();
+                if (type == GraphType.Macro)
+                {
+                    defaultNodeDefinitions = defaultNodeDefinitions
+                        .Where(x => !x.FullName.ToLower().Contains("essential"))
+                        .ToList();
+                    var macro = macros.First(x => x.Id == graphId);
+                    var macroFields = EnumerableHelper
+                        .Concat<BaseFieldDto>(macro.FlowInputs, macro.FlowOutputs, macro.ValueInputs,
+                            macro.ValueOutputs)
+                        .ToList();
+                    macroFieldDefinitions = ConvertMacroFieldsToNodeDefinitions(macroFields).ToList();
+                }
+
+                var macroDefinitions = ConvertMacrosToDefinitions(macros);
+                var userConstantDefinitions = ConvertConstantsToNodeDefinitions(userConstants, "User");
+                var graphConstantDefinitions = ConvertConstantsToNodeDefinitions(graphConstants, "Graph");
+
+                var allDefinitions = EnumerableHelper.Concat(defaultNodeDefinitions, macroFieldDefinitions,
+                    macroDefinitions, userConstantDefinitions, graphConstantDefinitions).ToList();
+
+                var hierarchicalNode = new NamespaceNodeDefinition();
+                foreach (var definition in allDefinitions)
+                {
+                    var ns = definition.FullName.Split('.');
+                    hierarchicalNode.AddObject(ns.Slice(0, ns.Length - 1), definition);
+                }
+
+                return Ok(hierarchicalNode);
             }
-
-            var macroDefinitions = ConvertMacrosToDefinitions(macros);
-            var userConstantDefinitions = ConvertConstantsToNodeDefinitions(userConstants, "User");
-            var graphConstantDefinitions = ConvertConstantsToNodeDefinitions(graphConstants, "Graph");
-
-            var allDefinitions = EnumerableHelper.Concat(defaultNodeDefinitions, macroFieldDefinitions,
-                macroDefinitions, userConstantDefinitions, graphConstantDefinitions).ToList();
-
-            var hierarchicalNode = new NamespaceNodeDefinition();
-            foreach (var definition in allDefinitions)
+            catch (Exception ex)
             {
-                var ns = definition.FullName.Split('.');
-                hierarchicalNode.AddObject(ns.Slice(0, ns.Length - 1), definition);
+                _logger.LogError(ex, "Error building namespace node definition");
+                return BadRequest();
             }
-
-            return Ok(hierarchicalNode);
         }
 
         private static IEnumerable<NodeDefinition> ConvertMacroFieldsToNodeDefinitions(IEnumerable<BaseFieldDto> fields)
@@ -86,6 +103,7 @@ namespace Nodester.WebApi.Controllers
                 var titlePrefix = f is ValueOutputDto || f is FlowOutputDto ? "Set" : "Get";
                 var definition = new NodeDefinition
                 {
+                    Id = $"{Macro.MacroFieldDefinitionId}|{f.Key}",
                     Title = $"{titlePrefix} {f.Label}",
                     FullName = $"Macros.Fields.{type}.{f.Label}",
                     MacroFieldId = f.Key,
@@ -139,13 +157,15 @@ namespace Nodester.WebApi.Controllers
             });
         }
 
-        private static IEnumerable<NodeDefinition> ConvertConstantsToNodeDefinitions(IEnumerable<ConstantDto> constants,
+        private static IEnumerable<NodeDefinition> ConvertConstantsToNodeDefinitions(IEnumerable<Constant> constants,
             string path)
         {
             return constants.Select(c => new NodeDefinition
             {
+                Id = $"{GetConstant.ConstantDefinitionId}|{c.Key}",
                 Title = $"Get {c.Label}",
                 FullName = $"Constants.{path}.{c.Label}",
+                ConstantId = c.Key,
                 ValueOutputs = new List<ValueOutputDefinition>
                 {
                     new ValueOutputDefinition
@@ -162,6 +182,7 @@ namespace Nodester.WebApi.Controllers
         {
             return macros.Select(m => new NodeDefinition
             {
+                Id = Macro.MacroDefinitionId, 
                 Title = m.Name,
                 Description = m.Description,
                 FullName = $"Macros.Custom.{m.Name}",

@@ -1,23 +1,35 @@
 using System;
 using System.Collections.Generic;
-using Nodester.Common.Data;
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Nodes;
+using Nodegem.Common;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Nodes;
 
-namespace Nodester.Graph.Core
+namespace Nodegem.Engine.Core
 {
+
     public abstract class BaseGraph : IGraph
     {
+        
+        public Guid Id { get; }
+        public BridgeInfo Bridge { get; }
+        public string Name { get; }
         public User User { get; }
-        public bool DebugMode { get; set; } 
+        public bool IsRunningLocally { get; set; } = true;
         
         protected Dictionary<string, object> Variables { get; }
         protected Dictionary<Guid, INode> Nodes { get; }
 
         protected BaseGraph(
+            Guid id,
+            BridgeInfo bridge,
+            string name,
             Dictionary<Guid, INode> nodes,
             User user)
         {
+            Id = id;
+            Bridge = bridge;
+            Name = name;
             Nodes = nodes;
             Variables = new Dictionary<string, object>();
             User = user;

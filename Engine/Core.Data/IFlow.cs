@@ -1,7 +1,8 @@
 using System;
-using Nodester.Graph.Core.Data.Fields;
+using System.Threading.Tasks;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Data
+namespace Nodegem.Engine.Data
 {
     public interface IFlow
     {
@@ -9,7 +10,7 @@ namespace Nodester.Graph.Core.Data
         bool HasLoopExited(Guid loopId);
         void BreakLoop();
         void ExitLoop(Guid loopId);
-        void Run(IFlowOutputField output);
-        T GetValue<T>(IValueInputField input);
+        Task RunAsync(IFlowOutputField output);
+        Task<T> GetValueAsync<T>(IValueInputField input);
     }
 }

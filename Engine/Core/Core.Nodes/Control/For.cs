@@ -1,11 +1,12 @@
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Attributes;
-using Nodester.Graph.Core.Data.Fields;
-using Nodester.Graph.Core.Fields.Graph;
+using System.Threading.Tasks;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Control
+namespace Nodegem.Engine.Core.Nodes.Control
 {
-    [DefinedNode]
+    [DefinedNode("8FB3EC77-4B47-4860-B6DE-697C061E8B9B")]
     [NodeNamespace("Core.Control")]
     public class For : LoopNode
     {
@@ -40,11 +41,11 @@ namespace Nodester.Graph.Core.Nodes.Control
             return currentIndex > lastIndex;
         }
 
-        protected override IFlowOutputField OnLoop(IFlow flow)
+        protected override async Task<IFlowOutputField> OnLoop(IFlow flow)
         {
-            var start = flow.GetValue<double>(From);
-            var end = flow.GetValue<double>(To);
-            var step = flow.GetValue<double>(Step);
+            var start = await flow.GetValueAsync<double>(From);
+            var end = await flow.GetValueAsync<double>(To);
+            var step = await flow.GetValueAsync<double>(Step);
             var ascending = start <= end;
             var currentIndex = start;
             Index.SetValue(currentIndex);
@@ -52,7 +53,7 @@ namespace Nodester.Graph.Core.Nodes.Control
             var loopId = flow.EnterLoop();
             while (flow.HasLoopExited(loopId) && CanMoveNext(currentIndex, end, ascending))
             {
-                flow.Run(Block);
+                await flow.RunAsync(Block);
                 MoveNext(flow, step, ref currentIndex);
             }
 

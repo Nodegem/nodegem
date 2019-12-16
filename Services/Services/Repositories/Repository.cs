@@ -1,24 +1,23 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Nodester.Data.Models;
-using Nodester.Data.Extensions;
-using Nodester.Data.Contexts;
-using Nodester.Services.Data.Repositories;
+using Nodegem.Data.Contexts;
+using Nodegem.Data.Extensions;
+using Nodegem.Data.Models;
+using Nodegem.Services.Data.Repositories;
 
-namespace Nodester.Services.Repositories
+namespace Nodegem.Services.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
     {
-        protected readonly NodesterDBContext Context;
+        protected readonly NodegemContext Context;
 
         protected DbSet<TEntity> DbSet => Context.Set<TEntity>();
 
-        public Repository(NodesterDBContext context)
+        public Repository(NodegemContext context)
         {
             Context = context;
         }
@@ -51,11 +50,11 @@ namespace Nodester.Services.Repositories
             Context.SaveChanges();
         }
         
-        public Task CreateAsync(TEntity entity)
+        public async Task CreateAsync(TEntity entity)
         {
             entity.CreatedOn = DateTime.UtcNow;
             entity.LastUpdated = DateTime.UtcNow;
-            return DbSet.AddAsync(entity);
+            await DbSet.AddAsync(entity);
         }
 
         public void Update(Guid id, TEntity entity)

@@ -1,16 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Fields;
-using Nodester.Graph.Core.Fields.Graph;
-using Nodester.Graph.Core.Utils;
+using System.Threading.Tasks;
+using Nodegem.Engine.Core.Utils;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core
+namespace Nodegem.Engine.Core
 {
     public class Flow : IFlow
     {
         private Stack<Guid> LoopIds { get; }
+
+        public bool IsRunningLocally { get; set; }
 
         private Guid CurrentLoop => LoopIds.Any() ? LoopIds.Peek() : Guid.Empty;
 
@@ -51,31 +53,29 @@ namespace Nodester.Graph.Core
             LoopIds.Pop();
         }
 
-        public void Run(IFlowOutputField output)
+        public async Task RunAsync(IFlowOutputField output)
         {
             var connection = output.Connection;
 
-            if (connection == null)
-            {
-                return;
-            }
+            var destination = connection?.Destination;
+            if (destination == null) return;
 
-            var nextOutput = connection.Destination?.Action(this);
-            while (nextOutput?.Connection != null)
+            var nextOutput = await destination.Action(this);
+            while (nextOutput?.Connection?.Destination != null)
             {
-                nextOutput = nextOutput.Connection?.Destination?.Action(this);
+                nextOutput = await nextOutput.Connection?.Destination?.Action(this);
             }
         }
 
-        private object GetValue(IValueInputField input)
+        private async Task<object> GetValueAsync(IValueInputField input)
         {
             var connection = input.Connection;
-            return connection == null ? input.GetValue() : connection.Source.GetValue(this);
+            return connection == null ? input.GetValue() : await connection.Source.GetValueAsync(this);
         }
 
-        public T GetValue<T>(IValueInputField input)
+        public async Task<T> GetValueAsync<T>(IValueInputField input)
         {
-            return ConvertHelper.Cast<T>(GetValue(input));
+            return ConvertHelper.Cast<T>(await GetValueAsync(input));
         }
     }
 }

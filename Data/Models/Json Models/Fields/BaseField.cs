@@ -1,6 +1,6 @@
 using System;
 
-namespace Nodester.Data.Models.Json_Models.Fields
+namespace Nodegem.Data.Models.Json_Models.Fields
 {
     public abstract class BaseField
     {

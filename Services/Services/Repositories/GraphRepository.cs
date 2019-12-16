@@ -1,60 +1,86 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Nodester.Data.Contexts;
-using Nodester.Data.Dto.ComponentDtos;
-using Nodester.Data.Dto.GraphDtos;
-using Nodester.Data.Models.Json_Models;
-using Nodester.Graph.Core.Essential;
-using Nodester.Services.Data.Mappers;
-using Nodester.Services.Data.Repositories;
-using Node = Nodester.Data.Models.Json_Models.Node;
+using Mapster;
+using Microsoft.AspNetCore.DataProtection;
+using Microsoft.Extensions.Options;
+using Nodegem.Common.Data;
+using Nodegem.Common.Dto;
+using Nodegem.Data.Contexts;
+using Nodegem.Data.Dto.GraphDtos;
+using Nodegem.Data.Models;
+using Nodegem.Data.Models.Json_Models;
+using Nodegem.Data.Settings;
+using Nodegem.Services.Data.Repositories;
+using Nodegem.Services.Extensions;
+using Start = Nodegem.Engine.Core.Nodes.Essential.Start;
 
-namespace Nodester.Services.Repositories
+namespace Nodegem.Services.Repositories
 {
-    public class GraphRepository : Repository<Nodester.Data.Models.Graph>, IGraphRepository
+    public class GraphRepository : Repository<Graph>, IGraphRepository
     {
-        private IMapper<Nodester.Data.Models.Graph, CreateGraphDto> _createGraphMapper;
-        private IMapper<Nodester.Data.Models.Graph, GraphDto> _graphMapper;
+        private readonly IDataProtector _protector;
 
-        public GraphRepository(NodesterDBContext context,
-            IMapper<Nodester.Data.Models.Graph, CreateGraphDto> createGraphMapper,
-            IMapper<Nodester.Data.Models.Graph, GraphDto> graphMapper) : base(context)
+        public GraphRepository(NodegemContext context, IDataProtectionProvider protectionProvider,
+            IOptions<AppSettings> appSettings) : base(context)
         {
-            _graphMapper = graphMapper;
-            _createGraphMapper = createGraphMapper;
+            _protector = protectionProvider.CreateProtector(appSettings.Value.SecretKey);
         }
 
         public async Task<GraphDto> GetGraphAsync(Guid graphId)
         {
-            return _graphMapper.ToDto(await GetAsync(graphId));
+            var graph = await GetAsync(graphId);
+            return graph.Adapt<GraphDto>().DecryptGraph(_protector);
         }
 
-        public IEnumerable<GraphDto> GetAllGraphsByUser(Guid userId)
-        {
-            return GetAll(x => x.UserId == userId).Select(g => _graphMapper.ToDto(g));
-        }
-
-        public async Task<IEnumerable<ConstantDto>> GetConstantsAsync(Guid graphId)
+        public async Task<bool> IsListenerGraphAsync(Guid graphId)
         {
             var graph = await GetGraphAsync(graphId);
-            return graph?.Constants ?? new List<ConstantDto>();
+            return graph.Type == ExecutionType.Listener;
+        }
+
+        public IEnumerable<GraphDto> GetGraphsAssignedToUser(Guid userId)
+        {
+            var graphs = GetAll(x => x.UserId == userId).OrderBy(x => x.CreatedOn);
+            return graphs.Select(g => g.DecryptGraph(_protector).Adapt<GraphDto>());
+        }
+
+        public async Task<IEnumerable<Constant>> GetConstantsAsync(Guid graphId)
+        {
+            var graph = await GetGraphAsync(graphId);
+            return graph?.Constants ?? new List<Constant>();
         }
 
         public GraphDto CreateGraph(CreateGraphDto graph)
         {
-            var newGraph = _createGraphMapper.ToModel(graph);
+            var newGraph = graph.Adapt<Graph>().EncryptGraph(_protector);
+            newGraph.IsActive = true;
+            newGraph.Nodes = new List<Node>
+            {
+                new Node
+                {
+                    Id = Guid.NewGuid(), Position = Vector2.Default, DefinitionId = Start.StartDefinitionId,
+                    Permanent = true,
+                }
+            };
+
             Create(newGraph);
-            return _graphMapper.ToDto(newGraph);
+
+            return newGraph.Adapt<GraphDto>().DecryptGraph(_protector);
         }
 
         public GraphDto UpdateGraph(GraphDto graph)
         {
-            var graphModel = _graphMapper.ToModel(graph);
-            Update(graph.Id, graphModel);
-            return _graphMapper.ToDto(graphModel);
+            if (graph.Type != ExecutionType.Recurring)
+            {
+                graph.RecurringOptions = null;
+            }
+
+            var graphEntity = graph.EncryptGraph(_protector).Adapt<Graph>();
+            Update(graph.Id, graphEntity);
+
+            return graphEntity.DecryptGraph(_protector).Adapt<GraphDto>();
         }
 
         public void DeleteGraph(Guid graphId)

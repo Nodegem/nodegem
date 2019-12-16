@@ -1,9 +1,10 @@
 using System;
+using System.Threading.Tasks;
 
-namespace Nodester.Graph.Core.Data.Fields
+namespace Nodegem.Engine.Data.Fields
 {
     public interface IFlowInputField : IFlowField
     {
-        Func<IFlow, IFlowOutputField> Action { get; }
+        Func<IFlow, Task<IFlowOutputField>> Action { get; }
     }
 }

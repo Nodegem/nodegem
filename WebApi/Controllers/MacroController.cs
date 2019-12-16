@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Nodester.Common.Extensions;
-using Nodester.Data.Dto.MacroDtos;
-using Nodester.Services.Data.Repositories;
+using Nodegem.Common.Dto;
+using Nodegem.Common.Extensions;
+using Nodegem.Data.Dto.MacroDtos;
+using Nodegem.Services.Data.Repositories;
 
-namespace Nodester.WebApi.Controllers
+namespace Nodegem.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -21,27 +23,27 @@ namespace Nodester.WebApi.Controllers
         }
 
         [HttpGet("all")]
-        public ActionResult<IEnumerable<MacroDto>> GetAllMacros()
+        public IEnumerable<MacroDto> GetAllMacros()
         {
-            return Ok(_macroRepository.GetAllMacros(User.GetUserId()));
+            return _macroRepository.GetMacrosAssignedToUser(User.GetUserId());
         }
 
         [HttpGet("{macroId}")]
-        public ActionResult<MacroDto> GetMacro(Guid macroId)
+        public async Task<MacroDto> GetMacro(Guid macroId)
         {
-            return Ok(_macroRepository.GetById(macroId));
+            return await _macroRepository.GetById(macroId);
         }
 
         [HttpPost("create")]
-        public ActionResult<MacroDto> CreateMacro([FromBody] CreateMacroDto createMacroDto)
+        public MacroDto CreateMacro([FromBody] CreateMacroDto createMacroDto)
         {
-            return Ok(_macroRepository.CreateNewMacro(createMacroDto));
+            return _macroRepository.CreateNewMacro(createMacroDto);
         }
 
         [HttpPut("update/{macroId}")]
-        public ActionResult<MacroDto> UpdateMacro(Guid macroId, [FromBody] MacroDto macroDto)
+        public MacroDto UpdateMacro(Guid macroId, [FromBody] MacroDto macroDto)
         {
-            return Ok(_macroRepository.UpdateMacro(macroId, macroDto));
+            return _macroRepository.UpdateMacro(macroId, macroDto);
         }
 
         [HttpDelete("{macroId}")]

@@ -1,11 +1,11 @@
-using System;
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Attributes;
-using Nodester.Graph.Core.Fields.Graph;
+using System.Threading.Tasks;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
 
-namespace Nodester.Graph.Core.Nodes.Graph
+namespace Nodegem.Engine.Core.Nodes.Graph
 {
-    [DefinedNode("Get Variable")]
+    [DefinedNode("95DF6F9E-198E-4D99-9A16-118D25D38D16", Title = "Get Variable")]
     [NodeNamespace("Core.Graph")]
     public class GetVariable : Node
     {
@@ -15,12 +15,12 @@ namespace Nodester.Graph.Core.Nodes.Graph
         protected override void Define()
         {
             Variable = AddValueInput<string>(nameof(Variable));
-            Value = AddValueOutput(nameof(Value), GetValue);
+            Value = AddValueOutput<object>(nameof(Value), GetValue);
         }
 
-        private object GetValue(IFlow flow)
+        private async Task<object> GetValue(IFlow flow)
         {
-            return Graph.GetVariable<object>(flow.GetValue<string>(Variable));
+            return Graph.GetVariable<object>(await flow.GetValueAsync<string>(Variable));
         }
     }
 }

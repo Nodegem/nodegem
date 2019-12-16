@@ -1,6 +1,6 @@
 using System;
 
-namespace Nodester.Graph.Core.Data.Attributes
+namespace Nodegem.Engine.Data.Attributes
 {
     [AttributeUsage(AttributeTargets.Class)]
     public class NodeNamespaceAttribute : Attribute

@@ -1,6 +1,6 @@
 using System;
 
-namespace Nodester.Graph.Core.Data.Fields
+namespace Nodegem.Engine.Data.Fields
 {
     public interface IMacroFlowOutputField : IFlowInputField
     {

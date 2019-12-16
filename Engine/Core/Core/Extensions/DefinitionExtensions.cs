@@ -1,47 +1,62 @@
-using Nodester.Graph.Core.Data.Definitions;
-using Nodester.Graph.Core.Data.Fields;
-using Nodester.Graph.Core.Fields.Graph;
-using ValueType = Nodester.Graph.Core.Data.ValueType;
+using System.Collections.Generic;
+using Nodegem.Engine.Data.Definitions;
+using Nodegem.Engine.Data.Fields;
+using ValueType = Nodegem.Common.Data.ValueType;
 
-namespace Nodester.Graph.Core.Extensions
+namespace Nodegem.Engine.Core.Extensions
 {
     public static class DefinitionExtensions
     {
-        public static FlowInputDefinition ToFlowInputDefinition(this IFlowInputField input, string label)
+        public static FlowInputDefinition ToFlowInputDefinition(this IFlowInputField input, string label, string info)
         {
             return new FlowInputDefinition
             {
                 Label = label,
-                Key = input.Key
+                Key = input.Key,
+                Info = info
             };
         }
 
-        public static FlowOutputDefinition ToFlowOutputDefinition(this IFlowOutputField output, string label)
+        public static FlowOutputDefinition ToFlowOutputDefinition(this IFlowOutputField output, string label,
+            bool isIndefinite, string info)
         {
             return new FlowOutputDefinition
             {
                 Label = label,
-                Key = output.Key
+                Key = output.Key,
+                Indefinite = isIndefinite,
+                Info = info
             };
         }
 
-        public static ValueInputDefinition ToValueInputDefinition(this IValueInputField input, string label, ValueType type)
+        public static ValueInputDefinition ToValueInputDefinition(this IValueInputField input, string label,
+            ValueType type, bool isIndefinite, bool isEditable, bool allowConnection, string info,
+            IEnumerable<ValueOption> valueOptions)
         {
             return new ValueInputDefinition
             {
                 Label = label,
                 DefaultValue = input.DefaultValue,
                 Key = input.Key,
-                ValueType = type
+                ValueType = type,
+                Indefinite = isIndefinite,
+                IsEditable = isEditable,
+                AllowConnection = allowConnection,
+                Info = info,
+                ValueOptions = valueOptions
             };
         }
 
-        public static ValueOutputDefinition ToValueOutputDefinition(this IValueOutputField output, string label)
+        public static ValueOutputDefinition ToValueOutputDefinition(this IValueOutputField output, string label,
+            ValueType type, bool isIndefinite, string info)
         {
             return new ValueOutputDefinition
             {
                 Label = label,
-                Key = output.Key
+                Key = output.Key,
+                ValueType = type,
+                Indefinite = isIndefinite,
+                Info = info
             };
         }
     }

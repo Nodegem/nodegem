@@ -1,11 +1,11 @@
-using Nodester.Graph.Core.Data.Fields;
-using Nodester.Graph.Core.Data.Links;
+using System.Threading.Tasks;
+using Nodegem.Engine.Data.Links;
 
-namespace Nodester.Graph.Core.Data
+namespace Nodegem.Engine.Data
 {
     public interface IFlowGraph : IGraph
     {
-        void Run();
+        Task RunAsync();
 
         IFlowLink GetConnection(string fromFieldKey);
     }

@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Nodegem.Common.csproj" />
+    <ProjectReference Include="..\..\Data\Nodegem.Data.csproj" />
+    <ProjectReference Include="..\..\Engine\Core.Data\Nodegem.Engine.Data.csproj" />
+  </ItemGroup>
+
+</Project>

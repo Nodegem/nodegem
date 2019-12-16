@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Nodester.Data.Extensions;
+using Nodegem.Data.Extensions;
 
-namespace Nodester.Data.Configurations
+namespace Nodegem.Data.Configurations
 {
     public class GraphConfiguration : IEntityTypeConfiguration<Models.Graph>
     {
@@ -11,6 +11,8 @@ namespace Nodester.Data.Configurations
             builder.Property(e => e.Nodes).StoreAsJson();
             builder.Property(e => e.Links).StoreAsJson();
             builder.Property(e => e.Constants).StoreAsJson();
+            builder.Property(e => e.RecurringOptions).StoreAsJson();
+            builder.Property(e => e.Metadata).StoreAsJson();
             builder.HasOne(e => e.User).WithMany(e => e.Graphs);
         }
     }

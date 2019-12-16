@@ -1,16 +1,18 @@
 using System.Collections.Generic;
-using Nodester.Graph.Core.Data.Fields;
-using Nodester.Graph.Core.Data.Nodes;
+using System.Threading.Tasks;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Data.Fields;
+using Nodegem.Engine.Data.Nodes;
 
-namespace Nodester.Graph.Core.Data
+namespace Nodegem.Engine.Data
 {
     public interface IMacroGraph : IGraph
     {
-        void Run(string flowInputFieldKey);
+        Task RunAsync(string flowInputFieldKey);
+        Task RunAsync(IMacroFlowInputField input);
         INode ToMacroNode();
         void PopulateInputsWithNewDefaults(IEnumerable<FieldData> fieldData);
         IMacroFlowInputField GetInputByKey(string key);
         IMacroValueOutputField GetOutputByKey(string key);
-        void Run(IMacroFlowInputField input);
     }
 }

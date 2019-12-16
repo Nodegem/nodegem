@@ -1,23 +1,31 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Nodester.Common.Data;
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Extensions;
-using Nodester.Graph.Core.Data.Exceptions;
-using Nodester.Graph.Core.Data.Links;
-using Nodester.Graph.Core.Data.Nodes;
-using Nodester.Graph.Core.Essential;
+using System.Threading.Tasks;
+using Nodegem.Common;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Core.Extensions;
+using Nodegem.Engine.Core.Nodes.Essential;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Exceptions;
+using Nodegem.Engine.Data.Links;
+using Nodegem.Engine.Data.Nodes;
 
-namespace Nodester.Graph.Core
+namespace Nodegem.Engine.Core
 {
     public class FlowGraph : BaseGraph, IFlowGraph
     {
         private readonly IFlow _flow;
         private Dictionary<Guid, Constant> Constants { get; }
 
-        public FlowGraph(Dictionary<Guid, INode> nodes, Dictionary<Guid, Constant> constants, User user)
-            : base(nodes, user)
+        public FlowGraph(
+            Guid id,
+            BridgeInfo bridge,
+            string name,
+            Dictionary<Guid, INode> nodes, 
+            Dictionary<Guid, Constant> constants, 
+            User user)
+            : base(id, bridge, name, nodes, user)
         {
             _flow = new Flow();
             Constants = constants;
@@ -40,20 +48,20 @@ namespace Nodester.Graph.Core
             
             if (Constants.TryGetValue(key, out var value))
             {
-                return (T) value.Value;
+                return (T) (value.Value ?? default(T));
             }
 
             return default;
         }
 
-        public void Run()
+        public async Task RunAsync()
         {
             if (!Nodes.TryGetValueOfType(typeof(Start), out var start))
             {
                 throw new StartNotFoundException(this);
             }
 
-            _flow.Run(((Start) start.Value).StartFlow);
+            await _flow.RunAsync(((Start) start.Value).StartFlow);
         }
 
         public IFlowLink GetConnection(string fromFieldKey)

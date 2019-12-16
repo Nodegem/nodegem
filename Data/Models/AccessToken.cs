@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using Mapster;
 
-namespace Nodester.Data.Models
+namespace Nodegem.Data.Models
 {
     public class AccessToken : BaseEntity
     {

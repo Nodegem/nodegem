@@ -1,27 +1,29 @@
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Attributes;
-using Nodester.Graph.Core.Fields.Graph;
+using System.Threading.Tasks;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Logic
+namespace Nodegem.Engine.Core.Nodes.Logic
 {
-    [DefinedNode("Greater Than")]
+    [DefinedNode("06DA8CEF-B37D-4978-AA02-40A36582E09B", Title = "Greater Than")]
     [NodeNamespace("Core.Logic")]
     public class GreaterThan : Node
     {
         
-        public FlowInput In { get; set; }
+        public IFlowInputField In { get; set; }
         
         [FieldAttributes("A > B")]
-        public FlowOutput True { get; set; }
+        public IFlowOutputField True { get; set; }
         
         [FieldAttributes("A <= B")]
-        public FlowOutput False { get; set; }
+        public IFlowOutputField False { get; set; }
         
-        [FieldAttributes(Type = ValueType.Number)]
-        public ValueInput A { get; set; }
+        [FieldAttributes(ValueType.Number)]
+        public IValueInputField A { get; set; }
         
-        [FieldAttributes(Type = ValueType.Number)]
-        public ValueInput B { get; set; }
+        [FieldAttributes(ValueType.Number)]
+        public IValueInputField B { get; set; }
         
         protected override void Define()
         {
@@ -33,10 +35,10 @@ namespace Nodester.Graph.Core.Nodes.Logic
             B = AddValueInput<object>(nameof(B), 0);
         }
 
-        private FlowOutput IsGreaterThan(IFlow flow)
+        private async Task<IFlowOutputField> IsGreaterThan(IFlow flow)
         {
-            var a = flow.GetValue<double>(A);
-            var b = flow.GetValue<double>(B);
+            var a = await flow.GetValueAsync<double>(A);
+            var b = await flow.GetValueAsync<double>(B);
             return a > b ? True : False;
         }
     }

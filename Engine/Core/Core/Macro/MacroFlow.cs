@@ -1,7 +1,9 @@
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Fields;
+using System;
+using System.Threading.Tasks;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Macro
+namespace Nodegem.Engine.Core.Macro
 {
     public class MacroFlow : IMacroFlow
     {
@@ -14,7 +16,7 @@ namespace Nodester.Graph.Core.Macro
             _flow = new Flow();
         }
 
-        public void Run(IMacroFlowInputField start)
+        public async Task RunAsync(IMacroFlowInputField start)
         {
             var startConnection = start.Connection?.Destination;
             if (startConnection == null)
@@ -22,11 +24,11 @@ namespace Nodester.Graph.Core.Macro
                 return;
             }
 
-            var flowOutput = startConnection.Action(_flow);
-            _flow.Run(flowOutput);
+            var flowOutput = await startConnection.Action(_flow);
+            await _flow.RunAsync(flowOutput);
         }
 
-        public IFlowOutputField Execute(IMacroFlowInputField start)
+        public async Task<IFlowOutputField> ExecuteAsync(IMacroFlowInputField start)
         {
             var startConnection = start.Connection?.Destination;
             if (startConnection == null)
@@ -34,18 +36,18 @@ namespace Nodester.Graph.Core.Macro
                 return null;
             }
 
-            var flowOutput = startConnection.Action(_flow);
-            while (flowOutput != null && !_macroGraph.IsMacroFlowOutputField(flowOutput.Key))
+            var flowOutput = await startConnection.Action(_flow);
+            while (flowOutput?.Connection?.Destination != null && !_macroGraph.IsMacroFlowOutputField(flowOutput.Key))
             {
-                flowOutput = flowOutput.Connection?.Destination?.Action(_flow);
+                flowOutput = await flowOutput.Connection?.Destination?.Action(_flow);
             }
 
             return flowOutput;
         }
 
-        public T GetValue<T>(IMacroValueOutputField output)
+        public async Task<T> GetValueAsync<T>(IMacroValueOutputField output)
         {
-            return (T) output.Connection.Destination.GetValue(_flow);
+            return (T) Convert.ChangeType(await output.Connection.Destination.GetValueAsync(_flow), typeof(T));
         }
     }
 }

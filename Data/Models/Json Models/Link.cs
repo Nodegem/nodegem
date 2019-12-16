@@ -1,6 +1,6 @@
 using System;
 
-namespace Nodester.Data.Models.Json_Models
+namespace Nodegem.Data.Models.Json_Models
 {
     public class Link
     {

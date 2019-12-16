@@ -1,15 +1,22 @@
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Attributes;
-using Nodester.Graph.Core.Fields.Graph;
+using System.Threading.Tasks;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
 
-namespace Nodester.Graph.Core.Nodes.Math
+namespace Nodegem.Engine.Core.Nodes.Math
 {
-    [DefinedNode]
+    [DefinedNode("DBC75648-B841-494A-8E56-565147DEEAD6")]
     [NodeNamespace("Core.Math")]
     public class Round : Node
     {
+        [FieldAttributes(ValueType.Number)]
         public ValueInput Value { get; private set; }
+        
+        [FieldAttributes(ValueType.Number)]
         public ValueInput Digits { get; private set; }
+        
+        [FieldAttributes(ValueType.Number)]
         public ValueOutput Output { get; private set; }
 
         protected override void Define()
@@ -19,7 +26,7 @@ namespace Nodester.Graph.Core.Nodes.Math
             Output = AddValueOutput(nameof(Output), GetRoundedValue);
         }
 
-        private double GetRoundedValue(IFlow flow) =>
-            System.Math.Round(flow.GetValue<double>(Value), flow.GetValue<int>(Digits));
+        private async Task<double> GetRoundedValue(IFlow flow) =>
+            System.Math.Round(await flow.GetValueAsync<double>(Value), await flow.GetValueAsync<int>(Digits));
     }
 }
