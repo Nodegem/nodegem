@@ -1,13 +1,13 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Nodester.Graph.Core.Data.Definitions;
-using Nodester.Graph.Core.Data.Fields;
-using Nodester.Graph.Core.Data.Links;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Data.Definitions;
+using Nodegem.Engine.Data.Fields;
+using Nodegem.Engine.Data.Links;
 
-namespace Nodester.Graph.Core.Data.Nodes
+namespace Nodegem.Engine.Data.Nodes
 {
-    public interface INode
+    public interface INode : IAsyncDisposable
     {
         Guid Id { get; }
 
@@ -25,6 +25,8 @@ namespace Nodester.Graph.Core.Data.Nodes
         INode SetId(Guid id);
 
         INode PopulateWithData(IEnumerable<FieldData> fields);
+
+        INode PopulateIndefinites(IEnumerable<KeyValuePair<string, string>> indefiniteKeyValuePairs);
 
     }
 }

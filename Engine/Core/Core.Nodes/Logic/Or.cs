@@ -1,10 +1,11 @@
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Attributes;
-using Nodester.Graph.Core.Fields.Graph;
+using System.Threading.Tasks;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
 
-namespace Nodester.Graph.Core.Nodes.Logic
+namespace Nodegem.Engine.Core.Nodes.Logic
 {
-    [DefinedNode]
+    [DefinedNode("FF36D925-EA48-4B58-A5DB-8D098C035292")]
     [NodeNamespace("Core.Logic")]
     public class Or : Node
     {
@@ -20,9 +21,9 @@ namespace Nodester.Graph.Core.Nodes.Logic
             Result = AddValueOutput(nameof(Result), PerformOrOp);
         }
 
-        private bool PerformOrOp(IFlow flow)
+        private async Task<bool> PerformOrOp(IFlow flow)
         {
-            return flow.GetValue<bool>(A) || flow.GetValue<bool>(B);
+            return await flow.GetValueAsync<bool>(A) || await flow.GetValueAsync<bool>(B);
         }
     }
 }

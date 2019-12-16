@@ -1,11 +1,12 @@
-using Nodester.Graph.Core.Data.Fields;
+using System.Threading.Tasks;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Data
+namespace Nodegem.Engine.Data
 {
     public interface IMacroFlow
     {
-        void Run(IMacroFlowInputField start);
-        IFlowOutputField Execute(IMacroFlowInputField start);
-        T GetValue<T>(IMacroValueOutputField output);
+        Task RunAsync(IMacroFlowInputField start);
+        Task<IFlowOutputField> ExecuteAsync(IMacroFlowInputField start);
+        Task<T> GetValueAsync<T>(IMacroValueOutputField output);
     }
 }

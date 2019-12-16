@@ -1,7 +1,6 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Nodester.Data.Dto.UserDtos
+namespace Nodegem.Data.Dto.UserDtos
 {
     public class RegisterDto
     {
@@ -9,8 +8,10 @@ namespace Nodester.Data.Dto.UserDtos
 
         [Required] [EmailAddress] public string Email { get; set; }
 
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string FirstName { get; set; } = "";
+        public string LastName { get; set; } = "";
+        
+        public string AvatarUrl { get; set; }
 
         [Required] public string Password { get; set; }
     }

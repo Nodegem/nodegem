@@ -1,12 +1,13 @@
 using System;
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Attributes;
-using Nodester.Graph.Core.Data.Fields;
-using Nodester.Graph.Core.Fields.Graph;
+using System.Threading.Tasks;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Control
+namespace Nodegem.Engine.Core.Nodes.Control
 {
-    [DefinedNode("Try / Catch")]
+    [DefinedNode("CCF5971F-C627-4522-9BAB-2D83039B49D7", Title = "Try / Catch")]
     [NodeNamespace("Core.Control")]
     public class TryCatch : Node
     {
@@ -25,16 +26,16 @@ namespace Nodester.Graph.Core.Nodes.Control
             ExceptionMessage = AddValueOutput<string>(nameof(ExceptionMessage));
         }
 
-        private IFlowOutputField Execute(IFlow flow)
+        private async Task<IFlowOutputField> Execute(IFlow flow)
         {
             try
             {
-                flow.Run(Try);
+                await flow.RunAsync(Try);
             }
             catch (Exception ex)
             {
                 ExceptionMessage.SetValue(ex.Message);
-                flow.Run(Catch);
+                await flow.RunAsync(Catch);
             }
 
             return null;

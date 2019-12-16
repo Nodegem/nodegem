@@ -1,10 +1,11 @@
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Attributes;
-using Nodester.Graph.Core.Fields.Graph;
+using System.Threading.Tasks;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
 
-namespace Nodester.Graph.Core.Nodes.Logic
+namespace Nodegem.Engine.Core.Nodes.Logic
 {
-    [DefinedNode]
+    [DefinedNode("25119992-7433-4E31-A39D-A6B57ABDFA37")]
     [NodeNamespace("Core.Logic")]
     public class And : Node
     {
@@ -17,12 +18,12 @@ namespace Nodester.Graph.Core.Nodes.Logic
         {
             A = AddValueInput<bool>(nameof(A));
             B = AddValueInput<bool>(nameof(B));
-            Result = AddValueOutput(nameof(Result), PerformAndOp);
+            Result = AddValueOutput<bool>(nameof(Result), PerformAndOp);
         }
 
-        private bool PerformAndOp(IFlow flow)
+        private async Task<bool> PerformAndOp(IFlow flow)
         {
-            return flow.GetValue<bool>(A) && flow.GetValue<bool>(B);
+            return await flow.GetValueAsync<bool>(A) && await flow.GetValueAsync<bool>(B);
         }
     }
 }

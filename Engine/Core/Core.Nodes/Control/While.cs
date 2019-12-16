@@ -1,15 +1,17 @@
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Attributes;
-using Nodester.Graph.Core.Data.Fields;
-using Nodester.Graph.Core.Fields.Graph;
+using System.Threading.Tasks;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Control
+namespace Nodegem.Engine.Core.Nodes.Control
 {
-    [DefinedNode]
+    [DefinedNode("B37DDCBE-1E4D-4CAC-BDBE-6565CB4F43DE")]
     [NodeNamespace("Core.Control")]
     public class While : LoopNode
     {
-        [FieldAttributes(Type = ValueType.Boolean)]
+        [FieldAttributes(ValueType.Boolean)]
         public ValueInput Condition { get; private set; }
 
         protected override void Define()
@@ -18,18 +20,18 @@ namespace Nodester.Graph.Core.Nodes.Control
             base.Define();
         }
 
-        private bool CanMoveNext(IFlow flow)
+        private async Task<bool> CanMoveNext(IFlow flow)
         {
-            return flow.GetValue<bool>(Condition);
+            return await flow.GetValueAsync<bool>(Condition);
         }
 
-        protected override IFlowOutputField OnLoop(IFlow flow)
+        protected override async Task<IFlowOutputField> OnLoop(IFlow flow)
         {
             var loopId = flow.EnterLoop();
 
-            while (flow.HasLoopExited(loopId) && CanMoveNext(flow))
+            while (flow.HasLoopExited(loopId) && await CanMoveNext(flow))
             {
-                flow.Run(Block);
+                await flow.RunAsync(Block);
             }
 
             flow.ExitLoop(loopId);

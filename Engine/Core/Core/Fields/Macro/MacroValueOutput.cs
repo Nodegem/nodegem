@@ -1,9 +1,9 @@
 using System;
-using Nodester.Graph.Core.Data.Fields;
-using Nodester.Graph.Core.Data.Links;
-using Nodester.Graph.Core.Links.Macro;
+using Nodegem.Engine.Core.Links.Macro;
+using Nodegem.Engine.Data.Fields;
+using Nodegem.Engine.Data.Links;
 
-namespace Nodester.Graph.Core.Fields.Macro
+namespace Nodegem.Engine.Core.Fields.Macro
 {
     public class MacroValueOutput : ValueField, IMacroValueOutputField
     {

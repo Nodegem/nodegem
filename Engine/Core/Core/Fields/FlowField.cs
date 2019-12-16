@@ -1,6 +1,6 @@
-using Nodester.Graph.Core.Data.Fields;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Fields
+namespace Nodegem.Engine.Core.Fields
 {
     public class FlowField : BaseField, IFlowField
     {

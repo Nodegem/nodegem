@@ -1,4 +1,6 @@
-namespace Nodester.Graph.Core.Data.Definitions
+using Nodegem.Common.Data;
+
+namespace Nodegem.Engine.Data.Definitions
 {
     public class ValueFieldDefinition : FieldDefinition
     {

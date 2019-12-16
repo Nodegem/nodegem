@@ -1,16 +1,17 @@
 using System;
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Fields;
-using Nodester.Graph.Core.Fields.Graph;
+using System.Threading.Tasks;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Fields.Macro
+namespace Nodegem.Engine.Core.Fields.Macro
 {
     public class MacroFlowOutput : FlowInput, IMacroFlowOutputField
     {
 
         private Func<IFlowGraph> _getGraph; 
         
-        public MacroFlowOutput(string key) : base(key, flow => null)
+        public MacroFlowOutput(string key) : base(key, flow => Task.FromResult(default(IFlowOutputField)))
         {
         }
 
@@ -20,9 +21,12 @@ namespace Nodester.Graph.Core.Fields.Macro
             Action = ContinueAction;
         }
 
-        private IFlowOutputField ContinueAction(IFlow flow)
+        private async Task<IFlowOutputField> ContinueAction(IFlow flow)
         {
-            return _getGraph?.Invoke().GetConnection(Key)?.Destination?.Action(flow);
+            var connection = _getGraph?.Invoke().GetConnection(Key)?.Destination;
+            if (connection == null) return null;
+            
+            return await connection.Action(flow);
         }
     }
 }

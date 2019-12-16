@@ -1,14 +1,13 @@
-using System;
 using System.Linq;
-using Nodester.Data.Contexts;
-using Nodester.Data.Models;
-using Nodester.Services.Data.Repositories;
+using Nodegem.Data.Contexts;
+using Nodegem.Data.Models;
+using Nodegem.Services.Data.Repositories;
 
-namespace Nodester.Services.Repositories
+namespace Nodegem.Services.Repositories
 {
     public class TokenRepository : Repository<AccessToken>, ITokenRepository
     {
-        public TokenRepository(NodesterDBContext context) : base(context)
+        public TokenRepository(NodegemContext context) : base(context)
         {
         }
 

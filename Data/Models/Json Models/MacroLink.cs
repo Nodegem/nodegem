@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Nodester.Data.Models.Json_Models
+namespace Nodegem.Data.Models.Json_Models
 {
     public class MacroLink
     {

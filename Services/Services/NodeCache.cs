@@ -2,41 +2,53 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Nodester.Common.Extensions;
-using Nodester.Graph.Core.Data.Attributes;
-using Nodester.Graph.Core.Data.Definitions;
-using Nodester.Graph.Core.Data.Nodes;
+using Nodegem.Common.Extensions;
+using Nodegem.Engine.Core.Nodes.Graph;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Definitions;
+using Nodegem.Engine.Data.Nodes;
 
-namespace Nodester.Services
+namespace Nodegem.Services
 {
     public static class NodeCache
     {
-        private static List<NodeDefinition> _nodeDefinitions;
+        private static List<NodeDefinition> _allNodeDefinitions;
         private static Dictionary<Type, Type[]> _nodeTypeMapper;
         private static Dictionary<string, Type> _nodeCategoryTypeMapper;
 
         public static IReadOnlyDictionary<string, Type> NodeCategoryTypeMapper => _nodeCategoryTypeMapper;
-        public static IReadOnlyList<NodeDefinition> NodeDefinitions => _nodeDefinitions;
+        public static IReadOnlyList<NodeDefinition> AllNodeDefinitions => _allNodeDefinitions;
 
-        public static void CacheNodeData(IServiceProvider provider, string projectName)
+        public static IReadOnlyList<NodeDefinition> NonListenerNodeDefinitions =>
+            _allNodeDefinitions.Where(x => !x.IsListenerOnly).ToList();
+
+        public static void CacheNodeData(IServiceProvider provider)
         {
-            var allNodeTypes = RetrieveAllNodeTypes(projectName).ToList();
+            var allNodeTypes = RetrieveAllNodeTypes().ToList();
             _nodeTypeMapper = allNodeTypes.ToDictionary(k => k, GetNodeTypeMap);
             _nodeCategoryTypeMapper = _nodeTypeMapper
                 .ToDictionary(k => CreateKey(k.Key), v => v.Key);
-            _nodeDefinitions = allNodeTypes.Select(x => GetDefinitionFromNode(x, provider)).ToList();
+            _allNodeDefinitions = allNodeTypes.Select(x => GetDefinitionFromNode(x, provider)).ToList();
+
+            //Check for unique node ids
+            try
+            {
+                var _ = _allNodeDefinitions.ToDictionary(k => k.Id, v => v);
+            }
+            catch (ArgumentException ex)
+            {
+                throw new Exception($"Multiple nodes with same id's detected. Message: {ex.Message}");
+            }
         }
 
         private static string CreateKey(Type type)
         {
-            var @namespace = type.GetAttributeValue((NodeNamespaceAttribute nc) => nc.Namespace);
-            var name = type.Name;
-            return $"{@namespace}.{name}";
+            return type.GetAttributeValue((DefinedNodeAttribute nc) => nc.Id);
         }
 
-        private static IEnumerable<Type> RetrieveAllNodeTypes(string projectName)
+        private static IEnumerable<Type> RetrieveAllNodeTypes()
         {
-            var assemblies = GetAssemblies(projectName);
+            var assemblies = GetAssemblies();
             var assemblyTypes = assemblies.SelectMany(x => x.GetTypes()).ToList();
             assemblyTypes.RemoveAll(FilterUnwantedTypes);
             return assemblyTypes;
@@ -58,6 +70,11 @@ namespace Nodester.Services
                     .Select(serviceProvider.GetService).ToArray());
         }
 
+        public static bool IsConstant(string definitionId)
+        {
+            return definitionId.StartsWith(GetConstant.ConstantDefinitionId);
+        }
+
         private static NodeDefinition GetDefinitionFromNode(Type nodeType, IServiceProvider provider)
         {
             return BuildNodeFromTypeMap(nodeType, provider).GetDefinition();
@@ -77,10 +94,9 @@ namespace Nodester.Services
                 : new Type[0];
         }
         
-        private static IEnumerable<Assembly> GetAssemblies(string projectName)
+        private static IEnumerable<Assembly> GetAssemblies()
         {
-            var test = AppDomain.CurrentDomain.GetAssemblies();
-            return AppDomain.CurrentDomain.GetAssemblies().Where(x => x.FullName.StartsWith(projectName));
+            return AppDomain.CurrentDomain.GetAssemblies();
         }
     }
 }

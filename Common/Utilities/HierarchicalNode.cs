@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Nodester.Common.Utilities
+namespace Nodegem.Common.Utilities
 {
     public abstract class HierarchicalNode<TItem, THierarchicalNode>
         where THierarchicalNode : HierarchicalNode<TItem, THierarchicalNode>, new()

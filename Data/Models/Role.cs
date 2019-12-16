@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
 
-namespace Nodester.Data.Models
+namespace Nodegem.Data.Models
 {
     public class Role : IdentityRole<Guid>
     {

@@ -1,17 +1,18 @@
-using System;
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Attributes;
-using Nodester.Graph.Core.Fields.Graph;
+using System.Threading.Tasks;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Graph
+namespace Nodegem.Engine.Core.Nodes.Graph
 {
-    [DefinedNode("Set Variable")]
+    [DefinedNode("3DBF95B1-D792-4A11-8AC4-8A0105AFD03F", Title = "Set Variable")]
     [NodeNamespace("Core.Graph")]
     public class SetVariable : Node
     {
-        public FlowInput In { get; private set; }
-        public FlowOutput Out { get; private set; }
-        public ValueInput Variable { get; private set; }
+        public IFlowInputField In { get; private set; }
+        public IFlowOutputField Out { get; private set; }
+        public IValueInputField Variable { get; private set; }
 
         [FieldAttributes("New Value")] public ValueInput NewValue { get; private set; }
 
@@ -24,18 +25,18 @@ namespace Nodester.Graph.Core.Nodes.Graph
 
             Variable = AddValueInput<string>(nameof(Variable));
             NewValue = AddValueInput<object>(nameof(NewValue));
-            Value = AddValueOutput(nameof(Value), GetValue);
+            Value = AddValueOutput<object>(nameof(Value), GetValue);
         }
 
-        private FlowOutput SetValue(IFlow flow)
+        private async Task<IFlowOutputField> SetValue(IFlow flow)
         {
-            Graph.SetVariable(flow.GetValue<string>(Variable), flow.GetValue<object>(NewValue));
+            Graph.SetVariable(await flow.GetValueAsync<string>(Variable), flow.GetValueAsync<object>(NewValue));
             return Out;
         }
 
-        private object GetValue(IFlow flow)
+        private async Task<object> GetValue(IFlow flow)
         {
-            return Graph.GetVariable<object>(flow.GetValue<string>(Variable));
+            return Graph.GetVariable<object>(await flow.GetValueAsync<string>(Variable));
         }
     }
 }

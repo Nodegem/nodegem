@@ -1,16 +1,29 @@
 using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
+using Nodegem.Common.Data;
 
-namespace Nodester.Common.Extensions
+namespace Nodegem.Common.Extensions
 {
     public static class ClaimExtensions
     {
+
+        public const string ConstantClaimId = "constantData";
+        public const string AvatarClaimId = "avatarUrl";
+        public const string ProvidersClaimId = "providers";
+        
         public static Guid GetUserId(this ClaimsPrincipal principal)
         {
-            var claim = principal.GetClaim(JwtRegisteredClaimNames.NameId);
+            return principal.Claims.GetUserId();
+        }
+        
+        public static Guid GetUserId(this IEnumerable<Claim> claims)
+        {
+            var claim = claims.GetClaim(JwtRegisteredClaimNames.NameId);
             if (claim == null)
             {
                 throw new SecurityTokenException("Invalid token");
@@ -18,20 +31,56 @@ namespace Nodester.Common.Extensions
 
             return Guid.Parse(claim);
         }
+
+        public static IEnumerable<Constant> GetConstants(this ClaimsPrincipal principal)
+        {
+            return principal.Claims.GetConstants();
+        }
+        
+        public static IEnumerable<Constant> GetConstants(this IEnumerable<Claim> claims)
+        {
+            var constants = claims.GetClaim(ConstantClaimId);
+            return JsonConvert.DeserializeObject<IEnumerable<Constant>>(constants);
+        }
         
         public static string GetEmail(this ClaimsPrincipal principal)
         {
-            return principal.GetClaim(JwtRegisteredClaimNames.Sub);
+            return principal.Claims.GetEmail();
+        }
+        
+        public static string GetEmail(this IEnumerable<Claim> claims)
+        {
+            return claims.GetClaim(JwtRegisteredClaimNames.Sub);
         }
 
         public static string GetUsername(this ClaimsPrincipal principal)
         {
-            return principal.GetClaim(JwtRegisteredClaimNames.UniqueName);
+            return principal.Claims.GetUsername();
+        }
+        
+        public static string GetAvatarUrl(this ClaimsPrincipal principal)
+        {
+            return principal.Claims.GetUsername();
+        }
+        
+        public static string GetAvatarUrl(this IEnumerable<Claim> claims)
+        {
+            return claims.GetClaim(AvatarClaimId);
+        }
+        
+        public static string GetUsername(this IEnumerable<Claim> claims)
+        {
+            return claims.GetClaim(JwtRegisteredClaimNames.UniqueName);
         }
         
         public static string GetClaim(this ClaimsPrincipal user, string claimName)
         {
-            return user.Claims.FirstOrDefault(x => x.Type == claimName)?.Value;
+            return user.Claims.GetClaim(claimName);
+        }
+        
+        public static string GetClaim(this IEnumerable<Claim> claims, string claimName)
+        {
+            return claims.FirstOrDefault(x => x.Type == claimName)?.Value;
         }
     }
 }

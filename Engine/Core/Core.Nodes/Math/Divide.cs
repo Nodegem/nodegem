@@ -1,17 +1,22 @@
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Attributes;
-using Nodester.Graph.Core.Fields.Graph;
+using System.Threading.Tasks;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
 
-namespace Nodester.Graph.Core.Nodes.Math
+namespace Nodegem.Engine.Core.Nodes.Math
 {
-    [DefinedNode]
+    [DefinedNode("B882CAC4-0831-4DF2-BFB4-A33352317F40")]
     [NodeNamespace("Core.Math")]
     public class Divide : Node
     {
+        [FieldAttributes(ValueType.Number)]
         public ValueInput A { get; private set; }
+        
+        [FieldAttributes(ValueType.Number)]
         public ValueInput B { get; private set; }
 
-        [FieldAttributes("A / B")] 
+        [FieldAttributes("A / B", ValueType.Number)] 
         public ValueOutput Dividend { get; private set; }
 
         protected override void Define()
@@ -21,9 +26,9 @@ namespace Nodester.Graph.Core.Nodes.Math
             Dividend = AddValueOutput(nameof(Dividend), GetDividend);
         }
 
-        private double GetDividend(IFlow flow)
+        private async Task<double> GetDividend(IFlow flow)
         {
-            return flow.GetValue<double>(A) / flow.GetValue<double>(B);
+            return await flow.GetValueAsync<double>(A) / await flow.GetValueAsync<double>(B);
         }
     }
 }

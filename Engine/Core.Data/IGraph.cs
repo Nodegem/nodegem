@@ -1,15 +1,19 @@
 using System;
-using Nodester.Common.Data;
-using Nodester.Graph.Core.Data.Nodes;
+using Nodegem.Common;
+using Nodegem.Common.Data;
+using Nodegem.Engine.Data.Nodes;
 
-namespace Nodester.Graph.Core.Data
+namespace Nodegem.Engine.Data
 {
     public interface IGraph
     {
+        Guid Id { get; }
+        string Name { get; }
 
         User User { get; }
+        BridgeInfo Bridge { get; }
         
-        bool DebugMode { get; set; }
+        bool IsRunningLocally { get; set; }
         
         INode GetNode(Guid nodeId);
 

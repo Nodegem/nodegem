@@ -1,26 +1,27 @@
 using System;
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Fields;
+using System.Threading.Tasks;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Fields.Graph
+namespace Nodegem.Engine.Core.Fields.Graph
 {
     public class ValueOutput : ValueField, IValueOutputField
     {
-        private Func<IFlow, object> ValueFunc { get; }
+        private Func<IFlow, Task<object>> ValueFunc { get; }
 
-        public ValueOutput(string key, Func<IFlow, object> valueFunc, Type returnType) : base(key, returnType)
+        public ValueOutput(string key, Func<IFlow, Task<object>> valueFunc, Type returnType) : base(key, returnType)
         {
             ValueFunc = valueFunc;
         }
 
         public ValueOutput(string key, Type returnType) : this(key, null, returnType)
         {
-            ValueFunc = f => GetValue();
+            ValueFunc = f => Task.FromResult(GetValue());
         }
 
-        public object GetValue(IFlow flow)
+        public async Task<object> GetValueAsync(IFlow flow)
         {
-            return ValueFunc(flow);
+            return await ValueFunc(flow);
         }
     }
 }

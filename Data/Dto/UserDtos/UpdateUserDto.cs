@@ -1,4 +1,4 @@
-namespace Nodester.Data.Dto.UserDtos
+namespace Nodegem.Data.Dto.UserDtos
 {
     public class UpdateUserDto
     {

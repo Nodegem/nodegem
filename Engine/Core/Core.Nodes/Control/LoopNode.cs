@@ -1,8 +1,11 @@
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Fields;
+using System.Threading.Tasks;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Nodes.Control
+namespace Nodegem.Engine.Core.Nodes.Control
 {
+    [NodeNamespace("Core.Control")]
     public abstract class LoopNode : Node
     {
         public IFlowInputField In { get; private set; }
@@ -16,6 +19,6 @@ namespace Nodester.Graph.Core.Nodes.Control
             Block = AddFlowOutput(nameof(Block));
         }
 
-        protected abstract IFlowOutputField OnLoop(IFlow flow);
+        protected abstract Task<IFlowOutputField> OnLoop(IFlow flow);
     }
 }

@@ -1,6 +1,6 @@
-using Nodester.Graph.Core.Data.Fields;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Data.Links
+namespace Nodegem.Engine.Data.Links
 {
     public interface IValueLink : ILink<IValueOutputField, IValueInputField>
     {

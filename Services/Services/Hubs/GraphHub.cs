@@ -1,97 +1,204 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Mapster;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
-using Nodester.Common.Data;
-using Nodester.Common.Extensions;
-using Nodester.Data.Dto.GraphDtos;
-using Nodester.Data.Dto.MacroDtos;
-using Nodester.Graph.Core.Data.Exceptions;
-using Nodester.Services.Data;
-using Nodester.Services.Data.Hubs;
+using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Logging;
+using Nodegem.Common;
+using Nodegem.Common.Data;
+using Nodegem.Common.Dto;
+using Nodegem.Common.Extensions;
+using Nodegem.Services.Extensions;
+using Task = System.Threading.Tasks.Task;
 
-namespace Nodester.Hubs
+namespace Nodegem.Services.Hubs
 {
     [Authorize]
     public class GraphHub : Hub
     {
-        private readonly IGraphManagerService _graphManagerService;
-        private readonly IMacroManagerService _macroManagerService;
-        private readonly ITerminalHubService _terminal;
-        private readonly IUserService _userService;
+        public const int ExpirationTimeInMinutes = 60;
+        public static TimeSpan DefaultExpiration;
 
-        public GraphHub(IGraphManagerService graphManagerService, IMacroManagerService macroManagerService, ITerminalHubService terminal, IUserService userService)
+        private readonly IDistributedCache _cache;
+        private readonly ILogger<GraphHub> _logger;
+
+        public GraphHub(ILogger<GraphHub> logger, IDistributedCache cache)
         {
-            _macroManagerService = macroManagerService;
-            _graphManagerService = graphManagerService;
-            _terminal = terminal;
-            _userService = userService;
+            _logger = logger;
+            _cache = cache;
+            DefaultExpiration = TimeSpan.FromMinutes(ExpirationTimeInMinutes);
         }
 
-        public async Task RunGraph(RunGraphDto data)
+        public override Task OnConnectedAsync()
+        {
+            Groups.AddToGroupAsync(Context.ConnectionId, Context.User.GetUserId().ToString());
+            return base.OnConnectedAsync();
+        }
+
+        public override Task OnDisconnectedAsync(Exception exception)
+        {
+            Groups.RemoveFromGroupAsync(Context.ConnectionId, Context.User.GetUserId().ToString());
+            return base.OnDisconnectedAsync(exception);
+        }
+
+        public async Task ClientConnectAsync()
         {
             var userId = Context.User.GetUserId();
-            User user = null;
-            
-            try
+            if (await _cache.ContainsKeyAsync(userId))
             {
-                var userConstants = await _userService.GetConstantsAsync(userId); 
-                user = new User
+                var clientData = await _cache.GetAsync<ClientData>(userId);
+                clientData.WebClientConnectionIds.AddOrUpdate(Context.ConnectionId);
+                await UpdateClientDataAsync(clientData);
+            }
+            else
+            {
+                await UpdateClientDataAsync(new ClientData
                 {
-                    ConnectionId = Context.ConnectionId,
-                    Email = Context.User.GetEmail(),
-                    Id = userId.ToString(),
-                    Username = Context.User.GetUsername(),
-                    Constants = userConstants
-                        .ToDictionary(k => k.Key, c => c.Adapt<Constant>())
-                };
-                
-                await _terminal.SendDebugLogAsync(user, "Building Graph...", data.IsDebugModeEnabled);
-                var graph = await _graphManagerService.BuildGraph(user, data);
-                await _terminal.SendDebugLogAsync(user, "Running Graph...", data.IsDebugModeEnabled);
-                graph.Run();
-            }
-            catch (GraphException ex)
-            {
-                await _terminal.SendErrorLogAsync(user, ex.Message);
-            }
-            catch (Exception ex)
-            {
-                await _terminal.SendErrorLogAsync(user, "Error occurred while running graph.");
-                Console.WriteLine(ex.Message);
+                    Bridges = new List<BridgeInfo>(),
+                    WebClientConnectionIds = new List<string> {Context.ConnectionId}
+                });
             }
         }
-        
-        public async Task RunMacro(RunMacroDto macroData, string flowInputFieldKey)
+
+        public async Task ClientDisconnectAsync()
         {
-            var user = new User
+            var userId = Context.User.GetUserId();
+            if (await _cache.ContainsKeyAsync(userId))
             {
-                ConnectionId = Context.ConnectionId,
-                Email = Context.User.GetEmail(),
-                Id = Context.User.GetUserId().ToString(),
-                Username = Context.User.GetUsername()
-            };
-            
-            try
-            {
-                await _terminal.SendDebugLogAsync(user, "Building macro...", macroData.IsDebugModeEnabled);
-                var macro = await _macroManagerService.BuildMacroAsync(user, macroData);
-                await _terminal.SendDebugLogAsync(user, "Running macro...", macroData.IsDebugModeEnabled);
-                macro.Run(flowInputFieldKey);
-            }
-            catch (GraphException ex)
-            {
-                await _terminal.SendErrorLogAsync(user, ex.Message);
-                Console.WriteLine(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                await _terminal.SendErrorLogAsync(user, $"Something went wrong: {ex.Message}");
-                Console.WriteLine(ex.Message);
+                var clientData = await _cache.GetAsync<ClientData>(userId);
+                clientData.WebClientConnectionIds.RemoveAll(x => x == Context.ConnectionId);
+
+                if (!clientData.WebClientConnectionIds.Any())
+                {
+                    await Clients.Clients(clientData.Bridges.Select(x => x.GraphHubConnectionId).ToList())
+                        .SendAsync("DisposeListenersAsync");
+                }
+
+                await UpdateClientDataAsync(clientData);
             }
         }
-        
+
+        public async Task EstablishBridgeAsync(BridgeInfo info)
+        {
+            var userId = Context.User.GetUserId();
+            info.GraphHubConnectionId = Context.ConnectionId;
+
+            if (await _cache.ContainsKeyAsync(userId))
+            {
+                var clientData = await _cache.GetAsync<ClientData>(userId);
+
+                // Just a ping
+                if (clientData.Bridges.Any(x =>
+                    x.DeviceIdentifier == info.DeviceIdentifier && x.GraphHubConnectionId == info.GraphHubConnectionId))
+                {
+                    return;
+                }
+
+                _logger.LogInformation($"Establishing bridge. Device: {info.DeviceName} ({info.OperatingSystem})");
+                clientData.Bridges.AddOrUpdate(info, x => x.DeviceIdentifier == info.DeviceIdentifier);
+                await UpdateClientDataAsync(clientData);
+                await Clients.Clients(clientData.WebClientConnectionIds).SendAsync("BridgeEstablishedAsync", info);
+            }
+            else
+            {
+                await UpdateClientDataAsync(new ClientData
+                {
+                    Bridges = new List<BridgeInfo> {info},
+                    WebClientConnectionIds = new List<string>()
+                });
+            }
+        }
+
+        public async Task RemoveBridgeAsync()
+        {
+            var userId = Context.User.GetUserId();
+            var connectionId = Context.ConnectionId;
+
+            if (await _cache.ContainsKeyAsync(userId))
+            {
+                var clientData = await _cache.GetAsync<ClientData>(userId);
+                if (clientData.ContainsConnectionId(connectionId))
+                {
+                    clientData.Bridges.RemoveAll(x => x.GraphHubConnectionId == connectionId);
+                    await UpdateClientDataAsync(clientData);
+                    await Clients.Clients(clientData.WebClientConnectionIds).SendAsync("LostBridgeAsync", connectionId);
+                }
+            }
+        }
+
+        public async Task RequestBridgesAsync()
+        {
+            var userId = Context.User.GetUserId();
+            if (await _cache.ContainsKeyAsync(userId))
+            {
+                var clientData = await _cache.GetAsync<ClientData>(userId);
+                await Clients.Client(Context.ConnectionId).SendAsync("RequestedBridgesAsync",
+                    clientData?.Bridges);
+            }
+            else
+            {
+                await Clients.Client(Context.ConnectionId)
+                    .SendAsync("RequestedBridgesAsync", Enumerable.Empty<BridgeInfo>());
+            }
+        }
+
+        public async Task RunGraphAsync(GraphDto graph, string connectionId)
+        {
+            var userId = Context.User.GetUserId();
+            if (await _cache.ContainsKeyAsync(userId))
+            {
+                var clientData = await _cache.GetAsync<ClientData>(userId);
+                if (clientData.ContainsConnectionId(connectionId))
+                {
+                    _logger.LogInformation(
+                        $"User (Id: {graph.UserId}) executed graph (Id: {graph.Id}, Name: {graph.Name})");
+                    await Clients.Client(connectionId).SendAsync("RemoteExecuteGraphAsync", graph);
+                }
+            }
+        }
+
+        public async Task RunMacroAsync(MacroDto macro, string connectionId, string flowInputFieldKey)
+        {
+            var userId = Context.User.GetUserId();
+            if (await _cache.ContainsKeyAsync(userId))
+            {
+                var clientData = await _cache.GetAsync<ClientData>(userId);
+                if (clientData.ContainsConnectionId(connectionId))
+                {
+                    _logger.LogInformation(
+                        $"User (Id: {macro.UserId}) executed macro (Id: {macro.Id}, Name: {macro.Name}) w/ input key {flowInputFieldKey}");
+                    await Clients.Client(connectionId)
+                        .SendAsync("RemoteExecuteMacroAsync", macro, flowInputFieldKey);
+                }
+            }
+        }
+
+        public async Task OnGraphErrorAsync(ExecutionErrorData errorData)
+        {
+            var userId = Context.User.GetUserId();
+            if (await _cache.ContainsKeyAsync(userId))
+            {
+                var clientData = await _cache.GetAsync<ClientData>(userId);
+                await Clients.Clients(clientData.WebClientConnectionIds).SendAsync("GraphErrorAsync", errorData);
+            }
+        }
+
+        public async Task OnGraphCompleteAsync(ExecutionErrorData? errorData = null)
+        {
+            var userId = Context.User.GetUserId();
+            if (await _cache.ContainsKeyAsync(userId))
+            {
+                var clientData = await _cache.GetAsync<ClientData>(userId);
+                await Clients.Clients(clientData.WebClientConnectionIds).SendAsync("GraphCompletedAsync", errorData);
+            }
+        }
+
+        private async Task UpdateClientDataAsync(ClientData clientData)
+        {
+            await _cache.SetAsync(Context.User.GetUserId(), clientData, DefaultExpiration);
+        }
+
+
     }
 }

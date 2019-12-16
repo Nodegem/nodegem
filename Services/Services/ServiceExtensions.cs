@@ -1,64 +1,49 @@
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Nodester.Common.Data.Interfaces;
-using Nodester.Data.Dto;
-using Nodester.Data.Dto.GraphDtos;
-using Nodester.Data.Dto.MacroDtos;
-using Nodester.Data.Dto.UserDtos;
-using Nodester.Data.Models;
-using Nodester.Data.Models.Json_Models;
-using Nodester.Graph.Core;
-using Nodester.Graph.Core.Nodes;
-using Nodester.Services.Data;
-using Nodester.Services.Data.Hubs;
-using Nodester.Services.Data.Mappers;
-using Nodester.Services.Data.Repositories;
-using Nodester.Services.Hubs;
-using Nodester.Services.Mappers;
-using Nodester.Services.Repositories;
-using Nodester.ThirdParty.SendGrid.SendGrid.Nodes;
-using Nodester.ThirdParty.Twilio.Twilio.Nodes;
+using Nodegem.Data.Models;
+using Nodegem.Engine.Core;
+using Nodegem.Engine.Core.Nodes;
+using Nodegem.Engine.Integrations.Discord;
+using Nodegem.Engine.Integrations.Mailgun;
+using Nodegem.Engine.Integrations.Reddit;
+using Nodegem.Engine.Integrations.SendGrid;
+using Nodegem.Engine.Integrations.Twilio;
+using Nodegem.Services.Data;
+using Nodegem.Services.Data.Repositories;
+using Nodegem.Services.Repositories;
 
-namespace Nodester.Services
+namespace Nodegem.Services
 {
     public static class ServiceExtensions
     {
-        public static void AddServices(this IServiceCollection collection, IConfiguration configuration)
+        public static void AddServices(this IServiceCollection services)
         {
-            collection.AddTransient<IRepository<Nodester.Data.Models.Graph>, Repository<Nodester.Data.Models.Graph>>();
-            collection.AddTransient<IMacroRepository, MacroRepository>();
-            collection.AddTransient<IGraphRepository, GraphRepository>();
-            collection.AddTransient<ITokenRepository, TokenRepository>();
+            services.AddTransient<IRepository<Graph>, Repository<Graph>>();
+            services.AddTransient<IMacroRepository, MacroRepository>();
+            services.AddTransient<IGraphRepository, GraphRepository>();
+            services.AddTransient<ITokenRepository, TokenRepository>();
 
-            collection.AddTransient<IUserService, UserService>();
-            collection.AddTransient<ITokenService, TokenService>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<ITokenService, TokenService>();
 
-            collection.AddTransient<IMapper<ApplicationUser, RegisterDto>, Mapper<ApplicationUser, RegisterDto>>();
-            collection.AddTransient<IMapper<ApplicationUser, UserDto>, Mapper<ApplicationUser, UserDto>>();
-            collection.AddTransient<IMapper<AccessToken, TokenDto>, Mapper<AccessToken, TokenDto>>();
+            services.RegisterCommonServices();
+        }
 
-            collection
-                .AddTransient<IMapper<Nodester.Data.Models.Graph, CreateGraphDto>,
-                    Mapper<Nodester.Data.Models.Graph, CreateGraphDto>>();
-            collection
-                .AddTransient<IMapper<Nodester.Data.Models.Graph, GraphDto>,
-                    Mapper<Nodester.Data.Models.Graph, GraphDto>>();
+        public static void AddServicesForBridge(this IServiceCollection services)
+        {
+            services.RegisterCommonServices();
+        }
 
-            collection.AddTransient<IMapper<Macro, CreateMacroDto>, Mapper<Macro, CreateMacroDto>>();
-            collection.AddTransient<IMapper<Macro, MacroDto>, Mapper<Macro, MacroDto>>();
-            collection.AddTransient<IMapper<MacroDto, RunMacroDto>, Mapper<MacroDto, RunMacroDto>>();
-
-            collection.AddTransient<ILogService, LogService>();
-
-            collection.AddTransient<ITerminalHubService, TerminalHubService>();
-
-            collection.AddScoped<IGraphManagerService, GraphManagerService>();
-            collection.AddScoped<IMacroManagerService, MacroManagerService>();
-
-            collection.RegisterMySelf();
-            collection.ApplyNodeServices();
-            collection.ApplyTwilioServices();
-            collection.ApplySendGridServices();
+        private static void RegisterCommonServices(this IServiceCollection services)
+        {
+            services.AddHttpClient<INodeHttpClient, NodeHttpClient>();
+            services.AddHttpClient();
+            services.RegisterMySelf();
+            services.ApplyNodeServices();
+            services.ApplyTwilioServices();
+            services.ApplySendGridServices();
+            services.ApplyDiscordServices();
+            services.ApplyRedditService();
+            services.ApplyMailgunServices();
         }
     }
 }

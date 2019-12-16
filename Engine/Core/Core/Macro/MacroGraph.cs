@@ -1,13 +1,15 @@
 using System;
 using System.Collections.Generic;
-using Nodester.Common.Data;
-using Nodester.Common.Extensions;
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Fields;
-using Nodester.Graph.Core.Data.Nodes;
-using Nodester.Graph.Core.Fields.Macro;
+using System.Threading.Tasks;
+using Nodegem.Common;
+using Nodegem.Common.Data;
+using Nodegem.Common.Extensions;
+using Nodegem.Engine.Core.Fields.Macro;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Fields;
+using Nodegem.Engine.Data.Nodes;
 
-namespace Nodester.Graph.Core.Macro
+namespace Nodegem.Engine.Core.Macro
 {
     public class MacroGraph : BaseGraph, IMacroGraph
     {
@@ -18,14 +20,18 @@ namespace Nodester.Graph.Core.Macro
 
         private IDictionary<string, IField> FieldDictionary { get; }
 
-        private readonly MacroFlow _flow;
+        private readonly IMacroFlow _flow;
 
-        public MacroGraph(Dictionary<Guid, INode> nodes,
-            IEnumerable<MacroFlowInput> flowInputs, IEnumerable<MacroFlowOutput> flowOutputs,
-            IEnumerable<MacroValueInput> valueInputs, IEnumerable<MacroValueOutput> valueOutputs,
+        public MacroGraph(
+            Guid id,
+            BridgeInfo bridge,
+            string name,
+            Dictionary<Guid, INode> nodes,
+            IEnumerable<IMacroFlowInputField> flowInputs, IEnumerable<IMacroFlowOutputField> flowOutputs,
+            IEnumerable<IMacroValueInputField> valueInputs, IEnumerable<IMacroValueOutputField> valueOutputs,
             IDictionary<string, IField> fieldDictionary,
             User user)
-            : base(nodes, user)
+            : base(id, bridge, name, nodes, user)
         {
             FieldDictionary = fieldDictionary;
             FlowInputs = flowInputs;
@@ -55,29 +61,29 @@ namespace Nodester.Graph.Core.Macro
             return (IMacroValueOutputField) FieldDictionary[key];
         }
 
-        public void Run(string flowInputFieldKey)
+        public async Task RunAsync(string flowInputFieldKey)
         {
-            Run(GetInputByKey(flowInputFieldKey));
+            await RunAsync(GetInputByKey(flowInputFieldKey));
         }
 
-        public void Run(IMacroFlowInputField input)
+        public async Task RunAsync(IMacroFlowInputField input)
         {
-            _flow.Run(input);
+            await _flow.RunAsync(input);
         }
 
-        public T GetValue<T>(string key)
+        public Task<T> GetValueAsync<T>(string key)
         {
-            return GetValue<T>(GetOutputByKey(key));
+            return GetValueAsync<T>(GetOutputByKey(key));
         }
 
-        public T GetValue<T>(IMacroValueOutputField output)
+        public Task<T> GetValueAsync<T>(IMacroValueOutputField output)
         {
-            return _flow.GetValue<T>(output);
+            return _flow.GetValueAsync<T>(output);
         }
 
-        public IFlowOutputField Execute(IMacroFlowInputField input)
+        public async Task<IFlowOutputField> ExecuteAsync(IMacroFlowInputField input)
         {
-            return _flow.Execute(input);
+            return await _flow.ExecuteAsync(input);
         }
 
         public bool IsMacroFlowOutputField(string key)
@@ -97,8 +103,7 @@ namespace Nodester.Graph.Core.Macro
 
         public INode ToMacroNode()
         {
-            return new Essential.Macro(this);
+            return new Nodes.Essential.Macro(this);
         }
-        
     }
 }

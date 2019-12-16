@@ -2,292 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.gitlab-ci.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.Bridge/riderModule.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge.dir/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge.dir/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge.dir/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge.dir/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge.dir/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge.dir/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge.dir/riderModule.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/.idea/.idea.NodesterBridge/riderModule.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/AppConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/AppState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/Bridge.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/Clients/NodesterLoginService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/Extensions/HttpClientExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/HostedService/EngineService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/HubConnections/GraphHubConnection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/appsettings.Local.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Bridge/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Data/Bridge.Data.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Data/Dtos/TokenDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Data/IGraphHubConnection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bridge/Data/INodesterLoginService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Common/Data/Constant.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Common/Data/Interfaces/ILogService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Common/Data/User.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Common/Extensions/AttributeExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Common/Extensions/ClaimExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Common/Extensions/LinqExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Common/Nodester.Common.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Common/Utilities/HierarchicalNode.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Configurations/AccessTokenConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Configurations/GraphConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Configurations/MacroConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Configurations/UserConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Contexts/HangfireContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Contexts/NodesterDBContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/ComponentDtos/ConstantDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/ComponentDtos/LinkDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/ComponentDtos/NodeDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/GraphDtos/CreateGraphDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/GraphDtos/GraphDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/GraphDtos/RunGraphDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/CreateMacroDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/BaseFieldDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/FlowFieldDtos/FlowFieldDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/FlowFieldDtos/FlowInputDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/FlowFieldDtos/FlowOutputDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/ValueFieldDtos/ValueFieldDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/ValueFieldDtos/ValueInputDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/FieldDtos/ValueFieldDtos/ValueOutputDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/MacroDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/MacroLinkDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/MacroDtos/RunMacroDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/TokenDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/UserDtos/RegisterDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/UserDtos/TokenUserDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/UserDtos/UpdateUserDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Dto/UserDtos/UserDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Extensions/ConfigurationExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Extensions/DbSetExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/AccessToken.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/ActiveEntity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/ApplicationUser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/BaseEntity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/BaseGraph.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Graph.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/IActiveEntity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/IEntity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Fields/BaseField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Fields/FlowFields/FlowField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Fields/FlowFields/FlowInput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Fields/FlowFields/FlowOutput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Fields/ValueFields/ValueField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Fields/ValueFields/ValueInput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Fields/ValueFields/ValueOutput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Graph Constants/Constant.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Link.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/MacroLink.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Json Models/Node.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Macro.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Models/Role.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/NamespaceNodeDefinition.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Nodester.Data.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Data/Settings/TokenSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/DefinedNodeAttribute.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/FieldAttributesAttribute.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Attributes/NodeNamespaceAttribute.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/FieldDefinition.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/FlowInputDefinition.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/FlowOutputDefinition.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/NodeDefinition.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueFieldDefinition.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueInputDefinition.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueOutputDefinition.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Exceptions/GraphException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Exceptions/StartNotFoundException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/FieldData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IFlowField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IFlowInputField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IFlowOutputField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IMacroFlowInputField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IMacroFlowOutputField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IMacroValueInputField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IMacroValueOutputField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueInputField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueOutputField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/GraphType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/IFlow.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/IFlowGraph.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/IGraph.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/IMacroFlow.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/IMacroGraph.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Links/IFlowLink.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Links/ILink.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Links/IMacroFlowLink.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Links/IMacroValueLink.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Links/IValueLink.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Nodes/INode.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/Nodester.Engine.Data.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core.Data/ValueType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/Break.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/For.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/LoopNode.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/TryCatch.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/While.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Graph/GetConstant.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Graph/GetVariable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Graph/SetVariable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/Fetch.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/Post.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/BaseLog.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/Log.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogError.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logging/LogWarn.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/And.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/Equals.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThan.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThanOrEqualTo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/If.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThan.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThanOrEqualTo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/Or.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Add.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Divide.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Multiply.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Round.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Subtract.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core.Nodes/ServiceExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/BaseGraph.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/CachedValue.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Essential/Macro.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Essential/Start.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Extensions/DefinitionExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Extensions/LinqExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Extensions/PropertyInfoExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Extensions/StringExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/BaseField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/FlowField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/FlowInput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/FlowOutput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/ValueInput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/ValueOutput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Macro/MacroFlowInput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Macro/MacroFlowOutput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Macro/MacroValueInput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/Macro/MacroValueOutput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Fields/ValueField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Flow.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/FlowGraph.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Links/BaseLink.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Links/Graph/FlowLink.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Links/Graph/ValueLink.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Links/Macro/MacroFlowLink.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Links/Macro/MacroValueLink.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroFlow.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroGraph.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Node.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/RegisterAssembly.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Utils/ActivatorHelper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Utils/ConvertHelper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Core/Utils/EnumerableHelper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/Core/Nodester.Engine.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/.idea/.idea.NodesterTP.dir/riderModule.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Nodester.Engine.ThirdParty.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Data/ISendGridService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Data/Nodester.Graph.SendGrid.Data.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Nodes/Nodes/SendEmail.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Nodes/Nodester.Graph.SendGrid.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Nodes/SendGridService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/SendGrid/SendGrid.Nodes/ServiceExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Data/ITwilioService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Data/Nodester.Graph.Twilio.Data.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Nodes/Nodes/SendText.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Nodes/Nodester.Graph.Twilio.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Nodes/ServiceExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Engine/ThirdParty/Twilio/Twilio.Nodes/TwilioService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Data/IGraphManagerService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Data/IMacroManagerService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Data/ITerminalHubService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Data/ITokenService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Data/IUserService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Data/Mappers/IMapper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Data/Nodester.Services.Data.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Data/Repositories/IGraphRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Data/Repositories/IMacroRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Data/Repositories/IRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Data/Repositories/ITokenRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Exceptions/Login/InvalidLoginCredentialException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Exceptions/Login/NoUserFoundException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Exceptions/RegistrationException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Extensions/HelperExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/GraphManagerService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Hubs/TerminalHub.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/LogService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/MacroManagerService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Mappers/Mapper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/NodeCache.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Nodester.Services.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Repositories/MacroRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Repositories/Repository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/Repositories/TokenRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/TerminalHubService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/TokenService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Services/Services/UserService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/riderModule.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/AccountController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/GraphController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/MacroController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/NodesController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Extensions/HttpRequestExtension.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20181214041414_Initial.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20181214041414_Initial.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20181214043957_SeedUserData.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20181214043957_SeedUserData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20181214045222_UpdatingAdminUserSeedData.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20181214045222_UpdatingAdminUserSeedData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20181214180404_ExpiresUtcToRefreshTokens.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20181214180404_ExpiresUtcToRefreshTokens.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20181231180054_Hangfire.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20181231180054_Hangfire.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20190603221307_TokenNameChange.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20190603221307_TokenNameChange.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20190603221437_ActualTokenNameChange.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20190603221437_ActualTokenNameChange.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20190608190712_ChangingUpConstants.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20190608190712_ChangingUpConstants.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20190623213436_AddingDebugFlagToGraphs.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/20190623213436_AddingDebugFlagToGraphs.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Migrations/NodesterDBContextModelSnapshot.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Nodester.WebApi.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApi.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nlog.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -295,39 +10,300 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="PostgreSQL - postgres@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="PostgreSQL - postgres@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="PostgreSQL - postgres@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="NodesterDB: database" type="162271b6:PgImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="PostgreSQL - postgres@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="NodesterDB: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="PostgreSQL - postgres@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="NodesterDB: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="PostgreSQL - postgres@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="NodesterDB: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+    </expand>
+    <select />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/../Data/Contexts/NodesterDBContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Channel/OnChannelDestroyed.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/Nodes/User/GetUser.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/nlog.config" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/Nodes/DiscordNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/Nodes/Message/SendMessage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/Nodes/Connections/GetConnectionState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Database/DatabaseNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Mailgun/Nodes/SendEmail.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Database/MSSQL/Query.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Nodes/INode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueOutputField.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueField.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Fields/IField.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Exceptions/GraphRunException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueOutputDefinition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueInputDefinition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueOption.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/NodeDefinition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueFieldDefinition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/FlowInputDefinition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/FlowOutputDefinition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Attributes/NodeNamespaceAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/FieldDefinition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Attributes/FieldAttributesAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Attributes/FriendlyNameAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/StreamNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Attributes/DefinedNodeAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Node.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/RegisterAssembly.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/FlowGraph.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroGraph.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Data/FieldData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Data/ClientData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Fields/ValueField.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Data/ExecutionErrorData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Fields/BaseField.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/ValueOutput.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/ValueInput.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Common/Data/Constant.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Common/Data/User.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Extensions/UserExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Extensions/ConstantExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Extensions/PropertyInfoExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Extensions/GraphExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Extensions/DefinitionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/StringFormat.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/Concat.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/Map.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Data/ValueType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Divide.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Add.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Log/LogError.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Log/BaseLog.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Log/Log.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThan.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThanOrEqualTo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThanOrEqualTo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/If.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThan.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Repositories/TokenRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Repositories/MacroRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Repositories/Repository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Hubs/TerminalHub.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Extensions/DistributedCacheExtension.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literal/List.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Settings/TokenSettings.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Extensions/ConfigurationExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Dto/GraphDtos/CreateGraphDto.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Models/ApplicationUser.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Models/AccessToken.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Settings/AppSettings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Settings/MailConfigurationSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Services/NodeCache.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Dto/GraphDtos/RunGraphDto.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/NamespaceNodeDefinition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Lists/GetIndex.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Models/BaseGraph.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Models/Graph.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/NodeHttpClient.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/Post.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Models/ApplicationUser.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/Fetch.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Models/AccessToken.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/TokenService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/HttpNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/UserService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Models/Json Models/Node.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/JSON/JSONFetch.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Models/Json Models/RecurringOptions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Models/Json Models/Fields/ValueFields/ValueField.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Graph/GetConstant.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Macro.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Start.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Data/IUserService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/While.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/Sequence.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Data/ITokenService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/ResetPasswordWithTokenDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Data/ISendEmails.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/Delay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Extensions/ConfigurationExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/ForgotPasswordDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/ResetPasswordDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Data/Repositories/IMacroRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/UserDtos/UserDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/UserDtos/RegisterDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Data/Repositories/IGraphRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/UserDtos/TokenUserDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Extensions/StringExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/MacroDtos/CreateMacroDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Extensions/LinqExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/GraphDtos/CreateGraphDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Extensions/ObjectExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Extensions/AttributeExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/EmailDtos/ResetPasswordEmailDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Extensions/ClaimExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Dto/MacroDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/EmailDtos/ForgotPasswordEmailDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/EmailDtos/RegisterUserDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Dto/BaseFieldDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Contexts/NodegemContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Dto/GraphDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Dto/ValueFieldDtos/ValueInputDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/IMacroGraph.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Configurations/UserConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Dto/ValueFieldDtos/ValueOutputDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Contexts/KeysContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/GraphType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Configurations/GraphConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Dto/ValueFieldDtos/ValueFieldDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Configurations/MacroConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Dto/ComponentDtos/MacroLinkDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations.Data/Discord/IDiscordService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Dto/ComponentDtos/NodeDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/IGraph.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations.Data/Mailgun/IMailgunService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations.Data/Discord/Exceptions/DiscordException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Data/User.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Twilio/TwilioService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/NamespaceNodeDefinition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Twilio/Nodes/TwilioNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Twilio/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Twilio/Nodes/SendText.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/SendGrid/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/SendGrid/Nodes/SendEmail.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/BridgeInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Reddit/StreamNodes/StartBot.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EmailTemplates/ForgotPassword.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EmailTemplates/Registration.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controllers/MacroController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Reddit/StreamNodes/RedditStreamNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EmailTemplates/ResetPassword.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Controllers/AccountController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controllers/NodesController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Mailgun/MailgunService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controllers/GraphController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Mailgun/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controllers/OAuthController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/DiscordService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/DiscordStreamNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/StartBot.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/OnReactionRemoved.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/ReactionStreamNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/OnReactionAdded.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/OnReactionCleared.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/OnMessageUpdated.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/OnMessageDeleted.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Extensions/EmailServiceExtension.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/OnMessageReceived.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Services/EmailSenderService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/MessageStreamNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Extensions/HttpRequestExtension.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Connections/OnConnected.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Startup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Connections/OnDisconnected.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/WebApi.sln" />
-        <option value="$PROJECT_DIR$/../Engine/Core/Nodester.Engine.csproj" />
-        <option value="$PROJECT_DIR$/../Data/Nodester.Data.csproj" />
-        <option value="$PROJECT_DIR$/../Services/Data/Nodester.Services.Data.csproj" />
-        <option value="$PROJECT_DIR$/../Services/Services/Nodester.Services.csproj" />
-        <option value="$PROJECT_DIR$/Nodester.WebApi.csproj" />
+        <option value="$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" />
+        <option value="$PROJECT_DIR$/appsettings.Staging.json" />
+        <option value="$PROJECT_DIR$/../Data/Configurations/GraphConfiguration.cs" />
+        <option value="$PROJECT_DIR$/../Data/Configurations/MacroConfiguration.cs" />
+        <option value="$PROJECT_DIR$/../Common/Dto/MacroDto.cs" />
+        <option value="$PROJECT_DIR$/../Data/Models/BaseGraph.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Connections/OnConnected.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Connections/OnDisconnected.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/OnMessageDeleted.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/OnMessageReceived.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/OnMessageUpdated.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/OnReactionAdded.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/OnReactionCleared.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/OnReactionRemoved.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/ReactionStreamNode.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/StartBot.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/DiscordService.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Integrations.Data/Discord/IDiscordService.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/Nodes/Message/AddMessage.cs" />
+        <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/Nodes/Message/SendMessage.cs" />
+        <option value="$PROJECT_DIR$/../Data/Dto/UserDtos/RegisterDto.cs" />
+        <option value="$PROJECT_DIR$/../Services/Data/ITokenService.cs" />
+        <option value="$PROJECT_DIR$/../Common/Extensions/ClaimExtensions.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/TokenService.cs" />
+        <option value="$PROJECT_DIR$/../Common/Data/ClientData.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/Hubs/UserHub.cs" />
+        <option value="$PROJECT_DIR$/Startup.cs" />
+        <option value="$PROJECT_DIR$/../Common/BridgeInfo.cs" />
+        <option value="$PROJECT_DIR$/../Data/Dto/ResetPasswordDto.cs" />
+        <option value="$PROJECT_DIR$/../Data/Dto/ResetPasswordWithTokenDto.cs" />
+        <option value="$PROJECT_DIR$/../Data/Dto/EmailDtos/ForgotPasswordEmailDto.cs" />
+        <option value="$PROJECT_DIR$/../Common/Data/Interfaces/IConstant.cs" />
+        <option value="$PROJECT_DIR$/Controllers/OAuthController.cs" />
+        <option value="$PROJECT_DIR$/../Data/Models/Json Models/Graph Constants/Constant.cs" />
+        <option value="$PROJECT_DIR$/../Common/Dto/ComponentDtos/ConstantDto.cs" />
+        <option value="$PROJECT_DIR$/../Data/Dto/UserDtos/UserDto.cs" />
+        <option value="$PROJECT_DIR$/../Data/Models/ApplicationUser.cs" />
+        <option value="$PROJECT_DIR$/../Data/Models/Graph.cs" />
+        <option value="$PROJECT_DIR$/Controllers/NodesController.cs" />
+        <option value="$PROJECT_DIR$/../Services/Data/Repositories/IGraphRepository.cs" />
+        <option value="$PROJECT_DIR$/../Services/Data/IUserService.cs" />
+        <option value="$PROJECT_DIR$/../Common/Dto/GraphDto.cs" />
+        <option value="$PROJECT_DIR$/../Data/Dto/GraphDtos/CreateGraphDto.cs" />
         <option value="$PROJECT_DIR$/Controllers/AccountController.cs" />
-        <option value="$PROJECT_DIR$/Properties/launchSettings.json" />
+        <option value="$PROJECT_DIR$/../Common/Data/Constant.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/UserService.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/Extensions/UserExtensions.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/Extensions/GraphExtensions.cs" />
+        <option value="$PROJECT_DIR$/../Services/Services/Extensions/ConstantExtensions.cs" />
       </list>
+    </option>
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\rszem\Documents\Projects\nodester\WebApi\.idea\.idea.WebApi\.idea" />
+      </set>
     </option>
   </component>
   <component name="ProjectConfigurationFiles">
@@ -341,40 +317,28 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2833" />
-    <option name="y" value="-16" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
-  </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator currentView="SolutionExplorer" proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="AssemblyExplorer" />
-      <pane id="FileSystemExplorer" />
-      <pane id="SolutionExplorer">
-        <subPane>
-          <expand>
-            <path>
-              <item name="" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="WebApi" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-        <option name="show-all-files" value="false" />
-      </pane>
-    </panes>
+  <component name="ProjectId" id="1QLNbUgGsyyHeSgioeA46lV63vD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Engine/Integrations.Data/Nodegem.Engine.Integrations.Data.csproj" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.externalTools" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -389,9 +353,27 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Nodester.WebApi: Unit" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
-      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Nodester.WebApi.csproj" />
-      <option name="LAUNCH_PROFILE_TFM" value=".NETCoreApp,Version=v2.2" />
+    <configuration default="true" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/bin/Debug/netcoreapp3.0/Nodegem.WebApi.dll" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/Nodegem.WebApi.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value=".NETCoreApp,Version=v3.0" />
+      <method v="2">
+        <option name="Build" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Run WebApi" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Nodegem.WebApi.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value=".NETCoreApp,Version=v3.0" />
       <option name="LAUNCH_PROFILE_NAME" value="Unit" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
@@ -404,6 +386,21 @@
         <option name="Build" enabled="true" />
       </method>
     </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ab8625b6" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -418,54 +415,109 @@
       <workItem from="1561950459576" duration="310000" />
       <workItem from="1561950894397" duration="215000" />
       <workItem from="1561951386923" duration="1278000" />
+      <workItem from="1562019763060" duration="16385000" />
+      <workItem from="1562190933581" duration="22494000" />
+      <workItem from="1562385695945" duration="2027000" />
+      <workItem from="1562387769585" duration="4468000" />
+      <workItem from="1562543283816" duration="1770000" />
+      <workItem from="1562623257854" duration="1474000" />
+      <workItem from="1562786431059" duration="6307000" />
+      <workItem from="1563145270437" duration="2612000" />
+      <workItem from="1563317224594" duration="2054000" />
+      <workItem from="1563588803634" duration="4098000" />
+      <workItem from="1563727776832" duration="3125000" />
+      <workItem from="1563755951735" duration="2113000" />
+      <workItem from="1564165758695" duration="606000" />
+      <workItem from="1564440319012" duration="604000" />
+      <workItem from="1566355341360" duration="39000" />
+      <workItem from="1566355538097" duration="618000" />
+      <workItem from="1567986684902" duration="668000" />
+      <workItem from="1568068814170" duration="2076000" />
+      <workItem from="1568162061819" duration="199000" />
+      <workItem from="1568164278983" duration="37000" />
+      <workItem from="1568164405753" duration="15000" />
+      <workItem from="1568164909829" duration="630000" />
+      <workItem from="1568593679864" duration="183000" />
+      <workItem from="1568595385739" duration="603000" />
+      <workItem from="1568676456594" duration="825000" />
+      <workItem from="1568770432158" duration="1396000" />
+      <workItem from="1568861371540" duration="4859000" />
+      <workItem from="1569079955822" duration="605000" />
+      <workItem from="1569366971295" duration="5488000" />
+      <workItem from="1569691539288" duration="188000" />
+      <workItem from="1569691747817" duration="3664000" />
+      <workItem from="1569880378230" duration="5461000" />
+      <workItem from="1570288837068" duration="34000" />
+      <workItem from="1570289049439" duration="1748000" />
+      <workItem from="1570314469311" duration="4999000" />
+      <workItem from="1570405180347" duration="26036000" />
+      <workItem from="1570660716921" duration="2128000" />
+      <workItem from="1570714093538" duration="172000" />
+      <workItem from="1570841858731" duration="5154000" />
+      <workItem from="1570911044545" duration="267000" />
+      <workItem from="1571283513350" duration="565000" />
+      <workItem from="1571352279603" duration="650000" />
+      <workItem from="1571421416047" duration="4803000" />
+      <workItem from="1571786848889" duration="22000" />
+      <workItem from="1571787052980" duration="6369000" />
+      <workItem from="1572128312104" duration="18961000" />
+      <workItem from="1572839226382" duration="43000" />
+      <workItem from="1572839295869" duration="9975000" />
+      <workItem from="1573331175774" duration="12250000" />
+      <workItem from="1573429960996" duration="1194000" />
+      <workItem from="1573764534807" duration="2775000" />
+      <workItem from="1573924481608" duration="17560000" />
+      <workItem from="1574539094369" duration="37000" />
+      <workItem from="1574539303399" duration="1476000" />
+      <workItem from="1574558302360" duration="716000" />
+      <workItem from="1574621948855" duration="3090000" />
+      <workItem from="1574881128830" duration="206000" />
+      <workItem from="1574881416665" duration="560000" />
+      <workItem from="1574881998359" duration="10965000" />
+      <workItem from="1574960240177" duration="8205000" />
+      <workItem from="1575155327067" duration="445000" />
+      <workItem from="1575227163457" duration="4214000" />
+      <workItem from="1575776910057" duration="3991000" />
+      <workItem from="1575838187307" duration="14085000" />
+      <workItem from="1576106317524" duration="12588000" />
+      <workItem from="1576209742689" duration="2993000" />
+      <workItem from="1576245452730" duration="368000" />
+      <workItem from="1576246999968" duration="25000" />
+      <workItem from="1576247940065" duration="3027000" />
     </task>
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1803000" />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="2552" y="-8" width="2576" height="1416" extended-state="6" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25387365" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Build" weight="0.3299923" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3993832" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="NuGet" order="7" />
-      <window_info anchor="bottom" id="Performance Profiler" order="8" />
-      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Unit Tests" order="12" />
-      <window_info anchor="bottom" id="REST Client" order="13" />
-      <window_info anchor="bottom" id="Terminal" order="14" />
-      <window_info anchor="bottom" id="Event Log" order="15" side_tool="true" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Errors In Solution" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" id="Unit Tests Coverage" order="5" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -474,251 +526,33 @@
           <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/../Engine/Integrations/Mailgun/Nodes/SendEmail.cs</url>
+          <line>64</line>
+          <properties documentPath="$PROJECT_DIR$/../Engine/Integrations/Mailgun/Nodes/SendEmail.cs" initialLine="64">
+            <startOffsets>
+              <option value="2355" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2440" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs</url>
+          <line>79</line>
+          <properties documentPath="$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" initialLine="79">
+            <startOffsets>
+              <option value="2646" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2710" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../Services/LogService.cs" />
-    <entry file="file://$PROJECT_DIR$/../Engine/Core/Essential/Macro.cs" />
-    <entry file="file://$PROJECT_DIR$/../Services/Services/NodeCache.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" selection-start-column="6" selection-end-column="6" />
-          <folding>
-            <marker date="1561738256726" expanded="true" signature="6:250" ph="..." />
-            <marker date="1561738256726" expanded="true" signature="279:3536" ph="{...}" />
-            <marker date="1561738256726" expanded="true" signature="315:3534" ph="{...}" />
-            <marker date="1561738256726" expanded="true" signature="807:1205" ph="{...}" />
-            <marker date="1561738256726" expanded="true" signature="1257:1452" ph="{...}" />
-            <marker date="1561738256726" expanded="true" signature="1535:1787" ph="{...}" />
-            <marker date="1561738256726" expanded="true" signature="1851:2176" ph="{...}" />
-            <marker date="1561738256726" expanded="true" signature="2275:2502" ph="{...}" />
-            <marker date="1561738256726" expanded="true" signature="2605:2702" ph="{...}" />
-            <marker date="1561738256726" expanded="true" signature="2763:2827" ph="{...}" />
-            <marker date="1561738256726" expanded="true" signature="2887:3249" ph="{...}" />
-            <marker date="1561738256726" expanded="true" signature="3337:3528" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Engine/ThirdParty/Nodester.Engine.ThirdParty.csproj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Data/Models/ApplicationUser.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" lean-forward="true" selection-start-column="6" selection-end-column="6" />
-          <folding>
-            <marker date="1560023190938" expanded="true" signature="6:277" ph="..." />
-            <marker date="1560023190938" expanded="true" signature="309:1191" ph="{...}" />
-            <marker date="1560023190938" expanded="true" signature="389:1189" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Data/Models/AccessToken.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding>
-            <marker date="1560023190937" expanded="false" signature="6:80" ph="..." />
-            <marker date="1560023190937" expanded="true" signature="112:454" ph="{...}" />
-            <marker date="1560023190937" expanded="true" signature="156:452" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Data/Settings/TokenSettings.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          <folding>
-            <marker date="1559183139015" expanded="true" signature="32:251" ph="{...}" />
-            <marker date="1559183139015" expanded="true" signature="65:249" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Data/NamespaceNodeDefinition.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" selection-start-column="6" selection-end-column="6" />
-          <folding>
-            <marker date="1561516697412" expanded="true" signature="6:76" ph="..." />
-            <marker date="1561516697412" expanded="true" signature="101:218" ph="{...}" />
-            <marker date="1561516697412" expanded="true" signature="204:216" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Data/Contexts/NodesterDBContext.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" lean-forward="true" selection-start-column="6" selection-end-column="6" />
-          <folding>
-            <marker date="1560023190929" expanded="true" signature="6:211" ph="..." />
-            <marker date="1560023190929" expanded="true" signature="245:1030" ph="{...}" />
-            <marker date="1560023190929" expanded="true" signature="331:1028" ph="{...}" />
-            <marker date="1560023190929" expanded="true" signature="598:618" ph="{...}" />
-            <marker date="1560023190929" expanded="true" signature="689:1022" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebApi.sln">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="126" selection-start-line="19" selection-start-column="126" selection-end-line="19" selection-end-column="126" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Data/Dto/GraphDtos/RunGraphDto.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" lean-forward="true" selection-start-column="6" selection-end-column="6" />
-          <folding>
-            <marker date="1561516697405" expanded="true" signature="6:157" ph="..." />
-            <marker date="1561516697405" expanded="true" signature="196:496" ph="{...}" />
-            <marker date="1561516697405" expanded="true" signature="227:494" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Data/Dto/GraphDtos/CreateGraphDto.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" lean-forward="true" selection-start-column="6" selection-end-column="6" />
-          <folding>
-            <marker date="1560023190931" expanded="true" signature="6:131" ph="..." />
-            <marker date="1560023190931" expanded="true" signature="170:456" ph="{...}" />
-            <marker date="1560023190931" expanded="true" signature="204:454" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Data/Extensions/ConfigurationExtensions.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-          <folding>
-            <marker date="1559183139000" expanded="true" signature="6:77" ph="..." />
-            <marker date="1559183139000" expanded="true" signature="113:621" ph="{...}" />
-            <marker date="1559183139000" expanded="true" signature="163:619" ph="{...}" />
-            <marker date="1559183139000" expanded="true" signature="260:613" ph="{...}" />
-            <marker date="1559183139000" expanded="true" signature="337:413" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Common/Data/User.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" lean-forward="true" selection-start-column="6" selection-end-column="6" />
-          <folding>
-            <marker date="1561597934048" expanded="true" signature="6:47" ph="..." />
-            <marker date="1561597934048" expanded="true" signature="79:359" ph="{...}" />
-            <marker date="1561597934048" expanded="true" signature="103:357" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Engine/Core.Data/IGraph.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
-          <folding>
-            <marker date="1561598622352" expanded="true" signature="6:79" ph="..." />
-            <marker date="1561598622352" expanded="true" signature="115:407" ph="{...}" />
-            <marker date="1561598622352" expanded="true" signature="145:405" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Data/Nodester.Data.csproj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Services/Data/Nodester.Services.Data.csproj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Services/Services/Nodester.Services.csproj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="33" lean-forward="true" selection-start-column="33" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Nodester.WebApi.csproj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="37" lean-forward="true" selection-start-column="37" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Common/Data/Constant.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding>
-            <marker date="1561597934046" expanded="true" signature="45:253" ph="{...}" />
-            <marker date="1561597934046" expanded="true" signature="73:251" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Engine/Core/Nodester.Engine.csproj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/AccountController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1035">
-          <folding>
-            <marker date="1561951768783" expanded="true" signature="6:409" ph="..." />
-            <marker date="1561951768783" expanded="true" signature="448:3489" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="570:3487" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="688:748" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="1076:1321" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="1102:1192" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="1237:1311" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="1596:2043" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="1622:1795" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="1839:1914" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="1966:2033" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="2325:2811" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="2351:2563" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="2607:2682" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="2734:2801" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="2882:3335" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="2941:3024" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="3055:3103" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="3123:3206" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="3271:3323" ph="{...}" />
-            <marker date="1561951768783" expanded="true" signature="3436:3481" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Properties/launchSettings.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>

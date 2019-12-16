@@ -1,41 +1,44 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Nodester.Common.Extensions;
-using Nodester.Graph.Core.Data;
-using Nodester.Graph.Core.Data.Attributes;
-using Nodester.Graph.Core.Data.Definitions;
-using Nodester.Graph.Core.Data.Fields;
-using Nodester.Graph.Core.Data.Links;
-using Nodester.Graph.Core.Data.Nodes;
-using Nodester.Graph.Core.Extensions;
-using Nodester.Graph.Core.Fields.Graph;
-using Nodester.Graph.Core.Utils;
+using System.Threading.Tasks;
+using Nodegem.Common.Data;
+using Nodegem.Common.Extensions;
+using Nodegem.Engine.Core.Extensions;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Core.Utils;
+using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Definitions;
+using Nodegem.Engine.Data.Fields;
+using Nodegem.Engine.Data.Links;
+using Nodegem.Engine.Data.Nodes;
+using ValueType = Nodegem.Common.Data.ValueType;
 
-namespace Nodester.Graph.Core
+namespace Nodegem.Engine.Core
 {
     public abstract class Node : INode
     {
-        protected CachedValue CachedValue { get; set; }
-
-        public IGraph Graph { get; private set; }
-        public Type Type { get; }
-        public string Title => GetNodeTitle();
-        public string Namespace => Type.GetAttributeValue((NodeNamespaceAttribute nc) => nc.Namespace);
+        public virtual IGraph Graph { get; private set; }
+        private Type Type { get; }
+        private string Title => GetNodeTitle();
+        private string Namespace => Type.GetAttributeValue((NodeNamespaceAttribute nc) => nc.Namespace);
 
         public Guid Id { get; private set; }
-        public IList<IFlowInputField> FlowInputs { get; private set; }
-        public IList<IFlowOutputField> FlowOutputs { get; private set; }
-        public IList<IValueInputField> ValueInputs { get; private set; }
-        public IList<IValueOutputField> ValueOutputs { get; private set; }
+        private IList<IFlowInputField> FlowInputs { get; set; }
+        private IList<IFlowOutputField> FlowOutputs { get; set; }
+        private IList<IValueInputField> ValueInputs { get; set; }
+        private IList<IValueOutputField> ValueOutputs { get; set; }
+        private IDictionary<string, Action<string>> IndefiniteFields { get; set; }
 
         public IEnumerable<IValueLink> ValueConnections =>
             FieldMap.Values.OfType<IValueInputField>().Where(x => x.Connection != null).Select(x => x.Connection);
 
         public IEnumerable<IFlowLink> FlowConnections =>
             FieldMap.Values.OfType<IFlowOutputField>().Where(x => x.Connection != null).Select(x => x.Connection);
-        
+
         private IDictionary<string, IField> FieldMap { get; set; }
 
         protected Node(bool shouldInitialize = true)
@@ -60,11 +63,11 @@ namespace Nodester.Graph.Core
 
         protected void Initialize()
         {
-            CachedValue = new CachedValue();
             FlowInputs = new List<IFlowInputField>();
             FlowOutputs = new List<IFlowOutputField>();
             ValueInputs = new List<IValueInputField>();
             ValueOutputs = new List<IValueOutputField>();
+            IndefiniteFields = new Dictionary<string, Action<string>>();
 
             Define();
 
@@ -73,7 +76,24 @@ namespace Nodester.Graph.Core
 
         public INode PopulateWithData(IEnumerable<FieldData> fields)
         {
-            MapDataToIO(fields);
+            MapDataToIo(fields);
+            return this;
+        }
+
+        public INode PopulateIndefinites(IEnumerable<KeyValuePair<string, string>> indefiniteKeyValuePairs)
+        {
+            var keyValuePairs = indefiniteKeyValuePairs.ToList();
+            if (!keyValuePairs.Any()) return this;
+            keyValuePairs.ForEach(i =>
+            {
+                var (key, value) = i;
+                if (!FieldMap.ContainsKey(value) && IndefiniteFields.ContainsKey(key))
+                {
+                    IndefiniteFields[key].Invoke(value);
+                }
+            });
+            AggregateFields();
+
             return this;
         }
 
@@ -91,30 +111,62 @@ namespace Nodester.Graph.Core
 
         protected abstract void Define();
 
-        private void MapDataToIO(IEnumerable<FieldData> fields)
+        private void MapDataToIo(IEnumerable<FieldData> fields)
         {
+            var fieldList = fields.ToList();
             var inputDict = ValueInputs.ToDictionary(k => k.Key, v => v);
-            fields.ForEach(x => inputDict[x.Key].SetValue(x.Value));
+            var outputDict = ValueOutputs.ToDictionary(k => k.Key, v => v);
+            fieldList.ForEach(x =>
+            {
+                if (inputDict.ContainsKey(x.Key))
+                {
+                    inputDict[x.Key].SetValue(x.Value);
+                }
+
+                if (outputDict.ContainsKey(x.Key))
+                {
+                    outputDict[x.Key].SetValue(x.Value);
+                }
+            });
         }
 
         public virtual NodeDefinition GetDefinition()
         {
-            var fieldLabels = GetFieldLabels();
+            var fieldLabels = GetFieldInfo();
+            var nodeDefinitionId = Type.GetAttributeValue((DefinedNodeAttribute dn) => dn.Id);
 
-            return new NodeDefinition
+            if (string.IsNullOrEmpty(nodeDefinitionId) || !Guid.TryParse(nodeDefinitionId, out _))
             {
+                throw new Exception("Invalid node ID. Node ID must be present and be a GUID.");
+            }
+
+            var definition = new NodeDefinition
+            {
+                Id = nodeDefinitionId,
                 FullName = $"{Namespace}.{Type.Name}",
                 Title = Title,
                 Description = Type.GetAttributeValue((DefinedNodeAttribute dn) => dn.Description),
-                FlowInputs = FlowInputs.Select(x => x.ToFlowInputDefinition(fieldLabels[x.Key].Label)).ToList(),
-                FlowOutputs = FlowOutputs.Select(x => x.ToFlowOutputDefinition(fieldLabels[x.Key].Label)).ToList(),
+                IgnoreDisplay = Type.GetAttributeValue((DefinedNodeAttribute dn) => dn.IgnoreDisplay),
+                IsListenerOnly = Type.GetAttributeValue((DefinedNodeAttribute dn) => dn.IsListenerOnly),
+                FlowInputs = FlowInputs
+                    .Select(x => x.ToFlowInputDefinition(fieldLabels[x.Key].Label, fieldLabels[x.Key].Info)).ToList(),
+                FlowOutputs = FlowOutputs.Select(x =>
+                    x.ToFlowOutputDefinition(fieldLabels[x.Key].Label, fieldLabels[x.Key].Indefinite,
+                        fieldLabels[x.Key].Info)).ToList(),
                 ValueInputs = ValueInputs
-                    .Select(x => x.ToValueInputDefinition(fieldLabels[x.Key].Label, fieldLabels[x.Key].Type)).ToList(),
-                ValueOutputs = ValueOutputs.Select(x => x.ToValueOutputDefinition(fieldLabels[x.Key].Label)).ToList()
+                    .Select(x => x.ToValueInputDefinition(fieldLabels[x.Key].Label, fieldLabels[x.Key].Type,
+                        fieldLabels[x.Key].Indefinite, fieldLabels[x.Key].IsEditable,
+                        fieldLabels[x.Key].AllowConnection, fieldLabels[x.Key].Info, fieldLabels[x.Key].ValueOptions))
+                    .ToList(),
+                ValueOutputs = ValueOutputs
+                    .Select(x => x.ToValueOutputDefinition(fieldLabels[x.Key].Label, fieldLabels[x.Key].Type,
+                        fieldLabels[x.Key].Indefinite, fieldLabels[x.Key].Info)).ToList()
             };
+
+            return definition;
         }
 
-        protected FlowInput AddFlowInput(string key, Func<IFlow, IFlowOutputField> action)
+        protected FlowInput AddFlowInput(string key, Func<IFlow, Task<IFlowOutputField>> action)
         {
             var input = new FlowInput(key, action);
             FlowInputs.Add(input);
@@ -128,23 +180,85 @@ namespace Nodester.Graph.Core
             return output;
         }
 
-        protected ValueInput AddValueInput<T>(string key, T @default = default(T))
+        protected ValueInput AddValueInput<T>(string key, T @default = default)
         {
             var input = new ValueInput(key, @default, typeof(T));
             ValueInputs.Add(input);
             return input;
         }
 
-        public ValueOutput AddValueOutput<T>(string key)
+        protected IEnumerable<ValueInput> InitializeValueInputList<T>(string baseKey, T @default = default,
+            int amount = 1)
+        {
+            // Initial "keys" will always be numeric but anything new will be a GUID
+            var inputs = Enumerable.Range(0, amount)
+                .Select((x, i) => new ValueInput($"{baseKey}|{i}", @default, typeof(T)))
+                .ToList();
+            inputs.ForEach(ValueInputs.Add);
+            IndefiniteFields.Add(baseKey.ToLower(),
+                key =>
+                {
+                    var newInput = new ValueInput(key, @default, typeof(T));
+                    inputs.Add(newInput);
+                    ValueInputs.Add(newInput);
+                });
+            return inputs;
+        }
+
+        protected IEnumerable<ValueOutput> InitializeValueOutputList<T>(string baseKey,
+            Func<IFlow, string, Task<object>> valueFunc,
+            int amount = 1)
+        {
+            // Initial "keys" will always be numeric but anything new will be a GUID
+            var outputs = Enumerable.Range(0, amount)
+                .Select((x, i) =>
+                    new ValueOutput($"{baseKey.ToLower()}|{i}", flow => valueFunc(flow, $"{baseKey.ToLower()}|{i}"),
+                        typeof(T)))
+                .ToList();
+            outputs.ForEach(ValueOutputs.Add);
+            IndefiniteFields.Add(baseKey.ToLower(),
+                key =>
+                {
+                    var newValueOutput = new ValueOutput(key, flow => valueFunc(flow, key), typeof(T));
+                    outputs.Add(newValueOutput);
+                    ValueOutputs.Add(newValueOutput);
+                });
+            return outputs;
+        }
+
+        protected IEnumerable<FlowOutput> InitializeFlowOutputList(string baseKey,
+            int amount = 1)
+        {
+            // Initial "keys" will always be numeric but anything new will be a GUID
+            var outputs = Enumerable.Range(0, amount)
+                .Select((x, i) => new FlowOutput($"{baseKey}|{i}"))
+                .ToList();
+            outputs.ForEach(FlowOutputs.Add);
+            IndefiniteFields.Add(baseKey.ToLower(),
+                key =>
+                {
+                    var newFlowOutput = new FlowOutput(key);
+                    outputs.Add(newFlowOutput);
+                    FlowOutputs.Add(newFlowOutput);
+                });
+            return outputs;
+        }
+
+        protected ValueOutput AddValueOutput<T>(string key)
         {
             var output = new ValueOutput(key, typeof(T));
             ValueOutputs.Add(output);
             return output;
         }
 
-        protected ValueOutput AddValueOutput<T>(string key, Func<IFlow, T> valueFunc)
+        protected ValueOutput AddValueOutput<T>(string key, Func<IFlow, Task<T>> valueFunc)
         {
-            var output = new ValueOutput(key, (flow) => valueFunc(flow), typeof(T));
+            return AddValueOutput(key, async flow => await valueFunc(flow), typeof(T));
+        }
+
+        private ValueOutput AddValueOutput(string key, Func<IFlow, Task<object>> valueFunc, Type type)
+        {
+            var output = new ValueOutput(key, valueFunc, type);
             ValueOutputs.Add(output);
             return output;
         }
@@ -152,30 +266,133 @@ namespace Nodester.Graph.Core
         private string GetNodeTitle()
         {
             var value = Type.GetAttributeValue((DefinedNodeAttribute dn) => dn.Title);
-            return string.IsNullOrEmpty(value) ? Type.Name : value;
+            return string.IsNullOrEmpty(value) ? Type.Name.SplitOnCapitalLetters() : value;
         }
 
-        protected void AggregateFields()
+        private void AggregateFields()
         {
             var allFields = EnumerableHelper.Concat<IField>(FlowInputs, FlowOutputs, ValueInputs, ValueOutputs)
                 .ToList();
             FieldMap = allFields.ToDictionary(k => k.Key, v => v);
         }
 
-        private IDictionary<string, FieldAttributesAttribute> GetFieldLabels()
+        private IDictionary<string, FieldInfo> GetFieldInfo()
         {
             return Type.GetProperties()
-                .Where(p => p.PropertyType.GetInterfaces().Contains(typeof(IField)))
-                .ToDictionary(
-                    x => x.GetValue<IField>(this).Key,
-                    v =>
+                .Where(p =>
+                {
+                    var pType = p.PropertyType;
+                    var interfaces = pType.GetInterfaces();
+                    if (!interfaces.Contains(typeof(IField)) && !typeof(IEnumerable).IsAssignableFrom(pType))
                     {
-                        var defaultLabel = v.GetValue<IField>(this).Key.ToTitleCase();
-                        var fieldAttributes = v.GetCustomAttribute<FieldAttributesAttribute>() ??
-                                              new FieldAttributesAttribute(defaultLabel);
-                        fieldAttributes.Label = fieldAttributes.Label ?? defaultLabel;
-                        return fieldAttributes;
+                        return false;
+                    }
+
+                    if (interfaces.Contains(typeof(IField)))
+                    {
+                        return true;
+                    }
+
+                    if (pType.IsGenericType && pType.GenericTypeArguments.Any())
+                    {
+                        return pType.GenericTypeArguments.Any(gta => gta.GetInterfaces().Contains(typeof(IField)));
+                    }
+
+                    return false;
+                })
+                .SelectMany(pi =>
+                {
+                    var field = pi.GetValue<IField>(this);
+                    var indefinite = field == null;
+
+                    var label = field?.OriginalName.SplitOnCapitalLetters().ToTitleCase();
+                    var fieldAttributes = pi.GetCustomAttribute<FieldAttributesAttribute>() ??
+                                          new FieldAttributesAttribute(label);
+                    fieldAttributes.Label ??= label;
+                    var key = field?.Key ?? fieldAttributes.Key;
+
+                    if (indefinite)
+                    {
+                        try
+                        {
+                            var fieldList = pi.GetValue<IEnumerable<IField>>(this);
+                            return fieldList.Select(f =>
+                                ConvertAttributeToFieldInfo(f.Key,true, f, fieldAttributes));
+                        }
+                        catch (ArgumentNullException)
+                        {
+                            throw new Exception(
+                                $"Could not find field {pi.Name} for node {Title}. Probably forgot to define it.");
+                        }
+                    }
+
+                    return new List<FieldInfo>
+                    {
+                        ConvertAttributeToFieldInfo(key,false, field, fieldAttributes)
+                    };
+                })
+                .ToDictionary(
+                    x => x.Key,
+                    v => v);
+        }
+
+        private static FieldInfo ConvertAttributeToFieldInfo(string key, bool indefinite, IField field,
+            FieldAttributesAttribute fieldAttribute)
+        {
+            var valueOptions =
+                fieldAttribute.ValueOptions?.Select(x => new ValueOption {Label = x.ToString(), Value = x});
+            if (fieldAttribute.EnumOptions != null)
+            {
+                var friendlyNames = Enum.GetValues(fieldAttribute.EnumOptions).Cast<object>().Select(x => new
+                {
+                    FriendlyName = x.GetType()
+                        .GetMember(x.ToString()).First().GetCustomAttribute<FriendlyNameAttribute>(),
+                    EnumValue = x
+                });
+                var friendlyNameAttributes = friendlyNames.ToList();
+                if (friendlyNameAttributes.Any() && friendlyNameAttributes.All(x => x.FriendlyName != null))
+                {
+                    valueOptions = friendlyNameAttributes.Select(x => new ValueOption
+                    {
+                        Label = x.FriendlyName.FriendlyName,
+                        Value = x.FriendlyName.Value ?? (int) x.EnumValue
                     });
+                }
+                else
+                {
+                    throw new Exception($"Enum must provide {nameof(FriendlyNameAttribute)} for each value");
+                }
+            }
+
+            return new FieldInfo
+            {
+                Key = key,
+                Label = fieldAttribute.Label,
+                Indefinite = indefinite,
+                Info = fieldAttribute.Info,
+                Type = fieldAttribute.Type ??
+                       (field is IValueField valueField ? valueField.ValueType : ValueType.Any),
+                IsEditable = fieldAttribute.IsEditable,
+                AllowConnection = fieldAttribute.AllowConnection,
+                ValueOptions = valueOptions
+            };
+        }
+
+        public virtual ValueTask DisposeAsync()
+        {
+            return new ValueTask();
+        }
+
+        private struct FieldInfo
+        {
+            public string Key { get; set; }
+            public string Label { get; set; }
+            public bool Indefinite { get; set; }
+            public string Info { get; set; }
+            public ValueType Type { get; set; }
+            public bool IsEditable { get; set; }
+            public bool AllowConnection { get; set; }
+            public IEnumerable<ValueOption> ValueOptions { get; set; }
         }
     }
 }

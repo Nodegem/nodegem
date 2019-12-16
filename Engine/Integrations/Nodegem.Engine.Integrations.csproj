@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>Nodegem.Engine.Integrations</RootNamespace>
+    <AssemblyName>Nodegem.Engine.Integrations</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Discord\Nodes\Guild" />
+    <Folder Include="Discord\Nodes\Reaction" />
+    <Folder Include="Discord\Nodes\Role" />
+    <Folder Include="Reddit\Nodes" />
+    <Folder Include="SendGrid" />
+    <Folder Include="Twilio" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Discord.Net" Version="2.1.1" />
+    <PackageReference Include="Mapster" Version="4.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="3.0.0" />
+    <PackageReference Include="MySql.Data" Version="8.0.18" />
+    <PackageReference Include="Npgsql" Version="4.1.2" />
+    <PackageReference Include="Reddit" Version="1.2.0" />
+    <PackageReference Include="Sendgrid" Version="9.12.0" />
+    <PackageReference Include="Twilio" Version="5.35.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Data\Nodegem.Engine.Data.csproj" />
+    <ProjectReference Include="..\Core\Nodegem.Engine.csproj" />
+    <ProjectReference Include="..\Integrations.Data\Nodegem.Engine.Integrations.Data.csproj" />
+  </ItemGroup>
+
+</Project>

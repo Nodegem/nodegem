@@ -1,12 +1,15 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Nodester.Common.Extensions;
-using Nodester.Data.Dto.GraphDtos;
-using Nodester.Services.Data.Repositories;
+using Microsoft.Extensions.Logging;
+using Nodegem.Common.Dto;
+using Nodegem.Common.Extensions;
+using Nodegem.Data.Dto.GraphDtos;
+using Nodegem.Services.Data.Repositories;
 
-namespace Nodester.WebApi.Controllers
+namespace Nodegem.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -14,23 +17,34 @@ namespace Nodester.WebApi.Controllers
     public class GraphController : ControllerBase
     {
         private readonly IGraphRepository _graphRepo;
-
+        private readonly ILogger<GraphController> _logger;
+        
         public GraphController(
-            IGraphRepository graphRepo)
+            IGraphRepository graphRepo,
+            ILogger<GraphController> logger)
         {
             _graphRepo = graphRepo;
+            _logger = logger;
         }
 
         [HttpGet("all")]
         public ActionResult<IEnumerable<GraphDto>> GetAllGraphs()
         {
-            return Ok(_graphRepo.GetAllGraphsByUser(User.GetUserId()));
+            try
+            {
+                return Ok(_graphRepo.GetGraphsAssignedToUser(User.GetUserId()));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unable to retrieve graphs");
+                return BadRequest("Something went wrong");
+            }
         }
 
         [HttpGet("{graphId}")]
-        public ActionResult<GraphDto> GetGraph(Guid graphId)
+        public async Task<ActionResult<GraphDto>> GetGraph(Guid graphId)
         {
-            return Ok(_graphRepo.GetGraphAsync(graphId));
+            return Ok(await _graphRepo.GetGraphAsync(graphId));
         }
 
         [HttpPost("create")]
@@ -39,8 +53,8 @@ namespace Nodester.WebApi.Controllers
             return _graphRepo.CreateGraph(graph);
         }
 
-        [HttpPut("update/{graphId}")]
-        public ActionResult<GraphDto> Update(Guid graphId, [FromBody] GraphDto graph)
+        [HttpPut("update")]
+        public ActionResult<GraphDto> Update([FromBody] GraphDto graph)
         {
             return _graphRepo.UpdateGraph(graph);
         }

@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Nodester.Data.Dto.MacroDtos;
+using Nodegem.Common.Dto;
+using Nodegem.Data.Dto.MacroDtos;
 
-namespace Nodester.Services.Data.Repositories
+namespace Nodegem.Services.Data.Repositories
 {
     public interface IMacroRepository
     {
-        IEnumerable<MacroDto> GetAllMacros(Guid userId);
+        IEnumerable<MacroDto> GetMacrosAssignedToUser(Guid userId);
         Task<MacroDto> GetById(Guid id);
         MacroDto CreateNewMacro(CreateMacroDto newMacro);
         MacroDto UpdateMacro(Guid id, MacroDto macro);

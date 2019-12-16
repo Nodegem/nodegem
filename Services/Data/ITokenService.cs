@@ -1,11 +1,16 @@
 using System;
-using Nodester.Data.Dto;
-using Nodester.Data.Models;
+using System.Collections.Generic;
+using System.Security.Claims;
+using Nodegem.Data.Dto.UserDtos;
+using Nodegem.Data.Models;
+using Constant = Nodegem.Common.Data.Constant;
 
-namespace Nodester.Services.Data
+namespace Nodegem.Services.Data
 {
     public interface ITokenService
     {
-        (string token, DateTime expires) GenerateJwtToken(string email, string username, Guid userId);
+        (string token, DateTime expires) GenerateJwtToken(UserDto user);
+
+        (bool valid, ClaimsPrincipal user) IsValidToken(string token);
     }
 }

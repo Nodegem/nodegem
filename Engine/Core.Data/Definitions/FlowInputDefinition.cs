@@ -1,4 +1,4 @@
-namespace Nodester.Graph.Core.Data.Definitions
+namespace Nodegem.Engine.Data.Definitions
 {
     public class FlowInputDefinition : FieldDefinition
     {

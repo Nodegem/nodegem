@@ -1,7 +1,7 @@
-using Nodester.Graph.Core.Data.Fields;
-using Nodester.Graph.Core.Data.Links;
+using Nodegem.Engine.Data.Fields;
+using Nodegem.Engine.Data.Links;
 
-namespace Nodester.Graph.Core.Links.Macro
+namespace Nodegem.Engine.Core.Links.Macro
 {
     public class MacroFlowLink : BaseLink<IMacroFlowInputField, IFlowInputField>, IMacroFlowLink
     {

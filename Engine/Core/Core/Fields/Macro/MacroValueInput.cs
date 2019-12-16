@@ -1,8 +1,8 @@
 using System;
-using Nodester.Graph.Core.Data.Fields;
-using Nodester.Graph.Core.Fields.Graph;
+using Nodegem.Engine.Core.Fields.Graph;
+using Nodegem.Engine.Data.Fields;
 
-namespace Nodester.Graph.Core.Fields.Macro
+namespace Nodegem.Engine.Core.Fields.Macro
 {
     public class MacroValueInput : ValueOutput, IMacroValueInputField
     {

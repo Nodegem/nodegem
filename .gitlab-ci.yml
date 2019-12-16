@@ -1,48 +1,64 @@
-image: microsoft/dotnet:latest
+image: mcr.microsoft.com/dotnet/core/sdk:3.0
 
 variables:
-    PROJECT_NAME: Nodester
-    HEROKU_STAGE_NAME: nodester-staging
-    HEROKU_PROD_NAME: nodester-prod
+  HEROKU_STAGE_NAME: nodegem-heroku-api
+  HEROKU_PROD_NAME: nodester-prod
 
 stages:
-    - build
-    - migrate
-    - deploy
+  - build
+  - migrate
+  - deploy
+  - artifacts
 
 build_project:
-    stage: build
-    script:
-        - dotnet build $PROJECT_NAME.sln
-    only:
-        - develop
-        - master
+  stage: build
+  script:
+    - cd WebApi/ && dotnet build WebApi.sln
+  only:
+    - develop
+    - master
 
-migrate_stage:
-    stage: migrate
-    variables:
-        ASPNETCORE_ENVIRONMENT: Staging
-        ConnectionStrings__nodesterDb: $STAGE_DB
-    script:
-        - cd $PROJECT_NAME.WebApi/ && dotnet ef database update --context NodesterDbContext
-    only:
-        - develop
+migrate:
+  stage: migrate
+  variables:
+    ConnectionStrings__nodegemDb: $NODEGEM_DB
+    ConnectionStrings__keysDb: $NODEGEM_KEYS_DB
+  before_script:
+    - dotnet tool install --global dotnet-ef --version 3.0.0
+    - export PATH="$PATH:/root/.dotnet/tools"
+  script:
+    - cd WebApi/
+    - dotnet ef database update --context NodegemContext
+    - dotnet ef database update --context KeysContext
+  only:
+    - develop
 
-deploy_stage:
-    stage: deploy
-    script:
-        - apt-get update -yq
-        - apt-get install -y ruby-dev
-        - gem install dpl
-        - dpl --provider=heroku --app=$HEROKU_STAGE_NAME --api-key=$HEROKU_API_KEY
-    only:
-        - develop
-# migrate_prod:
-#   stage: deploy
-#   only:
-#     - master
+build_artifacts:
+  stage: artifacts
+  before_script:
+    - apt update
+    - apt install -y software-properties-common
+    - add-apt-repository ppa:deadsnakes/ppa
+    - apt install -y python3.7
+    - apt install -y python-pip
+    - pip install awscli
+  script:
+    - bash build_binaries
+    - bash deploy_binaries
+  artifacts:
+    name: "${CI_PROJECT_NAME}-${CI_COMMIT_REF_NAME}"
+    paths:
+      - compressed/
+  only:
+    - develop
+    - tags
 
-# deploy_prod:
-#   stage: deploy
-#   only:
-#     - master
+deploy:
+  stage: deploy
+  script:
+    - apt-get update -yq
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=$HEROKU_STAGE_NAME --api-key=$HEROKU_API_KEY
+  only:
+    - develop

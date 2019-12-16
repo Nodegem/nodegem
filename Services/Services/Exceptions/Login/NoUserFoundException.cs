@@ -1,6 +1,6 @@
 using System;
 
-namespace Nodester.Services.Exceptions.Login
+namespace Nodegem.Services.Exceptions.Login
 {
     public class NoUserFoundException : Exception
     {
