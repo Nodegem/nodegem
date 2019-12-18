@@ -43,6 +43,7 @@ build_artifacts:
     - apt install -y python-pip
     - pip install awscli
   script:
+    - cd scripts/
     - bash build_binaries
     - bash deploy_binaries
   artifacts:

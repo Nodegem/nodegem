@@ -1,0 +1,86 @@
+#!/bin/bash
+
+apt install -y zip
+
+CWD=$(cd ../ && pwd)
+DIST=$CWD/dist
+
+mkdir -p $DIST
+
+cd $CWD
+cd ClientService/Nodegem.ClientService
+
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    echo "Building Client Services..."
+    echo 'Building Windows'
+    dotnet publish -c release -r win-x64 /p:PublishSingleFile=true /p:PublishTrimmed=true -o $DIST/binaries/client_service/win64 -v q
+    echo 'Building Linux'
+    dotnet publish -c release -r linux-x64 /p:PublishSingleFile=true /p:PublishTrimmed=true -o $DIST/binaries/client_service/linux -v q
+    echo 'Building Linux Arm'
+    dotnet publish -c release -r linux-arm /p:PublishSingleFile=true /p:PublishTrimmed=true -o $DIST/binaries/client_service/linux-arm32 -v q 
+    echo 'Building Linux Arm 64 bit'
+    dotnet publish -c release -r linux-arm64 /p:PublishSingleFile=true /p:PublishTrimmed=true -o $DIST/binaries/client_service/linux-arm64 -v q
+
+    echo "Building Web Api..."
+    cd $CWD/WebApi
+
+    echo "Building Windows"
+    dotnet publish Nodegem.WebApi.csproj -c release -r win-x64 -o $DIST/binaries/web_api/win64 -v q
+    echo 'Building Linux'
+    dotnet publish Nodegem.WebApi.csproj -c release -r linux-x64 -o $DIST/binaries/web_api/linux -v q
+    echo 'Building Linux Arm'
+    dotnet publish Nodegem.WebApi.csproj -c release -r linux-arm -o $DIST/binaries/web_api/linux-arm32 -v q 
+    echo 'Building Linux Arm 64 bit'
+    dotnet publish Nodegem.WebApi.csproj -c release -r linux-arm64 -o $DIST/binaries/web_api/linux-arm64 -v q
+
+elif [[ "$OSTYPE" == "msys" ]]; then
+    echo "Building Client Services..."
+    echo 'Building Windows'
+    dotnet publish -c release -r win-x64 //p:PublishSingleFile=true //p:PublishTrimmed=true -o $DIST/binaries/client_service/win64 -v q
+    echo 'Building Linux'
+    dotnet publish -c release -r linux-x64 //p:PublishSingleFile=true //p:PublishTrimmed=true -o $DIST/binaries/client_service/linux -v q
+    echo 'Building Linux Arm'
+    dotnet publish -c release -r linux-arm //p:PublishSingleFile=true //p:PublishTrimmed=true -o $DIST/binaries/client_service/linux-arm32 -v q
+    echo 'Building Linux Arm 64 bit'
+    dotnet publish -c release -r linux-arm64 //p:PublishSingleFile=true //p:PublishTrimmed=true -o $DIST/binaries/client_service/linux-arm64 -v q
+
+    echo "Building Web Api..."
+    cd $CWD/WebApi
+
+    echo "Building Windows"
+    dotnet publish Nodegem.WebApi.csproj -c release -r win-x64 -o $DIST/binaries/web_api/win64 -v q
+    echo 'Building Linux'
+    dotnet publish Nodegem.WebApi.csproj -c release -r linux-x64 -o $DIST/binaries/web_api/linux -v q
+    echo 'Building Linux Arm'
+    dotnet publish Nodegem.WebApi.csproj -c release -r linux-arm -o $DIST/binaries/web_api/linux-arm32 -v q 
+    echo 'Building Linux Arm 64 bit'
+    dotnet publish Nodegem.WebApi.csproj -c release -r linux-arm64 -o $DIST/binaries/web_api/linux-arm64 -v q
+fi
+
+mkdir -p $DIST/compressed/client_service
+mkdir -p $DIST/compressed/web_api
+
+cd $DIST/compressed/client_service
+
+echo "Compressing client service files..."
+
+cd $DIST/binaries/client_service/win64
+zip -r $DIST/compressed/client_service/nodegem-win64.zip .
+cd $DIST/compressed/client_service
+
+tar -czf nodegem-linux64.tar.gz -C $DIST/binaries/client_service/linux .
+tar -czf nodegem-linux-arm32.tar.gz -C $DIST/binaries/client_service/linux-arm32 .
+tar -czf nodegem-linux-arm64.tar.gz -C $DIST/binaries/client_service/linux-arm64 .
+
+cd $DIST/compressed/web_api
+
+echo "Compressing web api files..."
+cd $DIST/binaries/web_api/win64
+zip -r $DIST/compressed/web_api/nodegem-webapi-win64.zip .
+cd $DIST/compressed/web_api
+
+tar -czf nodegem-webapi-linux64.tar.gz -C $DIST/binaries/web_api/linux .
+tar -czf nodegem-webapi-linux-arm32.tar.gz -C $DIST/binaries/web_api/linux-arm32 .
+tar -czf nodegem-webapi-linux-arm64.tar.gz -C $DIST/binaries/web_api/linux-arm64 .
+
+cd $CWD

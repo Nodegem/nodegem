@@ -219,3 +219,5 @@ project.lock.json
 .config/
 
 binaries/
+dist/
+compressed/

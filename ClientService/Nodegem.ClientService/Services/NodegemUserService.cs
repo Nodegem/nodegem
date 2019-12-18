@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Nodegem.ClientService.Data;
 using Nodegem.ClientService.Extensions;
-using Nodegem.Common.Dto.ComponentDtos;
+using Nodegem.Common.Data;
 
 namespace Nodegem.ClientService.Services
 {
@@ -13,9 +13,9 @@ namespace Nodegem.ClientService.Services
         {
         }
 
-        public async Task<IEnumerable<ConstantDto>> GetUserConstantsAsync()
+        public async Task<IEnumerable<Constant>> GetUserConstantsAsync()
         {
-            return await Client.GetAsync<IEnumerable<ConstantDto>>("account/constants");
+            return await Client.GetAsync<IEnumerable<Constant>>("account/constants");
         }
     }
 }

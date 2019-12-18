@@ -1,0 +1,12 @@
+#!/bin/bash
+
+aws --endpoint=${S3_ENDPOINT} s3 sync ./linux s3://${BUCKET_NAME}/install/linux --acl public-read
+aws --endpoint=${S3_ENDPOINT} s3 sync ./windows s3://${BUCKET_NAME}/install/windows/scripts --acl public-read
+
+aws --endpoint=${S3_ENDPOINT} s3 sync ../dist/compressed/client_service s3://${BUCKET_NAME}/releases/latest/client_service --acl public-read
+aws --endpoint=${S3_ENDPOINT} s3 sync ../dist/compressed/web_api s3://${BUCKET_NAME}/releases/latest/web_api --acl public-read
+
+if [[ ! -z "${CI_COMMIT_TAG}" ]]; then
+    aws --endpoint=${S3_ENDPOINT} s3 sync ../dist/compressed/client_service s3://${BUCKET_NAME}/releases/${CI_COMMIT_TAG}/client_service --acl public-read
+    aws --endpoint=${S3_ENDPOINT} s3 sync ../dist/compressed/web_api s3://${BUCKET_NAME}/releases/${CI_COMMIT_TAG}/web_api --acl public-read
+fi
