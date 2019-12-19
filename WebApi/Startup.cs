@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,6 +31,8 @@ namespace Nodegem.WebApi
         private IConfiguration Configuration { get; }
         private IWebHostEnvironment Environment { get; }
 
+        private bool IsSelfHosted => Configuration.GetValue("selfHosted", false);
+
         public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
@@ -46,27 +49,47 @@ namespace Nodegem.WebApi
             services.AddHttpContextAccessor();
             services.AddDistributedMemoryCache();
 
-            services.AddEntityFrameworkNpgsql()
-                .AddDbContext<NodegemContext>(options =>
-                {
-                    options.UseNpgsql(Configuration.GetConnectionString("nodegemDb"),
-                        b => b.MigrationsAssembly("Nodegem.WebApi"));
-                });
-            
-            services.AddEntityFrameworkNpgsql()
-                .AddDbContext<KeysContext>(options =>
-                {
-                    options.UseNpgsql(Configuration.GetConnectionString("keysDb"),
-                        b => b.MigrationsAssembly("Nodegem.WebApi"));
-                });
-            
+            if (!IsSelfHosted)
+            {
+                services.AddEntityFrameworkNpgsql()
+                    .AddDbContext<NodegemContext>(options =>
+                    {
+                        options.UseNpgsql(Configuration.GetConnectionString("nodegemDb"),
+                            b => b.MigrationsAssembly("Nodegem.WebApi"));
+                    })
+                    .AddDbContext<KeysContext>(options =>
+                    {
+                        options.UseNpgsql(Configuration.GetConnectionString("keysDb"),
+                            b => b.MigrationsAssembly("Nodegem.WebApi"));
+                    });
+            }
+            else
+            {
+                services.AddEntityFrameworkSqlite()
+                    .AddDbContext<NodegemContext>(options =>
+                    {
+                        options.UseSqlite(Configuration.GetConnectionString("sqlite:nodegemDb"),
+                            b => b.MigrationsAssembly("Nodegem.WebApi"));
+                    })
+                    .AddDbContext<KeysContext>(options =>
+                    {
+                        options.UseSqlite(Configuration.GetConnectionString("sqlite:keysDb"),
+                            b => b.MigrationsAssembly("Nodegem.WebApi"));
+                    });
+            }
+
             services.AddDataProtection()
                 .SetApplicationName(Configuration["AppSettings:AppName"])
                 .PersistKeysToDbContext<KeysContext>();
-            
-            services.AddHealthChecks()
-                .AddNpgSql(Configuration.GetConnectionString("nodegemDb"), name: "NodegemDb")
-                .AddNpgSql(Configuration.GetConnectionString("keysDb"), name: "KeysDb");
+
+            var healthChecksBuilder = services.AddHealthChecks();
+
+            if (!IsSelfHosted)
+            {
+                healthChecksBuilder
+                    .AddNpgSql(Configuration.GetConnectionString("nodegemDb"), name: "NodegemDb")
+                    .AddNpgSql(Configuration.GetConnectionString("keysDb"), name: "KeysDb");
+            }
 
             services.AddIdentity<ApplicationUser, Role>()
                 .AddEntityFrameworkStores<NodegemContext>()
@@ -175,6 +198,12 @@ namespace Nodegem.WebApi
 
             services.AddRouting();
 
+            if (IsSelfHosted)
+            {
+                services.AddControllersWithViews();
+                services.AddSpaStaticFiles(configuration => { configuration.RootPath = "wwwroot"; });
+            }
+
             services.AddControllers()
                 .AddNewtonsoftJson(options =>
                 {
@@ -184,20 +213,31 @@ namespace Nodegem.WebApi
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
-            NodegemContext nodegemContext, IServiceProvider provider)
+            NodegemContext nodegemContext, KeysContext keysContext, IServiceProvider provider)
         {
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             if (env.IsDevelopment() || env.IsStaging())
             {
                 app.UseDeveloperExceptionPage();
+
+                nodegemContext.Database.EnsureCreated();
+                keysContext.Database.EnsureCreated();
+                
                 nodegemContext.Database.Migrate();
+                keysContext.Database.Migrate();
             }
 
             if (env.IsStaging() || env.IsProduction())
             {
                 app.UseHttpsRedirection();
                 app.UseHsts();
+            }
+
+            if (IsSelfHosted)
+            {
+                app.UseStaticFiles();
+                app.UseSpaStaticFiles();
             }
 
             app.UseRouting();
@@ -216,11 +256,21 @@ namespace Nodegem.WebApi
                 routes.MapHub<GraphHub>("/graphHub");
                 routes.MapHub<TerminalHub>("/terminalHub");
                 routes.MapHealthChecks("/health").RequireAuthorization();
+
+                if (IsSelfHosted)
+                {
+                    routes.MapControllerRoute(
+                        name: "default",
+                        pattern: "{controller}/{action=Index}/{id?}");
+                }
             });
 
-            NodeCache.CacheNodeData(provider);
+            if (IsSelfHosted)
+            {
+                app.UseSpa(spa => { spa.Options.SourcePath = "wwwroot"; });
+            }
 
-            nodegemContext.Database.EnsureCreated();
+            NodeCache.CacheNodeData(provider);
         }
     }
 }
