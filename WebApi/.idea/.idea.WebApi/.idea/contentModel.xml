@@ -609,7 +609,20 @@
       <e p="Libraries" t="Include">
         <e p="Engine" t="Include" />
       </e>
-      <e p="Migrations" t="Include" />
+      <e p="Migrations" t="Include">
+        <e p="20191128062047_Initial.cs" t="Include" />
+        <e p="20191128062047_Initial.Designer.cs" t="Include" />
+        <e p="20191201191904_GraphMetadata.cs" t="Include" />
+        <e p="20191201191904_GraphMetadata.Designer.cs" t="Include" />
+        <e p="20191208214829_RemovingBSPropertyThatIForSomeReasonAdded.cs" t="Include" />
+        <e p="20191208214829_RemovingBSPropertyThatIForSomeReasonAdded.Designer.cs" t="Include" />
+        <e p="Keys" t="Include">
+          <e p="20191128062226_Initial.cs" t="Include" />
+          <e p="20191128062226_Initial.Designer.cs" t="Include" />
+          <e p="KeysContextModelSnapshot.cs" t="Include" />
+        </e>
+        <e p="NodegemContextModelSnapshot.cs" t="Include" />
+      </e>
       <e p="nlog.config" t="Include" />
       <e p="Nodegem.WebApi.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
