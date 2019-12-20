@@ -606,8 +606,6 @@
         <e p="HttpRequestExtension.cs" t="Include" />
       </e>
       <e p="KeysDatabase.db" t="Include" />
-      <e p="KeysDatabase.db-shm" t="Include" />
-      <e p="KeysDatabase.db-wal" t="Include" />
       <e p="Libraries" t="Include">
         <e p="Engine" t="Include" />
       </e>
@@ -633,6 +631,8 @@
           <e p="nodegem" t="Include">
             <e p="20191220013139_InitialCreate.cs" t="Include" />
             <e p="20191220013139_InitialCreate.Designer.cs" t="Include" />
+            <e p="20191220161744_DefaultLocalUser.cs" t="Include" />
+            <e p="20191220161744_DefaultLocalUser.Designer.cs" t="Include" />
             <e p="SqliteNodegemContextModelSnapshot.cs" t="Include" />
           </e>
         </e>
@@ -640,8 +640,6 @@
       <e p="nlog.config" t="Include" />
       <e p="Nodegem.WebApi.csproj" t="IncludeRecursive" />
       <e p="NodegemDatabase.db" t="Include" />
-      <e p="NodegemDatabase.db-shm" t="Include" />
-      <e p="NodegemDatabase.db-wal" t="Include" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp3.1" t="Include">

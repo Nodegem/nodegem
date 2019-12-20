@@ -1,5 +1,5 @@
 param(
-    [Boolean]$selfHosted = 0
+    $selfHosted = 0
 )
 
 Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
@@ -12,9 +12,9 @@ $web_api_download = "$download_host/web_api"
 $service_name = "Nodegem"
 $service_name_api = "Nodegem API"
 
-Write-Host "Downloading .NET Core 3.0..."
+Write-Host "Downloading .NET Core 3.x..."
 Invoke-WebRequest 'https://dot.net/v1/dotnet-install.ps1' -OutFile 'dotnet-install.ps1'
-Write-Host "Installing .NET Core 3.0..."
+Write-Host "Installing .NET Core 3.x..."
 & "./dotnet-install.ps1" -Channel 'Current' -Runtime dotnet
 
 $download_file = "$client_service_download/nodegem-win64.zip"
@@ -44,29 +44,39 @@ if ($selfHosted) {
 }
 
 
-$username = Read-Host "Nodegem username: "
-$password = Read-Host -assecurestring "Please enter your password"
-$password_confirm = Read-Host -assecurestring "Please enter your password"
-
-while (-Not $password -eq $password_confirm) {
-    Write-Host "Passwords aren't the same"
+if (-Not $selfHosted) {
+    $username = Read-Host "Nodegem username: "
     $password = Read-Host -assecurestring "Please enter your password"
     $password_confirm = Read-Host -assecurestring "Please enter your password"
-}
 
-$BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($password)
-$pass = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+    while (-Not $password -eq $password_confirm) {
+        Write-Host "Passwords aren't the same"
+        $password = Read-Host -assecurestring "Please enter your password"
+        $password_confirm = Read-Host -assecurestring "Please enter your password"
+    }
+
+    $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($password)
+    $pass = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+}
+else {
+    $username = "Nodegem_Default"
+    $password = "P@ssword1"
+}
 
 $additionalFlag = ""
 if ($selfHosted) {
     $api_service_description = "The service that stores and retrieves user and graph information"
     $api_params = @{
         Name           = $service_name_api
-        BinaryPathName = "$env:APPDATA/Nodegem/WebApi/WebApi"
+        BinaryPathName = "$env:APPDATA/Nodegem/WebApi/Nodegem.WebApi.exe --selfHosted=true"
         DisplayName    = "Nodegem API"
         Description    = $api_service_description
     }
     $additionalFlag = "-e http://localhost:5000"
+
+    New-Service @api_params
+    Set-Service -Name $service_name_api -StartupType Automatic
+    Restart-Service -Name $service_name_api
 }
 
 $service_description = "The service that bridges the web client and the api service"
@@ -92,5 +102,8 @@ Write-Host "Successfully installed Nodegem!!!"
 Write-Host "Some cleanup..."
 Remove-Item "nodegem-win64.zip" -Force
 Remove-Item "dotnet-install.ps1" -Force
-Remove-Item "nodegem-webapi-win64.zip" -Force
-Remove-Item "nodegem-web-client.zip" -Force
+
+if ($selfHosted) {
+    Remove-Item "nodegem-webapi-win64.zip" -Force
+    Remove-Item "nodegem-web-client.zip" -Force
+}
