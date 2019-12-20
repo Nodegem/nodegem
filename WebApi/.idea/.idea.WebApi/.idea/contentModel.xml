@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\rszem\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\rszem\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_WebApi.-2143229641.01" t="ExcludeRecursive" />
+    <e p="C:\Users\rszem\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_WebApi.-2143229641.00" t="ExcludeRecursive" />
     <e p="C:\Users\rszem\Documents\Projects\nodegem\Common" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="BridgeInfo.cs" t="Include" />
@@ -596,6 +596,9 @@
         <e p="NodesController.cs" t="Include" />
         <e p="OAuthController.cs" t="Include" />
       </e>
+      <e p="databases" t="Include">
+        <e p="KeysDatabase.db" t="Include" />
+      </e>
       <e p="EmailTemplates" t="Include">
         <e p="ForgotPassword.cshtml" t="Include" />
         <e p="Registration.cshtml" t="Include" />
@@ -605,7 +608,8 @@
         <e p="EmailServiceExtension.cs" t="Include" />
         <e p="HttpRequestExtension.cs" t="Include" />
       </e>
-      <e p="KeysDatabase.db" t="Include" />
+      <e p="KeysDatabase.db-shm" t="Include" />
+      <e p="KeysDatabase.db-wal" t="Include" />
       <e p="Libraries" t="Include">
         <e p="Engine" t="Include" />
       </e>
@@ -638,6 +642,8 @@
       <e p="nlog.config" t="Include" />
       <e p="Nodegem.WebApi.csproj" t="IncludeRecursive" />
       <e p="NodegemDatabase.db" t="Include" />
+      <e p="NodegemDatabase.db-shm" t="Include" />
+      <e p="NodegemDatabase.db-wal" t="Include" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp3.1" t="Include">

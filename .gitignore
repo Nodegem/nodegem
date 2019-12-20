@@ -219,8 +219,6 @@ project.lock.json
 
 .config/
 
-binaries/
-dist/
-compressed/
-
-**/*.db
+**/dist
+**/*.db-shm
+**/*.db-wal

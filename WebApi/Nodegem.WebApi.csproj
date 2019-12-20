@@ -64,4 +64,12 @@
     <Folder Include="Migrations" />
     <Folder Include="Migrations\Postgres" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="KeysDatabase.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="NodegemDatabase.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
