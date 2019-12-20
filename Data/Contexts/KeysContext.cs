@@ -5,6 +5,11 @@ namespace Nodegem.Data.Contexts
 {
     public class KeysContext : DbContext, IDataProtectionKeyContext
     {
+
+        public KeysContext()
+        {
+        }
+        
         public KeysContext(DbContextOptions<KeysContext> options)
             : base(options)
         {

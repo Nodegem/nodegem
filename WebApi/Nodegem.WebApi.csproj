@@ -25,6 +25,7 @@
   <ItemGroup>
     <PackageReference Include="AspNet.Security.OAuth.GitHub" Version="3.0.0" />
     <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="3.0.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.Sqlite" Version="3.0.0" />
     <PackageReference Include="FluentEmail.Core" Version="2.7.0" />
     <PackageReference Include="FluentEmail.Razor" Version="2.7.0" />
     <PackageReference Include="Microsoft.AspNetCore.Antiforgery" Version="2.2.0" />
@@ -61,5 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Migrations" />
+    <Folder Include="Migrations\Postgres" />
   </ItemGroup>
 </Project>

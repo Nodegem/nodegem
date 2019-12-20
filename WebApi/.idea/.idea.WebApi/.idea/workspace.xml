@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="" />
+    <list default="true" id="89bb1653-16f0-45b2-ba28-ef39ec161878" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Data/Contexts/SqliteKeysContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data/Contexts/SqliteNodegemContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Nodegem.ClientService.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientService/Nodegem.ClientService/Nodegem.ClientService.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Contexts/KeysContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Contexts/KeysContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Contexts/NodegemContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Contexts/NodegemContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Data/Nodegem.Data.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Data/Nodegem.Data.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20191128062047_Initial.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20191128062047_Initial.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20191201191904_GraphMetadata.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20191201191904_GraphMetadata.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20191208214829_RemovingBSPropertyThatIForSomeReasonAdded.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20191208214829_RemovingBSPropertyThatIForSomeReasonAdded.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/Keys/20191128062226_Initial.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/Keys/20191128062226_Initial.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/Keys/KeysContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/NodegemContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Nodegem.WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Nodegem.WebApi.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appsettings.Staging.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.Staging.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,189 +90,189 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Extensions/EmailServiceExtension.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Extensions/HttpRequestExtension.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Services/EmailSenderService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/Sequence.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Services/Data/ISendEmails.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/Delay.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Extensions/ConfigurationExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Services/Data/Repositories/IMacroRepository.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Dto/UserDtos/TokenUserDto.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Common/Extensions/StringExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Dto/MacroDtos/CreateMacroDto.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Common/Extensions/LinqExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Common/Extensions/ObjectExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Common/Extensions/AttributeExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Dto/EmailDtos/RegisterUserDto.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Common/Dto/BaseFieldDto.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Contexts/NodegemContext.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Common/Dto/ValueFieldDtos/ValueInputDto.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/IMacroGraph.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Configurations/UserConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Common/Dto/ValueFieldDtos/ValueOutputDto.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Contexts/KeysContext.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/GraphType.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Configurations/GraphConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Common/Dto/ValueFieldDtos/ValueFieldDto.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Configurations/MacroConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Common/Dto/ComponentDtos/MacroLinkDto.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations.Data/Discord/IDiscordService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Common/Dto/ComponentDtos/NodeDto.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/IGraph.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations.Data/Mailgun/IMailgunService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations.Data/Discord/Exceptions/DiscordException.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Twilio/TwilioService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/NamespaceNodeDefinition.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Twilio/Nodes/TwilioNode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Twilio/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Exceptions/GraphRunException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Fields/IField.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueField.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Extensions/GraphExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueOutputField.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Services/UserService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Twilio/Nodes/SendText.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/EmailTemplates/Registration.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/EmailTemplates/ForgotPassword.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/SendGrid/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/SendGrid/Nodes/SendEmail.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Reddit/StreamNodes/StartBot.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Reddit/StreamNodes/RedditStreamNode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Mailgun/MailgunService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/EmailTemplates/ResetPassword.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Mailgun/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Controllers/MacroController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/DiscordService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Controllers/NodesController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/DiscordStreamNode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/StartBot.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/OnReactionRemoved.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/ReactionStreamNode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/OnReactionAdded.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/OnReactionCleared.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/OnMessageUpdated.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/OnMessageDeleted.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/OnMessageReceived.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/MessageStreamNode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Connections/OnConnected.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controllers/AccountController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Nodes/INode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/UserDtos/UserDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Extensions/UserExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Extensions/ConstantExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Database/MSSQL/Query.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Data/Constant.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Database/DatabaseNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Repositories/Repository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controllers/GraphController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Data/Repositories/IGraphRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/Nodes/Connections/GetConnectionState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/Nodes/Message/SendMessage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/Nodes/DiscordNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/Nodes/User/GetUser.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Reddit/RedditService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Channel/OnChannelDestroyed.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Connections/OnDisconnected.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Common/Dto/MacroDto.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Dto/UserDtos/RegisterDto.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Common/Data/User.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Services/Services/Repositories/TokenRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Mailgun/Nodes/SendEmail.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Connections/OnConnected.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/MessageStreamNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/OnMessageReceived.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Common/Extensions/ClaimExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/OnMessageDeleted.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/OnMessageUpdated.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/OnReactionCleared.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/GraphDtos/CreateGraphDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Common/Data/ValueType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/OnReactionAdded.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/ReactionStreamNode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Services/Hubs/GraphHub.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/OnReactionRemoved.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Common/Data/ClientData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/StartBot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Common/BridgeInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/DiscordStreamNode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Services/Hubs/TerminalHub.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/DiscordService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Dto/ResetPasswordDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Mailgun/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Mailgun/MailgunService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Dto/EmailDtos/ForgotPasswordEmailDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Dto/EmailDtos/ResetPasswordEmailDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EmailTemplates/ResetPassword.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Reddit/StreamNodes/RedditStreamNode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Dto/ResetPasswordWithTokenDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Reddit/StreamNodes/StartBot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Dto/ForgotPasswordDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EmailTemplates/ForgotPassword.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EmailTemplates/Registration.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/SendGrid/Nodes/SendEmail.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Services/TokenService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/SendGrid/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Data/ITokenService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controllers/OAuthController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Twilio/Nodes/SendText.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Twilio/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Twilio/Nodes/TwilioNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/NamespaceNodeDefinition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Twilio/TwilioService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations.Data/Discord/Exceptions/DiscordException.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Models/BaseGraph.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Data/Models/Graph.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations.Data/Mailgun/IMailgunService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Services/Data/IUserService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/IGraph.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Common/Dto/GraphDto.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Dto/GraphDtos/CreateGraphDto.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Models/ApplicationUser.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Dto/UserDtos/UserDto.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Common/Data/Constant.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Services/Services/Repositories/Repository.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Services/Data/Repositories/IGraphRepository.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Channel/OnChannelDestroyed.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/Nodes/User/GetUser.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/Nodes/DiscordNode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/Nodes/Message/SendMessage.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Discord/Nodes/Connections/GetConnectionState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Database/DatabaseNode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Database/MSSQL/Query.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Nodes/INode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueOutputField.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Fields/IValueField.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Fields/IField.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Exceptions/GraphRunException.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueOutputDefinition.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Reddit/RedditService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueInputDefinition.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueOption.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/NodeDefinition.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueFieldDefinition.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/FlowInputDefinition.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/FlowOutputDefinition.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Attributes/NodeNamespaceAttribute.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/FieldDefinition.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Attributes/FieldAttributesAttribute.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Attributes/FriendlyNameAttribute.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/StreamNode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Attributes/DefinedNodeAttribute.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Node.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/RegisterAssembly.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/FlowGraph.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroGraph.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Common/Data/FieldData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Fields/ValueField.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Common/Data/ExecutionErrorData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Fields/BaseField.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/ValueOutput.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/ValueInput.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Extensions/PropertyInfoExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Extensions/DefinitionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Integrations.Data/Discord/IDiscordService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Configurations/MacroConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Configurations/GraphConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/GraphType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Contexts/KeysContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Configurations/UserConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Integrations.Data/Reddit/IRedditService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/StringFormat.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/Concat.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/Map.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Divide.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Add.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Log/LogError.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Log/BaseLog.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Log/Log.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThan.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThanOrEqualTo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThanOrEqualTo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/If.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThan.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Services/Services/Repositories/MacroRepository.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Services/Services/Extensions/DistributedCacheExtension.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Services/Services/Repositories/GraphRepository.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Integrations/Mailgun/Nodes/SendEmail.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literal/List.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Settings/TokenSettings.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Settings/AppSettings.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Settings/MailConfigurationSettings.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Services/Services/NodeCache.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Lists/GetIndex.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Startup.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Services/Services/NodeHttpClient.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/Post.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/Fetch.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Models/AccessToken.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/HttpNode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Models/Json Models/Node.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/JSON/JSONFetch.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Models/Json Models/RecurringOptions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Data/Models/Json Models/Fields/ValueFields/ValueField.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Graph/GetConstant.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Macro.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Start.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/IMacroGraph.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Contexts/NodegemContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/EmailDtos/RegisterUserDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Extensions/AttributeExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Extensions/ObjectExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Extensions/LinqExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/MacroDtos/CreateMacroDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Extensions/StringExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/UserDtos/TokenUserDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Data/Repositories/IMacroRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Extensions/ConfigurationExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Dto/MacroDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/Delay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Data/ISendEmails.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/Sequence.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Dto/UserDtos/RegisterDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Data/User.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Services/EmailSenderService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Extensions/HttpRequestExtension.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Extensions/EmailServiceExtension.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Migrations/Postgres/Nodegem/20191220012100_InitialCreate.Designer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Migrations/Postgres/Nodegem/NodegemContextModelSnapshot.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controllers/MacroController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Dto/BaseFieldDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Dto/ComponentDtos/MacroLinkDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Dto/ComponentDtos/NodeDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Dto/ValueFieldDtos/ValueFieldDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Dto/ValueFieldDtos/ValueInputDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Dto/ValueFieldDtos/ValueOutputDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Data/FieldData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Common/Data/ExecutionErrorData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Contexts/SqliteKeysContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Contexts/SqliteNodegemContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Control/While.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Services/Services/Extensions/ConstantExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Start.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Essential/Macro.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Graph/GetConstant.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Models/Json Models/Fields/ValueFields/ValueField.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/nlog.config" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Services/Services/Extensions/GraphExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Services/Services/Extensions/UserExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Controllers/AccountController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Controllers/OAuthController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Controllers/GraphController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Models/Json Models/RecurringOptions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/JSON/JSONFetch.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Models/Json Models/Node.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/HttpNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Models/AccessToken.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/Fetch.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Startup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/HTTP/Post.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/NodeHttpClient.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Lists/GetIndex.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/NodeCache.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Settings/MailConfigurationSettings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Settings/AppSettings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Settings/TokenSettings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Literal/List.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Extensions/DistributedCacheExtension.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Repositories/MacroRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThan.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/If.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/GreaterThanOrEqualTo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThanOrEqualTo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Logic/LessThan.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Log/Log.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Log/BaseLog.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Log/LogError.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Data/Models/ApplicationUser.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Add.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controllers/NodesController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Math/Divide.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/Map.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/Concat.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/Utils/StringFormat.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core.Nodes/ServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Extensions/DefinitionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Extensions/PropertyInfoExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/ValueInput.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Fields/Graph/ValueOutput.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Fields/BaseField.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Fields/ValueField.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Macro/MacroGraph.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/FlowGraph.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/RegisterAssembly.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/Node.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Attributes/DefinedNodeAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core/Core/StreamNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Attributes/FriendlyNameAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Attributes/FieldAttributesAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/FieldDefinition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Attributes/NodeNamespaceAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/FlowOutputDefinition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/FlowInputDefinition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueFieldDefinition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/NodeDefinition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueOption.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Services/Services/Repositories/TokenRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueInputDefinition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Engine/Core.Data/Definitions/ValueOutputDefinition.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Connections/OnConnected.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Connections/OnDisconnected.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/OnMessageDeleted.cs" />
-        <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/OnMessageReceived.cs" />
         <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Message/OnMessageUpdated.cs" />
         <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/OnReactionAdded.cs" />
         <option value="$PROJECT_DIR$/../Engine/Integrations/Discord/StreamNodes/Reaction/OnReactionCleared.cs" />
@@ -291,9 +316,13 @@
         <option value="$PROJECT_DIR$/Controllers/HomeController.cs" />
         <option value="$PROJECT_DIR$/../Engine/Integrations.Data/Reddit/IRedditService.cs" />
         <option value="$PROJECT_DIR$/../Engine/Integrations/Reddit/RedditService.cs" />
-        <option value="$PROJECT_DIR$/appsettings.Staging.json" />
+        <option value="$PROJECT_DIR$/../Data/Contexts/KeysContext.cs" />
         <option value="$PROJECT_DIR$/appsettings.Development.json" />
+        <option value="$PROJECT_DIR$/appsettings.Staging.json" />
+        <option value="$PROJECT_DIR$/../Data/Contexts/NodegemContext.cs" />
         <option value="$PROJECT_DIR$/Properties/launchSettings.json" />
+        <option value="$PROJECT_DIR$/../Data/Contexts/SqliteNodegemContext.cs" />
+        <option value="$PROJECT_DIR$/../Data/Contexts/SqliteKeysContext.cs" />
         <option value="$PROJECT_DIR$/Startup.cs" />
       </list>
     </option>
@@ -496,6 +525,7 @@
       <workItem from="1576636650669" duration="1274000" />
       <workItem from="1576770878903" duration="199000" />
       <workItem from="1576771185160" duration="4773000" />
+      <workItem from="1576801336924" duration="4090000" />
     </task>
     <servers />
   </component>
@@ -532,98 +562,123 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576775143394">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="3112" y="234" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576805660483">
+      <screen x="2560" y="0" width="2560" height="1400" />
     </state>
+    <state x="3112" y="234" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.0.2560.1400/0.0.2560.1400@2560.0.2560.1400" timestamp="1576805660483" />
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/3840.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576775143394" />
     <state width="701" height="466" key="DebuggerActiveHint" timestamp="1576774902146">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="701" height="466" key="DebuggerActiveHint/3840.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576774902146" />
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1576775961851">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="430" key="GridCell.Tab.0.bottom" timestamp="1576806521855">
+      <screen x="2560" y="0" width="2560" height="1400" />
     </state>
+    <state width="2517" height="430" key="GridCell.Tab.0.bottom/2560.0.2560.1400/0.0.2560.1400@2560.0.2560.1400" timestamp="1576806521855" />
     <state width="1877" height="348" key="GridCell.Tab.0.bottom/3840.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576775961851" />
-    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1576775961851">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="430" key="GridCell.Tab.0.center" timestamp="1576806521855">
+      <screen x="2560" y="0" width="2560" height="1400" />
     </state>
+    <state width="2517" height="430" key="GridCell.Tab.0.center/2560.0.2560.1400/0.0.2560.1400@2560.0.2560.1400" timestamp="1576806521855" />
     <state width="1877" height="348" key="GridCell.Tab.0.center/3840.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576775961851" />
-    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1576775961851">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="430" key="GridCell.Tab.0.left" timestamp="1576806521855">
+      <screen x="2560" y="0" width="2560" height="1400" />
     </state>
+    <state width="2517" height="430" key="GridCell.Tab.0.left/2560.0.2560.1400/0.0.2560.1400@2560.0.2560.1400" timestamp="1576806521855" />
     <state width="1877" height="348" key="GridCell.Tab.0.left/3840.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576775961851" />
-    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1576775961851">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="430" key="GridCell.Tab.0.right" timestamp="1576806521855">
+      <screen x="2560" y="0" width="2560" height="1400" />
     </state>
+    <state width="2517" height="430" key="GridCell.Tab.0.right/2560.0.2560.1400/0.0.2560.1400@2560.0.2560.1400" timestamp="1576806521855" />
     <state width="1877" height="348" key="GridCell.Tab.0.right/3840.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576775961851" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1576775961852">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="430" key="GridCell.Tab.1.bottom" timestamp="1576806521855">
+      <screen x="2560" y="0" width="2560" height="1400" />
     </state>
+    <state width="2517" height="430" key="GridCell.Tab.1.bottom/2560.0.2560.1400/0.0.2560.1400@2560.0.2560.1400" timestamp="1576806521855" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom/3840.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576775961852" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1576775961851">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="430" key="GridCell.Tab.1.center" timestamp="1576806521855">
+      <screen x="2560" y="0" width="2560" height="1400" />
     </state>
+    <state width="2517" height="430" key="GridCell.Tab.1.center/2560.0.2560.1400/0.0.2560.1400@2560.0.2560.1400" timestamp="1576806521855" />
     <state width="1877" height="348" key="GridCell.Tab.1.center/3840.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576775961851" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1576775961851">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="430" key="GridCell.Tab.1.left" timestamp="1576806521855">
+      <screen x="2560" y="0" width="2560" height="1400" />
     </state>
+    <state width="2517" height="430" key="GridCell.Tab.1.left/2560.0.2560.1400/0.0.2560.1400@2560.0.2560.1400" timestamp="1576806521855" />
     <state width="1877" height="348" key="GridCell.Tab.1.left/3840.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576775961851" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1576775961852">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="430" key="GridCell.Tab.1.right" timestamp="1576806521855">
+      <screen x="2560" y="0" width="2560" height="1400" />
     </state>
+    <state width="2517" height="430" key="GridCell.Tab.1.right/2560.0.2560.1400/0.0.2560.1400@2560.0.2560.1400" timestamp="1576806521855" />
     <state width="1877" height="348" key="GridCell.Tab.1.right/3840.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576775961852" />
-    <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1576775961852">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="430" key="GridCell.Tab.2.bottom" timestamp="1576806521855">
+      <screen x="2560" y="0" width="2560" height="1400" />
     </state>
+    <state width="2517" height="430" key="GridCell.Tab.2.bottom/2560.0.2560.1400/0.0.2560.1400@2560.0.2560.1400" timestamp="1576806521855" />
     <state width="1877" height="348" key="GridCell.Tab.2.bottom/3840.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576775961852" />
-    <state width="1877" height="348" key="GridCell.Tab.2.center" timestamp="1576775961852">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="430" key="GridCell.Tab.2.center" timestamp="1576806521855">
+      <screen x="2560" y="0" width="2560" height="1400" />
     </state>
+    <state width="2517" height="430" key="GridCell.Tab.2.center/2560.0.2560.1400/0.0.2560.1400@2560.0.2560.1400" timestamp="1576806521855" />
     <state width="1877" height="348" key="GridCell.Tab.2.center/3840.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576775961852" />
-    <state width="1877" height="348" key="GridCell.Tab.2.left" timestamp="1576775961852">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="430" key="GridCell.Tab.2.left" timestamp="1576806521855">
+      <screen x="2560" y="0" width="2560" height="1400" />
     </state>
+    <state width="2517" height="430" key="GridCell.Tab.2.left/2560.0.2560.1400/0.0.2560.1400@2560.0.2560.1400" timestamp="1576806521855" />
     <state width="1877" height="348" key="GridCell.Tab.2.left/3840.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576775961852" />
-    <state width="1877" height="348" key="GridCell.Tab.2.right" timestamp="1576775961852">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="430" key="GridCell.Tab.2.right" timestamp="1576806521855">
+      <screen x="2560" y="0" width="2560" height="1400" />
     </state>
+    <state width="2517" height="430" key="GridCell.Tab.2.right/2560.0.2560.1400/0.0.2560.1400@2560.0.2560.1400" timestamp="1576806521855" />
     <state width="1877" height="348" key="GridCell.Tab.2.right/3840.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576775961852" />
-    <state width="1877" height="348" key="GridCell.Tab.3.bottom" timestamp="1576775961852">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="430" key="GridCell.Tab.3.bottom" timestamp="1576806521856">
+      <screen x="2560" y="0" width="2560" height="1400" />
     </state>
+    <state width="2517" height="430" key="GridCell.Tab.3.bottom/2560.0.2560.1400/0.0.2560.1400@2560.0.2560.1400" timestamp="1576806521856" />
     <state width="1877" height="348" key="GridCell.Tab.3.bottom/3840.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576775961852" />
-    <state width="1877" height="348" key="GridCell.Tab.3.center" timestamp="1576775961852">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="430" key="GridCell.Tab.3.center" timestamp="1576806521856">
+      <screen x="2560" y="0" width="2560" height="1400" />
     </state>
+    <state width="2517" height="430" key="GridCell.Tab.3.center/2560.0.2560.1400/0.0.2560.1400@2560.0.2560.1400" timestamp="1576806521856" />
     <state width="1877" height="348" key="GridCell.Tab.3.center/3840.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576775961852" />
-    <state width="1877" height="348" key="GridCell.Tab.3.left" timestamp="1576775961852">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="430" key="GridCell.Tab.3.left" timestamp="1576806521856">
+      <screen x="2560" y="0" width="2560" height="1400" />
     </state>
+    <state width="2517" height="430" key="GridCell.Tab.3.left/2560.0.2560.1400/0.0.2560.1400@2560.0.2560.1400" timestamp="1576806521856" />
     <state width="1877" height="348" key="GridCell.Tab.3.left/3840.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576775961852" />
-    <state width="1877" height="348" key="GridCell.Tab.3.right" timestamp="1576775961852">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="430" key="GridCell.Tab.3.right" timestamp="1576806521856">
+      <screen x="2560" y="0" width="2560" height="1400" />
     </state>
+    <state width="2517" height="430" key="GridCell.Tab.3.right/2560.0.2560.1400/0.0.2560.1400@2560.0.2560.1400" timestamp="1576806521856" />
     <state width="1877" height="348" key="GridCell.Tab.3.right/3840.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576775961852" />
-    <state width="1877" height="348" key="GridCell.Tab.4.bottom" timestamp="1576775961852">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="430" key="GridCell.Tab.4.bottom" timestamp="1576806521856">
+      <screen x="2560" y="0" width="2560" height="1400" />
     </state>
+    <state width="2517" height="430" key="GridCell.Tab.4.bottom/2560.0.2560.1400/0.0.2560.1400@2560.0.2560.1400" timestamp="1576806521856" />
     <state width="1877" height="348" key="GridCell.Tab.4.bottom/3840.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576775961852" />
-    <state width="1877" height="348" key="GridCell.Tab.4.center" timestamp="1576775961852">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="430" key="GridCell.Tab.4.center" timestamp="1576806521856">
+      <screen x="2560" y="0" width="2560" height="1400" />
     </state>
+    <state width="2517" height="430" key="GridCell.Tab.4.center/2560.0.2560.1400/0.0.2560.1400@2560.0.2560.1400" timestamp="1576806521856" />
     <state width="1877" height="348" key="GridCell.Tab.4.center/3840.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576775961852" />
-    <state width="1877" height="348" key="GridCell.Tab.4.left" timestamp="1576775961852">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="430" key="GridCell.Tab.4.left" timestamp="1576806521856">
+      <screen x="2560" y="0" width="2560" height="1400" />
     </state>
+    <state width="2517" height="430" key="GridCell.Tab.4.left/2560.0.2560.1400/0.0.2560.1400@2560.0.2560.1400" timestamp="1576806521856" />
     <state width="1877" height="348" key="GridCell.Tab.4.left/3840.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576775961852" />
-    <state width="1877" height="348" key="GridCell.Tab.4.right" timestamp="1576775961852">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="430" key="GridCell.Tab.4.right" timestamp="1576806521856">
+      <screen x="2560" y="0" width="2560" height="1400" />
     </state>
+    <state width="2517" height="430" key="GridCell.Tab.4.right/2560.0.2560.1400/0.0.2560.1400@2560.0.2560.1400" timestamp="1576806521856" />
     <state width="1877" height="348" key="GridCell.Tab.4.right/3840.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576775961852" />
     <state x="552" y="251" key="Rider.ProjectTemplateDialog.Size" timestamp="1576772184998">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="251" key="Rider.ProjectTemplateDialog.Size/3840.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576772184998" />
+    <state x="3479" y="437" width="721" height="526" key="find.popup" timestamp="1576805888349">
+      <screen x="2560" y="0" width="2560" height="1400" />
+    </state>
+    <state x="3479" y="437" width="721" height="526" key="find.popup/2560.0.2560.1400/0.0.2560.1400@2560.0.2560.1400" timestamp="1576805888349" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1576771371254">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

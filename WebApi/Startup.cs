@@ -30,7 +30,6 @@ namespace Nodegem.WebApi
     {
         private IConfiguration Configuration { get; }
         private IWebHostEnvironment Environment { get; }
-
         private bool IsSelfHosted => Configuration.GetValue("selfHosted", false);
 
         public Startup(IConfiguration configuration, IWebHostEnvironment env)
@@ -68,12 +67,12 @@ namespace Nodegem.WebApi
                 services.AddEntityFrameworkSqlite()
                     .AddDbContext<NodegemContext>(options =>
                     {
-                        options.UseSqlite(Configuration.GetConnectionString("sqlite:nodegemDb"),
+                        options.UseSqlite("Data Source=NodegemDatabase.db",
                             b => b.MigrationsAssembly("Nodegem.WebApi"));
                     })
                     .AddDbContext<KeysContext>(options =>
                     {
-                        options.UseSqlite(Configuration.GetConnectionString("sqlite:keysDb"),
+                        options.UseSqlite("Data Source=KeysDatabase.db",
                             b => b.MigrationsAssembly("Nodegem.WebApi"));
                     });
             }
@@ -89,6 +88,12 @@ namespace Nodegem.WebApi
                 healthChecksBuilder
                     .AddNpgSql(Configuration.GetConnectionString("nodegemDb"), name: "NodegemDb")
                     .AddNpgSql(Configuration.GetConnectionString("keysDb"), name: "KeysDb");
+            }
+            else
+            {
+                healthChecksBuilder
+                    .AddSqlite("Data Source=NodegemDatabase.db", name: "NodegemDb")
+                    .AddSqlite("Data Source=KeysDatabase.db", name: "KeysDb");                
             }
 
             services.AddIdentity<ApplicationUser, Role>()
@@ -180,8 +185,8 @@ namespace Nodegem.WebApi
                 options.AddPolicy("AppCors", builder =>
                 {
                     builder
-                        .SetIsOriginAllowedToAllowWildcardSubdomains()
                         .WithOrigins(domains)
+                        .SetIsOriginAllowedToAllowWildcardSubdomains()
                         .AllowAnyHeader()
                         .AllowAnyMethod()
                         .AllowCredentials()
@@ -212,20 +217,13 @@ namespace Nodegem.WebApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
-            NodegemContext nodegemContext, KeysContext keysContext, IServiceProvider provider)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider provider)
         {
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             if (env.IsDevelopment() || env.IsStaging())
             {
                 app.UseDeveloperExceptionPage();
-
-                nodegemContext.Database.EnsureCreated();
-                keysContext.Database.EnsureCreated();
-                
-                nodegemContext.Database.Migrate();
-                keysContext.Database.Migrate();
             }
 
             if (env.IsStaging() || env.IsProduction())

@@ -12,6 +12,8 @@ namespace Nodegem.Data.Contexts
         public DbSet<Models.Graph> Graphs { get; set; }
         public DbSet<Macro> Macros { get; set; }
 
+        public NodegemContext() {}
+        
         public NodegemContext(DbContextOptions<NodegemContext> options) : base(options)
         {
         }

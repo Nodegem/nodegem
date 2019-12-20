@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Nodegem.WebApi.Migrations
+namespace Nodegem.WebApi.Migrations.Postgres.Nodegem
 {
-    public partial class Initial : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,7 +46,6 @@ namespace Nodegem.WebApi.Migrations
                     AvatarUrl = table.Column<string>(nullable: true),
                     Constants = table.Column<string>(nullable: true),
                     LastLoggedIn = table.Column<DateTime>(nullable: false),
-                    IsLocked = table.Column<bool>(nullable: false),
                     IsActive = table.Column<bool>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     LastUpdated = table.Column<DateTime>(nullable: false)
@@ -199,6 +198,7 @@ namespace Nodegem.WebApi.Migrations
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Nodes = table.Column<string>(nullable: true),
+                    Metadata = table.Column<string>(nullable: true),
                     Type = table.Column<int>(nullable: false),
                     RecurringOptions = table.Column<string>(nullable: true),
                     Links = table.Column<string>(nullable: true),
@@ -227,6 +227,7 @@ namespace Nodegem.WebApi.Migrations
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Nodes = table.Column<string>(nullable: true),
+                    Metadata = table.Column<string>(nullable: true),
                     FlowInputs = table.Column<string>(nullable: true),
                     FlowOutputs = table.Column<string>(nullable: true),
                     ValueInputs = table.Column<string>(nullable: true),
@@ -246,8 +247,8 @@ namespace Nodegem.WebApi.Migrations
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "AvatarUrl", "ConcurrencyStamp", "Constants", "CreatedOn", "Email", "EmailConfirmed", "FirstName", "IsActive", "IsLocked", "LastLoggedIn", "LastName", "LastUpdated", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { new Guid("7baf3ea1-607e-46c7-b707-5437ccdea2fb"), 0, null, "3b4fef80-dfd2-4a64-b973-1263e796fd69", "[]", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@admin.com", true, null, true, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), false, null, "ADMIN@ADMIN.COM", "ADMINUSER", "AQAAAAEAACcQAAAAEHba2+Fq/Kzwuk0+dmN2XiD0oKPqeqESdTsYOYdO54ZsUF+EcprfkrMOyT3LWQAIAg==", null, true, "a9d796b92e6f4c46a5ed9e317cbe8e5d", false, "AdminUser" });
+                columns: new[] { "Id", "AccessFailedCount", "AvatarUrl", "ConcurrencyStamp", "Constants", "CreatedOn", "Email", "EmailConfirmed", "FirstName", "IsActive", "LastLoggedIn", "LastName", "LastUpdated", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { new Guid("3482b547-9ff6-452e-9fc8-3ac2f5d89e0d"), 0, null, "b8ff6bc0-ac0f-4e0a-9128-3391f44ad789", "[]", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@admin.com", true, null, true, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), false, null, "ADMIN@ADMIN.COM", "ADMINUSER", "AQAAAAEAACcQAAAAEAwmllZHOds1XUGhBJYDMwnyu9RP0QHMbf7qXJPV7CeEROqS95bmJbLlHf1hQK4oVg==", null, true, "8de0660e9ed3437c990290ce002c81d1", false, "AdminUser" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
