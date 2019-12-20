@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Nodegem.Data.Contexts;
 
 namespace Nodegem.WebApi.Migrations.Sqlite.Nodegem
 {
     [DbContext(typeof(SqliteNodegemContext))]
-    partial class SqliteNodegemContextModelSnapshot : ModelSnapshot
+    [Migration("20191220161744_DefaultLocalUser")]
+    partial class DefaultLocalUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

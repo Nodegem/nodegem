@@ -596,9 +596,6 @@
         <e p="NodesController.cs" t="Include" />
         <e p="OAuthController.cs" t="Include" />
       </e>
-      <e p="databases" t="Include">
-        <e p="KeysDatabase.db" t="Include" />
-      </e>
       <e p="EmailTemplates" t="Include">
         <e p="ForgotPassword.cshtml" t="Include" />
         <e p="Registration.cshtml" t="Include" />
@@ -608,6 +605,7 @@
         <e p="EmailServiceExtension.cs" t="Include" />
         <e p="HttpRequestExtension.cs" t="Include" />
       </e>
+      <e p="KeysDatabase.db" t="Include" />
       <e p="KeysDatabase.db-shm" t="Include" />
       <e p="KeysDatabase.db-wal" t="Include" />
       <e p="Libraries" t="Include">
