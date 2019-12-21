@@ -32,8 +32,9 @@ migrate:
     - dotnet ef database update --context KeysContext
   only:
     - develop
+    - master
 
-build_artifacts:
+build_and_deploy_artifacts:
   stage: artifacts
   before_script:
     - apt update
@@ -43,14 +44,11 @@ build_artifacts:
     - apt install -y python-pip
     - pip install awscli
   script:
+    - cd scripts/
     - bash build_binaries
     - bash deploy_binaries
-  artifacts:
-    name: "${CI_PROJECT_NAME}-${CI_COMMIT_REF_NAME}"
-    paths:
-      - compressed/
   only:
-    - develop
+    - master
     - tags
 
 deploy:

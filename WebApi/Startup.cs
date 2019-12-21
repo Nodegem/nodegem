@@ -10,18 +10,22 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json.Converters;
 using Nodegem.Data.Contexts;
 using Nodegem.Data.Models;
 using Nodegem.Data.Settings;
 using Nodegem.Services;
+using Nodegem.Services.Data;
 using Nodegem.Services.Hubs;
 using Nodegem.WebApi.Extensions;
+using Nodegem.WebApi.Services;
 
 namespace Nodegem.WebApi
 {
@@ -29,6 +33,7 @@ namespace Nodegem.WebApi
     {
         private IConfiguration Configuration { get; }
         private IWebHostEnvironment Environment { get; }
+        private bool IsSelfHosted => Configuration.GetValue("selfHosted", false);
 
         public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
@@ -41,32 +46,59 @@ namespace Nodegem.WebApi
         {
             services.Configure<TokenSettings>(Configuration.GetSection("TokenSettings"));
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
+            services.Configure<AppSettings>(a => { a.IsSelfHosted = IsSelfHosted; });
 
             services.AddAntiforgery();
             services.AddHttpContextAccessor();
             services.AddDistributedMemoryCache();
 
-            services.AddEntityFrameworkNpgsql()
-                .AddDbContext<NodegemContext>(options =>
-                {
-                    options.UseNpgsql(Configuration.GetConnectionString("nodegemDb"),
-                        b => b.MigrationsAssembly("Nodegem.WebApi"));
-                });
-            
-            services.AddEntityFrameworkNpgsql()
-                .AddDbContext<KeysContext>(options =>
-                {
-                    options.UseNpgsql(Configuration.GetConnectionString("keysDb"),
-                        b => b.MigrationsAssembly("Nodegem.WebApi"));
-                });
-            
+            if (!IsSelfHosted)
+            {
+                services.AddEntityFrameworkNpgsql()
+                    .AddDbContext<NodegemContext>(options =>
+                    {
+                        options.UseNpgsql(Configuration.GetConnectionString("nodegemDb"),
+                            b => b.MigrationsAssembly("Nodegem.WebApi"));
+                    })
+                    .AddDbContext<KeysContext>(options =>
+                    {
+                        options.UseNpgsql(Configuration.GetConnectionString("keysDb"),
+                            b => b.MigrationsAssembly("Nodegem.WebApi"));
+                    });
+            }
+            else
+            {
+                services.AddEntityFrameworkSqlite()
+                    .AddDbContext<NodegemContext>(options =>
+                    {
+                        options.UseSqlite("Data Source=NodegemDatabase.db",
+                            b => b.MigrationsAssembly("Nodegem.WebApi"));
+                    })
+                    .AddDbContext<KeysContext>(options =>
+                    {
+                        options.UseSqlite("Data Source=KeysDatabase.db",
+                            b => b.MigrationsAssembly("Nodegem.WebApi"));
+                    });
+            }
+
             services.AddDataProtection()
                 .SetApplicationName(Configuration["AppSettings:AppName"])
                 .PersistKeysToDbContext<KeysContext>();
-            
-            services.AddHealthChecks()
-                .AddNpgSql(Configuration.GetConnectionString("nodegemDb"), name: "NodegemDb")
-                .AddNpgSql(Configuration.GetConnectionString("keysDb"), name: "KeysDb");
+
+            var healthChecksBuilder = services.AddHealthChecks();
+
+            if (!IsSelfHosted)
+            {
+                healthChecksBuilder
+                    .AddNpgSql(Configuration.GetConnectionString("nodegemDb"), name: "NodegemDb")
+                    .AddNpgSql(Configuration.GetConnectionString("keysDb"), name: "KeysDb");
+            }
+            else
+            {
+                healthChecksBuilder
+                    .AddSqlite("Data Source=NodegemDatabase.db", name: "NodegemDb")
+                    .AddSqlite("Data Source=KeysDatabase.db", name: "KeysDb");
+            }
 
             services.AddIdentity<ApplicationUser, Role>()
                 .AddEntityFrameworkStores<NodegemContext>()
@@ -88,7 +120,7 @@ namespace Nodegem.WebApi
                 options.User.RequireUniqueEmail = true;
             });
 
-            services.AddAuthentication(options =>
+            var authentication = services.AddAuthentication(options =>
                 {
                     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
                     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -121,22 +153,34 @@ namespace Nodegem.WebApi
                             return Task.CompletedTask;
                         }
                     };
-                })
-                .AddGoogle(options =>
-                {
-                    options.SaveTokens = true;
-                    options.ClientId = Configuration["Authentication:Google:ClientId"];
-                    options.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
-                    options.ClaimActions.MapJsonKey("urn:google:picture", "picture", "url");
-                })
-                .AddGitHub(options =>
-                {
-                    options.ClientId = Configuration["Authentication:GitHub:ClientId"];
-                    options.ClientSecret = Configuration["Authentication:GitHub:ClientSecret"];
                 });
 
-            var mailConfig = Configuration.GetSection("MailConfiguration").Get<MailConfigurationSettings>();
-            services.AddEmailService(mailConfig, "EmailTemplates", false);
+            if (!IsSelfHosted)
+            {
+                authentication.AddGoogle(options =>
+                    {
+                        options.SaveTokens = true;
+                        options.ClientId = Configuration["Authentication:Google:ClientId"];
+                        options.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+                        options.ClaimActions.MapJsonKey("urn:google:picture", "picture", "url");
+                    })
+                    .AddGitHub(options =>
+                    {
+                        options.ClientId = Configuration["Authentication:GitHub:ClientId"];
+                        options.ClientSecret = Configuration["Authentication:GitHub:ClientSecret"];
+                    });
+            }
+
+            if (IsSelfHosted)
+            {
+                services.AddTransient<ISendEmails, LocalEmailSenderService>();
+            }
+            else
+            {
+                var mailConfig = Configuration.GetSection("MailConfiguration").Get<MailConfigurationSettings>();
+                services.AddEmailService(mailConfig, "EmailTemplates", false);
+            }
+
             services.AddServices();
 
             services.AddResponseCompression(options =>
@@ -144,6 +188,7 @@ namespace Nodegem.WebApi
                 options.Providers.Add<BrotliCompressionProvider>();
                 options.Providers.Add<GzipCompressionProvider>();
                 options.EnableForHttps = true;
+                options.MimeTypes = ResponseCompressionDefaults.MimeTypes;
             });
 
             services.AddResponseCaching(options => { options.UseCaseSensitivePaths = true; });
@@ -157,8 +202,8 @@ namespace Nodegem.WebApi
                 options.AddPolicy("AppCors", builder =>
                 {
                     builder
-                        .SetIsOriginAllowedToAllowWildcardSubdomains()
                         .WithOrigins(domains)
+                        .SetIsOriginAllowedToAllowWildcardSubdomains()
                         .AllowAnyHeader()
                         .AllowAnyMethod()
                         .AllowCredentials()
@@ -175,6 +220,12 @@ namespace Nodegem.WebApi
 
             services.AddRouting();
 
+            if (IsSelfHosted)
+            {
+                services.AddControllersWithViews();
+                services.AddSpaStaticFiles(configuration => { configuration.RootPath = "wwwroot"; });
+            }
+
             services.AddControllers()
                 .AddNewtonsoftJson(options =>
                 {
@@ -183,21 +234,26 @@ namespace Nodegem.WebApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
-            NodegemContext nodegemContext, IServiceProvider provider)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider provider)
         {
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             if (env.IsDevelopment() || env.IsStaging())
             {
                 app.UseDeveloperExceptionPage();
-                nodegemContext.Database.Migrate();
             }
 
+            app.UseHttpsRedirection();
+            
             if (env.IsStaging() || env.IsProduction())
             {
-                app.UseHttpsRedirection();
                 app.UseHsts();
+            }
+
+            if (IsSelfHosted)
+            {
+                app.UseStaticFiles();
+                app.UseSpaStaticFiles();
             }
 
             app.UseRouting();
@@ -216,11 +272,21 @@ namespace Nodegem.WebApi
                 routes.MapHub<GraphHub>("/graphHub");
                 routes.MapHub<TerminalHub>("/terminalHub");
                 routes.MapHealthChecks("/health").RequireAuthorization();
+
+                if (IsSelfHosted)
+                {
+                    routes.MapControllerRoute(
+                        name: "default",
+                        pattern: "{controller}/{action=Index}/{id?}");
+                }
             });
 
-            NodeCache.CacheNodeData(provider);
+            if (IsSelfHosted)
+            {
+                app.UseSpa(spa => { spa.Options.SourcePath = "wwwroot"; });
+            }
 
-            nodegemContext.Database.EnsureCreated();
+            NodeCache.CacheNodeData(provider);
         }
     }
 }
