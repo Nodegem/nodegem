@@ -15,14 +15,17 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json.Converters;
 using Nodegem.Data.Contexts;
 using Nodegem.Data.Models;
 using Nodegem.Data.Settings;
 using Nodegem.Services;
+using Nodegem.Services.Data;
 using Nodegem.Services.Hubs;
 using Nodegem.WebApi.Extensions;
+using Nodegem.WebApi.Services;
 
 namespace Nodegem.WebApi
 {
@@ -43,6 +46,7 @@ namespace Nodegem.WebApi
         {
             services.Configure<TokenSettings>(Configuration.GetSection("TokenSettings"));
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
+            services.Configure<AppSettings>(a => { a.IsSelfHosted = IsSelfHosted; });
 
             services.AddAntiforgery();
             services.AddHttpContextAccessor();
@@ -93,7 +97,7 @@ namespace Nodegem.WebApi
             {
                 healthChecksBuilder
                     .AddSqlite("Data Source=NodegemDatabase.db", name: "NodegemDb")
-                    .AddSqlite("Data Source=KeysDatabase.db", name: "KeysDb");                
+                    .AddSqlite("Data Source=KeysDatabase.db", name: "KeysDb");
             }
 
             services.AddIdentity<ApplicationUser, Role>()
@@ -116,7 +120,7 @@ namespace Nodegem.WebApi
                 options.User.RequireUniqueEmail = true;
             });
 
-            services.AddAuthentication(options =>
+            var authentication = services.AddAuthentication(options =>
                 {
                     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
                     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -149,22 +153,34 @@ namespace Nodegem.WebApi
                             return Task.CompletedTask;
                         }
                     };
-                })
-                .AddGoogle(options =>
-                {
-                    options.SaveTokens = true;
-                    options.ClientId = Configuration["Authentication:Google:ClientId"];
-                    options.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
-                    options.ClaimActions.MapJsonKey("urn:google:picture", "picture", "url");
-                })
-                .AddGitHub(options =>
-                {
-                    options.ClientId = Configuration["Authentication:GitHub:ClientId"];
-                    options.ClientSecret = Configuration["Authentication:GitHub:ClientSecret"];
                 });
 
-            var mailConfig = Configuration.GetSection("MailConfiguration").Get<MailConfigurationSettings>();
-            services.AddEmailService(mailConfig, "EmailTemplates", false);
+            if (!IsSelfHosted)
+            {
+                authentication.AddGoogle(options =>
+                    {
+                        options.SaveTokens = true;
+                        options.ClientId = Configuration["Authentication:Google:ClientId"];
+                        options.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+                        options.ClaimActions.MapJsonKey("urn:google:picture", "picture", "url");
+                    })
+                    .AddGitHub(options =>
+                    {
+                        options.ClientId = Configuration["Authentication:GitHub:ClientId"];
+                        options.ClientSecret = Configuration["Authentication:GitHub:ClientSecret"];
+                    });
+            }
+
+            if (IsSelfHosted)
+            {
+                services.AddTransient<ISendEmails, LocalEmailSenderService>();
+            }
+            else
+            {
+                var mailConfig = Configuration.GetSection("MailConfiguration").Get<MailConfigurationSettings>();
+                services.AddEmailService(mailConfig, "EmailTemplates", false);
+            }
+
             services.AddServices();
 
             services.AddResponseCompression(options =>
@@ -172,6 +188,7 @@ namespace Nodegem.WebApi
                 options.Providers.Add<BrotliCompressionProvider>();
                 options.Providers.Add<GzipCompressionProvider>();
                 options.EnableForHttps = true;
+                options.MimeTypes = ResponseCompressionDefaults.MimeTypes;
             });
 
             services.AddResponseCaching(options => { options.UseCaseSensitivePaths = true; });
@@ -226,9 +243,10 @@ namespace Nodegem.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseHttpsRedirection();
+            
             if (env.IsStaging() || env.IsProduction())
             {
-                app.UseHttpsRedirection();
                 app.UseHsts();
             }
 

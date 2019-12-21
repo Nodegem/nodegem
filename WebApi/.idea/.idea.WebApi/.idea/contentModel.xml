@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+    <e p="C:\Users\rszem\.Rider2019.3\config\consoles\db" t="IncludeRecursive" />
     <e p="C:\Users\rszem\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\rszem\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_WebApi.-2143229641.00" t="ExcludeRecursive" />
-    <e p="C:\Users\rszem\Documents\Projects\nodegem\Common" t="IncludeRecursive">
+    <e p="C:\Users\rszem\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_WebApi.850840532.00" t="ExcludeRecursive" />
+    <e p="C:\Users\rszem\Documents\Projects\nodester\Common" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="BridgeInfo.cs" t="Include" />
       <e p="Data" t="Include">
@@ -63,7 +64,7 @@
         <e p="HierarchicalNode.cs" t="Include" />
       </e>
     </e>
-    <e p="C:\Users\rszem\Documents\Projects\nodegem\Data" t="IncludeRecursive">
+    <e p="C:\Users\rszem\Documents\Projects\nodester\Data" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="Configurations" t="Include">
         <e p="AccessTokenConfiguration.cs" t="Include" />
@@ -149,7 +150,7 @@
         <e p="TokenSettings.cs" t="Include" />
       </e>
     </e>
-    <e p="C:\Users\rszem\Documents\Projects\nodegem\Engine\Core" t="IncludeRecursive">
+    <e p="C:\Users\rszem\Documents\Projects\nodester\Engine\Core" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="Core" t="Include">
         <e p="BaseGraph.cs" t="Include" />
@@ -305,7 +306,7 @@
         </e>
       </e>
     </e>
-    <e p="C:\Users\rszem\Documents\Projects\nodegem\Engine\Core.Data" t="IncludeRecursive">
+    <e p="C:\Users\rszem\Documents\Projects\nodester\Engine\Core.Data" t="IncludeRecursive">
       <e p="Attributes" t="Include">
         <e p="DefinedNodeAttribute.cs" t="Include" />
         <e p="FieldAttributesAttribute.cs" t="Include" />
@@ -369,7 +370,7 @@
         </e>
       </e>
     </e>
-    <e p="C:\Users\rszem\Documents\Projects\nodegem\Engine\Integrations" t="IncludeRecursive">
+    <e p="C:\Users\rszem\Documents\Projects\nodester\Engine\Integrations" t="IncludeRecursive">
       <e p="ApplicationInsights" t="Include">
         <e p="AppInsightNode.cs" t="Include" />
         <e p="Query.cs" t="Include" />
@@ -487,7 +488,7 @@
         <e p="TwilioService.cs" t="Include" />
       </e>
     </e>
-    <e p="C:\Users\rszem\Documents\Projects\nodegem\Engine\Integrations.Data" t="IncludeRecursive">
+    <e p="C:\Users\rszem\Documents\Projects\nodester\Engine\Integrations.Data" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="Discord" t="Include">
         <e p="Dtos" t="Include">
@@ -524,7 +525,7 @@
         <e p="ITwilioService.cs" t="Include" />
       </e>
     </e>
-    <e p="C:\Users\rszem\Documents\Projects\nodegem\Services\Data" t="IncludeRecursive">
+    <e p="C:\Users\rszem\Documents\Projects\nodester\Services\Data" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="INodeHttpClient.cs" t="Include" />
       <e p="ISendEmails.cs" t="Include" />
@@ -545,7 +546,7 @@
         <e p="ITokenRepository.cs" t="Include" />
       </e>
     </e>
-    <e p="C:\Users\rszem\Documents\Projects\nodegem\Services\Services" t="IncludeRecursive">
+    <e p="C:\Users\rszem\Documents\Projects\nodester\Services\Services" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="Exceptions" t="Include">
         <e p="Login" t="Include">
@@ -584,7 +585,7 @@
       <e p="TokenService.cs" t="Include" />
       <e p="UserService.cs" t="Include" />
     </e>
-    <e p="C:\Users\rszem\Documents\Projects\nodegem\WebApi" t="IncludeRecursive">
+    <e p="C:\Users\rszem\Documents\Projects\nodester\WebApi" t="IncludeRecursive">
       <e p="appsettings.Development.json" t="Include" />
       <e p="appsettings.json" t="Include" />
       <e p="appsettings.Staging.json" t="Include" />
@@ -616,7 +617,7 @@
             <e p="20191220012118_InitialCreate.Designer.cs" t="Include" />
             <e p="KeysContextModelSnapshot.cs" t="Include" />
           </e>
-          <e p="nodegem" t="Include">
+          <e p="Nodegem" t="Include">
             <e p="20191220012100_InitialCreate.cs" t="Include" />
             <e p="20191220012100_InitialCreate.Designer.cs" t="Include" />
             <e p="NodegemContextModelSnapshot.cs" t="Include" />
@@ -628,7 +629,7 @@
             <e p="20191220013221_InitialCreate.Designer.cs" t="Include" />
             <e p="SqliteKeysContextModelSnapshot.cs" t="Include" />
           </e>
-          <e p="nodegem" t="Include">
+          <e p="Nodegem" t="Include">
             <e p="20191220013139_InitialCreate.cs" t="Include" />
             <e p="20191220013139_InitialCreate.Designer.cs" t="Include" />
             <e p="20191220161744_DefaultLocalUser.cs" t="Include" />
@@ -655,6 +656,7 @@
       </e>
       <e p="Services" t="Include">
         <e p="EmailSenderService.cs" t="Include" />
+        <e p="LocalEmailSenderService.cs" t="Include" />
       </e>
       <e p="Startup.cs" t="Include" />
       <e p="WebApi.sln" t="IncludeFlat" />
@@ -665,21 +667,21 @@
         <e p="favicon.ico" t="Include" />
         <e p="index.html" t="Include" />
         <e p="manifest.json" t="Include" />
-        <e p="precache-manifest.3c9c5ee3d03c7510850936b721e42d93.js" t="Include" />
+        <e p="precache-manifest.1eed7db67d98e39cfd7f42d7d4975d2c.js" t="Include" />
         <e p="service-worker.js" t="Include" />
         <e p="static" t="Include">
           <e p="css" t="Include">
             <e p="2.6a42062b.chunk.css" t="Include" />
             <e p="2.6a42062b.chunk.css.map" t="Include" />
-            <e p="main.24b3d155.chunk.css" t="Include" />
-            <e p="main.24b3d155.chunk.css.map" t="Include" />
+            <e p="main.0e6b70dd.chunk.css" t="Include" />
+            <e p="main.0e6b70dd.chunk.css.map" t="Include" />
           </e>
           <e p="js" t="Include">
-            <e p="2.66f8afae.chunk.js" t="Include" />
-            <e p="2.66f8afae.chunk.js.LICENSE" t="Include" />
-            <e p="2.66f8afae.chunk.js.map" t="Include" />
-            <e p="main.33195df5.chunk.js" t="Include" />
-            <e p="main.33195df5.chunk.js.map" t="Include" />
+            <e p="2.5fb3707d.chunk.js" t="Include" />
+            <e p="2.5fb3707d.chunk.js.LICENSE" t="Include" />
+            <e p="2.5fb3707d.chunk.js.map" t="Include" />
+            <e p="main.f8846188.chunk.js" t="Include" />
+            <e p="main.f8846188.chunk.js.map" t="Include" />
             <e p="runtime-main.3d267e09.js" t="Include" />
             <e p="runtime-main.3d267e09.js.map" t="Include" />
           </e>
@@ -688,7 +690,7 @@
             <e p="mobile-warning.7061e58e.svg" t="Include" />
             <e p="rocket.f6127b8a.svg" t="Include" />
             <e p="saturn.9c6e8f46.svg" t="Include" />
-            <e p="space.5ca177e9.svg" t="Include" />
+            <e p="space.1d61029a.svg" t="Include" />
           </e>
         </e>
       </e>
