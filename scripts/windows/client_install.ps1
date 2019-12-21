@@ -1,5 +1,5 @@
 param(
-    $selfHosted = 0
+    $SelfHosted = 0
 )
 
 Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
@@ -26,7 +26,7 @@ if (Get-Service $service_name -ErrorAction SilentlyContinue) {
     sc.exe delete $service_name
 }
 
-if ($selfHosted) {
+if ($SelfHosted) {
     Write-Host "Downloading Nodegem Web Client ($nodegem_web_static_files)..."
     Invoke-WebRequest $nodegem_web_static_files -OutFile 'nodegem-web-client.zip'
 
@@ -38,13 +38,15 @@ if ($selfHosted) {
 Write-Host "Unzipping file(s)..."
 Expand-Archive -LiteralPath "nodegem-win64.zip" -DestinationPath "$env:APPDATA/Nodegem/ClientService" -Force
 
-if ($selfHosted) {
+if ($SelfHosted) {
     Expand-Archive -LiteralPath "nodegem-webapi-win64.zip" -DestinationPath "$env:APPDATA/Nodegem/WebApi" -Force
     Expand-Archive -LiteralPath "nodegem-web-client.zip" -DestinationPath "$env:APPDATA/Nodegem/WebApi/wwwroot" -Force
+    Get-ChildItem "$env:APPDATA/Nodegem/WebApi/wwwroot/build/" -Recurse | Move-Item -Destination "$env:APPDATA/Nodegem/WebApi/wwwroot"
+    Remove-Item -Recurse "$env:APPDATA/Nodegem/WebApi/wwwroot/build/"
 }
 
 
-if (-Not $selfHosted) {
+if (-Not $SelfHosted) {
     $username = Read-Host "Nodegem username: "
     $password = Read-Host -assecurestring "Please enter your password"
     $password_confirm = Read-Host -assecurestring "Please enter your password"
@@ -64,7 +66,7 @@ else {
 }
 
 $additionalFlag = ""
-if ($selfHosted) {
+if ($SelfHosted) {
     $api_service_description = "The service that stores and retrieves user and graph information"
     $api_params = @{
         Name           = $service_name_api
@@ -103,7 +105,7 @@ Write-Host "Some cleanup..."
 Remove-Item "nodegem-win64.zip" -Force
 Remove-Item "dotnet-install.ps1" -Force
 
-if ($selfHosted) {
+if ($SelfHosted) {
     Remove-Item "nodegem-webapi-win64.zip" -Force
     Remove-Item "nodegem-web-client.zip" -Force
 }
