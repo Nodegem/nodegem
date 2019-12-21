@@ -7,5 +7,17 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/NodesterDB</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="Nodegem" uuid="db1c7601-692b-4525-86bd-e3e8ea995e9a">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/NodegemDatabase.db</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="KeysDatabase.db" uuid="d712b324-9c3c-4337-b1e4-00d05f17362d">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/KeysDatabase.db</jdbc-url>
+    </data-source>
   </component>
 </project>

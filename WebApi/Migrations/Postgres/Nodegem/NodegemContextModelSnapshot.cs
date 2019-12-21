@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Nodegem.Data.Contexts;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Nodegem.WebApi.Migrations
+namespace Nodegem.WebApi.Migrations.Postgres.Nodegem
 {
     [DbContext(typeof(NodegemContext))]
     partial class NodegemContextModelSnapshot : ModelSnapshot
@@ -16,7 +16,7 @@ namespace Nodegem.WebApi.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
-                .HasAnnotation("ProductVersion", "3.0.0")
+                .HasAnnotation("ProductVersion", "3.1.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -249,9 +249,9 @@ namespace Nodegem.WebApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("006ddf56-3d74-4eeb-b1e5-a068b98a0ef1"),
+                            Id = new Guid("3482b547-9ff6-452e-9fc8-3ac2f5d89e0d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b0705d3c-0e82-49d6-93ad-a3b44206c069",
+                            ConcurrencyStamp = "b8ff6bc0-ac0f-4e0a-9128-3391f44ad789",
                             Constants = "[]",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@admin.com",
@@ -262,9 +262,9 @@ namespace Nodegem.WebApi.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMINUSER",
-                            PasswordHash = "AQAAAAEAACcQAAAAENFK6q6SgCIDLP4pME2me8EV1GZ0HQZDRTa/5vSM+uydBN8paRRiFRx2QltJyk09iw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAwmllZHOds1XUGhBJYDMwnyu9RP0QHMbf7qXJPV7CeEROqS95bmJbLlHf1hQK4oVg==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "c140e84a27014edaa0e7547667e0f3d0",
+                            SecurityStamp = "8de0660e9ed3437c990290ce002c81d1",
                             TwoFactorEnabled = false,
                             UserName = "AdminUser"
                         });

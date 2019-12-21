@@ -204,6 +204,7 @@ project.lock.json
 # Output folder used by Webpack or other FE stuff
 **/node_modules/*
 **/wwwroot/*
+!**/wwwroot/.gitkeep
 
 # SpecFlow specific
 *.feature.cs
@@ -218,6 +219,6 @@ project.lock.json
 
 .config/
 
-binaries/
-dist/
-compressed/
+**/dist
+**/*.db-shm
+**/*.db-wal

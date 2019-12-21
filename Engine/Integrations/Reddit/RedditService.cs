@@ -6,7 +6,7 @@ namespace Nodegem.Engine.Integrations.Reddit
 {
     public class RedditService : IRedditService
     {
-        public RedditAPI Client { get; private set; }
+        public RedditClient Client { get; private set; }
         
         public void InitializeClient(string appId, string refreshToken)
         {
@@ -15,7 +15,7 @@ namespace Nodegem.Engine.Integrations.Reddit
                 throw new RedditException();
             }
 
-            Client = new RedditAPI(appId, refreshToken);
+            Client = new RedditClient(appId, refreshToken);
         }
     }
 }

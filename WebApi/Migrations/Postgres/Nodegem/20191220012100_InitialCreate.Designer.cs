@@ -7,18 +7,18 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Nodegem.Data.Contexts;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Nodegem.WebApi.Migrations
+namespace Nodegem.WebApi.Migrations.Postgres.Nodegem
 {
     [DbContext(typeof(NodegemContext))]
-    [Migration("20191128062047_Initial")]
-    partial class Initial
+    [Migration("20191220012100_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
-                .HasAnnotation("ProductVersion", "3.0.0")
+                .HasAnnotation("ProductVersion", "3.1.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -192,9 +192,6 @@ namespace Nodegem.WebApi.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
 
-                    b.Property<bool>("IsLocked")
-                        .HasColumnType("boolean");
-
                     b.Property<DateTime>("LastLoggedIn")
                         .HasColumnType("timestamp without time zone");
 
@@ -254,23 +251,22 @@ namespace Nodegem.WebApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("7baf3ea1-607e-46c7-b707-5437ccdea2fb"),
+                            Id = new Guid("3482b547-9ff6-452e-9fc8-3ac2f5d89e0d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3b4fef80-dfd2-4a64-b973-1263e796fd69",
+                            ConcurrencyStamp = "b8ff6bc0-ac0f-4e0a-9128-3391f44ad789",
                             Constants = "[]",
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             IsActive = true,
-                            IsLocked = false,
                             LastLoggedIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMINUSER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHba2+Fq/Kzwuk0+dmN2XiD0oKPqeqESdTsYOYdO54ZsUF+EcprfkrMOyT3LWQAIAg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAwmllZHOds1XUGhBJYDMwnyu9RP0QHMbf7qXJPV7CeEROqS95bmJbLlHf1hQK4oVg==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "a9d796b92e6f4c46a5ed9e317cbe8e5d",
+                            SecurityStamp = "8de0660e9ed3437c990290ce002c81d1",
                             TwoFactorEnabled = false,
                             UserName = "AdminUser"
                         });
@@ -298,6 +294,9 @@ namespace Nodegem.WebApi.Migrations
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Links")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Metadata")
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
@@ -347,6 +346,9 @@ namespace Nodegem.WebApi.Migrations
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Links")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Metadata")
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
