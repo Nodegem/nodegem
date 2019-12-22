@@ -8,8 +8,8 @@ $nodegem_web_static_files = "https://gitlab.com/nodegem/nodegem-web/-/jobs/artif
 $download_host = "https://cdn.nodegem.io/releases/latest"
 $client_service_download = "$download_host/client_service"
 $web_api_download = "$download_host/web_api"
-$service_name = "ClientService"
-$service_name_api = "Nodegem"
+$service_name = "Nodegem_ClientService"
+$service_name_api = "Nodegem_WebApi"
 
 Write-Host "Downloading .NET Core 3.x..."
 Invoke-WebRequest 'https://dot.net/v1/dotnet-install.ps1' -OutFile 'dotnet-install.ps1'
@@ -66,7 +66,7 @@ if (-Not $SelfHosted) {
 }
 else {
     $username = "Nodegem_Default"
-    $password = "P@ssword1"
+    $pass = "P@ssword1"
 }
 
 $logFileExists = Get-EventLog -list | Where-Object { $_.logdisplayname -eq "Nodegem" } 
@@ -85,10 +85,10 @@ if ($SelfHosted) {
     $additionalFlag = "-e http://localhost:5000"
 }
 
-# New-Service -Name $service_name -BinaryPathName "$env:APPDATA/Nodegem/ClientService/Nodegem.ClientService.exe -u $username -p $pass $additionalFlag" `
-#     -Description "The service that bridges the web client to the api service and runs the graphs" `
-#     -DisplayName "Nodegem Client" -StartupType Automatic
-# Restart-Service -Name $service_name
+New-Service -Name $service_name -BinaryPathName "$env:APPDATA/Nodegem/ClientService/Nodegem.ClientService.exe -u $username -p $pass $additionalFlag" `
+    -Description "The service that bridges the web client to the api service and runs the graphs" `
+    -DisplayName "Nodegem Client" -StartupType Automatic
+Restart-Service -Name $service_name
 
 Write-Host "Successfully installed Nodegem!!!"
 
