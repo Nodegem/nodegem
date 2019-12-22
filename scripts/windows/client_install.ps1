@@ -2,15 +2,14 @@ param(
     $SelfHosted = 0
 )
 
-Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
-$ProgressPreference = 'SilentlyContinue'
+$global:ProgressPreference = 'SilentlyContinue'
 
 $nodegem_web_static_files = "https://gitlab.com/nodegem/nodegem-web/-/jobs/artifacts/master/download?job=build_and_deploy_static"
 $download_host = "https://cdn.nodegem.io/releases/latest"
 $client_service_download = "$download_host/client_service"
 $web_api_download = "$download_host/web_api"
-$service_name = "Nodegem"
-$service_name_api = "Nodegem API"
+$service_name = "ClientService"
+$service_name_api = "Nodegem"
 
 Write-Host "Downloading .NET Core 3.x..."
 Invoke-WebRequest 'https://dot.net/v1/dotnet-install.ps1' -OutFile 'dotnet-install.ps1'
@@ -20,6 +19,11 @@ Write-Host "Installing .NET Core 3.x..."
 $download_file = "$client_service_download/nodegem-win64.zip"
 Write-Host "Downloading Nodegem Client Service ($download_file)..."
 Invoke-WebRequest $download_file -OutFile 'nodegem-win64.zip'
+
+if (Get-Service $service_name_api -ErrorAction SilentlyContinue) {
+    Stop-Service $service_name_api -Force
+    sc.exe delete $service_name_api
+}
 
 if (Get-Service $service_name -ErrorAction SilentlyContinue) {
     Stop-Service $service_name -Force
@@ -39,12 +43,12 @@ Write-Host "Unzipping file(s)..."
 Expand-Archive -LiteralPath "nodegem-win64.zip" -DestinationPath "$env:APPDATA/Nodegem/ClientService" -Force
 
 if ($SelfHosted) {
+    Remove-Item -Recurse "$env:APPDATA/Nodegem/WebApi"
     Expand-Archive -LiteralPath "nodegem-webapi-win64.zip" -DestinationPath "$env:APPDATA/Nodegem/WebApi" -Force
     Expand-Archive -LiteralPath "nodegem-web-client.zip" -DestinationPath "$env:APPDATA/Nodegem/WebApi/wwwroot" -Force
-    Get-ChildItem "$env:APPDATA/Nodegem/WebApi/wwwroot/build/" -Recurse | Move-Item -Destination "$env:APPDATA/Nodegem/WebApi/wwwroot"
-    Remove-Item -Recurse "$env:APPDATA/Nodegem/WebApi/wwwroot/build/"
+    Get-ChildItem "$env:APPDATA/Nodegem/WebApi/wwwroot/build" -Recurse | Move-Item -Destination "$env:APPDATA/Nodegem/WebApi/wwwroot"
+    Remove-Item -Recurse "$env:APPDATA/Nodegem/WebApi/wwwroot/build"
 }
-
 
 if (-Not $SelfHosted) {
     $username = Read-Host "Nodegem username: "
@@ -65,39 +69,26 @@ else {
     $password = "P@ssword1"
 }
 
+$logFileExists = Get-EventLog -list | Where-Object { $_.logdisplayname -eq "Nodegem" } 
+if (! $logFileExists) {
+    Write-Host "Adding event log: Nodegem"
+    New-EventLog -LogName "Nodegem" -Source @("Nodegem.WebApi", "Nodegem.ClientService")
+}
+
 $additionalFlag = ""
 if ($SelfHosted) {
-    $api_service_description = "The service that stores and retrieves user and graph information"
-    $api_params = @{
-        Name           = $service_name_api
-        BinaryPathName = "$env:APPDATA/Nodegem/WebApi/Nodegem.WebApi.exe --selfHosted=true"
-        DisplayName    = "Nodegem API"
-        Description    = $api_service_description
-    }
-    $additionalFlag = "-e http://localhost:5000"
-
-    New-Service @api_params
-    Set-Service -Name $service_name_api -StartupType Automatic
+    New-Service -Name $service_name_api -BinaryPathName "$env:APPDATA/Nodegem/WebApi/Nodegem.WebApi.exe --selfHosted=true" `
+        -Description "The API service that handles the website and api requests" `
+        -DisplayName "Nodegem API" -StartupType Automatic
     Restart-Service -Name $service_name_api
+
+    $additionalFlag = "-e http://localhost:5000"
 }
 
-$service_description = "The service that bridges the web client and the api service"
-$params = @{
-    Name           = $service_name
-    BinaryPathName = "$env:APPDATA/Nodegem/ClientService/Nodegem.ClientService.exe -u $username -p $pass $additionalFlag"
-    DisplayName    = "Nodegem Client" 
-    Description    = $service_description 
-}
-
-$logFileExists = Get-EventLog -list | Where-Object { $_.logdisplayname -eq $service_name } 
-if (! $logFileExists) {
-    Write-Host "Adding event log: $service_name"
-    New-EventLog -LogName $service_name -Source NodegemSource
-}
-
-New-Service @params
-Set-Service -Name $service_name -StartupType Automatic
-Restart-Service -Name $service_name
+# New-Service -Name $service_name -BinaryPathName "$env:APPDATA/Nodegem/ClientService/Nodegem.ClientService.exe -u $username -p $pass $additionalFlag" `
+#     -Description "The service that bridges the web client to the api service and runs the graphs" `
+#     -DisplayName "Nodegem Client" -StartupType Automatic
+# Restart-Service -Name $service_name
 
 Write-Host "Successfully installed Nodegem!!!"
 
