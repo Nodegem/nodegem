@@ -45,7 +45,7 @@ namespace Nodegem.WebApi
             services.Configure<TokenSettings>(Configuration.GetSection("TokenSettings"));
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
             services.Configure<AppSettings>(a => { a.IsSelfHosted = IsSelfHosted; });
-
+            
             services.AddHttpContextAccessor();
             services.AddDistributedMemoryCache();
 
@@ -68,12 +68,12 @@ namespace Nodegem.WebApi
                 services.AddEntityFrameworkSqlite()
                     .AddDbContext<NodegemContext>(options =>
                     {
-                        options.UseSqlite("Data Source=NodegemDatabase.db",
+                        options.UseSqlite($"Data Source={Environment.ContentRootPath}/NodegemDatabase.db",
                             b => b.MigrationsAssembly("Nodegem.WebApi"));
                     })
                     .AddDbContext<KeysContext>(options =>
                     {
-                        options.UseSqlite("Data Source=KeysDatabase.db",
+                        options.UseSqlite($"Data Source={Environment.ContentRootPath}/KeysDatabase.db",
                             b => b.MigrationsAssembly("Nodegem.WebApi"));
                     });
             }
@@ -93,8 +93,8 @@ namespace Nodegem.WebApi
             else
             {
                 healthChecksBuilder
-                    .AddSqlite("Data Source=NodegemDatabase.db", name: "NodegemDb")
-                    .AddSqlite("Data Source=KeysDatabase.db", name: "KeysDb");
+                    .AddSqlite($"Data Source={Environment.ContentRootPath}/NodegemDatabase.db", name: "NodegemDb")
+                    .AddSqlite($"Data Source={Environment.ContentRootPath}/KeysDatabase.db", name: "KeysDb");
             }
 
             services.AddIdentity<ApplicationUser, Role>()
