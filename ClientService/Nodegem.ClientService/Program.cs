@@ -61,7 +61,7 @@ namespace Nodegem.ClientService
                     {
                         logging.AddEventLog(settings =>
                         {
-                            settings.SourceName = "NodegemSource";
+                            settings.SourceName = "Nodegem.ClientService";
                             settings.LogName = "Nodegem";
                         });
                     }
