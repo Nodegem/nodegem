@@ -40,7 +40,17 @@ namespace Nodegem.ClientService
         public static void Main(string[] args)
         {
             Parser.Default.ParseArguments<Options>(args)
-                .WithParsed(o => { CreateHostBuilder(args, o).Build().Run(); });
+                .WithParsed(o =>
+                {
+                    try
+                    {
+                        CreateHostBuilder(args, o).Build().Run();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.Error.WriteLine(ex.Message);
+                    }
+                });
         }
 
         private static IHostBuilder CreateHostBuilder(string[] args, Options option)

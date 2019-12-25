@@ -96,6 +96,10 @@ namespace Nodegem.Services
             registerUser.CreatedOn = time;
             registerUser.LastUpdated = time;
             registerUser.LastLoggedIn = time;
+            
+            // If there is no email configuration setup
+            // let's assume that they don't want to use email
+            registerUser.EmailConfirmed = !_appSettings.IsUsingEmail; 
 
             var result = await _userManager.CreateAsync(registerUser, dto.Password);
             if (!result.Succeeded) throw new RegistrationException(result);
