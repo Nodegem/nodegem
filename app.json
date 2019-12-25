@@ -1,0 +1,57 @@
+{
+  "name": "Nodegem WebApi",
+  "description": "The backbone of the Nodegem program. It's the middleman between the web client and the client services.",
+  "keywords": ["visual-scripting", "visual", "api", "nodegem"],
+  "website": "https://www.nodegem.io/",
+  "repository": "https://gitlab.com/nodegem/nodegem",
+  "logo": "https://cdn.nodegem.io/assets/logo/logo.svg",
+  "success_url": "/",
+  "env": {
+    "AppSettings:AppName": {
+      "description": "The application name.",
+      "value": "Nodegem"
+    },
+    "AppSettings:Host": {
+      "description": "The host domain for where the front-end will live. (If self-hosted then set this value to whatever heroku gives you as a domain)"
+    },
+    "AppSettings:SecretKey": {
+      "description": "Secret key used value encryption and decryption",
+      "generator": "secret"
+    },
+    "TokenSettings:Audience": {
+      "value": "All",
+      "required": false
+    },
+    "TokenSettings:Expiration": {
+      "description": "Token expiration in seconds",
+      "required": false,
+      "value": "604800"
+    },
+    "TokenSettings:Issuer": {
+      "description": "The domain that heroku gives you."
+    },
+    "TokenSettings:Key": {
+      "generator": "secret"
+    },
+    "CorsSettings:AllowedHosts": {
+      "description": "Domains that are allowed to hit your api. (Comma seperated)",
+      "required": false,
+      "value": "http://localhost:5000, https://localhost:5000"
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "as": "NODEGEM_DATABASE"
+    },
+    {
+      "plan": "heroku-postgresql",
+      "as": "KEYS_DATABASE"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/jincod/dotnetcore-buildpack"
+    }
+  ]
+}

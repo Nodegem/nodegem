@@ -3,8 +3,8 @@
   <component name="ContentModelStore">
     <e p="C:\Users\rszem\.Rider2019.3\config\Extensions" t="IncludeRecursive" />
     <e p="C:\Users\rszem\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\rszem\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_ClientService.-1903239120.00" t="ExcludeRecursive" />
-    <e p="C:\Users\rszem\Documents\Projects\nodester\ClientService" t="IncludeFlat">
+    <e p="C:\Users\rszem\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_ClientService.-42183597.00" t="ExcludeRecursive" />
+    <e p="C:\Users\rszem\Documents\Projects\nodegem\ClientService" t="IncludeFlat">
       <e p="ClientService.sln" t="IncludeFlat" />
       <e p="Libraries" t="Include">
         <e p="Engine" t="Include" />
@@ -71,7 +71,7 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
     </e>
-    <e p="C:\Users\rszem\Documents\Projects\nodester\Common" t="IncludeRecursive">
+    <e p="C:\Users\rszem\Documents\Projects\nodegem\Common" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="BridgeInfo.cs" t="Include" />
       <e p="Data" t="Include">
@@ -131,7 +131,7 @@
         <e p="HierarchicalNode.cs" t="Include" />
       </e>
     </e>
-    <e p="C:\Users\rszem\Documents\Projects\nodester\Data" t="IncludeRecursive">
+    <e p="C:\Users\rszem\Documents\Projects\nodegem\Data" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="Configurations" t="Include">
         <e p="AccessTokenConfiguration.cs" t="Include" />
@@ -217,7 +217,7 @@
         <e p="TokenSettings.cs" t="Include" />
       </e>
     </e>
-    <e p="C:\Users\rszem\Documents\Projects\nodester\Engine\Core" t="IncludeRecursive">
+    <e p="C:\Users\rszem\Documents\Projects\nodegem\Engine\Core" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="Core" t="Include">
         <e p="BaseGraph.cs" t="Include" />
@@ -373,7 +373,7 @@
         </e>
       </e>
     </e>
-    <e p="C:\Users\rszem\Documents\Projects\nodester\Engine\Core.Data" t="IncludeRecursive">
+    <e p="C:\Users\rszem\Documents\Projects\nodegem\Engine\Core.Data" t="IncludeRecursive">
       <e p="Attributes" t="Include">
         <e p="DefinedNodeAttribute.cs" t="Include" />
         <e p="FieldAttributesAttribute.cs" t="Include" />
@@ -437,7 +437,7 @@
         </e>
       </e>
     </e>
-    <e p="C:\Users\rszem\Documents\Projects\nodester\Engine\Integrations" t="IncludeRecursive">
+    <e p="C:\Users\rszem\Documents\Projects\nodegem\Engine\Integrations" t="IncludeRecursive">
       <e p="ApplicationInsights" t="Include">
         <e p="AppInsightNode.cs" t="Include" />
         <e p="Query.cs" t="Include" />
@@ -555,7 +555,7 @@
         <e p="TwilioService.cs" t="Include" />
       </e>
     </e>
-    <e p="C:\Users\rszem\Documents\Projects\nodester\Engine\Integrations.Data" t="IncludeRecursive">
+    <e p="C:\Users\rszem\Documents\Projects\nodegem\Engine\Integrations.Data" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="Discord" t="Include">
         <e p="Dtos" t="Include">
@@ -592,7 +592,7 @@
         <e p="ITwilioService.cs" t="Include" />
       </e>
     </e>
-    <e p="C:\Users\rszem\Documents\Projects\nodester\Services\Data" t="IncludeRecursive">
+    <e p="C:\Users\rszem\Documents\Projects\nodegem\Services\Data" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="INodeHttpClient.cs" t="Include" />
       <e p="ISendEmails.cs" t="Include" />
@@ -613,7 +613,7 @@
         <e p="ITokenRepository.cs" t="Include" />
       </e>
     </e>
-    <e p="C:\Users\rszem\Documents\Projects\nodester\Services\Services" t="IncludeRecursive">
+    <e p="C:\Users\rszem\Documents\Projects\nodegem\Services\Services" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="Exceptions" t="Include">
         <e p="Login" t="Include">

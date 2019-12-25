@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using FluentEmail.Core;
 using FluentEmail.Core.Models;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using Nodegem.Data.Settings;
 using Nodegem.Services.Data;
 using SendGrid;
 using SendGrid.Helpers.Mail;
@@ -19,26 +21,28 @@ namespace Nodegem.WebApi.Services
         private readonly string _sendGridApiKey;
         private readonly bool _sandboxMode;
         private readonly IFluentEmailFactory _emailFactory;
-        private readonly ILogger<EmailSenderService> _logger;
+        private readonly AppSettings _appSettings;
 
-
-        public EmailSenderService(IFluentEmailFactory emailFactory, string templateDirectory, string sendGridApiKey, ILogger<EmailSenderService> logger, bool sandboxMode = false)
+        public EmailSenderService(IFluentEmailFactory emailFactory, string templateDirectory, string sendGridApiKey,
+            IOptions<AppSettings> appSettings,
+            bool sandboxMode = false)
         {
             _templateDirectory = templateDirectory;
             _sendGridApiKey = sendGridApiKey;
             _sandboxMode = sandboxMode;
             _emailFactory = emailFactory;
-            _logger = logger;
+            _appSettings = appSettings.Value;
         }
 
         public SendResponse Send(IFluentEmail email, CancellationToken? token = null)
         {
-            return SendAsync(email, token).GetAwaiter().GetResult();
+            return !_appSettings.IsUsingEmail ? new SendResponse() : SendAsync(email, token).GetAwaiter().GetResult();
         }
 
         public async Task<SendResponse> SendEmailAsync(IFluentEmail email, string templateName, object data,
             CancellationToken? token = null)
         {
+            if(!_appSettings.IsUsingEmail) return new SendResponse();
             templateName = !templateName.EndsWith("cshtml") ? $"{templateName}.cshtml" : templateName;
             var combinedPath = Path.Combine(_templateDirectory, templateName);
             if (!File.Exists(combinedPath)) throw new ArgumentException($"{combinedPath} does not exist");
@@ -49,12 +53,14 @@ namespace Nodegem.WebApi.Services
         public async Task<SendResponse> SendEmailAsync(string subject, string toEmail, string templateName, object data,
             CancellationToken? token = null)
         {
+            if(!_appSettings.IsUsingEmail) return new SendResponse();
             var email = _emailFactory.Create().To(toEmail).Subject(subject);
             return await SendEmailAsync(email, templateName, data, token);
         }
 
         public async Task<SendResponse> SendAsync(IFluentEmail email, CancellationToken? token = null)
         {
+            if(!_appSettings.IsUsingEmail) return new SendResponse();
             var sendGridClient = new SendGridClient(_sendGridApiKey);
 
             var mailMessage = new SendGridMessage();
@@ -134,7 +140,7 @@ namespace Nodegem.WebApi.Services
 
             var sendResponse = new SendResponse();
 
-            if (IsHttpSuccess((int)sendGridResponse.StatusCode)) return sendResponse;
+            if (IsHttpSuccess((int) sendGridResponse.StatusCode)) return sendResponse;
 
             sendResponse.ErrorMessages.Add($"{sendGridResponse.StatusCode}");
             var messageBodyDictionary = await sendGridResponse.DeserializeResponseBodyAsync(sendGridResponse.Body);
@@ -157,19 +163,17 @@ namespace Nodegem.WebApi.Services
 
         private static async Task<SendGridAttachment>
             ConvertAttachment(FluentEmail.Core.Models.Attachment attachment) => new SendGridAttachment
-            {
-                Content = await GetAttachmentBase64String(attachment.Data),
-                Filename = attachment.Filename,
-                Type = attachment.ContentType
-            };
+        {
+            Content = await GetAttachmentBase64String(attachment.Data),
+            Filename = attachment.Filename,
+            Type = attachment.ContentType
+        };
 
         private static async Task<string> GetAttachmentBase64String(Stream stream)
         {
-            using (var ms = new MemoryStream())
-            {
-                await stream.CopyToAsync(ms);
-                return Convert.ToBase64String(ms.ToArray());
-            }
+            await using var ms = new MemoryStream();
+            await stream.CopyToAsync(ms);
+            return Convert.ToBase64String(ms.ToArray());
         }
 
         private static bool IsHttpSuccess(int statusCode)
