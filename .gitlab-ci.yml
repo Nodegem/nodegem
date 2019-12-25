@@ -36,18 +36,29 @@ migrate:
 
 build_and_deploy_artifacts:
   stage: artifacts
+  cache:
+    key: apt-cache
+    paths:
+      - apt-cache/
+      - "$CI_PROJECT_DIR/pip-cache"
+
+  variables:
+    PIP_CACHE_DIR: "$CI_PROJECT_DIR/pip-cache"
+
   before_script:
-    - apt update
-    - apt install -y software-properties-common
+    - export APT_CACHE_DIR=`pwd`/apt-cache && mkdir -pv $APT_CACHE_DIR
+    - apt-get update -yq
+    - apt-get -o dir::cache::archives="$APT_CACHE_DIR" install -y software-properties-common
     - add-apt-repository ppa:deadsnakes/ppa
-    - apt install -y python3.7
-    - apt install -y python-pip
+    - apt-get -o dir::cache::archives="$APT_CACHE_DIR" install -y python3.7
+    - apt-get -o dir::cache::archives="$APT_CACHE_DIR" install -y python-pip
     - pip install awscli
   script:
     - cd scripts/
     - bash build_binaries
     - bash deploy_binaries
   only:
+    - develop
     - master
     - tags
 

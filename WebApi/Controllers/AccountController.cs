@@ -96,25 +96,7 @@ namespace Nodegem.WebApi.Controllers
                 return BadRequest("Something went wrong.");
             }
         }
-
-        [HttpGet("login-token")]
-        [ProducesResponseType(200, Type = typeof(TokenUserDto))]
-        [ProducesResponseType(400, Type = typeof(string))]
-        [ProducesResponseType(401)]
-        public async Task<ActionResult<TokenDto>> LoginTokenAsync()
-        {
-            try
-            {
-                var user = await _userService.GetUserAsync(HttpContext.User.GetUserId());
-                return Ok(await _userService.GetTokenAsync(user));
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Something went wrong");
-                return BadRequest();
-            }
-        }
-
+        
         [HttpGet("constants")]
         public async Task<ActionResult<IEnumerable<Constant>>> GetUserConstantsAsync()
         {

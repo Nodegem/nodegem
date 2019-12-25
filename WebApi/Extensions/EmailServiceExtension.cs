@@ -3,6 +3,7 @@ using FluentEmail.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Nodegem.Data.Settings;
 using Nodegem.Services.Data;
 using Nodegem.WebApi.Services;
@@ -26,7 +27,7 @@ namespace Nodegem.WebApi.Extensions
             builder.Services.TryAdd(ServiceDescriptor.Singleton<ISendEmails>(x =>
                 new EmailSenderService(x.GetService<IFluentEmailFactory>(),
                     $"{Directory.GetCurrentDirectory()}/{templateFolderName}", sendGridApiKey,
-                    x.GetService<ILogger<EmailSenderService>>(), sandboxMode)));
+                    x.GetService<IOptions<AppSettings>>(), sandboxMode)));
         }
     }
 }
