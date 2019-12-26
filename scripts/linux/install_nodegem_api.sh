@@ -18,6 +18,7 @@ else
   echo '.NET Core >= 3.0 already installed'
 fi
 
+SERVICE_USER=nodegemserviceuser
 NODEGEM_HOST='https://cdn.nodegem.io'
 
 echo 'Downloading Nodegem API...'
@@ -44,7 +45,7 @@ curl $NODEGEM_WEBAPI_DOWNLOAD_URL -o $NODEGEM_API_FILE
 if ! id -u $SERVICE_USER > /dev/null 2>&1; then
 	echo 'Adding a service user...' 
 	useradd -m -d /var/nodegem $SERVICE_USER
-    mkdir -p /var/nodegem/webapi
+  mkdir -p /var/nodegem/webapi
 fi
 
 tar -zxf $NODEGEM_API_FILE -C /var/nodegem/webapi
