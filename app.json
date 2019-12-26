@@ -12,7 +12,7 @@
       "value": "Nodegem"
     },
     "AppSettings:Host": {
-      "description": "The host domain for where the front-end will live. (If self-hosted then set this value to whatever heroku gives you as a domain)"
+      "description": "The host domain for where the front-end will live. (If self-hosted then set it to <your_app_name>.herokuapp.com)"
     },
     "AppSettings:SecretKey": {
       "description": "Secret key used value encryption and decryption",
@@ -27,14 +27,24 @@
       "required": false,
       "value": "604800"
     },
+    "ConnectionStrings:nodegemDb": {
+      "description": "The postgres nodegem connection string (Host=<host_url>;Database=NodegemDb;Username=<username>;Password=<secret>)",
+      "value": "",
+      "required": false
+    },
+    "ConnectionStrings:keysDb": {
+      "description": "The postgres nodegem connection string (Host=<host_url>;Database=KeysDb;Username=<username>;Password=<secret>)",
+      "value": "",
+      "required": false
+    },
     "TokenSettings:Issuer": {
-      "description": "The domain that heroku gives you."
+      "description": "The domain that heroku gives you aka. <your_app_name>.herokuapp.com."
     },
     "TokenSettings:Key": {
       "generator": "secret"
     },
     "CorsSettings:AllowedHosts": {
-      "description": "Domains that are allowed to hit your api. (Comma seperated)",
+      "description": "Domains that are allowed to hit your api. Typically you allow your front-end if it's running elsewhere. (Comma seperated)",
       "required": false,
       "value": "http://localhost:5000, https://localhost:5000"
     },
@@ -48,17 +58,17 @@
       "value": "WebApi/Procfile"
     },
     "USERNAME": {
-      "description": "Nodegem username",
+      "description": "Nodegem username (only set this if you are running the client service)",
       "required": false,
       "value": ""
     },
     "PASSWORD": {
-      "description": "Nodegem password",
+      "description": "Nodegem password (only set this if you are running the client service)",
       "required": false,
       "value": ""
     },
     "ENDPOINT": {
-      "description": "Domain to connect to Nodegem API",
+      "description": "Domain to connect to Nodegem API (only set this if you are running the client service)",
       "required": false,
       "value": ""
     }
