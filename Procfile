@@ -1,1 +1,0 @@
-web: cd \$HOME/heroku_output && ./${PROJECT_NAME}

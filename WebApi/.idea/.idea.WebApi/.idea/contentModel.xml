@@ -650,6 +650,7 @@
         </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />
+      <e p="Procfile" t="Include" />
       <e p="Program.cs" t="Include" />
       <e p="Properties" t="Include">
         <e p="launchSettings.json" t="Include" />

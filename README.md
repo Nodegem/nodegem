@@ -12,6 +12,10 @@
 
 For documentation, visit https://docs.nodegem.io.
 
+## Quick Deploy
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Nodegem/nodegem)
+
 ## Discord
 
 https://discord.gg/MynGgME

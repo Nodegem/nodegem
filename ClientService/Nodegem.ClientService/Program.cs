@@ -84,7 +84,9 @@ namespace Nodegem.ClientService
                     services.AddOptions();
                     services.Configure<AppConfig>(options =>
                     {
-                        options.Host = option.Endpoint;
+                        options.Host = !string.IsNullOrEmpty(option.Endpoint)
+                            ? option.Endpoint
+                            : AppConstants.NodegemEndpoint;
                         options.PingTime = option.PingTime;
                     });
 

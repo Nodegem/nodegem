@@ -37,6 +37,30 @@
       "description": "Domains that are allowed to hit your api. (Comma seperated)",
       "required": false,
       "value": "http://localhost:5000, https://localhost:5000"
+    },
+    "selfHosted": {
+      "description": "Is this site also hosting the front-end? (true/false)",
+      "required": false,
+      "value": "false"
+    },
+    "PROCFILE": {
+      "description": "Which app do you want to run? (WebApi/Procfile or ClientService/Procfile)",
+      "value": "WebApi/Procfile"
+    },
+    "USERNAME": {
+      "description": "Nodegem username",
+      "required": false,
+      "value": ""
+    },
+    "PASSWORD": {
+      "description": "Nodegem password",
+      "required": false,
+      "value": ""
+    },
+    "ENDPOINT": {
+      "description": "Domain to connect to Nodegem API",
+      "required": false,
+      "value": ""
     }
   },
   "addons": [
@@ -52,6 +76,9 @@
   "buildpacks": [
     {
       "url": "https://github.com/jincod/dotnetcore-buildpack"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-multi-procfile"
     }
   ]
 }
