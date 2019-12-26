@@ -76,6 +76,9 @@ if ! id -u $SERVICE_USER > /dev/null 2>&1; then
 	mkdir -p /var/nodegem/webapi
   mkdir -p /var/nodegem/webapi/wwwroot
   mkdir -p /var/nodegem/client
+  if [ ! -e "/var/nodegem/vars.env" ]; then 
+    touch /var/nodegem/vars.env
+  fi
 fi
 
 systemctl unmask nodegem_webapi

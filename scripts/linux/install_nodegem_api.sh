@@ -46,6 +46,10 @@ if ! id -u $SERVICE_USER > /dev/null 2>&1; then
 	echo 'Adding a service user...' 
 	useradd -m -d /var/nodegem $SERVICE_USER
   mkdir -p /var/nodegem/webapi
+
+  if [ ! -e "/var/nodegem/vars.env" ]; then 
+    touch /var/nodegem/vars.env
+  fi
 fi
 
 tar -zxf $NODEGEM_API_FILE -C /var/nodegem/webapi
@@ -55,7 +59,7 @@ chown -R $SERVICE_USER:$SERVICE_USER /var/nodegem
 mkdir -p /var/tmp/.net
 chmod -R 777 /var/tmp/.net/
 
-if systemctl list-units --full -all | grep -Fq 'nodegem_webapi'; then
+if systemctl list-units --full -all | grep -Fq 'nodegem_webapi.service'; then
   echo "Shutting down 'nodegem_webapi'"
   systemctl unmask nodegem_webapi
   systemctl stop nodegem_webapi

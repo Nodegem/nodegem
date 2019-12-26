@@ -3,6 +3,7 @@ Description=Nodegem WebApi
 
 [Service]
 Environment=DOTNET_ROOT=/usr/bin/dotnet
+EnvironmentFile=/var/nodegem/vars.env
 WorkingDirectory=/var/nodegem/webapi
 Type=simple
 User=nodegemserviceuser
