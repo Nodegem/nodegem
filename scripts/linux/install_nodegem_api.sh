@@ -55,11 +55,19 @@ chown -R $SERVICE_USER:$SERVICE_USER /var/nodegem
 mkdir -p /var/tmp/.net
 chmod -R 777 /var/tmp/.net/
 
-systemctl unmask nodegem_webapi
-systemctl stop nodegem_webapi
-systemctl disable nodegem_webapi
+if systemctl list-units --full -all | grep -Fq 'nodegem_webapi'; then
+  echo "Shutting down 'nodegem_webapi'"
+  systemctl unmask nodegem_webapi
+  systemctl stop nodegem_webapi
+  systemctl disable nodegem_webapi
+fi
 
-curl -q $NODEGEM_HOST/install/linux/nodegem_webapi.service -o /etc/systemd/system/nodegem_webapi.service
+echo 'Downloading ' $NODEGEM_HOST/install/linux/nodegem_webapi.service
+curl -Lq $NODEGEM_HOST/install/linux/nodegem_webapi.service -o nodegem_webapi.service
+echo 'Moving downloaded service file to services folder...'
+cp -f nodegem_webapi.service /etc/systemd/system/nodegem_webapi.service
+
+echo 'Spinning up new daemon...'
 systemctl daemon-reload
 
 systemctl enable nodegem_webapi
