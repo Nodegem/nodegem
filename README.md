@@ -10,7 +10,7 @@
 
 ## Documentation
 
-For documentation, visit https://docs.nodegem.io.
+For documentation, visit <https://docs.nodegem.io.>
 
 ## Quick Deploy
 
@@ -18,4 +18,4 @@ For documentation, visit https://docs.nodegem.io.
 
 ## Discord
 
-https://discord.gg/MynGgME
+<https://discord.gg/MynGgME>

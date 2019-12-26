@@ -48,7 +48,7 @@ case "$unameArch" in
     x86_64)    NODEGEM_ARCH="64";;
     aarch64)   NODEGEM_ARCH="64";;
     armv7l)    NODEGEM_ARCH="32";;
-    * )        echo "Your Architecture '$unameArch' -> ITS NOT SUPPORTED.";;
+    * )        echo "Your Architecture '$unameArch' -> IS NOT SUPPORTED.";;
 esac
 
 if [[ "$unameArch" == "aarch64" || "$unameArch" == "armv7l" ]]; then
@@ -125,19 +125,18 @@ rm nodegem.service.template
 
 echo 'Setting up daemon...'
 
-systemctl daemon-reload
-
 if [ $self_hosted = true ]; then
-
   curl -q $NODEGEM_HOST/install/linux/nodegem_webapi.service -o /etc/systemd/system/nodegem_webapi.service
   cp -f nodegem.service /etc/systemd/system
   rm -f nodegem.service nodegem_webapi.service $NODEGEM_FILE $NODEGEM_API_FILE
-
-  systemctl enable nodegem_webapi
-  systemctl restart nodegem_webapi
 fi
+
+systemctl daemon-reload
 
 systemctl enable nodegem
 systemctl restart nodegem
+
+systemctl enable nodegem_webapi
+systemctl restart nodegem_webapi
 
 echo 'Installation complete!'
