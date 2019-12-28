@@ -5,12 +5,13 @@ Description=Nodegem WebApi
 Environment=DOTNET_ROOT=/usr/bin/dotnet
 EnvironmentFile=/var/nodegem/vars.env
 WorkingDirectory=/var/nodegem/webapi
-Type=simple
 User=nodegemserviceuser
 Group=nodegemserviceuser
 ExecStart=/var/nodegem/webapi/Nodegem.WebApi
 Restart=Always
 RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=nodegem
 
 [Install]
 WantedBy=multi-user.target
