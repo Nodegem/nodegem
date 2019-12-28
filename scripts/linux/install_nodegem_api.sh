@@ -67,9 +67,8 @@ if systemctl list-units --full -all | grep -Fq 'nodegem_webapi.service'; then
 fi
 
 echo 'Downloading ' $NODEGEM_HOST/install/linux/nodegem_webapi.service
-curl -Lq $NODEGEM_HOST/install/linux/nodegem_webapi.service -o nodegem_webapi.service.template
+curl -Lq $NODEGEM_HOST/install/linux/nodegem_webapi.service -o nodegem_webapi.service
 
-sed 's/--selfHosted=true//' nodegem_webapi.service.template > nodegem_webapi.service
 echo 'Moving downloaded service file to services folder...'
 cp -f nodegem_webapi.service /etc/systemd/system/nodegem_webapi.service
 

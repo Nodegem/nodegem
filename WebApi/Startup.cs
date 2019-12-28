@@ -30,7 +30,8 @@ namespace Nodegem.WebApi
     {
         private IConfiguration Configuration { get; }
         private IWebHostEnvironment Environment { get; }
-        private bool HostFrontEnd => Configuration.GetValue("selfHosted", false);
+        private bool HostFrontEnd => Configuration.GetValue("SelfHosted", false);
+        private bool UseReverseProxy => Configuration.GetValue("ReverseProxy", false);
 
         private bool UsingPostgres => !string.IsNullOrEmpty(Configuration.GetConnectionString("nodegemDb")) &&
                                       !string.IsNullOrEmpty(Configuration.GetConnectionString("keysDb"));
@@ -279,6 +280,14 @@ namespace Nodegem.WebApi
             app.UseRouting();
 
             app.UseCors("AppCors");
+
+            if (UseReverseProxy)
+            {
+                app.UseForwardedHeaders(new ForwardedHeadersOptions
+                {
+                    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+                });
+            }
 
             app.UseAuthentication();
             app.UseAuthorization();

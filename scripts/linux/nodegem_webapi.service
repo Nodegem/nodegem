@@ -8,8 +8,9 @@ WorkingDirectory=/var/nodegem/webapi
 Type=simple
 User=nodegemserviceuser
 Group=nodegemserviceuser
-ExecStart=/var/nodegem/webapi/Nodegem.WebApi --selfHosted=true
-Restart=on-failure
+ExecStart=/var/nodegem/webapi/Nodegem.WebApi
+Restart=Always
+RestartSec=10
 
 [Install]
 WantedBy=multi-user.target

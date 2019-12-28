@@ -48,7 +48,7 @@
       "required": false,
       "value": "http://localhost:5000, https://localhost:5000"
     },
-    "selfHosted": {
+    "SelfHosted": {
       "description": "Is this site also hosting the front-end? (true/false)",
       "required": false,
       "value": "false"
