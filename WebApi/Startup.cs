@@ -99,14 +99,14 @@ namespace Nodegem.WebApi
             if (UsingPostgres)
             {
                 services.AddHealthChecks()
-                    .AddNpgSql(NodegemConnectionString)
-                    .AddNpgSql(KeysConnectionString);
+                    .AddNpgSql(NodegemConnectionString, name: "NodegemDb")
+                    .AddNpgSql(KeysConnectionString, name: "KeysDb");
             }
             else
             {
                 services.AddHealthChecks()
-                    .AddSqlite(NodegemConnectionString)
-                    .AddSqlite(KeysConnectionString);
+                    .AddSqlite(NodegemConnectionString, name: "NodegemDb")
+                    .AddSqlite(KeysConnectionString, name: "KeysDb");
             }
 
             services.AddIdentity<ApplicationUser, Role>()
