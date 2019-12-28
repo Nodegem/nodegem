@@ -4,7 +4,7 @@ if ! [ -x "$(command -v dotnet)" ] || ! [ "$(dotnet --info | grep 3.0)" ]; then
   echo 'Installing .NET Core 3.0...' >&2
   wget 'https://dotnetwebsite.azurewebsites.net/download/dotnet-core/scripts/v1/dotnet-install.sh'
   chmod +x dotnet-install.sh
-  source dotnet-install.sh --channel Current --install-dir /usr/share/dotnet
+  source dotnet-install.sh --install-dir /usr/share/dotnet
 
   ln -sfn /usr/share/dotnet/dotnet /usr/bin/dotnet
   
