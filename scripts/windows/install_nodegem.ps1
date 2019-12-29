@@ -14,7 +14,7 @@ $service_name_api = "Nodegem_WebApi"
 Write-Host "Downloading .NET Core 3.x..."
 Invoke-WebRequest 'https://dot.net/v1/dotnet-install.ps1' -OutFile 'dotnet-install.ps1'
 Write-Host "Installing .NET Core 3.x..."
-& "./dotnet-install.ps1" -Channel 'Current' -Runtime dotnet
+& "./dotnet-install.ps1" -Runtime dotnet
 
 $download_file = "$client_service_download/nodegem-win64.zip"
 Write-Host "Downloading Nodegem Client Service ($download_file)..."
