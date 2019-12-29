@@ -8,67 +8,68 @@
   "success_url": "/",
   "env": {
     "AppSettings:AppName": {
-      "description": "The application name.",
+      "description": "The application name. (Web API Only)",
       "value": "Nodegem"
     },
     "AppSettings:Host": {
-      "description": "The host domain for where the front-end will live. (If self-hosted then set it to <your_app_name>.herokuapp.com)"
+      "description": "The host domain for where the front-end will live. (If self-hosted then set it to <your_app_name>.herokuapp.com) (Web API Only)"
     },
     "AppSettings:SecretKey": {
-      "description": "Secret key used value encryption and decryption",
+      "description": "Secret key used value encryption and decryption (Web API Only)",
       "generator": "secret"
     },
     "TokenSettings:Audience": {
+      "description": "JWT token audience value (Web API Only)",
       "value": "All",
       "required": false
     },
     "TokenSettings:Expiration": {
-      "description": "Token expiration in seconds",
+      "description": "Token expiration in seconds (Web API Only)",
       "required": false,
       "value": "604800"
     },
     "ConnectionStrings:nodegemDb": {
-      "description": "The postgres nodegem connection string (Host=<host_url>;Database=NodegemDb;Username=<username>;Password=<secret>)",
+      "description": "The postgres nodegem connection string (Host=<host_url>;Database=NodegemDb;Username=<username>;Password=<secret>) (Web API Only)",
       "value": "",
       "required": false
     },
     "ConnectionStrings:keysDb": {
-      "description": "The postgres nodegem connection string (Host=<host_url>;Database=KeysDb;Username=<username>;Password=<secret>)",
+      "description": "The postgres nodegem connection string (Host=<host_url>;Database=KeysDb;Username=<username>;Password=<secret>) (Web API Only)",
       "value": "",
       "required": false
     },
     "TokenSettings:Issuer": {
-      "description": "The domain that heroku gives you aka. <your_app_name>.herokuapp.com."
+      "description": "The domain that heroku gives you aka. <your_app_name>.herokuapp.com. (Web API Only)"
     },
     "TokenSettings:Key": {
       "generator": "secret"
     },
     "CorsSettings:AllowedHosts": {
-      "description": "Domains that are allowed to hit your api. Typically you allow your front-end if it's running elsewhere. (Comma seperated)",
+      "description": "Domains that are allowed to hit your api. Typically you allow your front-end if it's running elsewhere. (Comma seperated) (Web API Only)",
       "required": false,
       "value": "http://localhost:5000, https://localhost:5000"
     },
     "SelfHosted": {
-      "description": "Is this site also hosting the front-end? (true/false)",
+      "description": "Is this site also hosting the front-end? (true/false) (Web API Only)",
       "required": false,
       "value": "false"
     },
     "PROCFILE": {
-      "description": "Which app do you want to run? (WebApi/Procfile or ClientService/Procfile)",
+      "description": "Which app do you want to run? (For Web API copy this -> WebApi/Procfile) or (For Client Service copy this -> ClientService/Procfile)",
       "value": "WebApi/Procfile"
     },
     "USERNAME": {
-      "description": "Nodegem username (only set this if you are running the client service)",
+      "description": "Nodegem username (Client Service Only)",
       "required": false,
       "value": ""
     },
     "PASSWORD": {
-      "description": "Nodegem password (only set this if you are running the client service)",
+      "description": "Nodegem password (Client Service Only)",
       "required": false,
       "value": ""
     },
     "ENDPOINT": {
-      "description": "Domain to connect to Nodegem API (only set this if you are running the client service)",
+      "description": "Domain to connect to Nodegem API (Client Service Only)",
       "required": false,
       "value": ""
     }
