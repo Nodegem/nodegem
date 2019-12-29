@@ -63,12 +63,12 @@ NODEGEM_DOWNLOAD_URL=$NODEGEM_HOST/$NODEGEM_DOWNLOAD_PATH/$NODEGEM_FILE
 NODEGEM_WEBAPI_DOWNLOAD_URL=$NODEGEM_HOST/releases/latest/web_api/$NODEGEM_API_FILE
 
 if [ $self_hosted = true ]; then
-  curl -L $NODEGEM_WEBAPI_DOWNLOAD_URL -o $NODEGEM_API_FILE
-  curl -L $NODEGEM_WEB_CLIENT_FILE -o web_client.zip
+  curl -Lq $NODEGEM_WEBAPI_DOWNLOAD_URL -o $NODEGEM_API_FILE
+  curl -Lq $NODEGEM_WEB_CLIENT_FILE -o web_client.zip
 fi
 
 echo 'Downloading ' $NODEGEM_DOWNLOAD_URL
-curl $NODEGEM_DOWNLOAD_URL -o $NODEGEM_FILE
+curl -Lq $NODEGEM_DOWNLOAD_URL -o $NODEGEM_FILE
 
 if ! id -u $SERVICE_USER > /dev/null 2>&1; then
 	echo 'Adding a service user...' 
@@ -103,6 +103,9 @@ chown -R $SERVICE_USER:$SERVICE_USER /var/nodegem
 # This allows the single file executable to start without running into permissions issues
 mkdir -p /var/tmp/.net
 chmod -R 777 /var/tmp/.net/
+
+echo 'Nodegem credentials...'
+
 read -p "Username: " nodegem_user
 while true; do
     read -s -p "Password: " nodegem_password
@@ -113,8 +116,7 @@ while true; do
     echo "Please try again"
 done
 
-echo 'Nodegem credentials...'
-curl $NODEGEM_HOST/install/linux/nodegem.service.template -o nodegem.service.template
+curl -Lq $NODEGEM_HOST/install/linux/nodegem.service.template -o nodegem.service.template
 
 if [ $self_hosted = true ]; then
     extraArgs="-e http:\/\/localhost:5000"
@@ -129,7 +131,7 @@ rm nodegem.service.template
 echo 'Setting up daemon...'
 
 if [ $self_hosted = true ]; then
-  curl -q $NODEGEM_HOST/install/linux/nodegem_webapi.service -o /etc/systemd/system/nodegem_webapi.service
+  curl -Lq $NODEGEM_HOST/install/linux/nodegem_webapi.service -o /etc/systemd/system/nodegem_webapi.service
   cp -f nodegem.service /etc/systemd/system
   rm -f nodegem.service nodegem_webapi.service $NODEGEM_FILE $NODEGEM_API_FILE
 fi
