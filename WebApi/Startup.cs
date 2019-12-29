@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.ResponseCompression;
@@ -30,7 +31,8 @@ namespace Nodegem.WebApi
     {
         private IConfiguration Configuration { get; }
         private IWebHostEnvironment Environment { get; }
-        private bool HostFrontEnd => Configuration.GetValue("selfHosted", false);
+        private bool HostFrontEnd => Configuration.GetValue("SelfHosted", false);
+        private bool UseReverseProxy => Configuration.GetValue("ReverseProxy", false);
 
         private bool UsingPostgres => !string.IsNullOrEmpty(Configuration.GetConnectionString("nodegemDb")) &&
                                       !string.IsNullOrEmpty(Configuration.GetConnectionString("keysDb"));
@@ -97,14 +99,14 @@ namespace Nodegem.WebApi
             if (UsingPostgres)
             {
                 services.AddHealthChecks()
-                    .AddSqlite($"Data Source={Environment.ContentRootPath}/NodegemDatabase.db", name: "NodegemDb")
-                    .AddSqlite($"Data Source={Environment.ContentRootPath}/KeysDatabase.db", name: "KeysDb");
+                    .AddNpgSql(NodegemConnectionString, name: "NodegemDb")
+                    .AddNpgSql(KeysConnectionString, name: "KeysDb");
             }
             else
             {
                 services.AddHealthChecks()
-                    .AddNpgSql(Configuration.GetConnectionString("nodegemDb"), name: "NodegemDb")
-                    .AddNpgSql(Configuration.GetConnectionString("keysDb"), name: "KeysDb");
+                    .AddSqlite(NodegemConnectionString, name: "NodegemDb")
+                    .AddSqlite(KeysConnectionString, name: "KeysDb");
             }
 
             services.AddIdentity<ApplicationUser, Role>()
@@ -279,6 +281,14 @@ namespace Nodegem.WebApi
             app.UseRouting();
 
             app.UseCors("AppCors");
+
+            if (UseReverseProxy)
+            {
+                app.UseForwardedHeaders(new ForwardedHeadersOptions
+                {
+                    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+                });
+            }
 
             app.UseAuthentication();
             app.UseAuthorization();

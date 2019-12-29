@@ -27,7 +27,7 @@ if ! [ -x "$(command -v dotnet)" ] || ! [ "$(dotnet --info | grep 3.0)" ]; then
   echo 'Installing .NET Core 3.0...' >&2
   wget 'https://dotnetwebsite.azurewebsites.net/download/dotnet-core/scripts/v1/dotnet-install.sh'
   chmod +x dotnet-install.sh
-  source dotnet-install.sh --channel Current --install-dir /usr/share/dotnet --runtime dotnet
+  source dotnet-install.sh --install-dir /usr/share/dotnet --runtime dotnet
 
   ln -sfn /usr/share/dotnet/dotnet /usr/bin/dotnet
   
@@ -48,7 +48,7 @@ case "$unameArch" in
     x86_64)    NODEGEM_ARCH="64";;
     aarch64)   NODEGEM_ARCH="64";;
     armv7l)    NODEGEM_ARCH="32";;
-    * )        echo "Your Architecture '$unameArch' -> ITS NOT SUPPORTED.";;
+    * )        echo "Your Architecture '$unameArch' -> IS NOT SUPPORTED.";;
 esac
 
 if [[ "$unameArch" == "aarch64" || "$unameArch" == "armv7l" ]]; then
@@ -63,12 +63,12 @@ NODEGEM_DOWNLOAD_URL=$NODEGEM_HOST/$NODEGEM_DOWNLOAD_PATH/$NODEGEM_FILE
 NODEGEM_WEBAPI_DOWNLOAD_URL=$NODEGEM_HOST/releases/latest/web_api/$NODEGEM_API_FILE
 
 if [ $self_hosted = true ]; then
-  curl -L $NODEGEM_WEBAPI_DOWNLOAD_URL -o $NODEGEM_API_FILE
-  curl -L $NODEGEM_WEB_CLIENT_FILE -o web_client.zip
+  curl -Lq $NODEGEM_WEBAPI_DOWNLOAD_URL -o $NODEGEM_API_FILE
+  curl -Lq $NODEGEM_WEB_CLIENT_FILE -o web_client.zip
 fi
 
 echo 'Downloading ' $NODEGEM_DOWNLOAD_URL
-curl $NODEGEM_DOWNLOAD_URL -o $NODEGEM_FILE
+curl -Lq $NODEGEM_DOWNLOAD_URL -o $NODEGEM_FILE
 
 if ! id -u $SERVICE_USER > /dev/null 2>&1; then
 	echo 'Adding a service user...' 
@@ -76,6 +76,9 @@ if ! id -u $SERVICE_USER > /dev/null 2>&1; then
 	mkdir -p /var/nodegem/webapi
   mkdir -p /var/nodegem/webapi/wwwroot
   mkdir -p /var/nodegem/client
+  if [ ! -e "/var/nodegem/vars.env" ]; then 
+    touch /var/nodegem/vars.env
+  fi
 fi
 
 systemctl unmask nodegem_webapi
@@ -100,6 +103,9 @@ chown -R $SERVICE_USER:$SERVICE_USER /var/nodegem
 # This allows the single file executable to start without running into permissions issues
 mkdir -p /var/tmp/.net
 chmod -R 777 /var/tmp/.net/
+
+echo 'Nodegem credentials...'
+
 read -p "Username: " nodegem_user
 while true; do
     read -s -p "Password: " nodegem_password
@@ -110,8 +116,7 @@ while true; do
     echo "Please try again"
 done
 
-echo 'Nodegem credentials...'
-curl $NODEGEM_HOST/install/linux/nodegem.service.template -o nodegem.service.template
+curl -Lq $NODEGEM_HOST/install/linux/nodegem.service.template -o nodegem.service.template
 
 if [ $self_hosted = true ]; then
     extraArgs="-e http:\/\/localhost:5000"
@@ -125,19 +130,18 @@ rm nodegem.service.template
 
 echo 'Setting up daemon...'
 
-systemctl daemon-reload
-
 if [ $self_hosted = true ]; then
-
-  curl -q $NODEGEM_HOST/install/linux/nodegem_webapi.service -o /etc/systemd/system/nodegem_webapi.service
+  curl -Lq $NODEGEM_HOST/install/linux/nodegem_webapi.service -o /etc/systemd/system/nodegem_webapi.service
   cp -f nodegem.service /etc/systemd/system
   rm -f nodegem.service nodegem_webapi.service $NODEGEM_FILE $NODEGEM_API_FILE
-
-  systemctl enable nodegem_webapi
-  systemctl restart nodegem_webapi
 fi
+
+systemctl daemon-reload
 
 systemctl enable nodegem
 systemctl restart nodegem
+
+systemctl enable nodegem_webapi
+systemctl restart nodegem_webapi
 
 echo 'Installation complete!'

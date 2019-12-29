@@ -222,3 +222,5 @@ project.lock.json
 **/dist
 **/*.db-shm
 **/*.db-wal
+
+**/.idea
