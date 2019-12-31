@@ -9,6 +9,8 @@ User=nodegemserviceuser
 Group=nodegemserviceuser
 ExecStart=/var/nodegem/client/Nodegem.ClientService -u ${username} -p ${password} ${extra}
 Restart=on-failure
+RestartSec=3
+SyslogIdentifier=nodegem
 
 [Install]
 WantedBy=multi-user.target
