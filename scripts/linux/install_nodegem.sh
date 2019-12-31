@@ -23,6 +23,8 @@ if [ $self_hosted = true ]; then
   apt install -y unzip
 fi
 
+apt-get install -y libicu-dev 
+
 if ! [ -x "$(command -v dotnet)" ] || ! [ "$(dotnet --info | grep 3.0)" ]; then
   echo 'Installing .NET Core 3.0...' >&2
   wget 'https://dotnetwebsite.azurewebsites.net/download/dotnet-core/scripts/v1/dotnet-install.sh'
@@ -81,13 +83,17 @@ if ! id -u $SERVICE_USER > /dev/null 2>&1; then
   fi
 fi
 
-systemctl unmask nodegem_webapi
-systemctl stop nodegem_webapi
-systemctl disable nodegem_webapi
+if systemctl list-units --full -all | grep -Fq 'nodegem_webapi.service'; then
+  systemctl unmask nodegem_webapi
+  systemctl stop nodegem_webapi
+  systemctl disable nodegem_webapi
+fi
 
-systemctl unmask nodegem
-systemctl stop nodegem
-systemctl disable nodegem
+if systemctl list-units --full -all | grep -Fq 'nodegem.service'; then
+  systemctl unmask nodegem
+  systemctl stop nodegem
+  systemctl disable nodegem
+fi
 
 if [ $self_hosted = true ]; then
   tar -zxf $NODEGEM_API_FILE -C /var/nodegem/webapi
@@ -132,16 +138,35 @@ echo 'Setting up daemon...'
 
 if [ $self_hosted = true ]; then
   curl -Lq $NODEGEM_HOST/install/linux/nodegem_webapi.service -o /etc/systemd/system/nodegem_webapi.service
-  cp -f nodegem.service /etc/systemd/system
   rm -f nodegem.service nodegem_webapi.service $NODEGEM_FILE $NODEGEM_API_FILE
 fi
 
+cp -f nodegem.service /etc/systemd/system
+
 systemctl daemon-reload
 
-systemctl enable nodegem
-systemctl restart nodegem
+if [ -f "/etc/systemd/system/nodegem.service" ]; then
+  systemctl enable nodegem
+  systemctl restart nodegem
+fi
 
-systemctl enable nodegem_webapi
-systemctl restart nodegem_webapi
+if [ -f "/etc/systemd/system/nodegem_webapi.service" ]; then
+  systemctl enable nodegem_webapi
+  systemctl restart nodegem_webapi
+fi
 
-echo 'Installation complete!'
+if systemctl is-active --quiet nodegem; then
+  echo "Nodegem service is running"
+else
+  echo "Nodegem service is not running"
+fi
+
+if [ $self_hosted = true ]; then
+  if systemctl is-active --quiet nodegem_webapi; then
+    echo "Nodegem WebApi service is running"
+  else
+    echo "Nodegem WebApi service is not running"
+  fi
+fi
+
+rm -rf $NODEGEM_FILE $NODEGEM_API_FILE dotnet-install.sh nodegem.service
