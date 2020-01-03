@@ -3,14 +3,14 @@ using System.Threading.Tasks;
 using Nodegem.Engine.Core.Fields.Graph;
 using Nodegem.Engine.Data;
 using Nodegem.Engine.Data.Fields;
+using Nodegem.Engine.Data.Nodes;
 
 namespace Nodegem.Engine.Core.Fields.Macro
 {
     public class MacroFlowOutput : FlowInput, IMacroFlowOutputField
     {
+        private Func<IFlowGraph> _getGraph;
 
-        private Func<IFlowGraph> _getGraph; 
-        
         public MacroFlowOutput(string key) : base(key, flow => Task.FromResult(default(IFlowOutputField)))
         {
         }
@@ -25,7 +25,7 @@ namespace Nodegem.Engine.Core.Fields.Macro
         {
             var connection = _getGraph?.Invoke().GetConnection(Key)?.Destination;
             if (connection == null) return null;
-            
+
             return await connection.Action(flow);
         }
     }

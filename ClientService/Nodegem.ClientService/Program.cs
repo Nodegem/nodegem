@@ -30,7 +30,7 @@ namespace Nodegem.ClientService
 
     public class Program
     {
-        private static TimeSpan[] Retries =
+        private static readonly TimeSpan[] Retries =
         {
             TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2),
             TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(10),

@@ -20,7 +20,7 @@ namespace Nodegem.Engine.Core.Macro
 
         private IDictionary<string, IField> FieldDictionary { get; }
 
-        private readonly IMacroFlow _flow;
+        private readonly IMacroFlow _macroFlow;
 
         public MacroGraph(
             Guid id,
@@ -39,7 +39,7 @@ namespace Nodegem.Engine.Core.Macro
             ValueInputs = valueInputs;
             ValueOutputs = valueOutputs;
 
-            _flow = new MacroFlow(this);
+            _macroFlow = new MacroFlow(this);
             AssignMacroToNodes();
         }
 
@@ -68,7 +68,7 @@ namespace Nodegem.Engine.Core.Macro
 
         public async Task RunAsync(IMacroFlowInputField input)
         {
-            await _flow.RunAsync(input);
+            await _macroFlow.RunAsync(input);
         }
 
         public Task<T> GetValueAsync<T>(string key)
@@ -78,12 +78,12 @@ namespace Nodegem.Engine.Core.Macro
 
         public Task<T> GetValueAsync<T>(IMacroValueOutputField output)
         {
-            return _flow.GetValueAsync<T>(output);
+            return _macroFlow.GetValueAsync<T>(output);
         }
 
         public async Task<IFlowOutputField> ExecuteAsync(IMacroFlowInputField input)
         {
-            return await _flow.ExecuteAsync(input);
+            return await _macroFlow.ExecuteAsync(input);
         }
 
         public bool IsMacroFlowOutputField(string key)

@@ -1,6 +1,7 @@
 using System;
 using Nodegem.Engine.Core.Utils;
 using Nodegem.Engine.Data.Fields;
+using Nodegem.Engine.Data.Nodes;
 using ValueType = Nodegem.Common.Data.ValueType;
 
 namespace Nodegem.Engine.Core.Fields
@@ -12,6 +13,12 @@ namespace Nodegem.Engine.Core.Fields
         protected object Value { get; set; }
 
         protected ValueField(string key, Type type) : base(key)
+        {
+            Type = type;
+            ValueType = GetValueTypeFromType();
+        }
+
+        protected ValueField(string key, Type type, INode node) : base(key, node)
         {
             Type = type;
             ValueType = GetValueTypeFromType();

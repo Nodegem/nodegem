@@ -1,10 +1,11 @@
+using System;
 using System.Threading.Tasks;
 using Discord.WebSocket;
 using Nodegem.Engine.Data;
 using Nodegem.Engine.Data.Attributes;
+using Nodegem.Engine.Data.Exceptions;
 using Nodegem.Engine.Data.Fields;
 using Nodegem.Engine.Integrations.Data.Discord;
-using Nodegem.Engine.Integrations.Data.Discord.Exceptions;
 
 namespace Nodegem.Engine.Integrations.Discord.Nodes.User
 {
@@ -31,7 +32,7 @@ namespace Nodegem.Engine.Integrations.Discord.Nodes.User
             var userSplit = username?.Split('#') ?? new string[0];
             if (userSplit.Length < 2)
             {
-                throw new DiscordException("Username must contain discriminator", Graph);
+                throw new Exception("Username must contain discriminator");
             }
 
             return Service.Client.GetUser(userSplit[0], userSplit[1]);

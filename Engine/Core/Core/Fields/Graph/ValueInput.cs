@@ -2,6 +2,7 @@ using System;
 using Nodegem.Engine.Core.Links.Graph;
 using Nodegem.Engine.Data.Fields;
 using Nodegem.Engine.Data.Links;
+using Nodegem.Engine.Data.Nodes;
 
 namespace Nodegem.Engine.Core.Fields.Graph
 {
@@ -10,7 +11,7 @@ namespace Nodegem.Engine.Core.Fields.Graph
         public object DefaultValue { get; }
         public IValueLink Connection { get; private set; }
 
-        public ValueInput(string key, object defaultValue, Type type) : base(key, type)
+        public ValueInput(string key, object defaultValue, Type type, INode node) : base(key, type, node)
         {
             DefaultValue = defaultValue;
         }

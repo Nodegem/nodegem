@@ -1,6 +1,7 @@
 using Nodegem.Engine.Core.Links.Macro;
 using Nodegem.Engine.Data.Fields;
 using Nodegem.Engine.Data.Links;
+using Nodegem.Engine.Data.Nodes;
 
 namespace Nodegem.Engine.Core.Fields.Macro
 {

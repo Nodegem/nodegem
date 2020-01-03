@@ -10,6 +10,7 @@ namespace Nodegem.Engine.Data.Nodes
     public interface INode : IAsyncDisposable
     {
         Guid Id { get; }
+        string Title { get; }
 
         IGraph Graph { get; }
         

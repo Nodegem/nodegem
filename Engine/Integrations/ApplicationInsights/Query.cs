@@ -1,11 +1,12 @@
+using System;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Nodegem.Common.Data;
 using Nodegem.Engine.Data;
 using Nodegem.Engine.Data.Attributes;
 using Nodegem.Engine.Data.Exceptions;
 using Nodegem.Engine.Data.Fields;
 using Nodegem.Services.Data;
+using ValueType = Nodegem.Common.Data.ValueType;
 
 namespace Nodegem.Engine.Integrations.ApplicationInsights
 {
@@ -32,7 +33,7 @@ namespace Nodegem.Engine.Integrations.ApplicationInsights
             var url = BuildUrl(appId, query);
             var client = BuildClient(apiKey);
             var response = await client.GetAsync(url);
-            if (!response.IsSuccessStatusCode) throw new GraphException(response.ReasonPhrase, Graph);
+            if (!response.IsSuccessStatusCode) throw new Exception(response.ReasonPhrase);
             var json = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject(json);
         }

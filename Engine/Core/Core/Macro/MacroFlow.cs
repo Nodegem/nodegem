@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Exceptions;
 using Nodegem.Engine.Data.Fields;
 
 namespace Nodegem.Engine.Core.Macro
@@ -18,31 +19,53 @@ namespace Nodegem.Engine.Core.Macro
 
         public async Task RunAsync(IMacroFlowInputField start)
         {
-            var startConnection = start.Connection?.Destination;
-            if (startConnection == null)
+            var currentNode = start.Node;
+            try
             {
-                return;
-            }
+                var startConnection = start.Connection?.Destination;
+                if (startConnection == null) return;
 
-            var flowOutput = await startConnection.Action(_flow);
-            await _flow.RunAsync(flowOutput);
+                currentNode = startConnection.Node;
+                var flowOutput = await startConnection.Action(_flow);
+                await _flow.RunAsync(flowOutput);
+            }
+            catch (ValueNodeException ex)
+            {
+                throw new MacroFlowException(ex, this, ex.Node);
+            }
+            catch (Exception ex)
+            {
+                throw new MacroFlowException(ex,this, currentNode);
+            }
         }
 
         public async Task<IFlowOutputField> ExecuteAsync(IMacroFlowInputField start)
         {
-            var startConnection = start.Connection?.Destination;
-            if (startConnection == null)
+            var currentNode = start.Node;
+            try
             {
-                return null;
-            }
+                var startConnection = start.Connection?.Destination;
+                if (startConnection == null) return null;
 
-            var flowOutput = await startConnection.Action(_flow);
-            while (flowOutput?.Connection?.Destination != null && !_macroGraph.IsMacroFlowOutputField(flowOutput.Key))
+                currentNode = startConnection.Node;
+                var flowOutput = await startConnection.Action(_flow);
+                while (flowOutput?.Connection?.Destination != null &&
+                       !_macroGraph.IsMacroFlowOutputField(flowOutput.Key))
+                {
+                    currentNode = flowOutput.Connection.Destination.Node;
+                    flowOutput = await flowOutput.Connection.Destination.Action(_flow);
+                }
+
+                return flowOutput;
+            }
+            catch (ValueNodeException ex)
             {
-                flowOutput = await flowOutput.Connection?.Destination?.Action(_flow);
+                throw new MacroFlowException(ex, this, ex.Node);
             }
-
-            return flowOutput;
+            catch (Exception ex)
+            {
+                throw new MacroFlowException(ex, this, currentNode);
+            }
         }
 
         public async Task<T> GetValueAsync<T>(IMacroValueOutputField output)

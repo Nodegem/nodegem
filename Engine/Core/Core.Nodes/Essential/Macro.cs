@@ -32,7 +32,7 @@ namespace Nodegem.Engine.Core.Nodes.Essential
                 AddFlowOutput(x.Key);
             });
             _macroGraph.ValueInputs.ForEach(x => AddValueInput(x.Key, x.DefaultValue));
-            _macroGraph.ValueOutputs.ForEach(x => AddValueOutput<object>(x.Key, flow => GetOutputAsync(x)));
+            _macroGraph.ValueOutputs.ForEach(x => AddValueOutput(x.Key, flow => GetOutputAsync(x)));
         }
 
         private Task<IFlowOutputField> ExecuteMacroAsync(IMacroFlowInputField input)

@@ -45,7 +45,7 @@ namespace Nodegem.ClientService.Services
                 _logger.LogError(ex, $"Error while building graph with ID: {graph.Id}");
                 throw;
             }
-            catch (GraphRunException ex)
+            catch (FlowException ex)
             {
                 _logger.LogError(ex, $"Error during graph execution with ID: {graph.Id}");
                 throw;

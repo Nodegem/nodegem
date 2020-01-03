@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Nodegem.Engine.Core.Utils;
 using Nodegem.Engine.Data;
+using Nodegem.Engine.Data.Exceptions;
 using Nodegem.Engine.Data.Fields;
+using Nodegem.Engine.Data.Nodes;
 
 namespace Nodegem.Engine.Core
 {
@@ -55,15 +57,27 @@ namespace Nodegem.Engine.Core
 
         public async Task RunAsync(IFlowOutputField output)
         {
-            var connection = output.Connection;
-
-            var destination = connection?.Destination;
-            if (destination == null) return;
-
-            var nextOutput = await destination.Action(this);
-            while (nextOutput?.Connection?.Destination != null)
+            var currentNode = output.Node;
+            try
             {
-                nextOutput = await nextOutput.Connection?.Destination?.Action(this);
+                var destination = output.Connection?.Destination;
+                if (destination == null) return;
+
+                currentNode = destination.Node;
+                var nextOutput = await destination.Action(this);
+                while (nextOutput?.Connection?.Destination != null)
+                {
+                    currentNode = nextOutput.Connection.Destination.Node;
+                    nextOutput = await nextOutput.Connection.Destination.Action(this);
+                }
+            }
+            catch (ValueNodeException ex)
+            {
+                throw new FlowException(ex, this, ex.Node);
+            }
+            catch (Exception ex)
+            {
+                throw new FlowException(ex, this, currentNode);
             }
         }
 

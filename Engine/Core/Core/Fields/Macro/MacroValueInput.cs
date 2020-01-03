@@ -1,6 +1,7 @@
 using System;
 using Nodegem.Engine.Core.Fields.Graph;
 using Nodegem.Engine.Data.Fields;
+using Nodegem.Engine.Data.Nodes;
 
 namespace Nodegem.Engine.Core.Fields.Macro
 {

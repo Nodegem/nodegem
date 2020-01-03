@@ -50,7 +50,7 @@ namespace Nodegem.ClientService.Services
                 _logger.LogError(ex, $"Error while building macro with macro ID: {macro.Id}");
                 throw;
             }
-            catch (GraphRunException ex)
+            catch (MacroFlowException ex)
             {
                 _logger.LogError(ex, $"Error during macro excution with macro ID: {macro.Id}");
                 throw;
@@ -80,8 +80,6 @@ namespace Nodegem.ClientService.Services
             try
             {
                 using var provider = _provider.CreateScope();
-                // That conversion is kinda unnecessary but I don't wanna make a new object right now
-                // TODO: Clean that up
                 var nodes = await macro.Nodes.ToNodeDictionaryAsync(macro.Links.Select(l => l.Adapt<LinkDto>()),
                     provider.ServiceProvider, this, user);
 

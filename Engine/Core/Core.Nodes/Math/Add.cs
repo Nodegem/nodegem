@@ -1,8 +1,9 @@
+using System;
 using System.Threading.Tasks;
-using Nodegem.Common.Data;
 using Nodegem.Engine.Core.Fields.Graph;
 using Nodegem.Engine.Data;
 using Nodegem.Engine.Data.Attributes;
+using ValueType = Nodegem.Common.Data.ValueType;
 
 namespace Nodegem.Engine.Core.Nodes.Math
 {

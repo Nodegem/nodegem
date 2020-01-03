@@ -88,8 +88,25 @@ namespace Nodegem.ClientService
                 {
                     await _buildGraphService.ExecuteFlowGraphAsync(AppState.Instance.User, graph, false);
                 }
-                
+
                 await _graphConnection.OnGraphCompleteAsync();
+            }
+            catch (FlowException ex)
+            {
+                await _graphConnection.OnGraphCompleteAsync(new ExecutionErrorData
+                {
+                    Bridge = AppState.Instance.Info,
+                    Message = ex.Message,
+                    GraphId = graph.Id.ToString(),
+                    GraphName = graph.Name,
+                    NodeError = new NodeErrorData
+                    {
+                        Id  = ex.Node?.Id.ToString(),
+                        Message = ex.OriginalException.Message,
+                        Name = ex.Node?.Title
+                    },
+                    IsBuildError = ex is GraphBuildException
+                });
             }
             catch (Exception ex)
             {
@@ -133,6 +150,23 @@ namespace Nodegem.ClientService
             {
                 await _buildMacroService.ExecuteMacroAsync(AppState.Instance.User, macro, flowInputFieldId, false);
                 await _graphConnection.OnGraphCompleteAsync();
+            }
+            catch (MacroFlowException ex)
+            {
+                await _graphConnection.OnGraphCompleteAsync(new ExecutionErrorData
+                {
+                    Bridge = AppState.Instance.Info,
+                    Message = ex.Message,
+                    GraphId = macro.Id.ToString(),
+                    GraphName = macro.Name,
+                    NodeError = new NodeErrorData
+                    {
+                      Id  = ex.Node?.Id.ToString(),
+                      Message = ex.OriginalException.Message,
+                      Name = ex.Node?.Title
+                    },
+                    IsBuildError = ex is GraphBuildException
+                });
             }
             catch (Exception ex)
             {

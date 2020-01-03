@@ -23,7 +23,7 @@ namespace Nodegem.Engine.Core
     {
         public virtual IGraph Graph { get; private set; }
         private Type Type { get; }
-        private string Title => GetNodeTitle();
+        public string Title => GetNodeTitle();
         private string Namespace => Type.GetAttributeValue((NodeNamespaceAttribute nc) => nc.Namespace);
 
         public Guid Id { get; private set; }
@@ -168,21 +168,21 @@ namespace Nodegem.Engine.Core
 
         protected FlowInput AddFlowInput(string key, Func<IFlow, Task<IFlowOutputField>> action)
         {
-            var input = new FlowInput(key, action);
+            var input = new FlowInput(key, action, this);
             FlowInputs.Add(input);
             return input;
         }
 
         protected FlowOutput AddFlowOutput(string key)
         {
-            var output = new FlowOutput(key);
+            var output = new FlowOutput(key, this);
             FlowOutputs.Add(output);
             return output;
         }
 
         protected ValueInput AddValueInput<T>(string key, T @default = default)
         {
-            var input = new ValueInput(key, @default, typeof(T));
+            var input = new ValueInput(key, @default, typeof(T), this);
             ValueInputs.Add(input);
             return input;
         }
@@ -192,13 +192,13 @@ namespace Nodegem.Engine.Core
         {
             // Initial "keys" will always be numeric but anything new will be a GUID
             var inputs = Enumerable.Range(0, amount)
-                .Select((x, i) => new ValueInput($"{baseKey}|{i}", @default, typeof(T)))
+                .Select((x, i) => new ValueInput($"{baseKey}|{i}", @default, typeof(T), this))
                 .ToList();
             inputs.ForEach(ValueInputs.Add);
             IndefiniteFields.Add(baseKey.ToLower(),
                 key =>
                 {
-                    var newInput = new ValueInput(key, @default, typeof(T));
+                    var newInput = new ValueInput(key, @default, typeof(T), this);
                     inputs.Add(newInput);
                     ValueInputs.Add(newInput);
                 });
@@ -213,13 +213,13 @@ namespace Nodegem.Engine.Core
             var outputs = Enumerable.Range(0, amount)
                 .Select((x, i) =>
                     new ValueOutput($"{baseKey.ToLower()}|{i}", flow => valueFunc(flow, $"{baseKey.ToLower()}|{i}"),
-                        typeof(T)))
+                        typeof(T), this))
                 .ToList();
             outputs.ForEach(ValueOutputs.Add);
             IndefiniteFields.Add(baseKey.ToLower(),
                 key =>
                 {
-                    var newValueOutput = new ValueOutput(key, flow => valueFunc(flow, key), typeof(T));
+                    var newValueOutput = new ValueOutput(key, flow => valueFunc(flow, key), typeof(T), this);
                     outputs.Add(newValueOutput);
                     ValueOutputs.Add(newValueOutput);
                 });
@@ -231,13 +231,13 @@ namespace Nodegem.Engine.Core
         {
             // Initial "keys" will always be numeric but anything new will be a GUID
             var outputs = Enumerable.Range(0, amount)
-                .Select((x, i) => new FlowOutput($"{baseKey}|{i}"))
+                .Select((x, i) => new FlowOutput($"{baseKey}|{i}", this))
                 .ToList();
             outputs.ForEach(FlowOutputs.Add);
             IndefiniteFields.Add(baseKey.ToLower(),
                 key =>
                 {
-                    var newFlowOutput = new FlowOutput(key);
+                    var newFlowOutput = new FlowOutput(key, this);
                     outputs.Add(newFlowOutput);
                     FlowOutputs.Add(newFlowOutput);
                 });
@@ -246,7 +246,7 @@ namespace Nodegem.Engine.Core
 
         protected ValueOutput AddValueOutput<T>(string key)
         {
-            var output = new ValueOutput(key, typeof(T));
+            var output = new ValueOutput(key, typeof(T), this);
             ValueOutputs.Add(output);
             return output;
         }
@@ -258,7 +258,7 @@ namespace Nodegem.Engine.Core
 
         private ValueOutput AddValueOutput(string key, Func<IFlow, Task<object>> valueFunc, Type type)
         {
-            var output = new ValueOutput(key, valueFunc, type);
+            var output = new ValueOutput(key, valueFunc, type, this);
             ValueOutputs.Add(output);
             return output;
         }
@@ -317,7 +317,7 @@ namespace Nodegem.Engine.Core
                         {
                             var fieldList = pi.GetValue<IEnumerable<IField>>(this);
                             return fieldList.Select(f =>
-                                ConvertAttributeToFieldInfo(f.Key,true, f, fieldAttributes));
+                                ConvertAttributeToFieldInfo(f.Key, true, f, fieldAttributes));
                         }
                         catch (ArgumentNullException)
                         {
@@ -328,7 +328,7 @@ namespace Nodegem.Engine.Core
 
                     return new List<FieldInfo>
                     {
-                        ConvertAttributeToFieldInfo(key,false, field, fieldAttributes)
+                        ConvertAttributeToFieldInfo(key, false, field, fieldAttributes)
                     };
                 })
                 .ToDictionary(
