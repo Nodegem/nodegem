@@ -47,11 +47,20 @@ if ($SelfHosted) {
 
 Restart-Service -Name $service_name
 
-if ((Get-Service -Name $service_name).Status -eq "Running" -and (Get-Service -Name $service_name_api).Status -ne "Running") {
+if ($SelfHosted) {
+    if ((Get-Service -Name $service_name_api).Status -ne "Running") {
+        Write-Host "Successfully updated Nodegem Web Api to latest!"
+    }
+    else {
+        Write-Host "Nodegem Web Api was unable to restart"    
+    }
+}
+
+if ((Get-Service -Name $service_name).Status -eq "Running") {
     Write-Host "Successfully updated Nodegem to latest!"
 }
 else {
-    Write-Host "Services were unable to restart"
+    Write-Host "Nodegem was unable to restart"
 }
 
 Write-Host "Some cleanup..."
